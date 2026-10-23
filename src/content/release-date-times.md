@@ -1,14 +1,16 @@
 ---
 title: "GTA 6 Release Date, Pre-Load and Unlock Times"
-description: "GTA 6 launches Nov 19, 2026 on PS5 and Xbox Series X|S. Pre-load opens Nov 12 at local midnight. Unlock times aren't announced yet; we'll post them here."
+description: "GTA 6 launches Nov 19, 2026 on PS5 and Xbox Series X|S, pre-load Nov 12. Estimated unlock times for 15 regions, with the time where you are."
 layout: layouts/guide.njk
 crumb: "Release date"
-h1: "GTA 6 release date and times: Nov 19 launch, Nov 12 pre-load"
-lead: "Grand Theft Auto VI launches on Thursday, November 19, 2026 on PS5 and Xbox Series X|S. Pre-load opens at local midnight on November 12, but Rockstar hasn't announced regional unlock times yet."
+h1: "GTA 6 release date and unlock times: Nov 19 launch, Nov 12 pre-load"
+lead: "Grand Theft Auto VI launches on Thursday, November 19, 2026 on PS5 and Xbox Series X|S, and pre-load opens at local midnight on November 12. Rockstar hasn't announced unlock times yet; our estimate is local midnight in most regions and midnight Eastern across the US, labelled Unverified below."
 status: confirmed
 claim: true
 article: true
 updated: 2026-10-23
+signup:
+  regionAlert: true
 sources:
   - name: "Rockstar Games press release (Take-Two IR, Jun 24, 2026)"
     url: "https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi"
@@ -56,11 +58,11 @@ Sources: [Rockstar press release](https://www.take2games.com/ir/news/rockstar-ga
 - {% badge "confirmed" %} There's no PS4 or Xbox One version. Rockstar's platform page lists only PS5 and Xbox Series X|S. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
 - {% badge "confirmed" %} No PC version has been announced. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions) More on the [PC release page](/pc-release/).
 
-## Unlock times by region
+{% include "partials/unlock-times.njk" %}
 
-Rockstar and the platform stores haven't announced official unlock times for November 19. Until they do, the countdown above runs to midnight in your own timezone.
+The countdown at the top runs to midnight where you are. If the US unlock really is nationwide at midnight Eastern, players in Central, Mountain and Pacific time get it one to three hours before their own midnight.
 
-We'll post the times for each region here as soon as Rockstar, the PlayStation Store or the Microsoft Store publishes them. It's on our [not confirmed yet list](/everything-confirmed/#not-confirmed-yet) until then.
+{% set shareText = "GTA 6 unlock times by region, with the time where you are:" %}{% include "partials/launch-actions.njk" %}
 
 ## Pre-load
 

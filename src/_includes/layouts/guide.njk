@@ -15,7 +15,7 @@ layout: layouts/base.njk
   </div>
   {%- if faq and faq.length and not hideFaqBlock %}
   <section class="faq" aria-labelledby="faq-h">
-    <h2 id="faq-h">FAQ</h2>
+    <h2 id="faq-h">{{ faqHeading or "FAQ" }}</h2>
     {%- for f in faq %}
     <h3>{{ f.q }}</h3>
     <p>{{ f.a }}</p>

@@ -40,6 +40,8 @@ for (const file of pages) {
   if (!desc) fail("missing meta description");
   else if (desc.length > 155) fail(`description is ${desc.length} characters (max 155)`);
 
+  if (/data-embed/.test(html)) continue; // widget pages: no header, footer or H1 by design
+
   if (!/data-updated/.test(html)) fail("missing updated: date (no visible 'Updated' line)");
   if (/data-page-type="claim"/.test(html) && !/<p class="meta">\s*<span class="badge badge--/.test(html))
     fail("claim page missing status: badge");

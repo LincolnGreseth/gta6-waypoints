@@ -1,0 +1,21 @@
+---
+layout: layouts/embed.njk
+title: "GTA 6 Countdown Widget | GTA 6 Waypoints"
+description: "Embeddable live countdown to GTA 6's November 19, 2026 launch, for websites and OBS stream overlays."
+noindex: true
+eleventyExcludeFromCollections: true
+---
+{%- set cd = site.countdown %}
+<div class="cd cd--embed" data-countdown data-target="{{ cd.target }}" data-mode="{{ cd.mode }}" data-live-heading="{{ cd.liveHeading }}">
+  <p class="cd__heading" data-cd-heading>{{ cd.heading }}</p>
+  <div class="cd__clock" role="timer" aria-live="off" aria-hidden="true" data-cd-clock>
+    <span class="cd__unit"><b data-cd="d">--</b><small>days</small></span>
+    <span class="cd__unit"><b data-cd="h">--</b><small>hrs</small></span>
+    <span class="cd__unit"><b data-cd="m">--</b><small>min</small></span>
+    <span class="cd__unit"><b data-cd="s">--</b><small>sec</small></span>
+  </div>
+  <p class="vh" aria-live="polite" data-cd-summary></p>
+  <div class="cd__live" data-cd-live hidden><p>{{ cd.liveText }}</p></div>
+  <p class="cd__date" data-cd-date>{{ cd.dateText }} · {{ cd.platforms }}</p>
+  <p class="embed__credit"><a href="{{ site.url }}/?ref=embed" target="_blank" rel="noopener">Countdown by GTA 6 Waypoints</a> · Fan site, not affiliated with Rockstar Games</p>
+</div>

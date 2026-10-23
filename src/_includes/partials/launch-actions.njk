@@ -1,0 +1,18 @@
+{#- Add to calendar + share. No third-party scripts: plain links, a downloadable .ics and the Web Share API. -#}
+{%- set shareUrl = (shareUrl or page.url) | absUrl(site.url) %}
+{%- set shareText = shareText or "GTA 6 launches November 19, 2026. Live countdown and unlock times:" %}
+<div class="actions" aria-label="Save or share the launch date">
+  <details class="actions__menu">
+    <summary class="btn btn--ghost">Add to calendar</summary>
+    <ul>
+      <li><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=GTA%206%20launches%20(PS5%2C%20Xbox%20Series%20X%7CS)&amp;dates=20261119/20261120&amp;details=Grand%20Theft%20Auto%20VI%20launch%20day.%20Unlock%20times%3A%20https%3A%2F%2Fgta6waypoints.com%2Frelease-date-times%2F" rel="noopener" target="_blank" data-cal="google">Google Calendar</a></li>
+      <li><a href="/gta6-launch.ics" download data-cal="ics">Apple, Outlook or other (.ics)</a></li>
+    </ul>
+  </details>
+  <button type="button" class="btn btn--ghost" data-share data-share-url="{{ shareUrl }}" data-share-text="{{ shareText }}" hidden>Share</button>
+  <span class="actions__links" data-share-fallback>
+    <a href="https://twitter.com/intent/tweet?text={{ shareText | urlencode }}&amp;url={{ shareUrl | urlencode }}" rel="noopener" target="_blank" data-share-net="x">Post on X</a>
+    <a href="https://www.reddit.com/submit?url={{ shareUrl | urlencode }}&amp;title={{ shareText | urlencode }}" rel="noopener" target="_blank" data-share-net="reddit">Reddit</a>
+    <button type="button" class="linkbtn" data-copy="{{ shareUrl }}">Copy link</button>
+  </span>
+</div>

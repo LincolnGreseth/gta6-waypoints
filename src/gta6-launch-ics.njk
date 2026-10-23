@@ -1,0 +1,9 @@
+---
+permalink: /gta6-launch.ics
+eleventyExcludeFromCollections: true
+---
+{%- set nl = "\r\n" -%}
+BEGIN:VCALENDAR{{ nl }}VERSION:2.0{{ nl }}PRODID:-//GTA 6 Waypoints//Launch dates//EN{{ nl }}CALSCALE:GREGORIAN{{ nl }}METHOD:PUBLISH{{ nl }}X-WR-CALNAME:GTA 6 launch{{ nl -}}
+BEGIN:VEVENT{{ nl }}UID:gta6-preload-2026@gta6waypoints.com{{ nl }}DTSTAMP:20261023T000000Z{{ nl }}DTSTART;VALUE=DATE:20261112{{ nl }}DTEND;VALUE=DATE:20261113{{ nl }}SUMMARY:GTA 6 pre-load opens (local midnight){{ nl }}DESCRIPTION:Pre-load for Grand Theft Auto VI opens at local midnight. Details: {{ site.url }}/release-date-times/{{ nl }}URL:{{ site.url }}/release-date-times/{{ nl }}TRANSP:TRANSPARENT{{ nl }}END:VEVENT{{ nl -}}
+BEGIN:VEVENT{{ nl }}UID:gta6-launch-2026@gta6waypoints.com{{ nl }}DTSTAMP:20261023T000000Z{{ nl }}DTSTART;VALUE=DATE:20261119{{ nl }}DTEND;VALUE=DATE:20261120{{ nl }}SUMMARY:GTA 6 launches (PS5\, Xbox Series X|S){{ nl }}DESCRIPTION:Grand Theft Auto VI launch day. Unlock times by region: {{ site.url }}/release-date-times/{{ nl }}URL:{{ site.url }}/release-date-times/{{ nl }}TRANSP:TRANSPARENT{{ nl }}BEGIN:VALARM{{ nl }}ACTION:DISPLAY{{ nl }}DESCRIPTION:GTA 6 launches tomorrow{{ nl }}TRIGGER:-PT12H{{ nl }}END:VALARM{{ nl }}END:VEVENT{{ nl -}}
+END:VCALENDAR{{ nl }}

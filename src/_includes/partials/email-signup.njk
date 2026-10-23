@@ -1,7 +1,9 @@
 {#- Email signup. Posts to Brevo when BREVO_FORM_ACTION is set, otherwise Netlify Forms.
     Set `signup` before including to override copy: { heading, text, button, interest }. -#}
 {%- set s = signup or {} %}
-{%- set interest = s.interest or "drop" %}
+{%- set regionAlert = s.regionAlert and env.brevoAction %}
+{%- set interest = "unlock-alert" if regionAlert else (s.interest or "drop") %}
+{%- if regionAlert %}{% set s = { heading: "Get one email when it unlocks in your region", text: "Pick your store region and we'll email you once, at your region's unlock time, plus the day-one guide drop. No spam.", button: "Alert me" } %}{% endif %}
 <section class="signup" aria-labelledby="signup-h-{{ interest }}">
   <h2 id="signup-h-{{ interest }}">{{ s.heading or "Get the day-one guide drop" }}</h2>
   <p>{{ s.text or "One email on launch day with every guide we've verified, then a short weekly roundup. No spam, unsubscribe any time." }}</p>
@@ -16,6 +18,15 @@
     <input type="hidden" name="interest" value="{{ interest }}">
     <div class="hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></div>
   {%- endif %}
+    {%- if regionAlert %}
+    <label class="vh" for="region-{{ interest }}">Your store region</label>
+    <select id="region-{{ interest }}" name="REGION" required data-unlock-region>
+      <option value="">Your store region</option>
+      {%- for r in unlock.regions %}
+      <option value="{{ r.id }}">{{ r.name }}</option>
+      {%- endfor %}
+    </select>
+    {%- endif %}
     <label class="vh" for="email-{{ interest }}">Email address</label>
     <input id="email-{{ interest }}" type="email" name="{{ 'EMAIL' if env.brevoAction else 'email' }}" autocomplete="email" placeholder="you@example.com" required>
     <button type="submit" class="btn">{{ s.button or "Sign me up" }}</button>

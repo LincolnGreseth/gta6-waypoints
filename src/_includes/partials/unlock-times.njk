@@ -1,0 +1,40 @@
+{#- Assumed unlock times by store region. Data: src/_data/unlock.js (status lives there). -#}
+{%- set um = unlock.meta %}
+<section class="unlock" id="unlock-times" aria-labelledby="unlock-h" data-unlock>
+  <h2 id="unlock-h">GTA 6 unlock times by region</h2>
+  <p class="unlock__flag">{% badge um.status %} <strong>{% if um.status == "confirmed" %}Official times.{% else %}Assumed, not announced.{% endif %}</strong></p>
+  {%- if um.status != "confirmed" %}
+  <p>Rockstar and the stores haven't posted unlock times yet. These assume the game unlocks at <strong>local midnight on November 19</strong> in each store region, except the US, where we assume one nationwide unlock at <strong>midnight Eastern</strong>. That US time matches the release time in the <a href="{{ um.sourceUrl }}" rel="noopener">US Xbox Store listing's data</a> (05:00 UTC), which is store metadata, not an announcement. We'll switch this to Confirmed the moment Rockstar or the stores publish times.</p>
+  {%- endif %}
+
+  <div class="unlock__picker">
+    <label for="unlock-region">Your store region</label>
+    <select id="unlock-region" data-unlock-select>
+      {%- for r in unlock.regions %}
+      <option value="{{ r.id }}" data-utc="{{ r.utc }}" data-tz="{{ r.tz }}" data-local="{{ r.local }}">{{ r.name }}</option>
+      {%- endfor %}
+    </select>
+    <p class="unlock__result" aria-live="polite" data-unlock-result></p>
+  </div>
+
+  <h3>The midnight wave</h3>
+  <p>If unlocks follow local midnight, New Zealand goes first and the US goes last, {{ unlock.spanHours }} hours later. US Pacific players would get it at 9 p.m. on Wednesday, November 18, under the midnight-Eastern assumption.</p>
+  <ol class="wave" aria-label="Assumed unlock order, earliest first">
+    {%- for r in unlock.regions %}
+    <li style="--h: {{ r.hoursAfterFirst }}; --span: {{ unlock.spanHours }}"><span class="wave__name">{{ r.name }}</span><span class="wave__bar" aria-hidden="true"></span><span class="wave__t">{% if r.hoursAfterFirst == 0 %}First{% else %}+{{ r.hoursAfterFirst }}h{% endif %}</span></li>
+    {%- endfor %}
+  </ol>
+
+  <h3>All {{ unlock.regions.length }} regions</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Store region</th><th scope="col">Assumed unlock (local time)</th><th scope="col" class="col-utc">UTC</th><th scope="col" class="col-utc">Status</th></tr></thead>
+      <tbody>
+        {%- for r in unlock.regions %}
+        <tr><td>{{ r.name }}</td><td>{{ r.local }}</td><td class="col-utc">{{ r.utc | replace("T", " ") | replace(":00.000Z", "") }}</td><td class="col-utc">{% badge um.status %}</td></tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p class="note">These are assumptions: each store region follows its main time zone, and your unlock follows your console account's region, not where you are right now.</p>
+</section>
