@@ -93,22 +93,24 @@
     render();
   });
 
-  // Widget page: options update the embed code, OBS link and preview.
-  var w = d.querySelector("[data-widget]");
-  if (w) {
-    var base = w.getAttribute("data-base");
+  // Embed promo: options update the preview, embed code and OBS URL.
+  $$("[data-embed-promo]").forEach(function (w) {
+    var base = w.getAttribute("data-base"), v = function (k) { return w.querySelector('[data-ep="' + k + '"]').value; };
+    var rs = w.querySelector('[data-ep="region"]');
+    if (window.WP && window.WP.region()) rs.value = window.WP.region().id;
     var upd = function () {
-      var size = (w.querySelector("[name=w-size]:checked") || {}).value, bg = (w.querySelector("[name=w-bg]:checked") || {}).value;
-      var q = [];
-      if (size && size !== "md") q.push("size=" + size);
-      if (bg === "transparent") q.push("bg=transparent");
-      var qs = q.length ? "?" + q.join("&") : "", h = size === "sm" ? 170 : size === "lg" ? 320 : 230;
-      w.querySelector("[data-widget-code]").value = '<iframe src="' + base + qs + '" title="GTA 6 countdown" width="100%" height="' + h + '" style="border:0;max-width:640px" loading="lazy"></iframe>\n<p style="font-size:12px"><a href="' + base.replace("embed/countdown/", "") + '">GTA 6 countdown</a> by GTA 6 Waypoints</p>';
-      var pv = w.querySelector("[data-widget-preview]");
-      pv.src = "/embed/countdown/" + qs; pv.height = h;
+      var q = [], r = v("region"), t = v("theme"), z = v("size");
+      if (r) q.push("region=" + r);
+      if (t !== "dark") q.push("theme=" + t);
+      if (z !== "wide") q.push("size=" + z);
+      var qs = q.length ? "?" + q.join("&") : "", hgt = z === "compact" ? 170 : 220;
+      w.querySelector("[data-ep-code]").value = '<iframe src="' + base + "/embed/countdown/" + qs + '" title="GTA 6 countdown" width="560" height="' + hgt + '" loading="lazy" style="border:0;max-width:100%"></iframe>\n<p style="font-size:12px"><a href="' + base + '/release-date-times/">GTA 6 unlock times</a> by GTA 6 Waypoints</p>';
+      w.querySelector("[data-ep-obs]").value = base + "/embed/obs/" + (r ? "?region=" + r : "");
+      var pv = w.querySelector("[data-ep-preview]"); pv.src = "/embed/countdown/" + qs; pv.height = hgt;
     };
-    $$("input[type=radio]", w).forEach(function (r) { r.addEventListener("change", upd); });
-  }
+    $$("select", w).forEach(function (s) { s.addEventListener("change", upd); });
+    upd();
+  });
 
   $$("[data-signup]").forEach(function (f) {
     f.addEventListener("submit", function () { track("signup", { interest: f.getAttribute("data-interest") }); });

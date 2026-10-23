@@ -1,0 +1,34 @@
+{#- Embed + OBS promo with live preview. JS in enhance.js ([data-embed-promo]). -#}
+{%- set ul = site.unlock | unlockList %}
+<div class="embedpromo" data-embed-promo data-base="{{ site.url }}">
+  <p>Free for any site or stream. It updates every second, follows your chosen store region, and switches to "GTA 6 is out" at launch. A small credit link to us stays at the bottom.</p>
+  <div class="embedpromo__opts">
+    <label>Region
+      <select data-ep="region">
+        <option value="">Auto: each viewer's own region</option>
+        {%- for r in ul.regions %}
+        <option value="{{ r.id }}">{{ r.name }}</option>
+        {%- endfor %}
+      </select>
+    </label>
+    <label>Theme
+      <select data-ep="theme"><option value="dark">Dark</option><option value="transparent">Transparent</option></select>
+    </label>
+    <label>Size
+      <select data-ep="size"><option value="wide">Wide</option><option value="compact">Compact</option></select>
+    </label>
+  </div>
+  <div class="embedpromo__preview">
+    <iframe src="/embed/countdown/" title="GTA 6 countdown preview" width="560" height="220" loading="lazy" data-ep-preview></iframe>
+  </div>
+  <label class="vh" for="ep-code">Embed code</label>
+  <textarea id="ep-code" class="embedpromo__code" rows="4" readonly data-ep-code>&lt;iframe src="{{ site.url }}/embed/countdown/" title="GTA 6 countdown" width="560" height="220" loading="lazy" style="border:0;max-width:100%"&gt;&lt;/iframe&gt;
+&lt;p style="font-size:12px"&gt;&lt;a href="{{ site.url }}/release-date-times/"&gt;GTA 6 unlock times&lt;/a&gt; by GTA 6 Waypoints&lt;/p&gt;</textarea>
+  <label class="vh" for="ep-obs">OBS browser source URL</label>
+  <input id="ep-obs" class="embedpromo__code" type="text" readonly value="{{ site.url }}/embed/obs/" data-ep-obs>
+  <p class="embedpromo__btns">
+    <button type="button" class="btn" data-copy-from="ep-code" data-tool="embed-code">Copy embed code</button>
+    <button type="button" class="btn btn--ghost" data-copy-from="ep-obs" data-tool="embed-obs">Copy OBS URL</button>
+  </p>
+  <p class="note">OBS: add a <strong>Browser</strong> source, paste the URL, and set it to 1920 × 1080. The background is transparent.</p>
+</div>

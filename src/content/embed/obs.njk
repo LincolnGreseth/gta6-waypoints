@@ -1,0 +1,38 @@
+---
+title: "GTA 6 Countdown OBS Overlay | GTA 6 Waypoints"
+description: "Transparent GTA 6 countdown overlay for an OBS browser source at 1920×1080, by store region."
+noindex: true
+eleventyExcludeFromCollections: true
+---
+<!doctype html>
+<html lang="en" class="no-js t-transparent s-wide">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@700&family=Kanit:ital,wght@1,600;1,800&display=swap">
+<style>
+html,body{margin:0;background:transparent}body{width:1920px;height:1080px;display:flex;align-items:flex-end;padding:0 0 96px 112px;box-sizing:border-box;font:700 28px/1.4 "Atkinson Hyperlegible",system-ui,sans-serif;color:#FDF3EA;overflow:hidden}
+p{margin:0;text-shadow:0 2px 6px rgba(0,0,0,.9)}
+.h{font:italic 600 44px/1.3 Kanit,"Arial Narrow",sans-serif}
+.c{display:flex;gap:48px;margin:8px 0 12px;height:210px}.no-js .c{visibility:hidden}
+.c span{display:flex;flex-direction:column}
+.c b{display:block;width:1.3em;height:1em;font:italic 800 160px/1 Kanit,"Arial Narrow",sans-serif;font-variant-numeric:tabular-nums;color:#FF3D8B;text-shadow:0 0 6px rgba(255,61,139,.95),0 0 28px rgba(255,61,139,.6),0 0 64px rgba(255,61,139,.35),0 3px 8px rgba(0,0,0,.6)}
+.c small{font-size:26px;font-weight:400;color:#FDF3EA;margin-top:8px;text-shadow:0 2px 6px rgba(0,0,0,.9)}
+.w{font:italic 800 26px/1 Kanit,sans-serif;color:#FF3D8B;margin-top:14px;display:flex;align-items:center;gap:8px}
+</style>
+</head>
+<body data-embed>
+<div>
+<p class="h" id="h">{{ site.countdown.heading }}</p>
+<div class="c" id="c" aria-hidden="true"><span><b id="d">--</b><small>days</small></span><span><b id="hh">--</b><small>hrs</small></span><span><b id="m">--</b><small>min</small></span><span><b id="s">--</b><small>sec</small></span></div>
+<p id="u">{{ site.countdown.dateText }}</p>
+<p class="w"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FF3D8B" d="M12 1.5c-4.4 0-8 3.5-8 7.9 0 5.8 7.1 12.4 7.4 12.7.3.3.9.3 1.2 0 .3-.3 7.4-6.9 7.4-12.7 0-4.4-3.6-7.9-8-7.9Z"/><circle cx="12" cy="9.4" r="3.1" fill="#22E0D0"/></svg>gta6waypoints.com</p>
+</div>
+<script>{% include "partials/embed-clock-js.njk" %}</script>
+</body>
+</html>
