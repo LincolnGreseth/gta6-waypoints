@@ -329,3 +329,32 @@ select { font: inherit; color: var(--foam); background: var(--night); border: 1p
 @media (max-width: 39.99em) { .unlock .col-utc { display: none; } }
 .has-share [data-share-net] { display: none; }
 .unlock td:nth-child(2) { white-space: nowrap; }
+
+/* Region-aware countdown */
+.cd__unlock { margin: 0 0 0.35rem; font-weight: 700; min-height: 1.6em; }
+.no-js .cd__unlock { display: none; }
+.cd__region { margin-top: 0.85rem; }
+.no-js .cd__region { display: none; }
+.cd__region label { display: block; font-size: 0.9rem; color: var(--foam-dim); margin-bottom: 0.3rem; }
+.cd__region select { width: 100%; max-width: 22rem; }
+.cd__hint { font-size: 0.85rem; color: var(--foam-dim); margin: 0.4rem 0 0; }
+.no-js .col-js { display: none; }
+
+/* Midnight wave */
+.wave__lead { max-width: var(--measure); }
+.wave li.is-mine .wave__bar::before { background: var(--flamingo); }
+.wave-mini { max-width: var(--measure); margin: 0 0 1rem; }
+.wave-mini__track { position: relative; height: 18px; margin: 0.5rem 7px 0.35rem; border-bottom: 1px solid var(--dusk-line); }
+.wave-mini__track i { position: absolute; bottom: 3px; left: calc(var(--h) / var(--span) * 100%); width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: var(--biscayne); }
+.wave-mini__track i.is-mine { background: var(--flamingo); width: 14px; height: 14px; margin-left: -7px; bottom: 1px; }
+.wave-mini__ends { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--foam-dim); margin-bottom: 0.5rem; }
+
+/* Region table */
+.unlock-table th[scope="row"] { font-weight: 400; background: transparent; }
+.rowbtn { background: none; border: 0; padding: 0; font: inherit; color: var(--foam); text-align: left; cursor: pointer; text-decoration: underline; text-decoration-color: var(--dusk-line); text-underline-offset: 0.2em; }
+.rowbtn:hover { color: var(--biscayne); }
+.unlock-table tr.is-mine td, .unlock-table tr.is-mine th { background: var(--dusk); }
+.unlock-table tr.is-mine .rowbtn { color: var(--flamingo); font-weight: 700; }
+.unlock-table td { white-space: nowrap; }
+.spoiler { border-left: 3px solid var(--sunset); padding: 0.4rem 0 0.4rem 0.9rem; color: var(--foam); max-width: var(--measure); }
+.facts__src { font-weight: 400; font-size: 0.82rem; color: var(--foam-dim); margin-left: 0.35rem; }

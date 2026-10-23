@@ -18,7 +18,7 @@ layout: layouts/base.njk
     <h2 id="faq-h">{{ faqHeading or "FAQ" }}</h2>
     {%- for f in faq %}
     <h3>{{ f.q }}</h3>
-    <p>{{ f.a }}</p>
+    <p>{{ f.a }}{% if f.more %} <a href="{{ f.more }}">Full answer</a>{% endif %}</p>
     {%- endfor %}
   </section>
   {%- endif %}

@@ -155,6 +155,33 @@ export default function (eleventyConfig) {
     return JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c");
   });
 
+  // Unlock regions → sorted by instant, with build-time display strings and the wave gap.
+  // `at` is an ISO string with offset, so no time-zone database is needed here.
+  const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  eleventyConfig.addFilter("unlockList", (unlock) => {
+    const list = unlock.regions.map((r, i) => {
+      const m = r.at.match(/([+-])(\d\d):(\d\d)$/);
+      const off = m ? (m[1] === "-" ? -1 : 1) * (+m[2] * 60 + +m[3]) : 0;
+      const t = Date.parse(r.at);
+      const w = new Date(t + off * 60000); // wall-clock time in the region, read with getUTC*
+      const h = w.getUTCHours() % 12 || 12;
+      const ap = w.getUTCHours() < 12 ? "AM" : "PM";
+      const mm = String(w.getUTCMinutes()).padStart(2, "0");
+      const sign = off < 0 ? "−" : "+";
+      const offLabel = `UTC${sign}${Math.floor(Math.abs(off) / 60)}${Math.abs(off) % 60 ? ":" + String(Math.abs(off) % 60).padStart(2, "0") : ""}`;
+      const u = new Date(t);
+      return {
+        ...r, i, t, off,
+        store: `${DAYS[w.getUTCDay()]}, ${MONTHS[w.getUTCMonth()]} ${w.getUTCDate()}, ${h}:${mm} ${ap}`,
+        offLabel: off === 0 ? "UTC" : offLabel,
+        utc: `${MONTHS[u.getUTCMonth()]} ${u.getUTCDate()}, ${String(u.getUTCHours()).padStart(2, "0")}:${String(u.getUTCMinutes()).padStart(2, "0")} UTC`,
+      };
+    }).sort((a, b) => a.t - b.t || a.i - b.i);
+    const first = list[0].t, last = list[list.length - 1].t;
+    list.forEach((r) => (r.hoursAfterFirst = Math.round(((r.t - first) / 36e5) * 10) / 10));
+    return { regions: list, spanHours: Math.round(((last - first) / 36e5) * 10) / 10, same: first === last, first: list[0], last: list[list.length - 1] };
+  });
+
   eleventyConfig.addCollection("news", (api) =>
     api.getFilteredByGlob("src/content/news/*.md").sort((a, b) => b.date - a.date)
   );

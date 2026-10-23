@@ -28,33 +28,25 @@
     if (tool) track("tool_open", { tool: tool.getAttribute("data-tool") });
   });
 
-  // Unlock-time picker: preselect the viewer's region, show its time and the viewer's own clock time.
-  var sel = d.querySelector("[data-unlock-select]");
-  if (sel) {
-    var out = d.querySelector("[data-unlock-result]");
-    var tz = "";
-    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (e) {}
-    var opts = $$("option", sel), pick = null;
-    opts.forEach(function (o) { if (o.getAttribute("data-tz") === tz) pick = o; });
-    if (!pick) {
-      var mine = -new Date(Date.UTC(2026, 10, 19, 5)).getTimezoneOffset();
-      opts.forEach(function (o) {
-        var f = new Intl.DateTimeFormat("en-US", { timeZone: o.getAttribute("data-tz"), timeZoneName: "longOffset" }).format(new Date(Date.UTC(2026, 10, 19, 5)));
-        var m = f.match(/GMT([+-])(\d\d):?(\d\d)?/), off = m ? (m[1] === "-" ? -1 : 1) * (+m[2] * 60 + +(m[3] || 0)) : 0;
-        if (!pick && off === mine) pick = o;
-      });
-    }
-    if (pick) sel.value = pick.value;
-    var show = function () {
-      var o = sel.options[sel.selectedIndex], t = new Date(o.getAttribute("data-utc"));
-      var yours = t.toLocaleString(undefined, { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short" });
-      out.innerHTML = "Assumed unlock: <strong>" + o.getAttribute("data-local") + "</strong><br>Where you are: " + yours;
-      $$(".wave li").forEach(function (li, i) { li.classList.toggle("is-mine", li.querySelector(".wave__name").textContent === o.textContent); });
-    };
-    sel.addEventListener("change", show);
-    show();
-    $$("[data-unlock-region]").forEach(function (r) { if (!r.value && pick) r.value = pick.value; });
-  }
+  // Unlock regions: "Your time" column, tap-to-set rows, and highlighting the viewer's region.
+  $$("[data-region-row]").forEach(function (tr) {
+    var c = tr.querySelector("[data-yourtime]");
+    if (c && window.WP) c.textContent = window.WP.fmt(Date.parse(tr.getAttribute("data-at")));
+  });
+  d.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest("[data-set-region]");
+    if (b && window.WP) window.WP.set(b.getAttribute("data-set-region"));
+  });
+  var mark = function (r) {
+    var id = r ? r.id : "";
+    $$("[data-region-row]").forEach(function (tr) { tr.classList.toggle("is-mine", tr.getAttribute("data-region-row") === id); });
+    $$("[data-wave-id]").forEach(function (li) { li.classList.toggle("is-mine", li.getAttribute("data-wave-id") === id); });
+    $$("[data-wave-mine]").forEach(function (s) { s.textContent = r ? "Yours: " + r.name + "." : ""; });
+    $$("[data-signup-region]").forEach(function (s) { if (r && !s._touched) s.value = r.id; });
+  };
+  d.addEventListener("wp:region", function (e) { mark(e.detail); });
+  if (window.WP) mark(window.WP.region());
+  $$("[data-signup-region]").forEach(function (s) { s.addEventListener("change", function () { s._touched = true; }); });
 
   // Share: native share sheet where supported, links otherwise.
   if (navigator.share) { d.documentElement.classList.add("has-share"); $$("[data-share]").forEach(function (b) { b.hidden = false; }); }

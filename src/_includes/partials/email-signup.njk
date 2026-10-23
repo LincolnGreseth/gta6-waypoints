@@ -4,7 +4,7 @@
 {%- set regionAlert = s.regionAlert and env.brevoAction %}
 {%- set interest = "unlock-alert" if regionAlert else (s.interest or "drop") %}
 {%- if regionAlert %}{% set s = { heading: "Get one email when it unlocks in your region", text: "Pick your store region and we'll email you once, at your region's unlock time, plus the day-one guide drop. No spam.", button: "Alert me" } %}{% endif %}
-<section class="signup" aria-labelledby="signup-h-{{ interest }}">
+<section class="signup" id="signup" aria-labelledby="signup-h-{{ interest }}">
   <h2 id="signup-h-{{ interest }}">{{ s.heading or "Get the day-one guide drop" }}</h2>
   <p>{{ s.text or "One email on launch day with every guide we've verified, then a short weekly roundup. No spam, unsubscribe any time." }}</p>
   {%- if env.brevoAction %}

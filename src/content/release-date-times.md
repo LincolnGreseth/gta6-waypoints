@@ -1,16 +1,34 @@
 ---
-title: "GTA 6 Release Date, Pre-Load and Unlock Times"
-description: "GTA 6 launches Nov 19, 2026 on PS5 and Xbox Series X|S, pre-load Nov 12. Estimated unlock times for 15 regions, with the time where you are."
+title: "GTA 6 Unlock Times: When It Releases in Your Region"
+description: "GTA 6 launches Nov 19, 2026 on PS5 and Xbox Series X|S. Expected unlock times for 15 store regions, the midnight wave, and the time where you are."
 layout: layouts/guide.njk
-crumb: "Release date"
-h1: "GTA 6 release date and unlock times: Nov 19 launch, Nov 12 pre-load"
-lead: "Grand Theft Auto VI launches on Thursday, November 19, 2026 on PS5 and Xbox Series X|S, and pre-load opens at local midnight on November 12. Rockstar hasn't announced unlock times yet; our estimate is local midnight in most regions and midnight Eastern across the US, labelled Unverified below."
+crumb: "Unlock times"
+h1: "GTA 6 unlock times: when it releases in your region"
+lead: "Grand Theft Auto VI launches on Thursday, November 19, 2026 on PS5 and Xbox Series X|S. Rockstar hasn't posted unlock times, so expect it at local midnight in your store region <span class=\"badge badge--unverified\">Unverified — testing</span>; pick your region below to see the time where you are."
 status: confirmed
 claim: true
 article: true
 updated: 2026-10-23
-signup:
-  regionAlert: true
+faqHeading: "Launch-week questions"
+faq:
+  - q: "What time does GTA 6 unlock?"
+    a: "Rockstar hasn't posted unlock times. We expect local midnight on November 19 in each store region, so New Zealand goes first and US West last. That's an assumption, labelled Unverified until Rockstar or the stores confirm."
+    more: "/faq/#what-time-does-gta-6-unlock"
+  - q: "When does pre-load start?"
+    a: "At local midnight on November 12, 2026, one week before launch."
+    more: "/faq/#when-can-i-pre-load-gta-6"
+  - q: "Is there a disc in the box?"
+    a: "No. Physical copies hold a download code, so you still download the game."
+    more: "/faq/#does-the-physical-version-of-gta-6-come-on-a-disc"
+  - q: "Which consoles is it on?"
+    a: "PS5 and Xbox Series X|S only. There's no PS4 or Xbox One version."
+    more: "/faq/#is-gta-6-on-ps4-or-xbox-one"
+  - q: "Can I play it on PC?"
+    a: "Not at launch. Rockstar hasn't announced a PC version."
+    more: "/faq/#is-gta-6-coming-to-pc"
+  - q: "Is GTA Online there at launch?"
+    a: "Rockstar hasn't announced an online mode for launch and calls GTA 6 a single-player experience."
+    more: "/faq/#does-gta-6-have-gta-online-at-launch"
 sources:
   - name: "Rockstar Games press release (Take-Two IR, Jun 24, 2026)"
     url: "https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi"
@@ -30,60 +48,41 @@ sources:
     url: "https://www.playstation.com/en-us/games/grand-theft-auto-vi/"
   - name: "Xbox Store: Grand Theft Auto VI"
     url: "https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9p3h4968grsm"
+  - name: "ESRB: Grand Theft Auto VI rating"
+    url: "https://www.esrb.org/ratings/41627/grand-theft-auto-vi/"
 related:
-  - text: "GTA 6 editions compared"
-    url: "/editions/"
-  - text: "Is GTA 6 coming to PC?"
-    url: "/pc-release/"
+  - text: "GTA 6 FAQ"
+    url: "/faq/"
+  - text: "GTA 6 launch checklist"
+    url: "/launch-checklist/"
   - text: "Everything confirmed about GTA 6"
     url: "/everything-confirmed/"
 ---
 {% set cdSize = "compact" %}{% include "partials/countdown.njk" %}
 
-## Key dates
+{% set shareUrl = "/release-date-times/" %}{% include "partials/launch-actions.njk" %}
 
-| Date | What happens | Status |
-|---|---|---|
-| Nov 9, 2026 | Take-Two's last earnings call before launch (4:30 p.m. ET) | {% badge "confirmed" %} |
-| Nov 12, 2026 | Pre-load opens at local midnight | {% badge "confirmed" %} |
-| Nov 12, 2026 | Physical copies ship and are ready for store pickup | {% badge "confirmed" %} |
-| Nov 19, 2026 | Launch day on PS5 and Xbox Series X\|S | {% badge "confirmed" %} |
-| Nov 20, 2026 | Purchases from this day on don't get the Vintage Vice City Pack | {% badge "confirmed" %} |
+{{ site.unlock.note }}
 
-Sources: [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi), [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions), [Take-Two IR](https://www.take2games.com/ir/news/take-two-interactive-software-inc-report-second-quarter-fiscal-8).
+## The midnight wave
 
-## Release date
+{% include "partials/unlock-wave.njk" %}
 
-- {% badge "confirmed" %} GTA 6 launches on Thursday, November 19, 2026 on PlayStation 5 and Xbox Series X|S. [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi)
-- {% badge "confirmed" %} There's no PS4 or Xbox One version. Rockstar's platform page lists only PS5 and Xbox Series X|S. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
-- {% badge "confirmed" %} No PC version has been announced. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions) More on the [PC release page](/pc-release/).
+## All 15 regions
 
-{% include "partials/unlock-times.njk" %}
+{% include "partials/unlock-table.njk" %}
 
-The countdown at the top runs to midnight where you are. If the US unlock really is nationwide at midnight Eastern, players in Central, Mountain and Pacific time get it one to three hours before their own midnight.
+Tap a region to make it yours. Your unlock follows your PlayStation or Xbox account region, not your device. One data point: the US Xbox Store listing's page data gives a release time of 05:00 UTC on November 19, which is midnight US East. That's store metadata, not an announcement. If it holds for the whole US, US Central, Mountain and West would unlock one to three hours before their own midnight.
 
-{% set shareText = "GTA 6 unlock times by region, with the time where you are:" %}{% include "partials/launch-actions.njk" %}
+<p class="spoiler"><strong>Spoiler warning.</strong> If unlocks follow local midnight, players in New Zealand and Australia are playing many hours before Europe and the Americas. Mute keywords and stay off the subreddits on launch night if you want to go in fresh.</p>
 
-## Pre-load
+## Launch checklist
 
-- {% badge "confirmed" %} Pre-load starts at local midnight on November 12, 2026, one week before launch. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
-- {% badge "confirmed" %} Codes redeemed before launch, including the codes in physical boxes, can pre-load from that point too. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
+{% include "partials/launch-checklist-short.njk" %}
 
-Rockstar hasn't announced the download size. Clear space before November 12 so the pre-load isn't stuck waiting on you.
+## Launch facts
 
-## Physical copies
-
-- {% badge "confirmed" %} Physical copies ship and are available for store pickup from November 12. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
-- {% badge "confirmed" %} The box contains a download code. "A disc will not be included in the box." [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
-
-Edition details are on [GTA 6 editions compared](/editions/).
-
-## PS5 Pro and Xbox Series X|S
-
-- {% badge "confirmed" %} The PlayStation Store lists GTA 6 as PS5 Pro Enhanced. [PlayStation Store](https://www.playstation.com/en-us/games/grand-theft-auto-vi/)
-- {% badge "confirmed" %} The Xbox Store listing carries the "Optimized for Xbox Series X|S" tag. [Xbox Store](https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9p3h4968grsm)
-
-Sony and Rockstar haven't said what the PS5 Pro enhancements are.
+{% include "partials/launch-facts.njk" %}
 
 ## How the date moved
 
@@ -102,3 +101,7 @@ Sony and Rockstar haven't said what the PS5 Pro enhancements are.
 - {% badge "confirmed" %} Take-Two reports its fiscal Q2 2027 results on Monday, November 9, 2026, after US markets close, with a call at 4:30 p.m. ET. It's the last scheduled investor update before launch. [Take-Two IR](https://www.take2games.com/ir/news/take-two-interactive-software-inc-report-second-quarter-fiscal-8)
 
 For everything else Rockstar has announced, see [everything confirmed about GTA 6](/everything-confirmed/).
+
+## Put the countdown on your site or stream
+
+{% include "partials/embed-promo.njk" %}
