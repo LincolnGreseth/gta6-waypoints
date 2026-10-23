@@ -26,7 +26,14 @@ export default function (eleventyConfig) {
   eleventyConfig.addWatchTarget("src/assets/");
 
   eleventyConfig.amendLibrary("md", (md) => {
-    md.use(markdownItAnchor, { level: [2, 3], tabIndex: false });
+    md.use(markdownItAnchor, {
+      level: [2, 3],
+      tabIndex: false,
+      slugify: (s) => s.toLowerCase().replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-"),
+    });
+    // Wide tables scroll inside their own box, never the page.
+    md.renderer.rules.table_open = () => '<div class="table-wrap"><table>\n';
+    md.renderer.rules.table_close = () => "</table></div>\n";
   });
 
   // {% badge "confirmed" %} → status pill. Unknown values fail loudly so typos don't ship.
