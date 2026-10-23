@@ -21,7 +21,7 @@
     </div>
     <p class="cd__date" data-cd-date>{{ cd.dateText }} on {{ cd.platforms }} {% badge cd.status %} <a href="{{ cd.sourceUrl }}" rel="noopener">Source</a></p>
     {%- if size == "hero" %}
-    <p class="cd__note">{{ cd.note }}</p>
+    <p class="cd__note" data-cd-note>{{ cd.note }}</p>
     {%- endif %}
   </div>
   {%- if size == "hero" and cd.milestones.length %}

@@ -29,6 +29,8 @@
         el.querySelector("[data-cd-heading]").textContent = el.getAttribute("data-live-heading") || "GTA 6 is out";
         el.querySelector("[data-cd-live]").hidden = false;
         el.querySelector("[data-cd-date]").hidden = true;
+        var note = el.querySelector("[data-cd-note]");
+        if (note) note.hidden = true;
         sum.textContent = "";
         return;
       }
