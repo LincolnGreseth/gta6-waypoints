@@ -3,3 +3,6 @@ _site/
 raw/
 .env
 .DS_Store
+
+# Local Netlify folder
+.netlify
