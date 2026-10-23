@@ -48,23 +48,34 @@
   if (window.WP) mark(window.WP.region());
   $$("[data-signup-region]").forEach(function (s) { s.addEventListener("change", function () { s._touched = true; }); });
 
-  // Share: native share sheet where supported, links otherwise.
-  if (navigator.share) { d.documentElement.classList.add("has-share"); $$("[data-share]").forEach(function (b) { b.hidden = false; }); }
-  var copy = function (text, btn) {
+  // Share: native share sheet, or copy the link with a "Copied" toast.
+  var toast = function (el, msg) {
+    var t = el.closest(".actions") && el.closest(".actions").querySelector("[data-toast]");
+    if (!t) return;
+    t.textContent = msg; t.classList.add("is-on");
+    clearTimeout(t._t); t._t = setTimeout(function () { t.classList.remove("is-on"); t.textContent = ""; }, 1800);
+  };
+  var copy = function (text, btn, msg) {
     if (!navigator.clipboard) return;
     navigator.clipboard.writeText(text).then(function () {
+      if (msg) return toast(btn, msg);
       var was = btn.textContent; btn.textContent = "Copied"; setTimeout(function () { btn.textContent = was; }, 1600);
     });
+  };
+  var shareText = function () {
+    var r = window.WP && window.WP.region(), t = r ? Date.parse(r.at) : new Date("2026-11-19T00:00:00").getTime();
+    var days = Math.max(0, Math.ceil((t - Date.now()) / 864e5));
+    return days ? "GTA 6 unlocks in " + days + " day" + (days === 1 ? "" : "s") + ". Check your region's unlock time:" : "GTA 6 is out. Check your region's unlock time:";
   };
   d.addEventListener("click", function (e) {
     var t = e.target.closest ? e.target : null;
     if (!t) return;
     var sh = t.closest("[data-share]");
-    if (sh) { navigator.share({ title: d.title, text: sh.getAttribute("data-share-text"), url: sh.getAttribute("data-share-url") }).catch(function () {}); track("share", { method: "native" }); }
-    var net = t.closest("[data-share-net]");
-    if (net) track("share", { method: net.getAttribute("data-share-net") });
-    var cp = t.closest("[data-copy]");
-    if (cp) { copy(cp.getAttribute("data-copy"), cp); track("share", { method: "copy" }); }
+    if (sh) {
+      var url = sh.getAttribute("data-share-url"), txt = shareText();
+      if (navigator.share) { navigator.share({ title: d.title, text: txt, url: url }).catch(function () {}); track("share", { method: "native" }); }
+      else { copy(txt + " " + url, sh, "Copied"); track("share", { method: "copy" }); }
+    }
     var cf = t.closest("[data-copy-from]");
     if (cf) copy(d.getElementById(cf.getAttribute("data-copy-from")).value, cf);
     var cal = t.closest("[data-cal]");

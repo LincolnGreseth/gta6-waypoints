@@ -327,7 +327,6 @@ select { font: inherit; color: var(--foam); background: var(--night); border: 1p
 .prose .checklist, .prose .wave { padding-left: 0; }
 .prose .checklist li, .prose .wave li { margin-bottom: 0; }
 @media (max-width: 39.99em) { .unlock .col-utc { display: none; } }
-.has-share [data-share-net] { display: none; }
 .unlock td:nth-child(2) { white-space: nowrap; }
 
 /* Region-aware countdown */
@@ -367,3 +366,8 @@ select { font: inherit; color: var(--foam); background: var(--night); border: 1p
 .embedpromo__preview iframe { display: block; border: 0; width: 100%; }
 .embedpromo__code { width: 100%; margin: 0 0 0.6rem; font: 0.82rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--foam); background: var(--night); border: 1px solid var(--dusk-line); border-radius: 6px; padding: 0.7rem; resize: vertical; }
 .embedpromo__btns { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.toast { font-size: 0.9rem; font-weight: 700; color: var(--night); background: var(--biscayne); border-radius: 999px; padding: 0.25rem 0.75rem; opacity: 0; transition: opacity 0.15s; pointer-events: none; }
+.toast.is-on { opacity: 1; }
+.toast:empty { padding: 0; }
+.actions--inline { gap: 0.4rem 1.1rem; font-size: 0.95rem; margin-top: 0.5rem; }
+.actions--inline .actions__menu summary::after { content: ""; }
