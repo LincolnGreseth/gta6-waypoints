@@ -2,6 +2,15 @@
 
 Researched **Oct 23, 2026** for `/everything-confirmed/`. This is source material for Claude Code to draft the page from, not the page itself.
 
+## Recheck, Oct 23, 2026 (Claude Code)
+- No new official announcements Oct 20–23 on unlock times, PC, GTA Online, trailers, radio or file size. The latest official post is still the Oct 15 launch trailer.
+- Changed with a new official source: Nov 9 earnings call (Reported → Confirmed, Take-Two IR); PS5 Pro Enhanced moved out of "Not confirmed" (PlayStation Store).
+- Corrected: radio reveal date (Oct 8) and host names (on-air names are Rockstar's; real identities are Reported).
+- Added: Justice score, The Album, podcasts, Aug 7 reaffirmation, single-player wording on both stores, GamesBeat PC report (Reported).
+- Primary links swapped in: characters and regions, radio, Take-Two May release, Goodtime State collection. The pre-order press release is also hosted by Take-Two: https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi
+- Still no primary link for the Extended Look premiere times (Kotaku stays).
+- Trailer IDs verified via YouTube oEmbed: all four are correct and published by Rockstar Games.
+
 ## How the labels were applied
 - **Confirmed**: Rockstar, Take-Two, a platform store or a ratings board said it (press release, Newswire, Rockstar Support, official video, ESRB). Where only a secondary outlet was readable but it clearly reports an official Rockstar announcement or listing, it's still Confirmed, but the primary link should be swapped in when found (see "Primary links to swap in" below).
 - **Reported**: comes from interviews or from an outlet's own reporting. The outlet is named. Don't upgrade these without an official Rockstar post.
@@ -41,9 +50,12 @@ These facts are labelled Confirmed but are currently cited to a secondary outlet
 
 - **[Confirmed]** GTA 6 launches **November 19, 2026** on **PlayStation 5** and **Xbox Series X|S**. [Rockstar press release](https://www.businesswire.com/news/home/20260624539426/en/Rockstar-Games-Announces-Pre-Orders-for-Grand-Theft-Auto-VI)
 - **[Confirmed]** The date has moved twice: from the original fall 2025 window to May 26, 2026, then to November 19, 2026. Rockstar said the extra time was to finish the game "with the level of polish you have come to expect and deserve." [Rockstar Newswire](https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026), [Variety](https://variety.com/2025/gaming/news/gta-6-release-delayed-november-2026-1236571679/)
-- **[Confirmed]** Take-Two reaffirmed the November 19 date in its May 2026 earnings report. [Screen Rant](https://screenrant.com/gta-6-release-date-update-earnings-call-may-2026/)
+- **[Confirmed]** Take-Two reaffirmed the November 19 date in its May 2026 earnings report. [Take-Two IR, May 21, 2026](https://www.take2games.com/ir/news/take-two-interactive-software-inc-reports-results-fourth-2) *(primary link swapped in Oct 23)*
 - **[Confirmed]** Rockstar's official platform page lists only PS5 and Xbox Series X|S. There's no PS4 or Xbox One version listed. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
-- **[Reported]** Take-Two reports its next quarterly results on Monday, November 9, after US markets close, with a call at 4:30 p.m. ET. That's the last scheduled investor update before launch. [GTA BOOM](https://www.gtaboom.com/the-final-take-two-investor-update-before-gta-6-is-set-for-november-9-40ac)
+- **[Confirmed]** Take-Two reports its fiscal Q2 2027 results on Monday, November 9, 2026, after US markets close, with a call at 4:30 p.m. ET. That's the last scheduled investor update before launch. [Take-Two IR](https://www.take2games.com/ir/news/take-two-interactive-software-inc-report-second-quarter-fiscal-8) *(upgraded Oct 23 from Reported: official Take-Two release, Oct 13, 2026)*
+- **[Confirmed]** Take-Two also reaffirmed November 19 in its August 7, 2026 first-quarter results. [Take-Two IR](https://www.take2games.com/ir/news/take-two-interactive-software-inc-reports-results-fiscal-first-6)
+- **[Confirmed]** The PlayStation Store lists GTA 6 as **PS5 Pro Enhanced**, and its FAQ says the game releases "for PlayStation 5 and PS5 Pro on November 19, 2026." Sony hasn't said what the enhancements are. [PlayStation](https://www.playstation.com/en-us/games/grand-theft-auto-vi/)
+- **[Confirmed]** The Xbox Store listing carries the "Optimized for Xbox Series X|S" tag. [Xbox Store](https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9p3h4968grsm)
 
 Unlock times by region haven't been announced. We'll post them on [the release date page](/release-date-times/) as soon as Rockstar or the stores do.
 
@@ -69,7 +81,7 @@ Full breakdown and which one to buy: [GTA 6 editions compared](/editions/).
 ## Story and characters
 
 - **[Confirmed]** You play as **Jason Duval** and **Lucia Caminos**. In Rockstar's words, "an easy score goes wrong" and the pair end up in a criminal conspiracy that stretches across the state of Leonida. [Rockstar press release](https://www.businesswire.com/news/home/20260624539426/en/Rockstar-Games-Announces-Pre-Orders-for-Grand-Theft-Auto-VI)
-- **[Confirmed]** Supporting characters profiled on Rockstar's GTA VI site: Cal Hampton, Boobie Ike, Dre'Quan Priest, Real Dimez (Bae-Luxe and Roxy), Raul Bautista and Brian Heder. [GamesRadar+](https://www.gamesradar.com/gta-6-guide/)
+- **[Confirmed]** Supporting characters profiled on Rockstar's GTA VI site: Cal Hampton, Boobie Ike, Dre'Quan Priest, Real Dimez (Bae-Luxe and Roxy), Raul Bautista and Brian Heder. [Rockstar: Only in Leonida](https://www.rockstargames.com/VI/only-in-leonida) *(primary link swapped in Oct 23)*
 - **[Confirmed]** You can switch between Jason and Lucia, as shown in the Extended Look. [Official video](https://www.youtube.com/watch?v=tJbzMqJGH4k), [SVG](https://www.svg.com/2246094/gta-6-extended-look-gameplay-rockstar-confirmed/)
 - **[Confirmed]** The October 15 launch trailer shows Lucia wearing a monitoring ankle bracelet and Jason talking about life after the military. [Launch trailer](https://www.rockstargames.com/videos/76orsa95), [gHacks](https://www.ghacks.net/2026/10/16/rockstar-releases-the-gta-6-launch-trailer-ahead-of-the-november-19-console-release/)
 
@@ -78,7 +90,7 @@ Character profiles: [GTA 6 characters](/characters/).
 ## Setting: Vice City and Leonida
 
 - **[Confirmed]** The game is set in the fictional US state of **Leonida**, centred on **Vice City**. [Rockstar press release](https://www.businesswire.com/news/home/20260624539426/en/Rockstar-Games-Announces-Pre-Orders-for-Grand-Theft-Auto-VI)
-- **[Confirmed]** Regions Rockstar has shown: **Vice City**, the **Leonida Keys**, **Grassrivers**, **Port Gellhorn**, **Ambrosia** and **Mount Kalaga National Park**. [GamesRadar+](https://www.gamesradar.com/gta-6-guide/)
+- **[Confirmed]** Regions Rockstar has shown: **Vice City**, the **Leonida Keys**, **Grassrivers**, **Port Gellhorn**, **Ambrosia** and **Mount Kalaga National Park**. [Rockstar: Only in Leonida](https://www.rockstargames.com/VI/only-in-leonida) *(primary link swapped in Oct 23)*
 - **[Reported]** Game Informer's September 29 cover story, built on developer interviews, says Rockstar aimed to recreate Florida's ecology and culture as closely as it could. [Game Informer](https://gameinformer.com/digital-issue/2026/09/29/the-grand-theft-auto-vi-digital-issue-is-now-live)
 
 Rockstar hasn't published a full map or an official map size. Region guide: [GTA 6 locations](/locations/).
@@ -103,16 +115,22 @@ These come from interviews with Rockstar staff. They're solid, but we're labelli
 
 ## Music and radio
 
-- **[Confirmed]** Rockstar revealed the first six radio stations and their hosts on October 9, 2026: [DJ Mag](https://djmag.com/news/gta-6-radio-stations-be-hosted-robyn-palms-trax-bad-bunny-more)
+*Corrected Oct 23: the reveal was October 8, not October 9, and Rockstar's own text uses on-air host names. The real artists behind them come from outlet reporting, so they're Reported.*
 
-| Station | Sound | Hosts |
-|---|---|---|
-| Cocoteo FM | Latin | Bad Bunny, RaiNao |
-| AfroBank FM | Afrobeat, amapiano, 3-step | Burna Boy, Palms Trax |
-| Chamber 106.6 | Classic metal | Kerry King, Tom Araya |
-| Flash FM | Pop | Robyn, Alex Consani |
-| Dirty South Classics | Regional rap and hip-hop | Trick Daddy, Trina |
-| Back Country Radio | Country | Morgan Wallen, Lana Del Rey, Jeremy Dufrene |
+- **[Confirmed]** Rockstar revealed the first six radio stations and their on-air hosts on **October 8, 2026**. [Rockstar: Music of GTA VI](https://www.rockstargames.com/VI/music), [Rockstar Newswire](https://www.rockstargames.com/newswire/article/o3982oa93a23k4/the-music-of-grand-theft-auto-vi-in-game-radio-stations)
+
+| Station | Sound | On-air hosts (Confirmed) | Reported as (DJ Mag) |
+|---|---|---|---|
+| Cocoteo FM | Latin | El Martillo and La Gata | Conflicting reports, left out |
+| AfroBank FM | Afrobeat, amapiano, 3-step | Burna and Palmsy | Burna Boy, Palms Trax |
+| The Chamber 106.6 | Classic metal | DJ Kerry and DJ Tom | Kerry King, Tom Araya |
+| Flash FM | Pop | Robyn and Alex | Robyn, Alex Consani |
+| Dirty South Classics | Regional rap and hip-hop | Trick and Trina | Trick Daddy, Trina |
+| Back Country Radio | Country | MW and Delta Dawne | Morgan Wallen, Lana Del Rey |
+
+- **[Confirmed]** Podcasts are on demand for the first time in the series, and you can listen to radio and podcasts on foot through headphones or earbuds connected to the in-game phone. Rockstar says the full lineup runs "from Classic Rock to Talk Radio"; those stations aren't named yet. [Rockstar: Music of GTA VI](https://www.rockstargames.com/VI/music), [Game Informer](https://gameinformer.com/2026/10/08/you-can-preview-6-of-the-radio-stations-in-grand-theft-auto-vi-right-now-plus-new)
+- **[Confirmed]** **Justice** composed the official score. Their single "Flower in a Hurricane" (with Tame Impala, SZA, and King Gizzard & The Lizard Wizard) debuted with the October 15 launch trailer. [Rockstar: Music of GTA VI](https://www.rockstargames.com/VI/music)
+- **[Confirmed]** **Grand Theft Auto VI: The Album** has 34 original tracks and releases November 19 on digital, CD and vinyl. Announced September 17, 2026. [Rockstar: Music of GTA VI](https://www.rockstargames.com/VI/music), [Gematsu](https://www.gematsu.com/2026/09/grand-theft-auto-vi-the-album-announced)
 
 ## Age ratings
 
@@ -121,7 +139,7 @@ These come from interviews with Rockstar staff. They're solid, but we're labelli
 
 ## GTA Online
 
-- **[Confirmed]** Rockstar's pre-order press release describes GTA 6 as "a single-player experience." It doesn't mention an online mode. [Rockstar press release](https://www.businesswire.com/news/home/20260624539426/en/Rockstar-Games-Announces-Pre-Orders-for-Grand-Theft-Auto-VI), [GamesRadar+](https://www.gamesradar.com/games/grand-theft-auto/gta-6-online-looks-unlikely-for-launch-as-rockstar-refers-to-the-game-as-a-single-player-experience/)
+- **[Confirmed]** Rockstar's pre-order press release describes GTA 6 as "a single-player experience." It doesn't mention an online mode. The PlayStation Store FAQ says the same ("a single-player experience"), and the Xbox Store lists "Single player". [PlayStation](https://www.playstation.com/en-us/games/grand-theft-auto-vi/), [Rockstar press release](https://www.businesswire.com/news/home/20260624539426/en/Rockstar-Games-Announces-Pre-Orders-for-Grand-Theft-Auto-VI), [GamesRadar+](https://www.gamesradar.com/games/grand-theft-auto/gta-6-online-looks-unlikely-for-launch-as-rockstar-refers-to-the-game-as-a-single-player-experience/)
 - **[Confirmed]** The ESRB listing includes In-Game Purchases. Rockstar hasn't said what those will be. [ESRB](https://www.esrb.org/ratings/41627/grand-theft-auto-vi/)
 
 Rockstar hasn't announced when, or in what form, online play arrives.
@@ -131,6 +149,8 @@ Rockstar hasn't announced when, or in what form, online play arrives.
 - **[Confirmed]** No PC version has been announced. Rockstar's platform page covers PS5 and Xbox Series X|S only. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
 - **[Reported]** Take-Two CEO Strauss Zelnick told Bloomberg in May 2026 that "Rockstar always starts on console." [TechRadar](https://www.techradar.com/gaming/take-two-ceo-says-gta-6-isnt-coming-to-pc-day-one-because-console-players-are-the-core-consumer-but-the-real-reason-is-obvious)
 - **[Reported]** Xbox chief strategy officer Matthew Ball posted on October 7 that GTA 6 "will not be streaming exclusively or to PC." [Dexerto](https://www.dexerto.com/gta/xbox-confirms-gta-6-wont-stream-on-pc-3416221/)
+
+- **[Reported]** GamesBeat reported on October 13, citing four anonymous sources, that a PC version is planned for early 2027. Rockstar didn't comment. Single-sourced. [Dexerto, summarising GamesBeat](https://www.dexerto.com/gta/gta-6-releasing-on-pc-much-earlier-than-expected-report-3418569/)
 
 We track every official PC statement on [the PC release page](/pc-release/).
 
@@ -154,7 +174,7 @@ We track every official PC statement on [the PC release page](/pc-release/).
 
 ## Merch and collector's items
 
-- **[Confirmed]** **The Goodtime State – Vice City Collection** is a $399.99 / £349.99 merch set on the Rockstar Store. It does **not** include the game. It ships November 19 and includes a Macca the Gator figure, Oakley Frogskins sunglasses, a New Era hat, a Leonida Keys crossbody bag and smaller items. [Gfinity](https://www.gfinityesports.com/article/everything-included-in-gta-6-the-goodtime-state-vice-city-collection), [GamesRadar+](https://www.gamesradar.com/gta-6-guide/)
+- **[Confirmed]** **The Goodtime State – Vice City Collection** is a $399.99 merch set on the Rockstar Store. It does **not** include the game ("sold separately"). It ships from November 19 and includes a Macca the Gator figure, Oakley Frogskins sunglasses, a New Era hat, a Leonida Keys crossbody bag and smaller items. [Rockstar Store](https://store.rockstargames.com/merchandise/gtavi-goodtime-state-vice-city-collection) *(primary link swapped in Oct 23; UK price not verified, removed)*
 
 ## Not confirmed yet
 
@@ -165,8 +185,9 @@ Rockstar hasn't announced any of these. If you see them stated as fact elsewhere
 - GTA Online for GTA 6: what it is or when it launches
 - Map size or a full official map
 - Playtime and number of story missions
-- PS5 Pro or Xbox Series X enhancements
-- The full voice cast and the complete radio station list
+- What the PS5 Pro enhancements are (the PS Store lists the game as PS5 Pro Enhanced)
+- File size or required storage (a widely shared "676.7 GB" figure is not official)
+- The full voice cast and the complete radio station list (six of the stations are named)
 
 ## FAQ seeds (sourced answers)
 - **When does GTA 6 come out?** Grand Theft Auto VI launches on Thursday, November 19, 2026 on PS5 and Xbox Series X|S. Rockstar confirmed the date in November 2025 and repeated it in the June 2026 pre-order announcement.
