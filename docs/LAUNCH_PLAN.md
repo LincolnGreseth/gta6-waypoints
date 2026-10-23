@@ -16,21 +16,21 @@
 | Over 100k monthly pageviews | Go all in on the map and Pro |
 
 ## Phase 0 — Foundation (Oct 23 – Oct 26)
-- [ ] Register domain(s): gta6waypoints.com (plus a backup)
+- [x] Register domain(s): gta6waypoints.com (plus gta6trophies.com as backup)
 - [ ] Claim matching handles: YouTube, TikTok, Instagram, X
-- [ ] Repo + 11ty skeleton + Netlify deploy + custom domain + HTTPS
-- [ ] Layout with footer disclaimer, status badges, ad-slot partial (off), email partial
+- [x] Repo + 11ty skeleton + Netlify deploy + custom domain + HTTPS (Oct 23: private repo LincolnGreseth/gta6-waypoints, Netlify project gta6-waypoints)
+- [x] Layout with footer disclaimer, status badges, ad-slot partial (off), email partial
 - [ ] Brevo list and signup form; welcome email ("You're on the day-one list")
 - [ ] Google Search Console + Bing Webmaster + analytics
-- [ ] Trust pages: about, contact, privacy, terms, disclaimer
+- [x] Trust pages: about, contact, privacy, terms, disclaimer (legal pages await Lincoln's review)
 
 ## Phase 1 — Pre-launch content (Oct 27 – Nov 18)
 **Site** (in this order):
-1. [ ] Home with email capture and live countdown (spec in `CLAUDE.md → Live countdown`)
-2. [ ] `/everything-confirmed/` (living page; research in `docs/research/CONFIRMED_FACTS.md`)
-3. [ ] `/editions/`, `/release-date-times/`, `/pc-release/`
-4. [ ] `/locations/`, `/characters/`, `/faq/`
-5. [ ] Shells for `/map/`, `/collectibles/`, `/trophies/`, `/100-percent/`, `/vehicles/`, `/money/`, `/heists/`, `/guides/`
+1. [x] Home with email capture and live countdown (spec in `CLAUDE.md → Live countdown`)
+2. [x] `/everything-confirmed/` (living page; research in `docs/research/CONFIRMED_FACTS.md`)
+3. [x] `/editions/`, `/release-date-times/`, `/pc-release/`
+4. [x] `/locations/`, `/characters/`, `/faq/`
+5. [x] Shells for `/map/`, `/collectibles/`, `/trophies/`, `/100-percent/`, `/vehicles/`, `/money/`, `/heists/`, `/guides/`
 6. [ ] Map tool built and tested with dummy data **locally only**, ready to accept real pins on day 1
 7. [ ] Vehicle database and checklist components built the same way
 8. [ ] Pre-write launch-week guide skeletons (H1, intent, structure) for the top 25 expected questions
