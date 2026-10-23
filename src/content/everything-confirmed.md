@@ -24,8 +24,6 @@ faq:
 sources:
   - name: "Rockstar Games press release: pre-orders, price and editions (Jun 24, 2026, via Take-Two IR)"
     url: "https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi"
-  - name: "Rockstar Games press release (Business Wire copy)"
-    url: "https://www.businesswire.com/news/home/20260624539426/en/Rockstar-Games-Announces-Pre-Orders-for-Grand-Theft-Auto-VI"
   - name: "Rockstar Support: Grand Theft Auto VI platforms, editions and versions"
     url: "https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions"
   - name: "Rockstar Newswire: Grand Theft Auto VI is now set to launch November 19, 2026"

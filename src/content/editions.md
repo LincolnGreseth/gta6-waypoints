@@ -12,8 +12,6 @@ updated: 2026-10-23
 sources:
   - name: "Rockstar Games press release (Take-Two IR, Jun 24, 2026)"
     url: "https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi"
-  - name: "Rockstar Games press release (Business Wire, Jun 24, 2026)"
-    url: "https://www.businesswire.com/news/home/20260624539426/en/Rockstar-Games-Announces-Pre-Orders-for-Grand-Theft-Auto-VI"
   - name: "Rockstar Support: Grand Theft Auto VI platforms, editions and versions"
     url: "https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions"
   - name: "PlayStation Store: Grand Theft Auto VI"
@@ -41,7 +39,7 @@ Every row above is {% badge "confirmed" %} by Rockstar's [press release](https:/
 
 ## Price
 
-- {% badge "confirmed" %} The Standard Edition is $79.99 and the Ultimate Edition is $99.99 in the US. [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi), [Business Wire](https://www.businesswire.com/news/home/20260624539426/en/Rockstar-Games-Announces-Pre-Orders-for-Grand-Theft-Auto-VI)
+- {% badge "confirmed" %} The Standard Edition is $79.99 and the Ultimate Edition is $99.99 in the US. [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi)
 - {% badge "confirmed" %} Both editions are on PS5 and Xbox Series X|S only. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
 
 ## What the Ultimate Edition adds
@@ -78,7 +76,7 @@ You don't need to pre-order to get it. Buying on launch day, November 19, still 
 - {% badge "confirmed" %} Digital pre-orders include one free month of GTA+, redeemable right away. It covers GTA Online perks and the GTA+ Games Library, which includes GTA V. [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi)
 - {% badge "confirmed" %} The PlayStation Store FAQ says the GTA+ month must be claimed by March 31, 2027. [PlayStation Store](https://www.playstation.com/en-us/games/grand-theft-auto-vi/)
 
-Rockstar ties the GTA+ month to digital pre-orders. If you buy physical and want it, check with your retailer before you order.
+{% badge "confirmed" %} The GTA+ month is a digital pre-order bonus. Rockstar lists physical pre-orders as a game code plus the Vintage Vice City Pack, with no GTA+ month. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
 
 ## Region locking
 
@@ -92,7 +90,7 @@ If you're on PS5, don't buy a cheap code from another country's store. It may no
 This part is our opinion, not Rockstar's.
 
 - **Most players: Standard.** It's the same game. The Ultimate extras are bonus items, and you can add them later if you want them.
-- **You want a box on the shelf: physical Standard.** Just know it's a code, not a disc. Rockstar only lists the GTA+ month for digital pre-orders.
+- **You want a box on the shelf: physical Standard.** Just know it's a code, not a disc, and it doesn't come with the GTA+ month.
 - **You know you'll want the extra cars and mod shop on day one: Ultimate.** It's digital only, so buy it from the PlayStation Store or Microsoft Store.
 - **Not sure: wait.** The Vintage Vice City Pack is yours with any purchase before November 20, so there's no penalty for buying on launch day.
 

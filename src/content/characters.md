@@ -28,7 +28,7 @@ related:
 ---
 ## Jason Duval and Lucia Caminos
 
-- {% badge "confirmed" %} The two playable leads are Jason Duval and Lucia Caminos. In Rockstar's words, "an easy score goes wrong" and the pair end up in a criminal conspiracy that stretches across the state of Leonida. [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi), [Business Wire](https://www.businesswire.com/news/home/20260624539426/en/Rockstar-Games-Announces-Pre-Orders-for-Grand-Theft-Auto-VI)
+- {% badge "confirmed" %} The two playable leads are Jason Duval and Lucia Caminos. In Rockstar's words, "an easy score goes wrong" and the pair end up in a criminal conspiracy that stretches across the state of Leonida. [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi)
 - {% badge "confirmed" %} The October 15 launch trailer shows Lucia wearing a monitoring ankle bracelet and Jason talking about life after the military. [Launch trailer](https://www.rockstargames.com/videos/76orsa95)
 - {% badge "confirmed" %} You can switch between Jason and Lucia, as shown in the Extended Look. [Official video](https://www.youtube.com/watch?v=tJbzMqJGH4k)
 

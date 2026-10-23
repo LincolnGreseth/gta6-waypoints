@@ -52,7 +52,7 @@ Sources: [Rockstar press release](https://www.take2games.com/ir/news/rockstar-ga
 
 ## Release date
 
-- {% badge "confirmed" %} GTA 6 launches on Thursday, November 19, 2026 on PlayStation 5 and Xbox Series X|S. [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi), [Business Wire](https://www.businesswire.com/news/home/20260624539426/en/Rockstar-Games-Announces-Pre-Orders-for-Grand-Theft-Auto-VI)
+- {% badge "confirmed" %} GTA 6 launches on Thursday, November 19, 2026 on PlayStation 5 and Xbox Series X|S. [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi)
 - {% badge "confirmed" %} There's no PS4 or Xbox One version. Rockstar's platform page lists only PS5 and Xbox Series X|S. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
 - {% badge "confirmed" %} No PC version has been announced. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions) More on the [PC release page](/pc-release/).
 
@@ -78,7 +78,7 @@ Edition details are on [GTA 6 editions compared](/editions/).
 
 ## PS5 Pro and Xbox Series X|S
 
-- {% badge "confirmed" %} The PlayStation Store lists GTA 6 as PS5 Pro Enhanced. Its FAQ says the game releases "for PlayStation 5 and PS5 Pro on November 19, 2026." [PlayStation Store](https://www.playstation.com/en-us/games/grand-theft-auto-vi/)
+- {% badge "confirmed" %} The PlayStation Store lists GTA 6 as PS5 Pro Enhanced. [PlayStation Store](https://www.playstation.com/en-us/games/grand-theft-auto-vi/)
 - {% badge "confirmed" %} The Xbox Store listing carries the "Optimized for Xbox Series X|S" tag. [Xbox Store](https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9p3h4968grsm)
 
 Sony and Rockstar haven't said what the PS5 Pro enhancements are.

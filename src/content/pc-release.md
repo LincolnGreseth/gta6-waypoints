@@ -40,7 +40,7 @@ related:
 ## What's official
 
 - {% badge "confirmed" %} No PC version has been announced. Rockstar's platform page covers PS5 and Xbox Series X|S only. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
-- {% badge "confirmed" %} Rockstar's June 24, 2026 pre-order announcement lists GTA 6 for PlayStation 5 and Xbox Series X|S, launching November 19, 2026. [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi), [Business Wire](https://www.businesswire.com/news/home/20260624539426/en/Rockstar-Games-Announces-Pre-Orders-for-Grand-Theft-Auto-VI)
+- {% badge "confirmed" %} Rockstar's June 24, 2026 pre-order announcement lists GTA 6 for PlayStation 5 and Xbox Series X|S, launching November 19, 2026. [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi)
 
 ## What's been reported
 

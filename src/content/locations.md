@@ -26,7 +26,7 @@ related:
 ---
 ## The state of Leonida
 
-- {% badge "confirmed" %} GTA 6 is set in the fictional US state of Leonida, centred on Vice City. [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi), [Business Wire](https://www.businesswire.com/news/home/20260624539426/en/Rockstar-Games-Announces-Pre-Orders-for-Grand-Theft-Auto-VI)
+- {% badge "confirmed" %} GTA 6 is set in the fictional US state of Leonida, centred on Vice City. [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi)
 - {% badge "reported" %} Game Informer's September 29, 2026 cover story, built on developer interviews, says Rockstar aimed to recreate Florida's ecology and culture as closely as it could. [Game Informer](https://gameinformer.com/digital-issue/2026/09/29/the-grand-theft-auto-vi-digital-issue-is-now-live)
 
 ## The six regions Rockstar has shown
