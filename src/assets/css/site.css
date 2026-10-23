@@ -59,8 +59,8 @@ p, ul, ol, table { margin: 0 0 1rem; }
   font-size: 1.3rem; color: var(--flamingo); text-decoration: none; line-height: 1;
 }
 .wordmark:hover { color: var(--flamingo); }
-.site-nav ul { display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem; list-style: none; margin: 0; padding: 0; }
-.site-nav a { color: var(--foam); text-decoration: none; font-weight: 700; font-size: 0.98rem; padding: 0.35rem 0; display: inline-block; }
+.site-nav ul { display: flex; flex-wrap: wrap; gap: 0.25rem 0.85rem; list-style: none; margin: 0; padding: 0; }
+.site-nav a { color: var(--foam); text-decoration: none; font-weight: 700; font-size: 0.94rem; padding: 0.35rem 0; display: inline-block; }
 .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--biscayne); }
 .site-nav a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--biscayne); }
 
@@ -93,9 +93,17 @@ tr:last-child td { border-bottom: 0; }
 
 /* Fact rows (instead of a card grid) */
 .facts { list-style: none; padding: 0; margin: 0 0 1.5rem; border-top: 1px solid var(--dusk-line); max-width: var(--measure); }
-.facts li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--dusk-line); }
-.facts__k { color: var(--foam-dim); min-width: 9rem; }
-.facts__v { font-weight: 700; flex: 1 1 12rem; }
+.facts li { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 0.15rem 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid var(--dusk-line); }
+.facts li > .facts__k:first-child { grid-column: 1 / -1; font-size: 0.9rem; }
+.facts li > .facts__v:first-child + .facts__k { grid-column: 1 / -1; }
+.facts__k { color: var(--foam-dim); }
+.facts__v { font-weight: 700; }
+@media (min-width: 40em) {
+  .facts li { grid-template-columns: 10rem 1fr auto; }
+  .facts li > .facts__k:first-child { grid-column: auto; font-size: inherit; }
+  .facts li > .facts__v:first-child { grid-column: 1 / 2; }
+  .facts li > .facts__v:first-child + .facts__k { grid-column: 2 / -1; }
+}
 .facts a { color: var(--foam); text-decoration-color: var(--biscayne); }
 
 /* Badges */
@@ -135,7 +143,7 @@ tr:last-child td { border-bottom: 0; }
 .cd__fins i:nth-child(4) { height: 4px; background: var(--flamingo); width: 58%; }
 .cd__fins i:nth-child(5) { height: 2px; width: 40%; }
 .cd__heading { font-family: var(--font-display); font-style: italic; font-weight: 600; font-size: 1.35rem; margin: 0 0 0.25rem; color: var(--foam); }
-.cd__clock { display: none; gap: clamp(0.6rem, 3vw, 1.75rem); align-items: flex-start; margin: 0 0 0.75rem; }
+.cd__clock { display: none; gap: clamp(0.75rem, 3.5vw, 1.75rem); align-items: flex-start; margin: 0 0 0.75rem; }
 .js .cd__clock { display: flex; }
 .cd__clock[hidden] { display: none !important; }
 .cd__unit { display: flex; flex-direction: column; align-items: flex-start; }
@@ -143,7 +151,7 @@ tr:last-child td { border-bottom: 0; }
   font-family: var(--font-display); font-style: italic; font-weight: 800;
   font-variant-numeric: tabular-nums; font-feature-settings: "tnum";
   color: var(--flamingo); text-shadow: var(--neon);
-  font-size: clamp(3rem, 15vw, 6.5rem); line-height: 1; height: 1em; min-width: 1.25em;
+  font-size: clamp(2.75rem, 13.5vw, 6.5rem); line-height: 1; height: 1em; min-width: 1.25em;
 }
 .cd__unit small { color: var(--foam-dim); font-size: 0.85rem; margin-top: 0.35rem; }
 .cd__date { margin: 0 0 0.35rem; font-weight: 700; }
@@ -151,9 +159,9 @@ tr:last-child td { border-bottom: 0; }
 .cd__note { color: var(--foam-dim); font-size: 0.92rem; margin: 0; }
 .cd__live p { font-size: 1.15rem; }
 .cd__milestones { list-style: none; padding: 0; margin: 0.25rem 0 0; display: grid; gap: 0; border-top: 1px solid var(--dusk-line); }
-.cd__milestones li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; padding: 0.55rem 0; border-bottom: 1px solid var(--dusk-line); }
+.cd__milestones li { display: grid; grid-template-columns: auto 1fr auto; align-items: baseline; gap: 0.25rem 0.75rem; padding: 0.55rem 0; border-bottom: 1px solid var(--dusk-line); }
 .cd__milestones li:last-child { border-bottom: 0; }
-.cd__milestones time { color: var(--foam-dim); min-width: 6.5rem; font-variant-numeric: tabular-nums; }
+.cd__milestones time { color: var(--foam-dim); min-width: 5.75rem; font-variant-numeric: tabular-nums; }
 .cd__ms { flex: 1 1 auto; }
 .cd__milestones .is-past { opacity: 0.5; }
 .cd__milestones .is-past .cd__ms { text-decoration: line-through; text-decoration-color: var(--foam-dim); }
