@@ -6,8 +6,10 @@
 // A `permalink` in a page's front matter overrides this.
 export default {
   permalink(data) {
-    const stem = data.page.filePathStem
-      .replace(/^\/content/, "")
+    // Use the input path, not filePathStem: Eleventy strips date prefixes from the stem.
+    const stem = data.page.inputPath
+      .replace(/^\.?\/?src\/content/, "")
+      .replace(/\.[^./]+$/, "")
       .replace(/^\/(hubs|pages)(?=\/)/, "");
     if (stem === "/index") return "/index.html";
     return `${stem.replace(/\/index$/, "")}/index.html`;
