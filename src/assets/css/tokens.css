@@ -1,0 +1,21 @@
+/* GTA 6 Waypoints design tokens: Miami Vice ("Ocean Drive at 2 a.m.").
+   Flat pastels on violet night. No gradient numerals or sunset-gradient logos,
+   because that's Rockstar's own GTA VI branding and the site must not look official.
+   Claude Code: build site.css on top of these; don't add new hues without a reason. */
+:root {
+  --night: #170A2E;      /* page background */
+  --dusk: #2A1450;       /* raised surfaces: signup band, tables, facades */
+  --dusk-line: #42226F;  /* hairlines and borders */
+  --flamingo: #FF3D8B;   /* primary: countdown digits (neon glow), buttons, wordmark */
+  --biscayne: #22E0D0;   /* secondary: links, h2s, Confirmed badge, deco stripes */
+  --sunset: #FF9A3C;     /* warm accent: Reported badge, focus ring */
+  --foam: #FDF3EA;       /* body text */
+  --foam-dim: #C9B8DA;   /* secondary text */
+
+  /* Google Fonts: Kanit (italic 600/800) + Atkinson Hyperlegible (400/700) */
+  --font-display: "Kanit", "Arial Narrow", system-ui, sans-serif;  /* headings + countdown, always italic */
+  --font-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --neon: 0 0 4px rgba(255, 61, 139, 0.9), 0 0 18px rgba(255, 61, 139, 0.55), 0 0 42px rgba(255, 61, 139, 0.3);
+  --measure: 68ch;
+}

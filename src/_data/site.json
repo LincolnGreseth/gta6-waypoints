@@ -1,0 +1,32 @@
+{
+  "name": "GTA 6 Waypoints",
+  "url": "https://gta6waypoints.com",
+  "description": "The GTA 6 completion companion: map, collectibles, trophies and 100% checklists. Fast, verified, no leaks.",
+  "locale": "en_US",
+  "defaultOgImage": "/assets/og/default.png",
+  "nav": [
+    {
+      "text": "Confirmed",
+      "url": "/everything-confirmed/"
+    },
+    {
+      "text": "Map",
+      "url": "/map/"
+    },
+    {
+      "text": "Collectibles",
+      "url": "/collectibles/"
+    },
+    {
+      "text": "Trophies",
+      "url": "/trophies/"
+    },
+    {
+      "text": "News",
+      "url": "/news/"
+    }
+  ],
+  "ads": {
+    "enabled": false
+  }
+}
