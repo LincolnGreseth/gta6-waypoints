@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="{{ site.lang }}" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.className="js"</script>
+{%- set pageTitle = metaTitle or title or site.name %}
+{%- set pageDesc = description or site.description %}
+{%- set canonical = page.url | absUrl(site.url) %}
+{%- set ogImage = (og_image or site.defaultOgImage) | absUrl(site.url) %}
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ pageDesc }}">
+<link rel="canonical" href="{{ canonical }}">
+{%- if noindex %}
+<meta name="robots" content="noindex">
+{%- endif %}
+<meta name="theme-color" content="#170A2E">
+<meta property="og:type" content="{{ 'article' if article else 'website' }}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:title" content="{{ pageTitle }}">
+<meta property="og:description" content="{{ pageDesc }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:image" content="{{ ogImage }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="{{ site.locale }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Kanit:ital,wght@1,600;1,800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Kanit:ital,wght@1,600;1,800&display=swap"></noscript>
+<style>{% inlineCss %}</style>
+{%- include "partials/consent-analytics.njk" %}
+{%- include "partials/jsonld.njk" %}
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+{% include "partials/header.njk" %}
+<main id="main" class="main"{% if claim %} data-page-type="claim"{% endif %}>
+{{ content | safe }}
+</main>
+{% include "partials/footer.njk" %}
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>

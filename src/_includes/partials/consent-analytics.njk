@@ -1,0 +1,27 @@
+{#- Consent Mode v2 + GA4 + Google CMP + AdSense. Everything is off until its ID is set in site.json.
+    EEA/UK/CH visitors start with every consent type denied; Google's Privacy & Messaging banner (IAB TCF)
+    updates consent for both ads and analytics. Elsewhere consent defaults to granted. -#}
+{%- set ga4 = site.analytics.ga4Id %}
+{%- set pub = site.ads.publisherId | replace("ca-", "") %}
+{%- set adsOn = site.ads.enabled and pub %}
+{%- if ga4 or pub %}
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:"denied",wait_for_update:500,region:{{ site.consent.regions | json | safe }}});
+gtag("consent","default",{ad_storage:"granted",ad_user_data:"granted",ad_personalization:"granted",analytics_storage:"granted"});
+gtag("js",new Date());
+{%- if ga4 %}
+gtag("config","{{ ga4 }}");
+{%- endif %}
+</script>
+{%- endif %}
+{%- if ga4 %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ ga4 }}"></script>
+{%- endif %}
+{%- if pub and site.consent.cmp == "google" %}
+<script async src="https://fundingchoicesmessages.google.com/i/{{ pub }}?ers=1"></script>
+<script>(function(){function s(){if(!window.frames.googlefcPresent){if(document.body){var i=document.createElement("iframe");i.style.cssText="width:0;height:0;border:0;display:none";i.name="googlefcPresent";document.body.appendChild(i)}else{setTimeout(s,0)}}}s()})();</script>
+{%- endif %}
+{%- if adsOn %}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-{{ pub }}" crossorigin="anonymous"></script>
+{%- endif %}

@@ -1,0 +1,96 @@
+---
+layout: layouts/base.njk
+title: "GTA 6 Waypoints: Map, Collectibles, Trophies & 100%"
+description: "The GTA 6 completion companion: live launch countdown, every confirmed fact with sources, and the map, collectibles and trophy guides from Nov 19."
+updated: 2026-10-23
+headlineFacts:
+  - k: "Release date"
+    v: "Thursday, November 19, 2026"
+    status: confirmed
+    href: "/everything-confirmed/#release-date-and-platforms"
+  - k: "Platforms"
+    v: "PS5 and Xbox Series X|S"
+    status: confirmed
+    href: "/everything-confirmed/#release-date-and-platforms"
+  - k: "Price"
+    v: "$79.99 Standard, $99.99 Ultimate"
+    status: confirmed
+    href: "/everything-confirmed/#price-and-editions"
+  - k: "Pre-load"
+    v: "Local midnight, November 12, 2026"
+    status: confirmed
+    href: "/everything-confirmed/#pre-orders-pre-load-and-bonuses"
+  - k: "You play as"
+    v: "Jason Duval and Lucia Caminos"
+    status: confirmed
+    href: "/everything-confirmed/#story-and-characters"
+launchDay:
+  - text: "Interactive map"
+    url: "/map/"
+    note: "Every pin verified in our own play"
+  - text: "Collectibles"
+    url: "/collectibles/"
+    note: "Every category, with counts and locations"
+  - text: "Trophies & Achievements"
+    url: "/trophies/"
+    note: "Unlock conditions, missables, Platinum roadmap"
+  - text: "100% checklist"
+    url: "/100-percent/"
+    note: "The master list, in the order to do it"
+  - text: "Vehicles"
+    url: "/vehicles/"
+    note: "Where to find them and what they cost"
+  - text: "Money"
+    url: "/money/"
+    note: "Early, mid and late-game methods, timed"
+  - text: "Heists"
+    url: "/heists/"
+    note: "Setups, approaches and payouts"
+  - text: "Guides"
+    url: "/guides/"
+    note: "Every how-to and best-of"
+---
+<div class="wrap">
+  {% set cdSize = "hero" %}
+  {% include "partials/countdown.njk" %}
+
+  <section class="home-intro">
+    <h1>The GTA 6 completion companion: map, collectibles, trophies and 100% checklists.</h1>
+    <p class="lead">Fast, verified, no leaks. Every claim about Grand Theft Auto VI on this site carries a status badge and a source.</p>
+  </section>
+
+  <section class="section" aria-labelledby="facts-h">
+    <h2 id="facts-h">Five things Rockstar has confirmed</h2>
+    <ul class="facts">
+      {%- for f in headlineFacts %}
+      <li><span class="facts__k">{{ f.k }}</span> <a class="facts__v" href="{{ f.href }}">{{ f.v }}</a> {% badge f.status %}</li>
+      {%- endfor %}
+    </ul>
+    <p><a class="more" href="/everything-confirmed/">Everything confirmed about GTA 6, with sources</a></p>
+  </section>
+
+  <section class="section" aria-labelledby="launch-h">
+    <h2 id="launch-h">What opens on launch day</h2>
+    <p>These pages fill with data we've verified in-game, starting November 19. Each one is live now so you can sign up for it.</p>
+    <ul class="facts">
+      {%- for l in launchDay %}
+      <li><a class="facts__v" href="{{ l.url }}">{{ l.text }}</a> <span class="facts__k">{{ l.note }}</span></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  {%- set latest = collections.news | limit(5) %}
+  {%- if latest.length %}
+  <section class="section" aria-labelledby="news-h">
+    <h2 id="news-h">Latest news</h2>
+    <ul class="news-list">
+      {%- for n in latest %}
+      <li><time datetime="{{ n.date | isoDate }}">{{ n.date | readableDate }}</time> <a href="{{ n.url }}">{{ n.data.title }}</a> {% if n.data.status %}{% badge n.data.status %}{% endif %}</li>
+      {%- endfor %}
+    </ul>
+    <p><a class="more" href="/news/">All GTA 6 news</a></p>
+  </section>
+  {%- endif %}
+
+  {% include "partials/email-signup.njk" %}
+</div>

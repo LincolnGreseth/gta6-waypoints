@@ -1,0 +1,9 @@
+{%- if status or updated %}
+<p class="meta">
+  {%- if status %}{% badge status %}{% endif %}
+  {%- if updated %} <span>Updated <time datetime="{{ updated | isoDate }}" data-updated>{{ updated | readableDate }}</time></span>{% endif %}
+</p>
+{%- endif %}
+{%- if affiliate %}
+<p class="disclosure" data-aff-disclosure>As an Amazon Associate I earn from qualifying purchases. Links marked "(paid link)" are affiliate links: if you buy through one we may earn a commission at no extra cost to you. It never changes what we recommend. <a href="/disclaimer/">Full disclosure</a></p>
+{%- endif %}

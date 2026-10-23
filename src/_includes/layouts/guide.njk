@@ -1,0 +1,42 @@
+---
+layout: layouts/base.njk
+---
+<article class="wrap page">
+  {% include "partials/breadcrumbs.njk" %}
+  <header class="page__head">
+    <h1>{{ h1 or title }}</h1>
+    {%- if lead %}
+    <p class="lead">{{ lead | safe }}</p>
+    {%- endif %}
+    {% include "partials/page-meta.njk" %}
+  </header>
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+  {%- if faq and faq.length and not hideFaqBlock %}
+  <section class="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">FAQ</h2>
+    {%- for f in faq %}
+    <h3>{{ f.q }}</h3>
+    <p>{{ f.a }}</p>
+    {%- endfor %}
+  </section>
+  {%- endif %}
+  {%- if related and related.length %}
+  <nav class="related" aria-labelledby="related-h">
+    <h2 id="related-h">Related</h2>
+    <ul>
+      {%- for r in related %}
+      <li><a href="{{ r.url }}">{{ r.text }}</a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+  {%- endif %}
+  {%- if ads !== false and claim %}
+  {% include "partials/ad-slot.njk" %}
+  {%- endif %}
+  {% include "partials/sources.njk" %}
+  {%- if signupOff !== true %}
+  {% include "partials/email-signup.njk" %}
+  {%- endif %}
+</article>

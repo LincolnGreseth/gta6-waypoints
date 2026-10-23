@@ -3,7 +3,9 @@
   "url": "https://gta6waypoints.com",
   "description": "The GTA 6 completion companion: map, collectibles, trophies and 100% checklists. Fast, verified, no leaks.",
   "locale": "en_US",
+  "lang": "en",
   "defaultOgImage": "/assets/og/default.png",
+  "contactEmail": "",
   "nav": [
     {
       "text": "Confirmed",
@@ -26,7 +28,121 @@
       "url": "/news/"
     }
   ],
+  "footerNav": [
+    {
+      "text": "About",
+      "url": "/about/"
+    },
+    {
+      "text": "Contact",
+      "url": "/contact/"
+    },
+    {
+      "text": "Disclaimer",
+      "url": "/disclaimer/"
+    },
+    {
+      "text": "Privacy",
+      "url": "/privacy/"
+    },
+    {
+      "text": "Terms",
+      "url": "/terms/"
+    },
+    {
+      "text": "Gear",
+      "url": "/gear/"
+    },
+    {
+      "text": "Waypoints Pro",
+      "url": "/pro/"
+    }
+  ],
+  "countdown": {
+    "enabled": true,
+    "heading": "GTA 6 launches in",
+    "target": "2026-11-19T00:00:00",
+    "mode": "local",
+    "dateText": "Thursday, November 19, 2026",
+    "platforms": "PS5 and Xbox Series X|S",
+    "note": "Rockstar hasn't posted regional unlock times yet, so this counts down to midnight where you are.",
+    "status": "confirmed",
+    "sourceUrl": "https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi",
+    "liveHeading": "GTA 6 is out",
+    "liveText": "Guides go up as we verify them in-game.",
+    "liveLink": {
+      "text": "Open the map",
+      "url": "/map/"
+    },
+    "milestones": [
+      {
+        "date": "2026-11-09",
+        "label": "Take-Two earnings call",
+        "status": "confirmed"
+      },
+      {
+        "date": "2026-11-12",
+        "label": "Pre-load opens",
+        "status": "confirmed"
+      },
+      {
+        "date": "2026-11-19",
+        "label": "Launch day",
+        "status": "confirmed"
+      },
+      {
+        "date": "2026-11-20",
+        "label": "Pre-order bonus cutoff",
+        "status": "confirmed"
+      }
+    ]
+  },
   "ads": {
-    "enabled": false
+    "enabled": false,
+    "network": "adsense",
+    "publisherId": ""
+  },
+  "consent": {
+    "cmp": "google",
+    "regions": [
+      "AT",
+      "BE",
+      "BG",
+      "HR",
+      "CY",
+      "CZ",
+      "DK",
+      "EE",
+      "FI",
+      "FR",
+      "DE",
+      "GR",
+      "HU",
+      "IS",
+      "IE",
+      "IT",
+      "LV",
+      "LI",
+      "LT",
+      "LU",
+      "MT",
+      "NL",
+      "NO",
+      "PL",
+      "PT",
+      "RO",
+      "SK",
+      "SI",
+      "ES",
+      "SE",
+      "GB",
+      "CH"
+    ]
+  },
+  "analytics": {
+    "ga4Id": ""
+  },
+  "affiliate": {
+    "amazonTag": ""
   }
 }

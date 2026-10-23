@@ -1,0 +1,10 @@
+{%- if sources and sources.length %}
+<section class="sources" aria-labelledby="sources-h">
+  <h2 id="sources-h">Sources</h2>
+  <ol>
+    {%- for s in sources %}
+    <li>{% if s.url %}<a href="{{ s.url }}" rel="noopener">{{ s.name }}</a>{% else %}{{ s.name }}{% endif %}</li>
+    {%- endfor %}
+  </ol>
+</section>
+{%- endif %}

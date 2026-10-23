@@ -1,0 +1,35 @@
+{#- Live countdown. Config: site.json → countdown. Size: set cdSize = "compact" before including (default "hero"). -#}
+{%- set cd = site.countdown %}
+{%- set size = cdSize or "hero" %}
+{%- if cd.enabled %}
+<section class="cd cd--{{ size }}" data-countdown data-target="{{ cd.target }}" data-mode="{{ cd.mode }}" data-live-heading="{{ cd.liveHeading }}" aria-labelledby="cd-h-{{ size }}">
+  {%- if size == "hero" %}
+  <div class="cd__fins" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  {%- endif %}
+  <div class="cd__body">
+    <p class="cd__heading" id="cd-h-{{ size }}" data-cd-heading>{{ cd.heading }}</p>
+    <div class="cd__clock" role="timer" aria-live="off" aria-hidden="true" data-cd-clock>
+      <span class="cd__unit"><b data-cd="d">--</b><small>days</small></span>
+      <span class="cd__unit"><b data-cd="h">--</b><small>hrs</small></span>
+      <span class="cd__unit"><b data-cd="m">--</b><small>min</small></span>
+      <span class="cd__unit"><b data-cd="s">--</b><small>sec</small></span>
+    </div>
+    <p class="vh" aria-live="polite" data-cd-summary></p>
+    <div class="cd__live" data-cd-live hidden>
+      <p>{{ cd.liveText }}</p>
+      <a class="btn" href="{{ cd.liveLink.url }}">{{ cd.liveLink.text }}</a>
+    </div>
+    <p class="cd__date" data-cd-date>{{ cd.dateText }} on {{ cd.platforms }} {% badge cd.status %} <a href="{{ cd.sourceUrl }}" rel="noopener">Source</a></p>
+    {%- if size == "hero" %}
+    <p class="cd__note">{{ cd.note }}</p>
+    {%- endif %}
+  </div>
+  {%- if size == "hero" and cd.milestones.length %}
+  <ol class="cd__milestones" aria-label="Key dates">
+    {%- for m in cd.milestones %}
+    <li data-date="{{ m.date }}"><time datetime="{{ m.date }}">{{ m.date | readableDate }}</time> <span class="cd__ms">{{ m.label }}</span> {% badge m.status %}</li>
+    {%- endfor %}
+  </ol>
+  {%- endif %}
+</section>
+{%- endif %}

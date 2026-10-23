@@ -1,0 +1,24 @@
+{#- Email signup. Posts to Brevo when BREVO_FORM_ACTION is set, otherwise Netlify Forms.
+    Set `signup` before including to override copy: { heading, text, button, interest }. -#}
+{%- set s = signup or {} %}
+{%- set interest = s.interest or "drop" %}
+<section class="signup" aria-labelledby="signup-h-{{ interest }}">
+  <h2 id="signup-h-{{ interest }}">{{ s.heading or "Get the day-one guide drop" }}</h2>
+  <p>{{ s.text or "One email on launch day with every guide we've verified, then a short weekly roundup. No spam, unsubscribe any time." }}</p>
+  {%- if env.brevoAction %}
+  <form class="signup__form" method="post" action="{{ env.brevoAction }}" data-signup data-interest="{{ interest }}">
+    <input type="hidden" name="locale" value="en">
+    <input type="hidden" name="INTEREST" value="{{ interest }}">
+    <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off"></label></div>
+  {%- else %}
+  <form class="signup__form" name="signup" method="post" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field" data-signup data-interest="{{ interest }}">
+    <input type="hidden" name="form-name" value="signup">
+    <input type="hidden" name="interest" value="{{ interest }}">
+    <div class="hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></div>
+  {%- endif %}
+    <label class="vh" for="email-{{ interest }}">Email address</label>
+    <input id="email-{{ interest }}" type="email" name="{{ 'EMAIL' if env.brevoAction else 'email' }}" autocomplete="email" placeholder="you@example.com" required>
+    <button type="submit" class="btn">{{ s.button or "Sign me up" }}</button>
+  </form>
+  <p class="signup__fine">We use your email only for this list. <a href="/privacy/">Privacy</a></p>
+</section>

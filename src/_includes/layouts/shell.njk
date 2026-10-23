@@ -1,0 +1,21 @@
+---
+layout: layouts/base.njk
+---
+{#- Pre-launch shell: real copy only, no placeholder data. Filled with verified data after Nov 19. -#}
+<article class="wrap page page--shell">
+  {% include "partials/breadcrumbs.njk" %}
+  <header class="page__head">
+    <h1>{{ h1 or title }}</h1>
+    {%- if lead %}
+    <p class="lead">{{ lead | safe }}</p>
+    {%- endif %}
+    {% include "partials/page-meta.njk" %}
+  </header>
+  {%- set cdSize = "compact" %}
+  {% include "partials/countdown.njk" %}
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+  {%- set signup = { heading: "Get it the day it opens", text: "We'll email you when " + (crumb or title) + " goes live with verified data, plus the day-one guide drop. No spam." } %}
+  {% include "partials/email-signup.njk" %}
+</article>

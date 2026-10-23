@@ -1,0 +1,12 @@
+{#- Ad slot with reserved height so nothing shifts when ads switch on.
+    Optional: set adSlot = "1234567890" (AdSense ad unit id) before including. -#}
+{%- set pub = site.ads.publisherId | replace("ca-", "") %}
+<aside class="ad-slot" aria-label="{{ 'Advertisement' if site.ads.enabled and pub else 'From GTA 6 Waypoints' }}">
+  {%- if site.ads.enabled and pub %}
+  <span class="ad-slot__label">Advertisement</span>
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-{{ pub }}"{% if adSlot %} data-ad-slot="{{ adSlot }}"{% endif %} data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  {%- else %}
+  <p class="ad-slot__house"><strong>Waypoints Pro is coming.</strong> Route planner, video timestamps and full databases. <a href="/pro/">Join the waitlist</a></p>
+  {%- endif %}
+</aside>

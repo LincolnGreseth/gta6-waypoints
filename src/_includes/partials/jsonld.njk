@@ -1,0 +1,15 @@
+{%- set trail = page.url | crumbs(collections.all, crumb or title) %}
+<script type="application/ld+json">{{ {
+  siteUrl: site.url,
+  siteName: site.name,
+  home: page.url == "/",
+  url: page.url,
+  title: title,
+  description: description or site.description,
+  image: og_image or site.defaultOgImage,
+  crumbs: trail,
+  article: article,
+  updated: updated,
+  published: date if article == "news" else published,
+  faq: faq
+} | jsonld | safe }}</script>

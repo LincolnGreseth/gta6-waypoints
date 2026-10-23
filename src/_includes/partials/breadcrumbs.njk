@@ -1,0 +1,10 @@
+{%- set trail = page.url | crumbs(collections.all, crumb or title) %}
+{%- if trail.length > 1 %}
+<nav class="crumbs" aria-label="Breadcrumb">
+  <ol>
+    {%- for c in trail %}
+    <li>{% if loop.last %}<span aria-current="page">{{ c.name }}</span>{% else %}<a href="{{ c.url }}">{{ c.name }}</a>{% endif %}</li>
+    {%- endfor %}
+  </ol>
+</nav>
+{%- endif %}

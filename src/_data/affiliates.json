@@ -1,0 +1,92 @@
+[
+  {
+    "id": "dualsense",
+    "name": "DualSense Wireless Controller",
+    "merchant": "Amazon",
+    "network": "amazon",
+    "url": "https://www.amazon.com/s?k=PS5+DualSense+Wireless+Controller",
+    "category": "controller",
+    "note": "Search link until we pick a specific listing/colour."
+  },
+  {
+    "id": "dualsense-edge",
+    "name": "DualSense Edge Wireless Controller",
+    "merchant": "Amazon",
+    "network": "amazon",
+    "url": "https://www.amazon.com/s?k=DualSense+Edge+Wireless+Controller",
+    "category": "controller",
+    "note": ""
+  },
+  {
+    "id": "xbox-controller",
+    "name": "Xbox Wireless Controller",
+    "merchant": "Amazon",
+    "network": "amazon",
+    "url": "https://www.amazon.com/s?k=Xbox+Wireless+Controller",
+    "category": "controller",
+    "note": ""
+  },
+  {
+    "id": "xbox-elite",
+    "name": "Xbox Elite Wireless Controller Series 2",
+    "merchant": "Amazon",
+    "network": "amazon",
+    "url": "https://www.amazon.com/s?k=Xbox+Elite+Wireless+Controller+Series+2",
+    "category": "controller",
+    "note": ""
+  },
+  {
+    "id": "pulse-elite",
+    "name": "PULSE Elite Wireless Headset",
+    "merchant": "Amazon",
+    "network": "amazon",
+    "url": "https://www.amazon.com/s?k=PlayStation+PULSE+Elite+Wireless+Headset",
+    "category": "headset",
+    "note": ""
+  },
+  {
+    "id": "xbox-headset",
+    "name": "Xbox Wireless Headset",
+    "merchant": "Amazon",
+    "network": "amazon",
+    "url": "https://www.amazon.com/s?k=Xbox+Wireless+Headset",
+    "category": "headset",
+    "note": ""
+  },
+  {
+    "id": "elgato-4ks",
+    "name": "Elgato Game Capture 4K S",
+    "merchant": "Amazon",
+    "network": "amazon",
+    "url": "https://www.amazon.com/s?k=Elgato+Game+Capture+4K+S",
+    "category": "capture",
+    "note": "Replaces the HD60 X, which Elgato has discontinued."
+  },
+  {
+    "id": "elgato-4kx",
+    "name": "Elgato 4K X",
+    "merchant": "Amazon",
+    "network": "amazon",
+    "url": "https://www.amazon.com/s?k=Elgato+4K+X",
+    "category": "capture",
+    "note": ""
+  },
+  {
+    "id": "steelseries",
+    "name": "SteelSeries",
+    "merchant": "SteelSeries",
+    "network": "pending",
+    "url": "",
+    "category": "headset",
+    "note": "Lincoln still needs to join the SteelSeries affiliate program. Pending links render as plain text."
+  },
+  {
+    "id": "razer",
+    "name": "Razer",
+    "merchant": "Razer",
+    "network": "pending",
+    "url": "",
+    "category": "controller",
+    "note": "Lincoln still needs to join the Razer affiliate program. Pending links render as plain text."
+  }
+]
