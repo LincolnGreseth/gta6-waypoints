@@ -2,7 +2,18 @@
 
 **Key dates**
 - **Nov 19, 2026:** GTA 6 launches (PS5 and Xbox Series X|S)
-- **Feb 1, 2027:** YouTube Partner Program entry bar doubles for new applicants (20M Shorts views / 90 days, up from 10M). Getting accepted before then is the YouTube goal.
+- **Dec 31, 2026 – Jan 14, 2027:** Waypoints Pro go/no-go (6–8 weeks after launch), based on repeat use of the free tools and the `/pro/` waitlist
+- **Jan 31, 2027:** Kill test (below)
+- **Feb 1, 2027:** YouTube Shorts revenue sharing starts requiring 10M qualified Shorts views in a rolling 90 days, checked monthly, even for existing Partner Program members ([PPC Land](https://ppc.land/youtube-cuts-shorts-pay-for-channels-under-10m-views-from-february-2027/)). Shorts are a traffic funnel to the site, not a revenue line.
+
+**Monetization order:** affiliate links from day one → display ads once there's traffic (AdSense first, premium networks later) → Waypoints Pro 6–8 weeks after launch, only if the free tools show real repeat use. Check Rockstar's stance on paid fan tools before charging. No cloud gaming affiliate links. Full detail in `SITE_PLAN.md → Monetization`.
+
+## Kill test: Jan 31, 2027
+| Result | Call |
+|---|---|
+| Under ~30k monthly pageviews **or** under 1,000 email subs | Scale back to email and Shorts only |
+| Between the two | Keep going as planned; re-check Feb 28 |
+| Over 100k monthly pageviews | Go all in on the map and Pro |
 
 ## Phase 0 — Foundation (Oct 23 – Oct 26)
 - [ ] Register domain(s): gta6waypoints.com (plus a backup)
@@ -38,11 +49,13 @@
 - Fill collectibles, trophies and 100% systematically, one category at a time.
 - Vehicle database to full coverage.
 - Weekly email: what's new on the site.
-- Shorts: keep daily. Track qualified Shorts views every week against the 10M / 90-day bar.
-- Apply for AdSense once about 15 solid pages are live. Switch ads on.
+- Shorts: keep daily. Judge them by clicks to the site, not by Shorts revenue.
+- Apply for AdSense once about 15 solid pages are live. Turn on the Google consent banner (CMP), then switch ads on.
+- Amazon Associates needs 3 qualifying sales within 180 days of signup or the account closes. Watch it.
+- Dec 31 – Jan 14: Pro go/no-go. If yes, build on the stack in `SITE_PLAN.md` (Stripe Checkout + Supabase Auth via Netlify Functions).
 
 ## Phase 4 — After Feb 1
-- Review traffic; decide on premium tools, interactive map v2, GTA Online section.
+- Act on the kill test. Decide on interactive map v2 and a GTA Online section.
 - Prune or merge thin pages; refresh living pages.
 
 ## Weekly scorecard (every Sunday)

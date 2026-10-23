@@ -45,9 +45,16 @@ These go live as a single "launching Nov 19, sign up for the drop" page each. No
 | `/heists/` | Setup, approaches, rewards, related collectibles. Individual pages once real. |
 | `/guides/` | Hub for every how-to and "best of" page. Replaces a separate blog. |
 
+### Monetization pages (live before launch)
+| URL | What it is |
+|---|---|
+| `/gear/` | "GTA 6: Best Controllers, Headsets & Capture Gear". Affiliate page. Only sourced product facts; no GTA 6 hardware claims Rockstar hasn't made. |
+| `/gear/storage/` | Stub, `status: unverified`, `noindex`. Publish once Rockstar posts the file size. |
+| `/pro/` | Waypoints Pro waitlist (route planner, video timestamps, full databases). Waitlist size is the go/no-go signal for building Pro. |
+
 ### Later (only if the numbers justify it)
 - `/search/` — Pagefind (free, static, built for 11ty). No Algolia needed.
-- Premium tier (route optimizer, video timestamps, extra tools). **Not before February.** Decide based on traffic and on how Rockstar treats commercial fan tools.
+- Waypoints Pro (see Monetization, step 3).
 
 ## Page requirements (SEO and AI search)
 - H1 matches search intent ("GTA 6 Hidden Packages: All Locations & Map").
@@ -70,17 +77,26 @@ These go live as a single "launching Nov 19, sign up for the drop" page each. No
 | ~~Place / GeoCoordinates~~ | **Don't use** | GeoCoordinates means real latitude/longitude. Fictional Leonida pins would be invalid markup. Use ItemList instead. |
 
 ## Monetization (in order)
-1. **Email list from day 1.** Brevo, with "day-one guide drop" as the lead magnet. This is the asset we own.
-2. **Affiliate links.** Capture cards, controllers, headsets, console bundles over the holidays. Contextual links on relevant guides only.
-3. **Display ads.** Apply for AdSense once there are about 15 solid pages. Move to a premium network once traffic qualifies (check current thresholds at the time).
-4. **YouTube.** Shorts drive site traffic and the site drives long-form views. The Partner Program target is in `LAUNCH_PLAN.md`.
-5. **Sponsorships** from gaming brands once traffic is consistent.
+The email list runs underneath all of this from day one (Brevo, "day-one guide drop" as the lead magnet). It's the asset we own.
+
+1. **Affiliate links from day one.** Amazon Associates first (controllers, headsets, capture cards, storage once the file size is official), then SteelSeries and Razer once approved. Contextual links on relevant pages only, every one marked "(paid link)" with the Amazon disclosure near the first link. Data in `src/_data/affiliates.json`, rendered by the `{% aff %}` shortcode.
+2. **Display ads once there's traffic.** AdSense first (apply at about 15 solid pages), premium networks (Raptive, Mediavine, etc.) later once traffic qualifies; check current thresholds at the time. Ads stay off (`site.json → ads.enabled: false`) until approved, and a Google-certified CMP (IAB TCF, Google Privacy & Messaging with Consent Mode v2) must be live for EEA/UK/Swiss visitors before they go on.
+3. **Waypoints Pro, 6–8 weeks after launch** (roughly Dec 31, 2026 – Jan 14, 2027), only if the free tools show real repeat use and the `/pro/` waitlist is big enough. Before charging anything, check Rockstar's current stance on paid fan tools.
+4. **Sponsorships** from gaming brands once traffic is consistent.
+
+**YouTube is a traffic funnel, not a revenue line.** From Feb 1, 2027, Shorts revenue sharing requires 10M qualified Shorts views in a rolling 90 days, checked monthly, even for channels already in the Partner Program ([PPC Land](https://ppc.land/youtube-cuts-shorts-pay-for-channels-under-10m-views-from-february-2027/)). Shorts exist to send people to the site.
+
+**No cloud gaming affiliate links** (GeForce Now, Xbox Cloud Gaming, etc.). GTA 6 isn't on PC and Xbox has said it won't stream to PC, so those links would mislead readers.
 
 No selling of anything that uses GTA trademarks.
+
+### Planned Pro stack (not built yet)
+Stripe Checkout for payments, Supabase Auth (or Auth0) for accounts, both called from Netlify Functions. **Don't use Netlify Identity**: it was deprecated in Feb 2025. No accounts, auth or payments get built until the go/no-go call.
 
 ## KPIs
 | Window | Target |
 |---|---|
 | Pre-launch | Pre-launch pages indexed, 500+ email subs, Shorts posting daily |
 | Launch week | Pages for the top 25 launch questions live within 72 hours; map has first 100 verified pins |
-| Through Jan 31 | Organic sessions up week over week; Shorts tracking toward the 10M-view YPP bar |
+| Through Jan 31 | Organic sessions up week over week; Shorts sending measurable traffic to the site; first affiliate sales |
+| Jan 31, 2027 | Kill test (see `LAUNCH_PLAN.md`): under ~30k monthly pageviews or 1,000 subs → scale back; over 100k → all in on map and Pro |
