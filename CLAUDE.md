@@ -34,8 +34,9 @@ gta6-site/
 │   │   └── guides/            ← evergreen how-to pages → /guides/<slug>/
 │   └── assets/
 │       ├── css/tokens.css     ← Miami Vice design tokens (source of truth for colour and type)
-│       ├── js/                ← site.js (countdown + small enhancements)
+│       ├── js/                ← site.js (countdown), enhance.js (YouTube facade + analytics events); minified at build
 │       ├── img/, og/          ← compressed WebP; OG images 1200×630
+├── scripts/                   ← check-pages.js (npm run check), og/ (OG image source HTML)
 ├── content-ops/
 │   ├── findings-log.md        ← in-game discoveries, newest first
 │   ├── shorts/                ← Shorts scripts: YYYY-MM-DD-slug.md

@@ -1,5 +1,7 @@
 import { readFileSync } from "node:fs";
 import markdownItAnchor from "markdown-it-anchor";
+import { minify } from "terser";
+import { writeFileSync } from "node:fs";
 
 const BADGES = {
   confirmed: "Confirmed",
@@ -24,6 +26,15 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/assets/img/favicon.svg": "favicon.svg" });
   eleventyConfig.addWatchTarget("src/assets/");
+
+  // Minify the two small scripts after each build (passthrough copies them as written).
+  eleventyConfig.on("eleventy.after", async ({ dir }) => {
+    for (const f of ["site.js", "enhance.js"]) {
+      const path = `${dir.output}/assets/js/${f}`;
+      const { code } = await minify(readFileSync(path, "utf8"), { compress: true, mangle: true });
+      writeFileSync(path, code);
+    }
+  });
 
   eleventyConfig.amendLibrary("md", (md) => {
     md.use(markdownItAnchor, {
