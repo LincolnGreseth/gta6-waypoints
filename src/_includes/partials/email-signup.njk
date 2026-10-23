@@ -1,14 +1,17 @@
-{#- Email signup. Posts to Brevo when BREVO_FORM_ACTION is set, otherwise Netlify Forms.
-    Set `signup` before including to override copy: { heading, text, button, interest }. -#}
+{#- Email signup: the unlock alert. Posts to Brevo when BREVO_FORM_ACTION is set (REGION + INTEREST
+    contact attributes), otherwise Netlify Forms (region + interest fields). One signup per page.
+    Set `signup` before including to override: { heading, text, button, interest, region: "select"|"hidden"|"none", inline }.
+    The region is pre-filled from the region picker (site.js → enhance.js). -#}
 {%- set s = signup or {} %}
-{%- set regionAlert = s.regionAlert and env.brevoAction %}
-{%- set interest = "unlock-alert" if regionAlert else (s.interest or "drop") %}
-{%- if regionAlert %}{% set s = { heading: "Get one email when it unlocks in your region", text: "Pick your store region and we'll email you once, at your region's unlock time, plus the day-one guide drop. No spam.", button: "Alert me" } %}{% endif %}
-<section class="signup" id="signup" aria-labelledby="signup-h-{{ interest }}">
-  <h2 id="signup-h-{{ interest }}">{{ s.heading or "Get the day-one guide drop" }}</h2>
-  <p>{{ s.text or "One email on launch day with every guide we've verified, then a short weekly roundup. No spam, unsubscribe any time." }}</p>
-  {%- if env.brevoAction %}
-  <form class="signup__form" method="post" action="{{ env.brevoAction }}" data-signup data-interest="{{ interest }}">
+{%- set interest = s.interest or "unlock-alert" %}
+{%- set regionMode = s.region or "select" %}
+{%- set brevo = env.brevoAction %}
+{%- set ul = site.unlock | unlockList %}
+<section class="signup{% if s.inline %} signup--inline{% endif %}" id="signup" aria-labelledby="signup-h">
+  <h2 id="signup-h">{{ s.heading or "Get pinged the moment it unlocks" }}</h2>
+  <p>{{ s.text or "One email when GTA 6 unlocks in your region, then the day-one guide drop. No spam, unsubscribe any time." }}</p>
+  {%- if brevo %}
+  <form class="signup__form" method="post" action="{{ brevo }}" data-signup data-interest="{{ interest }}">
     <input type="hidden" name="locale" value="en">
     <input type="hidden" name="INTEREST" value="{{ interest }}">
     <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off"></label></div>
@@ -18,18 +21,23 @@
     <input type="hidden" name="interest" value="{{ interest }}">
     <div class="hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></div>
   {%- endif %}
-    {%- if regionAlert %}
-    <label class="vh" for="region-{{ interest }}">Your store region</label>
-    <select id="region-{{ interest }}" name="REGION" required data-unlock-region>
-      <option value="">Your store region</option>
-      {%- for r in unlock.regions %}
-      <option value="{{ r.id }}">{{ r.name }}</option>
+    {%- set regionName = "REGION" if brevo else "region" %}
+    {%- if regionMode == "select" %}
+    <label class="vh" for="signup-region">Your store region</label>
+    <select id="signup-region" name="{{ regionName }}" data-signup-region>
+      <option value="local">My time zone (not sure of my store region)</option>
+      {%- for r in ul.regions %}
+      <option value="{{ r.id }}">{{ r.name }} store</option>
       {%- endfor %}
     </select>
+    {%- elif regionMode == "hidden" %}
+    <input type="hidden" name="{{ regionName }}" value="local" data-signup-region>
+    {%- else %}
+    <input type="hidden" name="{{ regionName }}" value="">
     {%- endif %}
-    <label class="vh" for="email-{{ interest }}">Email address</label>
-    <input id="email-{{ interest }}" type="email" name="{{ 'EMAIL' if env.brevoAction else 'email' }}" autocomplete="email" placeholder="you@example.com" required>
-    <button type="submit" class="btn">{{ s.button or "Sign me up" }}</button>
+    <label class="vh" for="signup-email">Email address</label>
+    <input id="signup-email" type="email" name="{{ 'EMAIL' if brevo else 'email' }}" autocomplete="email" placeholder="you@example.com" required>
+    <button type="submit" class="btn">{{ s.button or "Alert me" }}</button>
   </form>
-  <p class="signup__fine">We use your email only for this list. <a href="/privacy/">Privacy</a></p>
+  <p class="signup__fine">{% if regionMode != "none" %}We store your store region with your email so the alert lands at your unlock time. {% endif %}<a href="/privacy/">Privacy</a></p>
 </section>

@@ -42,7 +42,7 @@
     $$("[data-region-row]").forEach(function (tr) { tr.classList.toggle("is-mine", tr.getAttribute("data-region-row") === id); });
     $$("[data-wave-id]").forEach(function (li) { li.classList.toggle("is-mine", li.getAttribute("data-wave-id") === id); });
     $$("[data-wave-mine]").forEach(function (s) { s.textContent = r ? "Yours: " + r.name + "." : ""; });
-    $$("[data-signup-region]").forEach(function (s) { if (r && !s._touched) s.value = r.id; });
+    $$("[data-signup-region]").forEach(function (s) { if (!s._touched) s.value = r ? r.id : "local"; });
   };
   d.addEventListener("wp:region", function (e) { mark(e.detail); });
   if (window.WP) mark(window.WP.region());

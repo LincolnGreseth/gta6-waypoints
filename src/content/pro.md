@@ -21,5 +21,5 @@ Everything on GTA 6 Waypoints stays free: the map, collectibles, trophies, the 1
 
 We're deciding whether to build it. If enough people join, we will, and waitlist members hear first. We'll only email you about Pro and the site.
 
-{% set signup = { heading: "Join the Waypoints Pro waitlist", text: "Get an email if and when Pro opens. No payment details, no commitment.", button: "Join the waitlist", interest: "pro" } %}
+{% set signup = { heading: "Join the Waypoints Pro waitlist", text: "Get an email if and when Pro opens. No payment details, no commitment.", button: "Join the waitlist", interest: "pro", region: "none" } %}
 {% include "partials/email-signup.njk" %}
