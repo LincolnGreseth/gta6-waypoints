@@ -11,6 +11,11 @@ Researched **Oct 23, 2026** for `/everything-confirmed/`. This is source materia
 - Still no primary link for the Extended Look premiere times (Kotaku stays).
 - Trailer IDs verified via YouTube oEmbed: all four are correct and published by Rockstar Games.
 
+## Unlock times (assumed, Oct 23)
+- Not announced. The site shows **assumed** times: local midnight Nov 19 per store region; US nationwide at midnight Eastern (05:00 UTC). Labelled Unverified.
+- Backing data point, checked in a browser Oct 23: the US Xbox Store listing's page data has `releaseDate: 2026-11-19T05:00:00Z` for the Standard and Ultimate editions. Store metadata, not an announcement. https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9p3h4968grsm
+- Data file: `src/_data/unlock.js`.
+
 ## How the labels were applied
 - **Confirmed**: Rockstar, Take-Two, a platform store or a ratings board said it (press release, Newswire, Rockstar Support, official video, ESRB). Where only a secondary outlet was readable but it clearly reports an official Rockstar announcement or listing, it's still Confirmed, but the primary link should be swapped in when found (see "Primary links to swap in" below).
 - **Reported**: comes from interviews or from an outlet's own reporting. The outlet is named. Don't upgrade these without an official Rockstar post.

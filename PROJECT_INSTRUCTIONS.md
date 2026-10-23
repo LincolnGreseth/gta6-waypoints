@@ -30,6 +30,7 @@ If a file conflicts with what Lincoln says in chat, his latest message wins. Poi
 3. **No leaks, ever.** No leaked footage, datamined files or leaked details, and no "reportedly leaked" write-ups either. This is a hard line because Take-Two removes leaked material aggressively.
 4. **Guide facts need verification.** After launch, every location, price, unlock or method must be verified in-game by Lincoln or cited to a source. Mark anything else `Unverified — testing`.
 5. Put source links in every draft.
+6. **Estimates** (unlock times, file size before it's official) only appear as `Unverified` with "Assumed, not announced" and the assumption stated. Never present an estimate as a fact.
 
 ## Brand and legal
 - This is a fan site, not affiliated with Rockstar Games or Take-Two Interactive. Keep the disclaimer in every page footer.

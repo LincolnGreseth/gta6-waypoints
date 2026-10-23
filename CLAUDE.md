@@ -22,6 +22,7 @@ gta6-site/
 │   ├── _data/
 │   │   ├── site.json          ← name, url, nav, countdown, ads, analytics, affiliate tag
 │   │   ├── affiliates.json    ← affiliate links used by {% aff %}
+│   │   ├── unlock.js          ← assumed unlock times for 15 store regions (status + source live here)
 │   │   └── env.js             ← build-time env (BREVO_FORM_ACTION)
 │   ├── _includes/
 │   │   ├── layouts/           ← base.njk, guide.njk, shell.njk
@@ -126,12 +127,19 @@ Tokens live in `src/assets/css/tokens.css`. Build `site.css` on top of them.
 - Email signup is a partial. It posts to Brevo when the `BREVO_FORM_ACTION` env var is set (exposed as `env.brevoAction`). Otherwise it falls back to Netlify Forms (`data-netlify`, honeypot) so signups are captured from day one. Never commit the list ID.
 - Internal links: every guide links up to its hub, and every hub links down to its guides.
 
+## Launch-week tools
+- **Unlock times** (`partials/unlock-times.njk`, data in `src/_data/unlock.js`): region picker (auto-detects the viewer's region and shows their own clock time), the "midnight wave" and a 15-region table, on `/release-date-times/#unlock-times`. Times are **assumed** (local midnight; US nationwide at midnight Eastern, matching the US Xbox Store listing's `releaseDate` data) and labelled `unverified`. When Rockstar or the stores post times: fix the regions in `unlock.js`, set `meta.status` to `confirmed`, swap `meta.sourceUrl` for the official post, and switch the countdown to `mode: "fixed"`.
+- **Embeddable countdown**: `/embed/countdown/` (layout `embed.njk`, noindex, query params `size=sm|lg`, `bg=transparent` for OBS). `/countdown-widget/` hands out the iframe code plus a credit backlink and OBS steps. Keep the credit link in the embed; it's the point of the widget.
+- **Region unlock alert**: set `signup: { regionAlert: true }` on a page. It renders only when `BREVO_FORM_ACTION` is set (adds a `REGION` select and `INTEREST=unlock-alert`), because Netlify Forms can't send segmented, scheduled email. Needs `REGION` and `INTEREST` contact attributes in Brevo. Don't promote it until Brevo is connected.
+- **Calendar + share** (`partials/launch-actions.njk`): Google Calendar link, `/gta6-launch.ics` (pre-load + launch day), Web Share API with X/Reddit/copy fallbacks. No third-party scripts. Events: `share`, `add_to_calendar`.
+- **Launch checklist** (`/launch-checklist/`): tick-off list saved in localStorage (fires `tool_open`), plus "Questions people ask" via `faq:` + `faqHeading`. FAQPage markup helps machines; Google rarely shows FAQ rich results for gaming sites, so don't count on them.
+
 ## Monetization
 Order (details in `docs/SITE_PLAN.md → Monetization`): affiliate links from day one → display ads once there's traffic (AdSense first, premium networks later) → Waypoints Pro 6–8 weeks after launch, only if the free tools show real repeat use. Check Rockstar's stance on paid fan tools before charging. YouTube Shorts are a traffic funnel, not revenue (10M qualified views / 90 days needed from Feb 1, 2027).
 
 - **Affiliates:** `src/_data/affiliates.json` (`id, name, merchant, network, url, category, note`). Use `{% aff "id" %}text{% endaff %}`; it adds `rel="sponsored nofollow noopener"`, `target="_blank"` and a visible "(paid link)". Amazon URLs get `site.json → affiliate.amazonTag` appended when set, and render untagged when it's empty. `network: "pending"` or an empty `url` renders plain text, never a link. Any page with an affiliate link sets `affiliate: true` in front matter, which shows the Amazon Associates line and general disclosure near the top. No cloud gaming links (GeForce Now etc.): GTA 6 isn't on PC.
 - **Ads:** `site.json → ads` (`enabled`, `network`, `publisherId`). The AdSense script loads only when `enabled` is true; `/ads.txt` is generated only when `publisherId` is set. Before enabling, Google's Privacy & Messaging CMP (IAB TCF) must be published in AdSense for EEA/UK/Swiss visitors.
-- **Analytics:** GA4 via `site.json → analytics.ga4Id`; nothing loads when empty. Consent Mode v2 defaults are set before the tag (ads and analytics denied in the EEA/UK/CH until the CMP grants them). Custom events: `signup`, `affiliate_click` (`link_id`), `tool_open`.
+- **Analytics:** GA4 via `site.json → analytics.ga4Id`; nothing loads when empty. Consent Mode v2 defaults are set before the tag (ads and analytics denied in the EEA/UK/CH until the CMP grants them). Custom events: `signup`, `affiliate_click` (`link_id`), `tool_open`, plus `share` and `add_to_calendar`.
 - **Pro:** `/pro/` is a waitlist only (signup partial with `interest=pro`). No accounts, auth or Stripe until the go/no-go. Planned stack: Stripe Checkout + Supabase Auth (or Auth0) via Netlify Functions. Never Netlify Identity (deprecated Feb 2025).
 
 ## Don'ts

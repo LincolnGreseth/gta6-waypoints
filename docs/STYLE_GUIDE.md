@@ -15,6 +15,8 @@
 | `rumor` | Unconfirmed; shown with a warning |
 | `unverified` | Found but not yet retested |
 
+**Assumed values** (estimates like unlock times before they're announced) are allowed only as `unverified`, with the words "Assumed, not announced", the assumption spelled out, and whatever data point backs it linked. Switch to `confirmed` only when an official source posts the real value.
+
 How to apply them: an official Rockstar, Take-Two, platform-store or ratings-board source is `confirmed`. A secondary outlet clearly reporting an official announcement or store listing is still `confirmed`, but swap in the primary link when you find it. Interview remarks and an outlet's own reporting are `reported`, with the outlet named. Conflicting details stay out until one source settles them.
 
 ## Visual theme

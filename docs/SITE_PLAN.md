@@ -21,12 +21,14 @@ Use trailing slashes everywhere (11ty default). Pick one URL per topic and menti
 |---|---|
 | `/` | Value prop, countdown, latest confirmed news, featured guides, email capture ("Get the day-one guide drop") |
 | `/everything-confirmed/` | Living page: every confirmed fact with source and date. The pre-launch traffic magnet. |
-| `/release-date-times/` | Date, plus unlock and preload times by region once Rockstar or the stores post them |
+| `/release-date-times/` | Date, pre-load, and unlock times for 15 store regions with a region picker: assumed (Unverified) until Rockstar or the stores post them |
 | `/editions/` | Standard vs Ultimate: contents and who should buy which |
 | `/pc-release/` | Official statements only, kept updated |
 | `/locations/` | Regions revealed by Rockstar (Vice City, Leonida Keys, Grassrivers, Port Gellhorn, etc.), each cited to official material |
 | `/characters/` | Jason Duval, Lucia Caminos, and officially revealed NPCs. Short; becomes an entity hub post-launch. |
 | `/news/` | Updates with status badges. This is the freshness signal. |
+| `/launch-checklist/` | Interactive pre-launch checklist + "Questions people ask" |
+| `/countdown-widget/` | Free embeddable countdown and OBS overlay (backlink engine); the widget itself lives at `/embed/countdown/` (noindex) |
 | `/faq/` | Real questions people are asking now, answered and sourced |
 | `/about/`, `/contact/`, `/privacy/`, `/terms/`, `/disclaimer/` | Trust pages. The disclaimer states no affiliation with Rockstar or Take-Two. |
 
