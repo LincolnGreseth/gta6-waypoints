@@ -4,6 +4,14 @@
   var $$ = function (s, r) { return Array.prototype.slice.call((r || d).querySelectorAll(s)); };
   var track = function (name, params) { if (window.gtag) window.gtag("event", name, params || {}); };
 
+  // Mobile nav toggle.
+  var nt = d.querySelector("[data-nav-toggle]");
+  if (nt) nt.addEventListener("click", function () {
+    var open = nt.getAttribute("aria-expanded") !== "true";
+    nt.setAttribute("aria-expanded", open);
+    d.getElementById("site-nav").classList.toggle("is-open", open);
+  });
+
   // YouTube click-to-load facade (youtube-nocookie.com, nothing loads until clicked).
   d.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest("[data-yt]");

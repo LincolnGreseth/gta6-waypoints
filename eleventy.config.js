@@ -85,6 +85,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("isoDate", (value) => toDate(value).toISOString().slice(0, 10));
   eleventyConfig.addFilter("absUrl", (path, base) => new URL(path, base).href);
   eleventyConfig.addFilter("json", (value) => JSON.stringify(value));
+  eleventyConfig.addFilter("anyValue", (obj) => Object.values(obj || {}).some(Boolean));
   eleventyConfig.addFilter("limit", (arr, n) => (arr || []).slice(0, n));
 
   // Breadcrumb trail from the URL. Ancestors use their page's `crumb` (or title).
