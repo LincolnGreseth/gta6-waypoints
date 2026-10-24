@@ -326,8 +326,6 @@ select { font: inherit; color: var(--foam); background: var(--night); border: 1p
 .embed--clear .cd__heading, .embed--clear .cd__date, .embed--clear .cd__unit small, .embed--clear .embed__credit { text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85); }
 .prose .checklist, .prose .wave { padding-left: 0; }
 .prose .checklist li, .prose .wave li { margin-bottom: 0; }
-@media (max-width: 39.99em) { .unlock .col-utc { display: none; } }
-.unlock td:nth-child(2) { white-space: nowrap; }
 
 /* Region-aware countdown */
 .cd__unlock { margin: 0 0 0.35rem; font-weight: 700; min-height: 1.6em; }
@@ -354,7 +352,6 @@ select { font: inherit; color: var(--foam); background: var(--night); border: 1p
 .rowbtn:hover { color: var(--biscayne); }
 .unlock-table tr.is-mine td, .unlock-table tr.is-mine th { background: var(--dusk); }
 .unlock-table tr.is-mine .rowbtn { color: var(--flamingo); font-weight: 700; }
-.unlock-table td { white-space: nowrap; }
 .spoiler { border-left: 3px solid var(--sunset); padding: 0.4rem 0 0.4rem 0.9rem; color: var(--foam); max-width: var(--measure); }
 .facts__src { font-weight: 400; font-size: 0.82rem; color: var(--foam-dim); margin-left: 0.35rem; }
 
@@ -416,4 +413,9 @@ select { font: inherit; color: var(--foam); background: var(--night); border: 1p
   .signup--inline > p:first-of-type { display: none; }
   .hero h1 { font-size: 1.85rem; }
   .eyebrow { font-size: 0.85rem; }
+}
+@media (max-width: 39.99em) {
+  .js .unlock-table .col-utc { display: none; }
+  .unlock-table td { white-space: normal; }
+  .unlock-table th, .unlock-table td { padding: 0.55rem 0.5rem; font-size: 0.9rem; }
 }
