@@ -419,3 +419,4 @@ select { font: inherit; color: var(--foam); background: var(--night); border: 1p
   .unlock-table td { white-space: normal; }
   .unlock-table th, .unlock-table td { padding: 0.55rem 0.5rem; font-size: 0.9rem; }
 }
+.cd__hint, .signup--inline .signup__form { max-width: var(--measure); }
