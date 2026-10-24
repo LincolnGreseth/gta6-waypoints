@@ -19,7 +19,7 @@ faq:
     more: "/faq/#when-can-i-pre-load-gta-6"
   - q: "Is there a disc in the box?"
     a: "No. Physical copies hold a download code, so you still download the game."
-    more: "/faq/#does-the-physical-version-of-gta-6-come-on-a-disc"
+    more: "/faq/#does-the-physical-version-come-on-a-disc"
   - q: "Which consoles is it on?"
     a: "PS5 and Xbox Series X|S only. There's no PS4 or Xbox One version."
     more: "/faq/#is-gta-6-on-ps4-or-xbox-one"

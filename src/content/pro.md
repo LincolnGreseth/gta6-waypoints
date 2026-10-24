@@ -7,6 +7,7 @@ h1: "Waypoints Pro"
 lead: "Waypoints Pro: route planner, video timestamps and full databases. Join the waitlist."
 updated: 2026-10-23
 signupOff: true
+noindex: true
 ads: false
 ---
 Everything on GTA 6 Waypoints stays free: the map, collectibles, trophies, the 100% checklist and every guide. Pro would sit on top for players who want to finish Grand Theft Auto VI faster.
