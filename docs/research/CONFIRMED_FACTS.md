@@ -2,6 +2,17 @@
 
 Researched **Oct 23, 2026** for `/everything-confirmed/`. This is source material for Claude Code to draft the page from, not the page itself.
 
+## News facts added Oct 26, 2026 (homepage redesign)
+Each was opened and checked on Oct 26. Labels as briefed; nothing upgraded.
+
+- **[Confirmed]** *Grand Theft Auto VI: The Album*: announced Sep 17, 2026, 34 original tracks, made with Atlantic Records, out Nov 19 with the game; official-store exclusives are liquid-filled vinyl, splatter vinyl and a CD. [Rockstar Newswire](https://www.rockstargames.com/newswire/article/7599a881942544/announcing-grand-theft-auto-vi-the-album-coming-november-19)
+- **[Confirmed]** Official album store (linked from the Rockstar post): CD $19.98; vinyl $49.98 (two transparent magenta discs with blue splatter); limited-edition vinyl $124.98 (two transparent magenta discs filled with blue liquid, sold out on Oct 26); physical editions ship Nov 20, 2026. [gtavi-thealbum.com](https://www.gtavi-thealbum.com/)
+- **[Reported]** Six songs are streaming now and retail vinyl variants come with their own posters. [GTA BOOM](https://www.gtaboom.com/rockstar-is-pressing-the-complete-gta-6-soundtrack-to-vinyl-for-125-7c6c) *(Note: Rockstar's own post also says the first six singles are "available today", so the streaming line could be upgraded with that link. Left Reported pending Lincoln.)*
+- **[Reported]** The Miami Heat host "A Night in Vice City" on Nov 18, 2026, the night before launch: GTA 6-inspired court, Vice City uniforms, GTA 6 merch; Kotaku reports Rockstar is partnering. [Kotaku, Oct 2](https://kotaku.com/gta-6-had-a-really-busy-week-2000739409) The Heat's own pages confirm the event (Nov 18, 7 p.m. ET, Kaseya Center) but don't name Rockstar: [nba.com/heat](https://www.nba.com/heat/uniforms/2627-heat-vice-city-uniform-collection), [@MiamiHEAT](https://x.com/MiamiHEAT/status/2106039997480697918). Label stays Reported pending Lincoln.
+- **[Reported]** Rockstar described "hundreds" of explorable interiors at a Rockstar North studio demo attended by Bloomberg's Jason Schreier (Oct 16). No number published. [TalkEsport summary](https://www.talkesport.com/news/gta-6-hundreds-of-interiors/) TODO: swap in the Bloomberg URL.
+- **[Reported]** South Korea's Game Content Rating Board rated GTA 6 adults-only on Oct 16, 2026. [Sports Kyunghyang](https://sports.khan.co.kr/en/article/202610191644007)
+- Left out on purpose: the "review codes sent / Nov 18 review embargo" claim (single insider) and anything from the August and October leaks.
+
 ## Recheck, Oct 26, 2026 (Claude Code)
 - Rockstar Newswire checked in a browser: no new Grand Theft Auto VI posts since the Oct 15 launch trailer. Nothing new on unlock times, PC, GTA Online, file size or trailers.
 - Ignored: a "leaked" review-embargo date (Nov 18) and dozens of unofficial "unlock time" sites. No leaks, no unofficial times.
