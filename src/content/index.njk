@@ -1,123 +1,59 @@
 ---
 layout: layouts/base.njk
 title: "GTA 6 Waypoints: Map, Collectibles, Trophies & 100%"
-description: "When GTA 6 unlocks in your region, with a live countdown and unlock alert. Then the map, collectibles, trophies and 100% checklists, verified in-game."
-updated: 2026-10-23
-headlineFacts:
-  - k: "Release date"
-    v: "Thursday, November 19, 2026"
-    status: confirmed
-    href: "/everything-confirmed/#release-date-and-platforms"
-  - k: "Platforms"
-    v: "PS5 and Xbox Series X|S"
-    status: confirmed
-    href: "/everything-confirmed/#release-date-and-platforms"
-  - k: "Price"
-    v: "$79.99 Standard, $99.99 Ultimate"
-    status: confirmed
-    href: "/everything-confirmed/#price-and-editions"
-  - k: "Pre-load"
-    v: "Local midnight, November 12, 2026"
-    status: confirmed
-    href: "/everything-confirmed/#pre-orders-pre-load-and-bonuses"
-  - k: "You play as"
-    v: "Jason Duval and Lucia Caminos"
-    status: confirmed
-    href: "/everything-confirmed/#story-and-characters"
-launchDay:
-  - text: "Interactive map"
-    url: "/map/"
-    note: "Every pin verified in our own play"
-  - text: "Collectibles"
-    url: "/collectibles/"
-    note: "Every category, with counts and locations"
-  - text: "Trophies & Achievements"
-    url: "/trophies/"
-    note: "Unlock conditions, missables, Platinum roadmap"
-  - text: "100% checklist"
-    url: "/100-percent/"
-    note: "The master list, in the order to do it"
-  - text: "Vehicles"
-    url: "/vehicles/"
-    note: "Where to find them and what they cost"
-  - text: "Money"
-    url: "/money/"
-    note: "Early, mid and late-game methods, timed"
-  - text: "Heists"
-    url: "/heists/"
-    note: "Setups, approaches and payouts"
-  - text: "Guides"
-    url: "/guides/"
-    note: "Every how-to and best-of"
+description: "When GTA 6 unlocks in your store region: live countdown and the midnight wave. Then the map, collectibles and 100% checklists, verified in-game."
+updated: 2026-10-26
 ---
 <div class="wrap home">
   <section class="hero" aria-labelledby="home-h1">
-    <p class="eyebrow">Grand Theft Auto VI · November 19, 2026 {% badge "confirmed" %}</p>
-    <h1 id="home-h1">Your GTA 6 completion companion.</h1>
-    <p class="hero__line">The map, every collectible, trophy and 100% checklist, verified in-game. Opening on launch day.</p>
-    {% set cdSize = "hero" %}{% include "partials/countdown.njk" %}
-    {% set signup = { heading: "Get pinged the moment it unlocks", text: "One email when GTA 6 unlocks in your store region, then the day-one guide drop. No spam.", region: "hidden", inline: true } %}
-    {% include "partials/email-signup.njk" %}
-    {% set shareUrl = "/release-date-times/" %}{% set actionsInline = true %}{% set actionsLinks = '<a href="/release-date-times/#all-15-regions">See all 15 unlock times</a>' %}
-    {% include "partials/launch-actions.njk" %}
-    {% set actionsInline = false %}{% set actionsLinks = "" %}
+    <p class="kicker">GTA 6 · Thursday 19 November 2026</p>
+    <h1 id="home-h1"><span class="vh">GTA 6 </span><span class="l1">Completion</span> <span class="l2">companion.</span></h1>
+    <p class="hero__sub">The GTA 6 map, collectibles, trophies and 100% checklists, verified in-game. Opening on launch day.</p>
+    {% set cdSize = "home" %}{% include "partials/countdown.njk" %}
   </section>
 
-  <section class="section" aria-labelledby="wave-h">
-    <h2 id="wave-h">The midnight wave</h2>
-    {% set waveSize = "compact" %}{% include "partials/unlock-wave.njk" %}
+  <section class="home-section" aria-labelledby="wave-h">
+    {% set waveSize = "home" %}{% include "partials/unlock-wave.njk" %}
   </section>
 
-  <section class="section" aria-labelledby="facts-h">
-    <h2 id="facts-h">Five things Rockstar has confirmed</h2>
-    <ul class="facts">
-      {%- for f in headlineFacts %}
-      <li><span class="facts__k">{{ f.k }}</span> <a class="facts__v" href="{{ f.href }}">{{ f.v }}</a> {% badge f.status %}</li>
-      {%- endfor %}
-    </ul>
-    <p><a class="more" href="/everything-confirmed/">Everything confirmed about GTA 6, with sources</a></p>
-  </section>
-
-  <section class="section" aria-labelledby="launch-h">
-    <h2 id="launch-h">What opens on launch day</h2>
-    <p>These pages fill with data we've verified in-game, starting November 19.</p>
-    <ul class="facts">
-      {%- for l in launchDay %}
-      <li><a class="facts__v" href="{{ l.url }}">{{ l.text }}</a> <span class="pill">Opens Nov 19</span> <span class="facts__k">{{ l.note }}</span></li>
-      {%- endfor %}
-    </ul>
-  </section>
-
-  <section class="section" aria-labelledby="check-h">
-    <h2 id="check-h">Launch checklist</h2>
-    {% include "partials/launch-checklist-short.njk" %}
-  </section>
-
-  {%- set faqPage = collections.all | selectattr("url", "equalto", "/faq/") | first %}
-  {%- if faqPage and faqPage.data.faq %}
-  <section class="section" aria-labelledby="qpa-h">
-    <h2 id="qpa-h">Questions people ask</h2>
-    <div class="qpa">
-      {%- for f in faqPage.data.faq | limit(6) %}
-      <details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>
-      {%- endfor %}
-    </div>
-    <p><a class="more" href="/faq/">All GTA 6 questions, with sources</a></p>
-  </section>
-  {%- endif %}
-
-  {%- set latest = collections.news | limit(5) %}
+  {%- set latest = collections.news | limit(3) %}
   {%- if latest.length %}
-  <section class="section" aria-labelledby="news-h">
-    <h2 id="news-h">Latest news</h2>
-    <ul class="news-list">
+  <section class="home-section" aria-labelledby="latest-h">
+    <div class="home-section__head">
+      <h2 id="latest-h">Latest</h2>
+      <a href="/news/">All news →</a>
+    </div>
+    <ul class="latest">
       {%- for n in latest %}
-      <li><time datetime="{{ n.date | isoDate }}">{{ n.date | readableDate }}</time> <a href="{{ n.url }}">{{ n.data.title }}</a> {% if n.data.status %}{% badge n.data.status %}{% endif %}</li>
+      <li><time datetime="{{ n.date | isoDate }}">{{ n.date | shortDate }}</time><a href="{{ n.url }}">{{ n.data.title }}</a>{% if n.data.status %}{% badge n.data.status %}{% endif %}</li>
       {%- endfor %}
     </ul>
-    <p><a class="more" href="/news/">All GTA 6 news</a></p>
   </section>
   {%- endif %}
 
-  {% include "partials/page-meta.njk" %}
+  <section class="cta" aria-labelledby="cta-h">
+    <div class="cta__band" aria-hidden="true">
+      <svg viewBox="0 0 1440 400" preserveAspectRatio="none" focusable="false">
+        <defs>
+          <radialGradient id="cta-glow" cx="50%" cy="55%" r="55%"><stop offset="0" stop-color="#EE4B83" stop-opacity="0.22"/><stop offset="1" stop-color="#EE4B83" stop-opacity="0"/></radialGradient>
+          <linearGradient id="cta-g1" x1="0" x2="1"><stop offset="0" stop-color="#EE4B83"/><stop offset="1" stop-color="#9B5CF0"/></linearGradient>
+        </defs>
+        <rect width="1440" height="400" fill="url(#cta-glow)"/>
+        <path d="M0 120 C 300 60, 520 200, 760 150 S 1200 60, 1440 110" fill="none" stroke="url(#cta-g1)" stroke-opacity="0.35" stroke-width="1.5"/>
+        <path d="M0 210 C 280 260, 560 140, 820 200 S 1220 280, 1440 220" fill="none" stroke="#EE4B83" stroke-opacity="0.22" stroke-width="1.5"/>
+        <path d="M0 290 C 320 240, 600 330, 900 290 S 1260 230, 1440 300" fill="none" stroke="#9B5CF0" stroke-opacity="0.25" stroke-width="1.5"/>
+        <path d="M0 250 C 360 300, 640 210, 980 250 S 1300 320, 1440 260 L 1440 400 L 0 400 Z" fill="#9B5CF0" fill-opacity="0.06"/>
+      </svg>
+    </div>
+    <div class="cta__card">
+      <div>
+        <h2 id="cta-h">Be there on opening day</h2>
+        <p>One email the moment GTA 6 unlocks in your region, then the day-one guide drop. No spam.</p>
+      </div>
+      <div>
+        {% set signup = { cta: true, region: "hidden", button: "Get the unlock alert" } %}{% include "partials/email-signup.njk" %}
+        {% set shareUrl = "/" %}{% set shareLabel = "Share the countdown" %}{% include "partials/launch-actions.njk" %}
+      </div>
+    </div>
+  </section>
 </div>

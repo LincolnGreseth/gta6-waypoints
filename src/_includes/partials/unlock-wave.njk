@@ -1,15 +1,29 @@
-{#- The midnight wave. Set waveSize = "compact" for the home-page strip (default "full"). -#}
+{#- The midnight wave. waveSize = "home" (SVG curve for the homepage) or "full" (default: list on the unlock times page). -#}
 {%- set ul = site.unlock | unlockList %}
 {%- set ws = waveSize or "full" %}
 {%- if ul.same %}
 <p class="wave__lead" data-wave>{% badge site.unlock.status %} Everyone unlocks at the same moment: {{ ul.first.utc }}.</p>
-{%- elif ws == "compact" %}
-<div class="wave-mini" data-wave>
-  <div class="wave-mini__track" aria-hidden="true">
-    {%- for r in ul.regions %}<i data-wave-id="{{ r.id }}" style="--h: {{ r.hoursAfterFirst }}; --span: {{ ul.spanHours }}"></i>{%- endfor %}
+{%- elif ws == "home" %}
+<div class="wv" data-wv>
+  <div class="home-section__head">
+    <h2 id="wave-h">The midnight wave</h2>
+    <p>{{ ul.first.name }} unlocks first. {{ ul.last.name }} is last, {{ ul.spanHours }} hours later.</p>
   </div>
-  <p class="wave-mini__ends"><span>{{ ul.first.name }} first</span><span>{{ ul.last.name }} last</span></p>
-  <p>{% badge site.unlock.status %} If every store unlocks at local midnight, {{ ul.last.name }} unlocks {{ ul.spanHours }} hours after {{ ul.first.name }}. <span data-wave-mine></span> <a href="/release-date-times/#the-midnight-wave">See the full wave</a></p>
+  <div class="wv__plot">
+    <svg class="wv__line" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <defs><linearGradient id="wv-grad" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#EE4B83"/><stop offset="1" stop-color="#9B5CF0"/></linearGradient></defs>
+      <path d="{{ ul.path }}" fill="none" stroke="url(#wv-grad)" stroke-width="2" vector-effect="non-scaling-stroke"/>
+    </svg>
+    {%- for r in ul.regions %}
+    <span class="wv__node{% if loop.first %} is-first{% endif %}{% if loop.last %} is-last{% endif %}" data-wave-id="{{ r.id }}" style="left: {{ r.x }}%; top: {{ r.y }}%" title="{{ r.name }}"></span>
+    {%- endfor %}
+    <span class="wv__lbl wv__lbl--first" style="left: {{ ul.first.x }}%; top: {{ ul.first.y }}%"><b>{{ ul.first.name }}</b><time data-wv-time="{{ ul.first.at }}">{{ ul.first.utc }}</time></span>
+    <span class="wv__lbl wv__lbl--last" style="left: {{ ul.last.x }}%; top: {{ ul.last.y }}%"><b>{{ ul.last.name }}</b><time data-wv-time="{{ ul.last.at }}">{{ ul.last.utc }}</time></span>
+    <span class="wv__lbl wv__lbl--mine" data-wv-mine hidden><b></b><time></time></span>
+  </div>
+  <p class="wv__note">Unlock times shown in your time zone (<span data-wv-tz>UTC</span>).</p>
+  <p class="wv__note">{% badge site.unlock.status %}Exact unlock times aren't confirmed yet. We assume local midnight in each store region and will update the moment Rockstar says otherwise.</p>
+  <a class="pillbtn" href="/release-date-times/">All unlock times and the launch checklist →</a>
 </div>
 {%- else %}
 <p class="wave__lead">{% badge site.unlock.status %} If every store unlocks at local midnight, {{ ul.first.name }} goes first and <strong>{{ ul.last.name }} unlocks {{ ul.spanHours }} hours after {{ ul.first.name }}</strong>.</p>
