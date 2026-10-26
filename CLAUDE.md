@@ -77,7 +77,7 @@ The home page hero is a live countdown to GTA 6's launch. It's how we build mome
   "liveText": "Guides go up as we verify them in-game.",
   "liveLink": { "text": "Open the map", "url": "/map/" },
   "milestones": [
-    { "date": "2026-11-09", "label": "Take-Two earnings call", "status": "reported" },
+    { "date": "2026-11-09", "label": "Take-Two earnings call", "status": "confirmed" },
     { "date": "2026-11-12", "label": "Pre-load opens", "status": "confirmed" },
     { "date": "2026-11-19", "label": "Launch day", "status": "confirmed" },
     { "date": "2026-11-20", "label": "Pre-order bonus cutoff", "status": "confirmed" }
