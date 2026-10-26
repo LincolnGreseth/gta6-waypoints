@@ -19,7 +19,7 @@ Use trailing slashes everywhere (11ty default). Pick one URL per topic and menti
 ### Live before launch (pages that can rank now)
 | URL | What it is |
 |---|---|
-| `/` | Value prop, countdown, latest confirmed news, featured guides, email capture ("Get the day-one guide drop") |
+| `/` | One job above the fold: hero ("Completion companion."), region countdown tiles, the midnight wave, Latest (3 news rows), one CTA card with the unlock alert. Everything else lives in the right-side Menu. |
 | `/everything-confirmed/` | Living page: every confirmed fact with source and date. The pre-launch traffic magnet. |
 | `/release-date-times/` | Date, pre-load, and unlock times for 15 store regions with a region picker: assumed (Unverified) until Rockstar or the stores post them |
 | `/editions/` | Standard vs Ultimate: contents and who should buy which |

@@ -20,7 +20,7 @@
 How to apply them: an official Rockstar, Take-Two, platform-store or ratings-board source is `confirmed`. A secondary outlet clearly reporting an official announcement or store listing is still `confirmed`, but swap in the primary link when you find it. Interview remarks and an outlet's own reporting are `reported`, with the outlet named. Conflicting details stay out until one source settles them.
 
 ## Visual theme
-Miami Vice, "Ocean Drive at 2 a.m.": flat pastels on violet night. Tokens are in `src/assets/css/tokens.css`, and the full spec (palette, Kanit + Atkinson Hyperlegible, the countdown as the one loud element, what not to copy from Rockstar's branding) is in `CLAUDE.md → Theme`.
+"Midnight": near-black plum, one pink accent, a purple glow, uppercase Oswald headings, Barlow body, JetBrains Mono digits. Tokens are in `src/assets/css/tokens.css`; the full spec (palette, fonts, the 4-badge home limit, the menu, what not to copy) is in `CLAUDE.md → Theme: Midnight`.
 
 ## Front matter template
 ```yaml
@@ -59,4 +59,6 @@ og_image: /assets/og/hidden-packages.webp
 - Images: `gta-6-[topic]-[detail].webp` (for example `gta-6-hidden-package-vice-beach.webp`)
 
 ## Footer disclaimer (layout, every page)
-> GTA 6 Waypoints is an independent fan site and is not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive. Grand Theft Auto and related marks are trademarks of Take-Two Interactive Software, Inc.
+> Fan-made. Not affiliated with Rockstar Games or Take-Two Interactive. All game names and trademarks belong to their owners.
+
+Set in `site.json → disclaimer`. The fuller version (endorsement, sponsorship and the Take-Two trademark notice) stays on `/disclaimer/`.
