@@ -14,7 +14,7 @@
 {%- if noindex %}
 <meta name="robots" content="noindex">
 {%- endif %}
-<meta name="theme-color" content="#170A2E">
+<meta name="theme-color" content="#0D0812">
 <meta property="og:type" content="{{ 'article' if article else 'website' }}">
 <meta property="og:site_name" content="{{ site.name }}">
 <meta property="og:title" content="{{ pageTitle }}">
@@ -26,15 +26,13 @@
 <meta property="og:locale" content="{{ site.locale }}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Kanit:ital,wght@1,600;1,800&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Kanit:ital,wght@1,600;1,800&display=swap"></noscript>
+<link rel="preload" href="/assets/fonts/oswald-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
 <style>{% inlineCss %}</style>
 {%- include "partials/consent-analytics.njk" %}
 {%- include "partials/jsonld.njk" %}
 </head>
-<body>
+<body class="{{ 'is-home' if page.url == '/' else 'is-inner' }}">
 <a class="skip" href="#main">Skip to content</a>
 {% include "partials/header.njk" %}
 <main id="main" class="main"{% if claim %} data-page-type="claim"{% endif %}>
@@ -44,5 +42,8 @@
 <script type="application/json" id="wp-unlock">{{ { status: site.unlock.status, regions: site.unlock.regions } | json | safe }}</script>
 <script src="/assets/js/site.js" defer></script>
 <script src="/assets/js/enhance.js" defer></script>
+{%- if "data-yt=" in content or "data-aff=" in content or "data-copy-from" in content or "data-region-row" in content or "data-checklist" in content or "data-embed-promo" in content or "data-wave-id" in content and "class=\"wave\"" in content %}
+<script src="/assets/js/extras.js" defer></script>
+{%- endif %}
 </body>
 </html>

@@ -1,0 +1,24 @@
+{#- Right-side menu. Data: site.json → menu (two columns). <details> opens without JS; enhance.js adds
+    Esc / outside-click close, aria-expanded, focus return, focus trap and body scroll lock. -#}
+<details class="menu" data-menu>
+  <summary aria-label="Menu" aria-expanded="false"><span class="menu__open-label">Menu</span><span class="menu__close-label">Close</span><span class="menu__ic" aria-hidden="true"><i></i></span></summary>
+  <nav class="menu__panel" aria-label="Site menu">
+    <div class="menu__grid">
+      {%- for col in [1, 2] %}
+      <div class="menu__col">
+        {%- for g in site.menu %}{% if g.col == col %}
+        <div class="menu__group menu__group--{{ g.id }}">
+          <h2>{{ g.label }}</h2>
+          <ul>
+            {%- for item in g.items %}
+            <li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.text }}</a></li>
+            {%- endfor %}
+          </ul>
+        </div>
+        {%- endif %}{% endfor %}
+      </div>
+      {%- endfor %}
+    </div>
+    {% include "partials/social.njk" %}
+  </nav>
+</details>
