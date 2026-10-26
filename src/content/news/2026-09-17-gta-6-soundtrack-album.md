@@ -25,7 +25,7 @@ related:
 
 - {% badge "confirmed" %} Rockstar announced Grand Theft Auto VI: The Album on September 17, 2026. It was made in partnership with Atlantic Records. ([Rockstar Newswire](https://www.rockstargames.com/newswire/article/7599a881942544/announcing-grand-theft-auto-vi-the-album-coming-november-19))
 - {% badge "confirmed" %} The album has 34 original tracks and comes out November 19, the same day as the game. ([Rockstar Newswire](https://www.rockstargames.com/newswire/article/7599a881942544/announcing-grand-theft-auto-vi-the-album-coming-november-19))
-- {% badge "reported" %} Six songs are streaming now, according to GTA BOOM. ([GTA BOOM](https://www.gtaboom.com/rockstar-is-pressing-the-complete-gta-6-soundtrack-to-vinyl-for-125-7c6c))
+- {% badge "confirmed" %} The first six singles are streaming now; Rockstar's post says they were available on announcement day. ([Rockstar Newswire](https://www.rockstargames.com/newswire/article/7599a881942544/announcing-grand-theft-auto-vi-the-album-coming-november-19))
 
 ## Prices and editions
 
