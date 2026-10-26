@@ -5,8 +5,8 @@ import { join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const OUT = fileURLToPath(new URL("../_site/", import.meta.url));
-const DISCLAIMER =
-  "GTA 6 Waypoints is an independent fan site and is not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive.";
+const site = JSON.parse(readFileSync(fileURLToPath(new URL("../src/_data/site.json", import.meta.url)), "utf8"));
+const DISCLAIMER = site.disclaimer;
 const AMAZON = "As an Amazon Associate I earn from qualifying purchases.";
 
 if (!existsSync(OUT)) {
@@ -51,7 +51,13 @@ for (const file of pages) {
     if (!html.includes(AMAZON)) fail("has affiliate links but no Amazon Associates statement");
   }
 
-  if (!/data-disclaimer/.test(html) || !html.includes(DISCLAIMER)) fail("footer fan-site disclaimer missing");
+  if (!/data-disclaimer/.test(html) || !decode(html).includes(DISCLAIMER)) fail("footer fan-site disclaimer missing");
+  if (!/class="menu"/.test(html)) fail("header menu missing");
+  if (html.includes("&amp;amp;")) fail("double-escaped ampersand (&amp;amp;)");
+  if (where === "/") {
+    const badges = (html.match(/class="badge badge--/g) || []).length;
+    if (badges > 4) fail(`homepage shows ${badges} badges (max 4)`);
+  }
   if ((html.match(/<h1[\s>]/g) || []).length !== 1) fail("must have exactly one <h1>");
 
   for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
@@ -73,9 +79,14 @@ for (const file of pages) {
 
 for (const [t, where] of titles) if (where.length > 1) problems.push(`duplicate title "${t}" on ${where.join(", ")}`);
 for (const f of ["sitemap.xml", "robots.txt"]) if (!existsSync(join(OUT, f))) problems.push(`missing /${f}`);
+// Every menu and footer link resolves to a built page.
+for (const item of [...site.menu.flatMap((g) => g.items), ...site.footerLinks]) {
+  const file = join(OUT, item.url.replace(/^\//, ""), "index.html");
+  if (!existsSync(file)) problems.push(`menu/footer link ${item.url} has no built page`);
+}
 
 if (problems.length) {
   console.error(`✗ ${problems.length} problem(s) in ${pages.length} pages:\n  ` + problems.join("\n  "));
   process.exit(1);
 }
-console.log(`✓ ${pages.length} pages pass (titles, descriptions, updated, status, disclosures, disclaimer, H1, JSON-LD)`);
+console.log(`✓ ${pages.length} pages pass (titles, descriptions, updated, status, disclosures, disclaimer, menu, H1, JSON-LD, FAQ, home badges ≤4, no &amp;amp;); ${site.menu.flatMap((g) => g.items).length} menu links resolve`);

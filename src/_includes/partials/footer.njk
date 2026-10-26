@@ -1,15 +1,14 @@
 <footer class="site-footer">
   <div class="wrap">
-    <nav aria-label="Site">
-      <ul class="site-footer__nav">
-        {%- for item in site.footerNav %}
+    <div class="site-footer__row">
+      <p class="disclaimer" data-disclaimer>{{ site.disclaimer }}</p>
+      <ul class="site-footer__links">
+        {%- for item in site.footerLinks %}
         <li><a href="{{ item.url }}">{{ item.text }}</a></li>
         {%- endfor %}
       </ul>
-    </nav>
+    </div>
+    <p class="site-footer__meta"><a href="/disclaimer/#affiliate-disclosure">Affiliate disclosure</a>{% if updated %}<span>Updated <time datetime="{{ updated | isoDate }}" data-updated>{{ updated | readableDate }}</time></span>{% endif %}<span>No leaks, ever.</span></p>
     {% include "partials/social.njk" %}
-    <p class="disclaimer" data-disclaimer>GTA 6 Waypoints is an independent fan site and is not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive. Grand Theft Auto and related marks are trademarks of Take-Two Interactive Software, Inc.</p>
-    <p class="site-footer__small">As an Amazon Associate I earn from qualifying purchases. Some links on this site are affiliate links, marked "(paid link)": if you buy through one we may earn a commission at no extra cost to you. <a href="/disclaimer/">Disclosure</a></p>
-    <p class="site-footer__small">No leaks, ever. Every claim is labelled and sourced.</p>
   </div>
 </footer>

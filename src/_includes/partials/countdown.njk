@@ -1,41 +1,44 @@
-{#- Live countdown to the viewer's store-region unlock. Config: site.json → countdown + unlock.
-    Size: set cdSize = "compact" before including (default "hero"). Every region select on the page
-    shares one state through site.js (window.WP). -#}
+{#- Live countdown to the viewer's store-region unlock, as four tiles. Config: site.json → countdown + unlock.
+    Size: cdSize = "home" (default: centered tiles, no badges) or "compact" (inner pages: smaller tiles,
+    unlock line with the status badge, confirmed date line). Every region select on the page shares one
+    state through site.js (window.WP). Without JS the tiles stay hidden and the date line shows instead. -#}
 {%- set cd = site.countdown %}
-{%- set size = cdSize or "hero" %}
+{%- set size = cdSize or "home" %}
 {%- set ul = site.unlock | unlockList %}
 {%- if cd.enabled %}
-<section class="cd cd--{{ size }}" data-countdown data-target="{{ cd.target }}" data-heading="{{ cd.heading }}" data-live-heading="{{ cd.liveHeading }}" aria-labelledby="cd-h-{{ size }}">
-  {%- if size == "hero" %}
-  <div class="cd__fins" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<section class="cd cd--{{ size }}" data-countdown data-target="{{ cd.target }}" data-live-heading="{{ cd.liveHeading }}" aria-labelledby="cd-h-{{ size }}">
+  {%- if size == "home" %}
+  <h2 class="vh" id="cd-h-{{ size }}">Countdown to the GTA 6 unlock</h2>
+  <p class="cd__label" data-cd-heading>Counting down to the unlock in <b data-cd-region>your time zone</b></p>
+  {%- else %}
+  <p class="cd__heading" id="cd-h-{{ size }}" data-cd-heading>{{ cd.heading }}</p>
   {%- endif %}
-  <div class="cd__body">
-    <p class="cd__heading" id="cd-h-{{ size }}" data-cd-heading>{{ cd.heading }}</p>
-    <div class="cd__clock" role="timer" aria-live="off" aria-hidden="true" data-cd-clock>
-      <span class="cd__unit"><b data-cd="d">--</b><small>days</small></span>
-      <span class="cd__unit"><b data-cd="h">--</b><small>hrs</small></span>
-      <span class="cd__unit"><b data-cd="m">--</b><small>min</small></span>
-      <span class="cd__unit"><b data-cd="s">--</b><small>sec</small></span>
-    </div>
-    <p class="vh" aria-live="polite" data-cd-summary></p>
-    <div class="cd__live" data-cd-live hidden>
-      <p>{{ cd.liveText }}</p>
-      <a class="btn" href="{{ cd.liveLink.url }}">{{ cd.liveLink.text }}</a>
-    </div>
-    <p class="cd__unlock">{% badge site.unlock.status %} <span data-cd-unlock>Unlocks at midnight in your time zone</span></p>
-    {%- if size != "hero" %}
-    <p class="cd__date">{{ cd.dateText }} on {{ cd.platforms }} {% badge cd.status %} <a href="{{ cd.sourceUrl }}" rel="noopener">Source</a></p>
-    {%- endif %}
-    <div class="cd__region">
-      <label for="region-{{ size }}">Your store region</label>
-      <select id="region-{{ size }}" data-region-select>
-        <option value="local">Midnight in your time zone</option>
-        {%- for r in ul.regions %}
-        <option value="{{ r.id }}">{{ r.name }}</option>
-        {%- endfor %}
-      </select>
-      <p class="cd__hint">Your unlock follows your PlayStation or Xbox account region, not your device.{% if size == "hero" %} {{ site.unlock.note }}{% endif %}</p>
-    </div>
+  <div class="cd__clock" role="timer" aria-live="off" aria-hidden="true" data-cd-clock>
+    <span class="cd__unit"><b data-cd="d"></b><small>Days</small></span>
+    <span class="cd__unit"><b data-cd="h"></b><small>Hours</small></span>
+    <span class="cd__unit"><b data-cd="m"></b><small>Minutes</small></span>
+    <span class="cd__unit"><b data-cd="s"></b><small>Seconds</small></span>
+  </div>
+  <p class="vh" aria-live="polite" data-cd-summary></p>
+  <div class="cd__live" data-cd-live hidden>
+    <p>{{ cd.liveText }}</p>
+    <a class="btn" href="{{ cd.liveLink.url }}">{{ cd.liveLink.text }}</a>
+  </div>
+  {%- if size == "home" %}
+  <p class="cd__nojs">{{ cd.dateText }} on {{ cd.platforms }}. <a href="{{ cd.sourceUrl }}" rel="noopener">Rockstar's announcement</a></p>
+  {%- else %}
+  <p class="cd__unlock">{% badge site.unlock.status %} <span data-cd-unlock>Unlocks at midnight in your time zone</span></p>
+  <p class="cd__date">{{ cd.dateText }} on {{ cd.platforms }} {% badge cd.status %} <a href="{{ cd.sourceUrl }}" rel="noopener">Source</a></p>
+  {%- endif %}
+  <div class="cd__region">
+    <label for="region-{{ size }}">Your store region</label>
+    <select id="region-{{ size }}" data-region-select>
+      <option value="local">Midnight in your time zone</option>
+      {%- for r in ul.regions %}
+      <option value="{{ r.id }}">{{ r.name }} · {{ r.store24 }}</option>
+      {%- endfor %}
+    </select>
+    <p class="cd__hint">Your unlock follows the region of your PlayStation or Xbox account.</p>
   </div>
 </section>
 {%- endif %}

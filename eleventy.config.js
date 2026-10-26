@@ -29,7 +29,7 @@ export default function (eleventyConfig) {
 
   // Minify the two small scripts after each build (passthrough copies them as written).
   eleventyConfig.on("eleventy.after", async ({ dir }) => {
-    for (const f of ["site.js", "enhance.js"]) {
+    for (const f of ["site.js", "enhance.js", "extras.js"]) {
       const path = `${dir.output}/assets/js/${f}`;
       const { code } = await minify(readFileSync(path, "utf8"), { compress: true, mangle: true });
       writeFileSync(path, code);
@@ -82,6 +82,7 @@ export default function (eleventyConfig) {
     const d = toDate(value);
     return `${MONTHS[d.getUTCMonth()]} ${d.getUTCDate()}, ${d.getUTCFullYear()}`;
   });
+  eleventyConfig.addFilter("shortDate", (value) => { const d = toDate(value); return `${MONTHS[d.getUTCMonth()]} ${d.getUTCDate()}`; });
   eleventyConfig.addFilter("isoDate", (value) => toDate(value).toISOString().slice(0, 10));
   eleventyConfig.addFilter("absUrl", (path, base) => new URL(path, base).href);
   eleventyConfig.addFilter("json", (value) => JSON.stringify(value));
@@ -174,17 +175,26 @@ export default function (eleventyConfig) {
       return {
         ...r, i, t, off,
         store: `${DAYS[w.getUTCDay()]}, ${MONTHS[w.getUTCMonth()]} ${w.getUTCDate()}, ${h}:${mm} ${ap}`,
+        store24: `${DAYS[w.getUTCDay()]} ${w.getUTCDate()} ${MONTHS[w.getUTCMonth()]}, ${String(w.getUTCHours()).padStart(2, "0")}:${mm}`,
         offLabel: off === 0 ? "UTC" : offLabel,
         utc: `${MONTHS[u.getUTCMonth()]} ${u.getUTCDate()}, ${String(u.getUTCHours()).padStart(2, "0")}:${String(u.getUTCMinutes()).padStart(2, "0")} UTC`,
       };
     }).sort((a, b) => a.t - b.t || a.i - b.i);
-    const first = list[0].t, last = list[list.length - 1].t;
-    list.forEach((r) => (r.hoursAfterFirst = Math.round(((r.t - first) / 36e5) * 10) / 10));
-    return { regions: list, spanHours: Math.round(((last - first) / 36e5) * 10) / 10, same: first === last, first: list[0], last: list[list.length - 1] };
+    const first = list[0].t, last = list[list.length - 1].t, span = last - first;
+    // Wave geometry (percent of the plot): x by time, y on one smooth curve.
+    const curveY = (x) => 50 - 30 * Math.cos(2 * Math.PI * (x - 0.08));
+    list.forEach((r) => {
+      r.hoursAfterFirst = Math.round(((r.t - first) / 36e5) * 10) / 10;
+      r.x = span ? Math.round(((r.t - first) / span) * 1000) / 10 : 50;
+      r.y = Math.round(curveY(r.x / 100) * 10) / 10;
+    });
+    let path = "";
+    for (let i = 0; i <= 100; i++) path += (i ? " L" : "M") + (i * 10) + " " + curveY(i / 100).toFixed(2);
+    return { regions: list, spanHours: Math.round((span / 36e5) * 10) / 10, same: first === last, first: list[0], last: list[list.length - 1], path };
   });
 
   eleventyConfig.addCollection("news", (api) =>
-    api.getFilteredByGlob("src/content/news/*.md").sort((a, b) => b.date - a.date)
+    api.getFilteredByGlob("src/content/news/*.md").sort((a, b) => b.date - a.date || String(a.data.title).localeCompare(String(b.data.title)))
   );
   eleventyConfig.addCollection("sitemap", (api) =>
     api.getAll().filter((p) => p.url && !p.data.noindex && !p.url.endsWith(".xml") && !p.url.endsWith(".txt"))

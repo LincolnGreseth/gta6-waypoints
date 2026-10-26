@@ -1,11 +1,11 @@
 ---
-title: "GTA 6 News: Confirmed Updates, Sourced and Dated"
-description: "Every GTA 6 update we've covered, newest first. Each post is labelled Confirmed or Reported, links to its source and shows when we last checked it."
+title: "GTA 6 News: Labelled, Sourced and Dated"
+description: "Every GTA 6 story we've covered, newest first. Each post is labelled Confirmed, Reported or Rumor, links to its sources and is dated. No leaks, ever."
 layout: layouts/guide.njk
 crumb: "News"
 h1: "GTA 6 news"
-lead: "Official GTA 6 updates from Rockstar and Take-Two, newest first. Every post is labelled, sourced and dated, and we never cover leaks."
-updated: 2026-10-23
+lead: "GTA 6 news, newest first. Every post is labelled Confirmed, Reported or Rumor, sourced and dated, and we never cover leaks."
+updated: 2026-10-26
 ---
 {%- if collections.news and collections.news.length %}
 <ul class="news-list">

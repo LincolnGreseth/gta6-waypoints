@@ -25,7 +25,7 @@ gta6-site/
 │   │   └── env.js             ← build-time env (BREVO_FORM_ACTION)
 │   ├── _includes/
 │   │   ├── layouts/           ← base.njk, guide.njk, shell.njk
-│   │   └── partials/          ← header, footer, countdown, email-signup, ad-slot, sources, breadcrumbs, jsonld
+│   │   └── partials/          ← header, menu, footer, countdown, unlock-wave, email-signup, ad-slot, sources, breadcrumbs, jsonld
 │   ├── content/               ← every page lives here; URLs come from content.11tydata.js
 │   │   ├── *.md               ← top-level pages: everything-confirmed.md → /everything-confirmed/
 │   │   ├── hubs/              ← pillar pages; the folder name is dropped: hubs/map.md → /map/
@@ -33,8 +33,9 @@ gta6-site/
 │   │   ├── news/              ← dated updates: news/2026-10-15-launch-trailer.md → /news/2026-10-15-launch-trailer/
 │   │   └── guides/            ← evergreen how-to pages → /guides/<slug>/
 │   └── assets/
-│       ├── css/tokens.css     ← Miami Vice design tokens (source of truth for colour and type)
-│       ├── js/                ← site.js (countdown), enhance.js (YouTube facade + analytics events); minified at build
+│       ├── css/tokens.css     ← Midnight design tokens + self-hosted @font-face (source of truth for colour and type)
+│       ├── fonts/             ← Oswald 600, Barlow 400/600, JetBrains Mono 500 (woff2, OFL)
+│       ├── js/                ← site.js (region state, countdown, wave), enhance.js (menu, share, signup; ≤2 KB), extras.js (YouTube, table, checklist, embed promo; only where used); minified at build
 │       ├── img/, og/          ← compressed WebP; OG images 1200×630
 ├── scripts/                   ← check-pages.js + check-unlock.mjs (npm run check), brevo-schedule.mjs, og/ (OG image source HTML)
 ├── content-ops/
@@ -87,26 +88,28 @@ The home page hero is a live countdown to GTA 6's launch. It's how we build mome
 - To count down to the site's own go-live instead, change `target`, `heading` and `milestones` only.
 
 **Partial:** `src/_includes/partials/countdown.njk`, with two sizes:
-- `hero` (default): big digits plus the milestones timeline. Used on `/`.
-- `compact`: one block, no milestones. Used on shell pages (`/map/`, `/collectibles/`, `/trophies/`, `/100-percent/`, and so on) and at the top of `/everything-confirmed/`.
+- `home` (default): centered label "Counting down to the unlock in <region>", four tiles (Days, Hours, Minutes, Seconds; Seconds in pink), the region select as a pill and its caption. No milestones and no badges on the home page.
+- `compact`: smaller tiles, left-aligned, with the unlock line (`unverified` badge) and the confirmed date line. Used on shells, `/everything-confirmed/`, `/release-date-times/` and `/launch-checklist/`. Milestones live in the key-dates table on `/release-date-times/`.
 
-**Behaviour** (`src/assets/js/site.js`, vanilla, deferred, under 2 KB minified):
-- Days, hours, minutes and seconds, updating every second. Pad hours, minutes and seconds to two digits.
-- Without JS, the clock stays hidden and the date line ("Thursday, November 19, 2026 on PS5 and Xbox Series X|S" plus a status badge) still reads correctly. Never ship a frozen build-time number.
-- Accessibility: `role="timer"` and `aria-live="off"` on the clock, plus a visually hidden summary that updates once a minute. Never announce every second.
-- At zero: hide the clock, swap in `liveHeading`, `liveText` and the `liveLink` button.
-- Milestones: add `is-past` after the day ends and `is-today` on the day, using the viewer's local date.
-- Reserve the clock's height so nothing shifts on load (CLS 0). Use tabular numerals.
-- Motion: one neon "sign switching on" flicker on load, nothing else. Disable it under `prefers-reduced-motion`.
+**Behaviour** (`src/assets/js/site.js`, vanilla, deferred):
+- Days, hours, minutes and seconds in tiles, updating every second, all padded to two digits. Digits start empty (never `--`); tile size is fixed, so nothing shifts (CLS 0). JetBrains Mono, tabular numerals.
+- Without JS, the tiles and region select stay hidden and the date line reads instead. Never ship a frozen build-time number.
+- Accessibility: `role="timer"` and `aria-live="off"` on the tiles, plus a visually hidden summary that updates once a minute.
+- At zero: hide the tiles, swap in `liveHeading`, `liveText` and the `liveLink` button.
+- No animation on the countdown.
 
-## Theme: Miami Vice ("Ocean Drive at 2 a.m.")
-Tokens live in `src/assets/css/tokens.css`. Build `site.css` on top of them.
-- **Palette:** Night Drive `#170A2E` background, Dusk `#2A1450` surfaces, Flamingo `#FF3D8B` primary, Biscayne `#22E0D0` secondary, Sunset `#FF9A3C` accent, Foam `#FDF3EA` text. Dark theme only.
-- **Type:** Kanit italic (600/800) for headings, the wordmark and the countdown digits. Atkinson Hyperlegible for body. Load both from Google Fonts with `display=swap` and preconnect.
-- **The one loud element** is the countdown. Make it an Art Deco hotel sign: Flamingo digits with the `--neon` glow, next to Biscayne and Flamingo "fin" stripes that get narrower (vertical on desktop, horizontal above the clock on mobile). Keep everything else quiet: left-aligned, 68ch measure, hairline dividers, fact rows instead of a card grid.
-- **Badges** are pills. Confirmed is Biscayne, Reported is Sunset, Rumor is Flamingo with a "!", and Unverified is dimmed with a dashed border.
-- **Don't** use the GTA/Pricedown font, gradient numerals, a pink-to-orange sunset-gradient logo, official key art, or anything that could pass for Rockstar branding. Flat colour keeps us clearly a fan site. Also avoid sentence-level ALL CAPS labels and decorative numbering.
-- The wordmark is "GTA 6 Waypoints" in Kanit italic, with our own map-pin glyph.
+## Theme: Midnight
+Reference layout: a single-purpose, centered hero like gta6intel.com. We copy the layout and feel only, never their code, wordmark or words, and must never be mistakable for them or for anything official.
+- **Tokens** (`src/assets/css/tokens.css`): `--bg #0D0812`, `--surface #160E1F`, `--line rgba(255,255,255,.10)`, `--text #F4F1F7`, `--body #E9E3F0`, `--muted #9A90A6`, `--accent #EE4B83` (pink), `--accent-2 #9B5CF0` (purple), `--live #3DDC84` (status dot only), plus `--teal`/`--orange` for badges. Old Miami Vice names are aliases.
+- **Type:** Oswald 600 for H1, H2s, the wordmark and tile labels, **always uppercase** (this replaces the old "no ALL CAPS" rule for headings only; body copy stays sentence case). Barlow 400/600 for body and UI (15px base, 1.5 line-height; prose 16px). JetBrains Mono 500 with tabular numerals for countdown digits, wave times and news dates. All self-hosted woff2 with metric-matched fallbacks; Oswald and Barlow 400 preloaded.
+- **Layout:** 1320px content at 74px side padding on desktop (40px tablet, 16px phones). Home hero centered; everything below left-aligned. About 120px between home sections on desktop, 72px on phones. Inner pages: H1 `clamp(40px, 6vw, 72px)`, content at the 68ch measure.
+- **Decoration:** one soft purple radial glow top-right of the home page and the wavy band behind the home CTA card. Nothing else. No card grids, gradients on text, or extra animation.
+- **Buttons** are pills: primary pink fill, secondary 1px hairline outline. 44px minimum tap targets.
+- **Badges:** Confirmed teal, Reported orange, Rumor pink with "!", Unverified dimmed with a dashed border. **The home page shows at most 4 badges** (the wave footnote plus one per Latest row); `npm run check` enforces it.
+- **Header (every page):** wordmark "GTA 6 Waypoints" (Oswald, uppercase) with our map pin and a "Fan guide" tagline; on the right a status chip with a pulsing green dot ("Guides open Nov 19", "Nov 19" under 480px) and the Menu button. Transparent on home, sticky with a blurred background on inner pages.
+- **Menu:** `site.json → menu` (four groups, two columns). `<details>` so it works without JS; `enhance.js` adds Esc, outside click, `aria-expanded`, focus return, focus trap and scroll lock. Desktop: 400px dropdown under the button. Under 720px: a full-height sheet with the button turning into Close. Only pages that exist go in the menu; `npm run check` fails on a menu URL with no built page.
+- **Footer (every page):** one row with the fan-site disclaimer (`site.json → disclaimer`) and Privacy, Terms, Disclaimer, About, Contact; a second row with the affiliate disclosure link, "Updated <date>" and "No leaks, ever." Never remove the disclaimer.
+- **Banned:** the GTA/Pricedown font, Rockstar logos, official key art as branding, anything that could pass for Rockstar or another fan site.
 
 ## Every page must have
 - A unique `title` (60 characters or fewer) and `description` (155 or fewer) in front matter
@@ -130,7 +133,7 @@ Tokens live in `src/assets/css/tokens.css`. Build `site.css` on top of them.
 - **Store-region unlock times** live in `site.json → unlock` (`status`, `note`, 15 `regions` with ISO `at` times including the offset, DST-correct for Nov 19, 2026). Currently **assumed**: local midnight in each store region, `status: "unverified"`. `npm run check` runs `scripts/check-unlock.mjs` (midnight + real offsets while unverified, wave order matches the build).
 - **When Rockstar or the stores confirm times:** edit only `at`, `status` and `note` in `site.json`, then by hand: the `lead` and FAQ answer on `/release-date-times/`, the "What time does GTA 6 unlock?" answers on `/faq/` and `/launch-checklist/`, `docs/research/CONFIRMED_FACTS.md`, and regenerate `content-ops/brevo-unlock-alerts.md` (`node scripts/brevo-schedule.mjs .`). A single worldwide time (every `at` equal) collapses the wave to "Everyone unlocks at the same moment".
 - **Region state** (`site.js`, inlined as `#wp-unlock`): saved choice → else the viewer's UTC offset on Nov 19 matched to a region → else "Midnight in your time zone". Every `[data-region-select]` stays in sync; other components listen for the `wp:region` event (`enhance.js`). The countdown counts to the selected region's `at`.
-- **Partials:** `countdown.njk` (hero/compact, region select + unlock line), `unlock-wave.njk` (full/compact), `unlock-table.njk` (store time + UTC at build time, "Your time" by JS, tap a row to set region), `launch-checklist-short.njk`, `launch-facts.njk`, `embed-promo.njk`, `launch-actions.njk` (calendar + share).
+- **Partials:** `countdown.njk` (home/compact), `unlock-wave.njk` (home SVG curve / full list), `unlock-table.njk` (store time + UTC at build time, "Your time" by JS, tap a row to set region), `launch-checklist-short.njk`, `launch-facts.njk`, `embed-promo.njk`, `launch-actions.njk` (calendar + share).
 - **Embeds:** `/embed/countdown/` (`?region=`, `&theme=dark|transparent`, `&size=compact|wide`; old `bg=`/`size=sm|lg` still work) and `/embed/obs/` (1920×1080, transparent). Standalone pages with inline CSS/JS from `partials/embed-clock-js.njk`, no site.js, no analytics, under 15 KB. The credit link can't be turned off. Only `/embed/*` may be framed (`netlify.toml` headers).
 - **Unlock alert signup** (`email-signup.njk`): region select by default (`signup.region: "select"|"hidden"|"none"`), pre-filled from the picker. Brevo gets `REGION` + `INTEREST`; Netlify Forms gets `region` + `interest`. Sending runbook: `content-ops/brevo-unlock-alerts.md`. One signup per page.
 - **Launch checklist** (`/launch-checklist/`, plus the short version on home and the pillar page) saves ticks in localStorage. FAQPage markup must match the visible questions; `npm run check` enforces it. Google rarely shows FAQ rich results for gaming sites, so the markup is for machines, not a SERP feature.

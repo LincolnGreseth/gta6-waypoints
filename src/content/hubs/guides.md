@@ -5,7 +5,7 @@ layout: layouts/shell.njk
 crumb: "Guides"
 h1: "GTA 6 Guides: Every How-To, From Day One"
 lead: "This is the home for every Grand Theft Auto VI how-to and best-of guide on the site. The first ones go up on launch day, November 19, and each is verified in-game and dated."
-updated: 2026-10-23
+updated: 2026-10-26
 related:
   - text: "Everything confirmed about GTA 6"
     url: "/everything-confirmed/"
@@ -22,6 +22,16 @@ related:
 - How collectibles, trophies and 100% fit together
 
 Each guide gets an "Updated" date and a status badge, and links back here and to its hub.
+
+## Opening on launch day
+
+- [Interactive map](/map/): every pin verified in our own play
+- [Collectibles](/collectibles/): every category, with counts and locations
+- [Trophies & Achievements](/trophies/): unlock conditions, missables, Platinum roadmap
+- [100% checklist](/100-percent/): the master list, in the order to do it
+- [Vehicles](/vehicles/): where to find them and what they cost
+- [Money](/money/): early, mid and late-game methods, timed
+- [Heists](/heists/): setups, approaches and payouts
 
 ## Ready now
 

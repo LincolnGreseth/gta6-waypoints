@@ -6,74 +6,6 @@
   "lang": "en",
   "defaultOgImage": "/assets/og/default.png",
   "contactEmail": "",
-  "nav": [
-    {
-      "text": "Confirmed",
-      "url": "/everything-confirmed/"
-    },
-    {
-      "text": "Unlock times",
-      "url": "/release-date-times/"
-    },
-    {
-      "text": "Map",
-      "url": "/map/"
-    },
-    {
-      "text": "Collectibles",
-      "url": "/collectibles/"
-    },
-    {
-      "text": "Trophies",
-      "url": "/trophies/"
-    },
-    {
-      "text": "FAQ",
-      "url": "/faq/"
-    },
-    {
-      "text": "News",
-      "url": "/news/"
-    }
-  ],
-  "footerNav": [
-    {
-      "text": "About",
-      "url": "/about/"
-    },
-    {
-      "text": "Contact",
-      "url": "/contact/"
-    },
-    {
-      "text": "Disclaimer",
-      "url": "/disclaimer/"
-    },
-    {
-      "text": "Privacy",
-      "url": "/privacy/"
-    },
-    {
-      "text": "Terms",
-      "url": "/terms/"
-    },
-    {
-      "text": "Launch checklist",
-      "url": "/launch-checklist/"
-    },
-    {
-      "text": "Countdown widget",
-      "url": "/countdown-widget/"
-    },
-    {
-      "text": "Gear",
-      "url": "/gear/"
-    },
-    {
-      "text": "Waypoints Pro",
-      "url": "/pro/"
-    }
-  ],
   "countdown": {
     "enabled": true,
     "heading": "GTA 6 launches in",
@@ -249,5 +181,142 @@
     "tiktok": "",
     "instagram": "",
     "discord": ""
+  },
+  "menu": [
+    {
+      "id": "launch",
+      "label": "Launch",
+      "col": 1,
+      "items": [
+        {
+          "text": "Everything confirmed",
+          "url": "/everything-confirmed/"
+        },
+        {
+          "text": "Unlock times",
+          "url": "/release-date-times/"
+        },
+        {
+          "text": "Launch checklist",
+          "url": "/launch-checklist/"
+        },
+        {
+          "text": "Editions",
+          "url": "/editions/"
+        },
+        {
+          "text": "PC release",
+          "url": "/pc-release/"
+        }
+      ]
+    },
+    {
+      "id": "game",
+      "label": "The game",
+      "col": 1,
+      "items": [
+        {
+          "text": "News",
+          "url": "/news/"
+        },
+        {
+          "text": "Characters",
+          "url": "/characters/"
+        },
+        {
+          "text": "Locations",
+          "url": "/locations/"
+        },
+        {
+          "text": "FAQ",
+          "url": "/faq/"
+        }
+      ]
+    },
+    {
+      "id": "guides",
+      "label": "Guides \u00b7 open Nov 19",
+      "col": 2,
+      "items": [
+        {
+          "text": "Interactive map",
+          "url": "/map/"
+        },
+        {
+          "text": "Collectibles",
+          "url": "/collectibles/"
+        },
+        {
+          "text": "Trophies & Achievements",
+          "url": "/trophies/"
+        },
+        {
+          "text": "100% checklist",
+          "url": "/100-percent/"
+        },
+        {
+          "text": "Vehicles",
+          "url": "/vehicles/"
+        },
+        {
+          "text": "Money",
+          "url": "/money/"
+        },
+        {
+          "text": "Heists",
+          "url": "/heists/"
+        },
+        {
+          "text": "All guides",
+          "url": "/guides/"
+        }
+      ]
+    },
+    {
+      "id": "more",
+      "label": "More",
+      "col": 2,
+      "items": [
+        {
+          "text": "Countdown widget",
+          "url": "/countdown-widget/"
+        },
+        {
+          "text": "Gear",
+          "url": "/gear/"
+        },
+        {
+          "text": "Waypoints Pro",
+          "url": "/pro/"
+        }
+      ]
+    }
+  ],
+  "footerLinks": [
+    {
+      "text": "Privacy",
+      "url": "/privacy/"
+    },
+    {
+      "text": "Terms",
+      "url": "/terms/"
+    },
+    {
+      "text": "Disclaimer",
+      "url": "/disclaimer/"
+    },
+    {
+      "text": "About",
+      "url": "/about/"
+    },
+    {
+      "text": "Contact",
+      "url": "/contact/"
+    }
+  ],
+  "disclaimer": "Fan-made. Not affiliated with Rockstar Games or Take-Two Interactive. All game names and trademarks belong to their owners.",
+  "statusChip": {
+    "long": "Guides open Nov 19",
+    "short": "Nov 19"
   }
 }

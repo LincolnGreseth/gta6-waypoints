@@ -7,9 +7,13 @@
 {%- set regionMode = s.region or "select" %}
 {%- set brevo = env.brevoAction %}
 {%- set ul = site.unlock | unlockList %}
-<section class="signup{% if s.inline %} signup--inline{% endif %}" id="signup" aria-labelledby="signup-h">
+{%- if s.cta %}
+<div class="signup signup--cta" id="signup">
+{%- else %}
+<section class="signup" id="signup" aria-labelledby="signup-h">
   <h2 id="signup-h">{{ s.heading or "Get pinged the moment it unlocks" }}</h2>
   <p>{{ s.text or "One email when GTA 6 unlocks in your region, then the day-one guide drop. No spam, unsubscribe any time." }}</p>
+{%- endif %}
   {%- if brevo %}
   <form class="signup__form" method="post" action="{{ brevo }}" data-signup data-interest="{{ interest }}">
     <input type="hidden" name="locale" value="en">
@@ -40,4 +44,8 @@
     <button type="submit" class="btn">{{ s.button or "Alert me" }}</button>
   </form>
   <p class="signup__fine">{% if regionMode != "none" %}We store your store region with your email so the alert lands at your unlock time. {% endif %}<a href="/privacy/">Privacy</a></p>
+{%- if s.cta %}
+</div>
+{%- else %}
 </section>
+{%- endif %}

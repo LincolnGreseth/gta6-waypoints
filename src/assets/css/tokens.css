@@ -1,21 +1,47 @@
-/* GTA 6 Waypoints design tokens: Miami Vice ("Ocean Drive at 2 a.m.").
-   Flat pastels on violet night. No gradient numerals or sunset-gradient logos,
-   because that's Rockstar's own GTA VI branding and the site must not look official.
-   Claude Code: build site.css on top of these; don't add new hues without a reason. */
+/* GTA 6 Waypoints design tokens: "Midnight".
+   Near-black plum, one pink accent, one purple glow. Uppercase Oswald headings.
+   Never the GTA/Pricedown font, Rockstar logos or official key art: we're a fan site. */
+
+/* Self-hosted fonts (Latin subset, OFL; see /assets/fonts/LICENSE.txt) */
+@font-face { font-family: "Oswald"; src: url("/assets/fonts/oswald-600.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("/assets/fonts/barlow-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("/assets/fonts/barlow-600.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("/assets/fonts/jetbrains-mono-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+
+/* Metric-matched fallbacks (measured against the real fonts) so the swap doesn't shift layout */
+@font-face { font-family: "Oswald Fallback"; src: local("Arial"); font-weight: 600; size-adjust: 81.88%; ascent-override: 145.34%; descent-override: 35.42%; line-gap-override: 0%; }
+@font-face { font-family: "Barlow Fallback"; src: local("Arial"); font-weight: 400; size-adjust: 91.66%; ascent-override: 109.1%; descent-override: 21.82%; line-gap-override: 0%; }
+@font-face { font-family: "Barlow Fallback"; src: local("Arial"); font-weight: 600; size-adjust: 89.19%; ascent-override: 112.12%; descent-override: 22.42%; line-gap-override: 0%; }
+@font-face { font-family: "JetBrains Mono Fallback"; src: local("Courier New"); font-weight: 500; size-adjust: 99.98%; ascent-override: 102.02%; descent-override: 30%; line-gap-override: 0%; }
+
 :root {
-  --night: #170A2E;      /* page background */
-  --dusk: #2A1450;       /* raised surfaces: signup band, tables, facades */
-  --dusk-line: #42226F;  /* hairlines and borders */
-  --flamingo: #FF3D8B;   /* primary: countdown digits (neon glow), buttons, wordmark */
-  --biscayne: #22E0D0;   /* secondary: links, h2s, Confirmed badge, deco stripes */
-  --sunset: #FF9A3C;     /* warm accent: Reported badge, focus ring */
-  --foam: #FDF3EA;       /* body text */
-  --foam-dim: #C9B8DA;   /* secondary text */
+  --bg: #0D0812;                  /* page background (near-black plum) */
+  --surface: #160E1F;             /* tiles, menu, cards */
+  --line: rgba(255, 255, 255, 0.10); /* hairlines and borders */
+  --text: #F4F1F7;                /* headings and digits */
+  --body: #E9E3F0;                /* body text */
+  --muted: #9A90A6;               /* captions and labels */
+  --accent: #EE4B83;              /* pink: H1 line 2, seconds, primary button, kicker */
+  --accent-2: #9B5CF0;            /* purple: wave gradient end, glows */
+  --live: #3DDC84;                /* status dot only */
+  --teal: #2FD3C5;                /* Confirmed badge */
+  --orange: #FF9A3C;              /* Reported badge */
 
-  /* Google Fonts: Kanit (italic 600/800) + Atkinson Hyperlegible (400/700) */
-  --font-display: "Kanit", "Arial Narrow", system-ui, sans-serif;  /* headings + countdown, always italic */
-  --font-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Oswald", "Oswald Fallback", "Arial Narrow", sans-serif;     /* uppercase headings, wordmark, tile labels */
+  --font-body: "Barlow", "Barlow Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, Menlo, monospace; /* digits, times, dates */
 
-  --neon: 0 0 4px rgba(255, 61, 139, 0.9), 0 0 18px rgba(255, 61, 139, 0.55), 0 0 42px rgba(255, 61, 139, 0.3);
-  --measure: 68ch;
+  --measure: 42rem;   /* about 68 characters of Barlow at 16px; rem, not ch, so the font swap never reflows text */
+  --radius: 12px;
+
+  /* Old Miami Vice names, kept as aliases so older rules keep working */
+  --night: var(--bg);
+  --dusk: var(--surface);
+  --dusk-line: var(--line);
+  --flamingo: var(--accent);
+  --biscayne: var(--teal);
+  --sunset: var(--orange);
+  --foam: var(--text);
+  --foam-dim: var(--muted);
+  --neon: none;
 }

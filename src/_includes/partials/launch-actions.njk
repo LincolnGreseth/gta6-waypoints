@@ -3,13 +3,13 @@
 {%- set shareUrl = (shareUrl or page.url) | absUrl(site.url) %}
 <div class="actions{% if actionsInline %} actions--inline{% endif %}">
   <details class="actions__menu">
-    <summary class="{{ 'linkbtn' if actionsInline else 'btn btn--ghost' }}">Add to calendar</summary>
+    <summary class="{{ 'linkbtn' if actionsInline else 'pillbtn' }}">Add to calendar</summary>
     <ul>
       <li><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=GTA%206%20launches%20(PS5%2C%20Xbox%20Series%20X%7CS)&amp;dates=20261119/20261120&amp;details=Grand%20Theft%20Auto%20VI%20launch%20day.%20Unlock%20times%20by%20region%3A%20https%3A%2F%2Fgta6waypoints.com%2Frelease-date-times%2F" rel="noopener" target="_blank" data-cal="google">Google Calendar</a></li>
       <li><a href="/gta6-launch.ics" download data-cal="ics">Apple, Outlook or other (.ics)</a></li>
     </ul>
   </details>
-  <button type="button" class="{{ 'linkbtn' if actionsInline else 'btn btn--ghost' }}" data-share data-share-url="{{ shareUrl }}">Share</button>
+  <button type="button" class="{{ 'linkbtn' if actionsInline else 'pillbtn' }}" data-share data-share-url="{{ shareUrl }}">{{ shareLabel or "Share" }}</button>
   {%- if actionsLinks %}{{ actionsLinks | safe }}{% endif %}
   <span class="toast" role="status" aria-live="polite" data-toast></span>
 </div>

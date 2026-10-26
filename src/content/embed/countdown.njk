@@ -14,21 +14,23 @@ eleventyExcludeFromCollections: true
 <meta name="robots" content="noindex">
 <link rel="canonical" href="{{ '/release-date-times/' | absUrl(site.url) }}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@700&family=Kanit:ital,wght@1,600;1,800&display=block">
+<link rel="preload" href="/assets/fonts/jetbrains-mono-500.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-*{box-sizing:border-box}html,body{margin:0}body{font:700 14px/1.4 "Atkinson Hyperlegible",system-ui,sans-serif;color:#FDF3EA;padding:12px 16px;overflow:hidden}
-.t-dark body{background:#170A2E}.t-transparent body{background:transparent}.t-transparent p,.t-transparent small{text-shadow:0 1px 3px rgba(0,0,0,.85)}
+@font-face{font-family:Oswald;src:url(/assets/fonts/oswald-600.woff2) format("woff2");font-weight:600;font-display:block}
+@font-face{font-family:Barlow;src:url(/assets/fonts/barlow-600.woff2) format("woff2");font-weight:600;font-display:block}
+@font-face{font-family:"JetBrains Mono";src:url(/assets/fonts/jetbrains-mono-500.woff2) format("woff2");font-weight:500;font-display:block}
+*{box-sizing:border-box}html,body{margin:0}body{font:700 14px/1.4 Barlow,system-ui,sans-serif;color:#F4F1F7;padding:12px 16px;overflow:hidden}
+.t-dark body{background:#0D0812}.t-transparent body{background:transparent}.t-transparent p,.t-transparent small{text-shadow:0 1px 3px rgba(0,0,0,.85)}
 p{margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:1.4em}
-.h{font:italic 600 18px/1.4 Kanit,"Arial Narrow",sans-serif}
+.h{font:600 18px/1.4 Oswald,"Arial Narrow",sans-serif}
 .c{display:flex;gap:4%;margin:6px 0 8px;height:76px}.no-js .c{visibility:hidden}
 .c span{display:flex;flex-direction:column}
-.c b{display:block;width:1.3em;height:1em;font:italic 800 56px/1 Kanit,"Arial Narrow",sans-serif;font-variant-numeric:tabular-nums;color:#FF3D8B;text-shadow:0 0 4px rgba(255,61,139,.9),0 0 18px rgba(255,61,139,.55),0 0 42px rgba(255,61,139,.3)}
-.c small{font-size:12px;font-weight:400;color:#C9B8DA;height:16px;margin-top:4px}
-.u{color:#FDF3EA}.u i{font-style:normal;font-size:12px;color:#C9B8DA;border:1px dashed #C9B8DA;border-radius:9px;padding:0 6px;margin-right:6px}
-.cr{font-size:12px;font-weight:400;color:#C9B8DA;margin-top:6px}.cr a{color:#22E0D0}
+.c b{display:block;width:1.3em;height:1em;font:500 56px/1 "JetBrains Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;color:#F4F1F7}
+.c small{font-size:12px;font-weight:400;color:#9A90A6;height:16px;margin-top:4px}
+.u{color:#F4F1F7}.u i{font-style:normal;font-size:12px;color:#9A90A6;border:1px dashed #9A90A6;border-radius:9px;padding:0 6px;margin-right:6px}
+.cr{font-size:12px;font-weight:400;color:#9A90A6;margin-top:6px}.cr a{color:#F4F1F7}
 .s-compact .h{font-size:14px}.s-compact .c{height:52px}.s-compact .c b{font-size:36px}.s-compact .c small{font-size:11px}
+.h{text-transform:uppercase;letter-spacing:.5px}.c span:nth-child(4) b{color:#EE4B83}
 </style>
 </head>
 <body data-embed>
