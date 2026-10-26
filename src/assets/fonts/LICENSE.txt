@@ -1,0 +1,5 @@
+# Fonts
+Self-hosted woff2 (Latin subset) from Google Fonts. All three are under the SIL Open Font License 1.1 (https://openfontlicense.org).
+- Oswald 600: Vernon Adams, Kalapi Gajjar, Cyreal
+- Barlow 400/600: Jeremy Tribby
+- JetBrains Mono 500: JetBrains
