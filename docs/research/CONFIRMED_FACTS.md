@@ -2,6 +2,12 @@
 
 Researched **Oct 23, 2026** for `/everything-confirmed/`. This is source material for Claude Code to draft the page from, not the page itself.
 
+## Recheck, Oct 26, 2026 (Claude Code)
+- Rockstar Newswire checked in a browser: no new Grand Theft Auto VI posts since the Oct 15 launch trailer. Nothing new on unlock times, PC, GTA Online, file size or trailers.
+- Ignored: a "leaked" review-embargo date (Nov 18) and dozens of unofficial "unlock time" sites. No leaks, no unofficial times.
+- Primary links swapped in: Extended Look premiere times (Rockstar Newswire, Aug 6, 2026: Netflix 3 p.m. ET, YouTube and the GTA VI site 9 p.m. ET, Aug 27) and The Album (Rockstar Newswire, Sep 17, 2026: 34 original tracks, Nov 19, vinyl and CD sets).
+- Added: the first delay was announced May 2, 2025 (Rockstar Newswire: https://www.rockstargames.com/newswire/article/258aa538o412ok/grand-theft-auto-vi-is-now-coming-may-26-2026).
+
 ## Recheck, Oct 23, 2026 (Claude Code)
 - No new official announcements Oct 20–23 on unlock times, PC, GTA Online, trailers, radio or file size. The latest official post is still the Oct 15 launch trailer.
 - Changed with a new official source: Nov 9 earnings call (Reported → Confirmed, Take-Two IR); PS5 Pro Enhanced moved out of "Not confirmed" (PlayStation Store).
@@ -32,7 +38,7 @@ Researched **Oct 23, 2026** for `/everything-confirmed/`. This is source materia
 These facts are labelled Confirmed but are currently cited to a secondary outlet:
 - Supporting characters and the six regions: GamesRadar+ → Rockstar's GTA VI site (rockstargames.com/VI). Couldn't be fetched from the research environment.
 - Radio stations (Oct 9): DJ Mag → Rockstar Newswire post.
-- Extended Look premiere times: Kotaku → Rockstar's Aug 6 post on X, or the Netflix blog.
+- ~~Extended Look premiere times~~ Swapped Oct 26 for Rockstar's Aug 6 Newswire post: https://www.rockstargames.com/newswire/article/9k2kaa1o3297k9/grand-theft-auto-vi-an-extended-look
 - Goodtime State – Vice City Collection: Gfinity → Rockstar Store listing.
 - Take-Two's May 2026 reaffirmation: Screen Rant → Take-Two IR release (take2games.com/ir).
 
@@ -104,7 +110,7 @@ Rockstar hasn't published a full map or an official map size. Region guide: [GTA
 
 Everything in this first list appears in Rockstar's own videos: the 26-minute Extended Look (August 27) and the launch trailer (October 15).
 
-- **[Confirmed]** The Extended Look premiered on Netflix on August 27, 2026 at 3 p.m. ET, then on Rockstar's YouTube channel at 9 p.m. ET. [Kotaku](https://kotaku.com/gta-6-extended-look-will-premier-exclusively-on-netflix-as-fans-beg-for-trailer-3-2000722148)
+- **[Confirmed]** The Extended Look premiered on Netflix on August 27, 2026 at 3 p.m. ET, then on Rockstar's YouTube channel at 9 p.m. ET. [Rockstar Newswire, Aug 6](https://www.rockstargames.com/newswire/article/9k2kaa1o3297k9/grand-theft-auto-vi-an-extended-look)
 - **[Confirmed]** Cover-based shooting, with peek-and-shoot behind walls. [SVG](https://www.svg.com/2246094/gta-6-extended-look-gameplay-rockstar-confirmed/), [Red Bull](https://www.redbull.com/int-en/gta-6-extended-look-everything-revealed)
 - **[Confirmed]** Car and dirt-bike racing. [SVG](https://www.svg.com/2246094/gta-6-extended-look-gameplay-rockstar-confirmed/), [Red Bull](https://www.redbull.com/int-en/gta-6-extended-look-everything-revealed)
 - **[Confirmed]** Robbing convenience stores, gas stations and phone shops. [SVG](https://www.svg.com/2246094/gta-6-extended-look-gameplay-rockstar-confirmed/)
@@ -135,7 +141,7 @@ These come from interviews with Rockstar staff. They're solid, but we're labelli
 
 - **[Confirmed]** Podcasts are on demand for the first time in the series, and you can listen to radio and podcasts on foot through headphones or earbuds connected to the in-game phone. Rockstar says the full lineup runs "from Classic Rock to Talk Radio"; those stations aren't named yet. [Rockstar: Music of GTA VI](https://www.rockstargames.com/VI/music), [Game Informer](https://gameinformer.com/2026/10/08/you-can-preview-6-of-the-radio-stations-in-grand-theft-auto-vi-right-now-plus-new)
 - **[Confirmed]** **Justice** composed the official score. Their single "Flower in a Hurricane" (with Tame Impala, SZA, and King Gizzard & The Lizard Wizard) debuted with the October 15 launch trailer. [Rockstar: Music of GTA VI](https://www.rockstargames.com/VI/music)
-- **[Confirmed]** **Grand Theft Auto VI: The Album** has 34 original tracks and releases November 19 on digital, CD and vinyl. Announced September 17, 2026. [Rockstar: Music of GTA VI](https://www.rockstargames.com/VI/music), [Gematsu](https://www.gematsu.com/2026/09/grand-theft-auto-vi-the-album-announced)
+- **[Confirmed]** **Grand Theft Auto VI: The Album** has 34 original tracks and releases November 19 on digital, CD and vinyl. Announced September 17, 2026. [Rockstar: Music of GTA VI](https://www.rockstargames.com/VI/music), [Rockstar Newswire, Sep 17](https://www.rockstargames.com/newswire/article/7599a881942544/announcing-grand-theft-auto-vi-the-album-coming-november-19)
 
 ## Age ratings
 
