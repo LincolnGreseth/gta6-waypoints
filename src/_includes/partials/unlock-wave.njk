@@ -1,0 +1,21 @@
+{#- The midnight wave. Set waveSize = "compact" for the home-page strip (default "full"). -#}
+{%- set ul = site.unlock | unlockList %}
+{%- set ws = waveSize or "full" %}
+{%- if ul.same %}
+<p class="wave__lead" data-wave>{% badge site.unlock.status %} Everyone unlocks at the same moment: {{ ul.first.utc }}.</p>
+{%- elif ws == "compact" %}
+<div class="wave-mini" data-wave>
+  <div class="wave-mini__track" aria-hidden="true">
+    {%- for r in ul.regions %}<i data-wave-id="{{ r.id }}" style="--h: {{ r.hoursAfterFirst }}; --span: {{ ul.spanHours }}"></i>{%- endfor %}
+  </div>
+  <p class="wave-mini__ends"><span>{{ ul.first.name }} first</span><span>{{ ul.last.name }} last</span></p>
+  <p>{% badge site.unlock.status %} If every store unlocks at local midnight, {{ ul.last.name }} unlocks {{ ul.spanHours }} hours after {{ ul.first.name }}. <span data-wave-mine></span> <a href="/release-date-times/#the-midnight-wave">See the full wave</a></p>
+</div>
+{%- else %}
+<p class="wave__lead">{% badge site.unlock.status %} If every store unlocks at local midnight, {{ ul.first.name }} goes first and <strong>{{ ul.last.name }} unlocks {{ ul.spanHours }} hours after {{ ul.first.name }}</strong>.</p>
+<ol class="wave" aria-label="Assumed unlock order, earliest first" data-wave>
+  {%- for r in ul.regions %}
+  <li data-wave-id="{{ r.id }}" style="--h: {{ r.hoursAfterFirst }}; --span: {{ ul.spanHours }}"><span class="wave__name">{{ r.name }}</span><span class="wave__bar" aria-hidden="true"></span><span class="wave__t">{% if r.hoursAfterFirst == 0 %}First{% else %}+{{ r.hoursAfterFirst }}h{% endif %}</span></li>
+  {%- endfor %}
+</ol>
+{%- endif %}

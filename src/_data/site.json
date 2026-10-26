@@ -12,6 +12,10 @@
       "url": "/everything-confirmed/"
     },
     {
+      "text": "Unlock times",
+      "url": "/release-date-times/"
+    },
+    {
       "text": "Map",
       "url": "/map/"
     },
@@ -22,6 +26,10 @@
     {
       "text": "Trophies",
       "url": "/trophies/"
+    },
+    {
+      "text": "FAQ",
+      "url": "/faq/"
     },
     {
       "text": "News",
@@ -152,5 +160,94 @@
   },
   "affiliate": {
     "amazonTag": ""
+  },
+  "unlock": {
+    "status": "unverified",
+    "assumption": "Local midnight in each store region",
+    "note": "Rockstar hasn't posted unlock times. We're assuming local midnight in each store region and will update the moment Rockstar or the stores confirm.",
+    "regions": [
+      {
+        "id": "nz",
+        "name": "New Zealand",
+        "at": "2026-11-19T00:00:00+13:00"
+      },
+      {
+        "id": "au-east",
+        "name": "Australia (East)",
+        "at": "2026-11-19T00:00:00+11:00"
+      },
+      {
+        "id": "jp-kr",
+        "name": "Japan & Korea",
+        "at": "2026-11-19T00:00:00+09:00"
+      },
+      {
+        "id": "cn-hk-tw",
+        "name": "China, HK & Taiwan",
+        "at": "2026-11-19T00:00:00+08:00"
+      },
+      {
+        "id": "sea",
+        "name": "South-East Asia",
+        "at": "2026-11-19T00:00:00+07:00"
+      },
+      {
+        "id": "in",
+        "name": "India",
+        "at": "2026-11-19T00:00:00+05:30"
+      },
+      {
+        "id": "gulf",
+        "name": "Gulf",
+        "at": "2026-11-19T00:00:00+04:00"
+      },
+      {
+        "id": "eu-east",
+        "name": "Eastern Europe",
+        "at": "2026-11-19T00:00:00+02:00"
+      },
+      {
+        "id": "eu-cent",
+        "name": "Central Europe",
+        "at": "2026-11-19T00:00:00+01:00"
+      },
+      {
+        "id": "uk-ie",
+        "name": "UK & Ireland",
+        "at": "2026-11-19T00:00:00+00:00"
+      },
+      {
+        "id": "br",
+        "name": "Brazil",
+        "at": "2026-11-19T00:00:00-03:00"
+      },
+      {
+        "id": "us-east",
+        "name": "US East",
+        "at": "2026-11-19T00:00:00-05:00"
+      },
+      {
+        "id": "us-cent",
+        "name": "US Central",
+        "at": "2026-11-19T00:00:00-06:00"
+      },
+      {
+        "id": "us-mtn",
+        "name": "US Mountain",
+        "at": "2026-11-19T00:00:00-07:00"
+      },
+      {
+        "id": "us-west",
+        "name": "US West",
+        "at": "2026-11-19T00:00:00-08:00"
+      }
+    ]
+  },
+  "social": {
+    "youtube": "",
+    "x": "",
+    "tiktok": "",
+    "instagram": "",
+    "discord": ""
   }
 }

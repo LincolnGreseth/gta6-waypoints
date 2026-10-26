@@ -5,6 +5,18 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Framing: only the embed pages can be framed by other sites.
+# CSP frame-ancestors overrides X-Frame-Options in browsers that support both.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/embed/*"
+  [headers.values]
+    Content-Security-Policy = "frame-ancestors *"
+
 [[headers]]
   for = "/assets/*"
   [headers.values]
@@ -15,3 +27,24 @@
   [headers.values]
     Content-Type = "text/calendar; charset=utf-8"
     Content-Disposition = "attachment; filename=gta6-launch.ics"
+
+# One canonical host. Domain-scoped rules only match these exact hosts, so
+# deploy previews (deploy-preview-N--gta6-waypoints.netlify.app) keep working.
+[[redirects]]
+  from = "https://gta6-waypoints.netlify.app/*"
+  to = "https://gta6waypoints.com/:splat"
+  status = 301
+  force = true
+
+# Backup domain. Takes effect once gta6trophies.com is added to this site as a domain alias.
+[[redirects]]
+  from = "https://gta6trophies.com/*"
+  to = "https://gta6waypoints.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.gta6trophies.com/*"
+  to = "https://gta6waypoints.com/:splat"
+  status = 301
+  force = true

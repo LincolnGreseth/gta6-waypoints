@@ -4,6 +4,14 @@
   var $$ = function (s, r) { return Array.prototype.slice.call((r || d).querySelectorAll(s)); };
   var track = function (name, params) { if (window.gtag) window.gtag("event", name, params || {}); };
 
+  // Mobile nav toggle.
+  var nt = d.querySelector("[data-nav-toggle]");
+  if (nt) nt.addEventListener("click", function () {
+    var open = nt.getAttribute("aria-expanded") !== "true";
+    nt.setAttribute("aria-expanded", open);
+    d.getElementById("site-nav").classList.toggle("is-open", open);
+  });
+
   // YouTube click-to-load facade (youtube-nocookie.com, nothing loads until clicked).
   d.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest("[data-yt]");
@@ -28,51 +36,54 @@
     if (tool) track("tool_open", { tool: tool.getAttribute("data-tool") });
   });
 
-  // Unlock-time picker: preselect the viewer's region, show its time and the viewer's own clock time.
-  var sel = d.querySelector("[data-unlock-select]");
-  if (sel) {
-    var out = d.querySelector("[data-unlock-result]");
-    var tz = "";
-    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (e) {}
-    var opts = $$("option", sel), pick = null;
-    opts.forEach(function (o) { if (o.getAttribute("data-tz") === tz) pick = o; });
-    if (!pick) {
-      var mine = -new Date(Date.UTC(2026, 10, 19, 5)).getTimezoneOffset();
-      opts.forEach(function (o) {
-        var f = new Intl.DateTimeFormat("en-US", { timeZone: o.getAttribute("data-tz"), timeZoneName: "longOffset" }).format(new Date(Date.UTC(2026, 10, 19, 5)));
-        var m = f.match(/GMT([+-])(\d\d):?(\d\d)?/), off = m ? (m[1] === "-" ? -1 : 1) * (+m[2] * 60 + +(m[3] || 0)) : 0;
-        if (!pick && off === mine) pick = o;
-      });
-    }
-    if (pick) sel.value = pick.value;
-    var show = function () {
-      var o = sel.options[sel.selectedIndex], t = new Date(o.getAttribute("data-utc"));
-      var yours = t.toLocaleString(undefined, { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short" });
-      out.innerHTML = "Assumed unlock: <strong>" + o.getAttribute("data-local") + "</strong><br>Where you are: " + yours;
-      $$(".wave li").forEach(function (li, i) { li.classList.toggle("is-mine", li.querySelector(".wave__name").textContent === o.textContent); });
-    };
-    sel.addEventListener("change", show);
-    show();
-    $$("[data-unlock-region]").forEach(function (r) { if (!r.value && pick) r.value = pick.value; });
-  }
+  // Unlock regions: "Your time" column, tap-to-set rows, and highlighting the viewer's region.
+  $$("[data-region-row]").forEach(function (tr) {
+    var c = tr.querySelector("[data-yourtime]");
+    if (c && window.WP) c.textContent = window.WP.fmt(Date.parse(tr.getAttribute("data-at")));
+  });
+  d.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest("[data-set-region]");
+    if (b && window.WP) window.WP.set(b.getAttribute("data-set-region"));
+  });
+  var mark = function (r) {
+    var id = r ? r.id : "";
+    $$("[data-region-row]").forEach(function (tr) { tr.classList.toggle("is-mine", tr.getAttribute("data-region-row") === id); });
+    $$("[data-wave-id]").forEach(function (li) { li.classList.toggle("is-mine", li.getAttribute("data-wave-id") === id); });
+    $$("[data-wave-mine]").forEach(function (s) { s.textContent = r ? "Yours: " + r.name + "." : ""; });
+    $$("[data-signup-region]").forEach(function (s) { if (!s._touched) s.value = r ? r.id : "local"; });
+  };
+  d.addEventListener("wp:region", function (e) { mark(e.detail); });
+  if (window.WP) mark(window.WP.region());
+  $$("[data-signup-region]").forEach(function (s) { s.addEventListener("change", function () { s._touched = true; }); });
 
-  // Share: native share sheet where supported, links otherwise.
-  if (navigator.share) { d.documentElement.classList.add("has-share"); $$("[data-share]").forEach(function (b) { b.hidden = false; }); }
-  var copy = function (text, btn) {
+  // Share: native share sheet, or copy the link with a "Copied" toast.
+  var toast = function (el, msg) {
+    var t = el.closest(".actions") && el.closest(".actions").querySelector("[data-toast]");
+    if (!t) return;
+    t.textContent = msg; t.classList.add("is-on");
+    clearTimeout(t._t); t._t = setTimeout(function () { t.classList.remove("is-on"); t.textContent = ""; }, 1800);
+  };
+  var copy = function (text, btn, msg) {
     if (!navigator.clipboard) return;
     navigator.clipboard.writeText(text).then(function () {
+      if (msg) return toast(btn, msg);
       var was = btn.textContent; btn.textContent = "Copied"; setTimeout(function () { btn.textContent = was; }, 1600);
     });
+  };
+  var shareText = function () {
+    var r = window.WP && window.WP.region(), t = r ? Date.parse(r.at) : new Date("2026-11-19T00:00:00").getTime();
+    var days = Math.max(0, Math.ceil((t - Date.now()) / 864e5));
+    return days ? "GTA 6 unlocks in " + days + " day" + (days === 1 ? "" : "s") + ". Check your region's unlock time:" : "GTA 6 is out. Check your region's unlock time:";
   };
   d.addEventListener("click", function (e) {
     var t = e.target.closest ? e.target : null;
     if (!t) return;
     var sh = t.closest("[data-share]");
-    if (sh) { navigator.share({ title: d.title, text: sh.getAttribute("data-share-text"), url: sh.getAttribute("data-share-url") }).catch(function () {}); track("share", { method: "native" }); }
-    var net = t.closest("[data-share-net]");
-    if (net) track("share", { method: net.getAttribute("data-share-net") });
-    var cp = t.closest("[data-copy]");
-    if (cp) { copy(cp.getAttribute("data-copy"), cp); track("share", { method: "copy" }); }
+    if (sh) {
+      var url = sh.getAttribute("data-share-url"), txt = shareText();
+      if (navigator.share) { navigator.share({ title: d.title, text: txt, url: url }).catch(function () {}); track("share", { method: "native" }); }
+      else { copy(txt + " " + url, sh, "Copied"); track("share", { method: "copy" }); }
+    }
     var cf = t.closest("[data-copy-from]");
     if (cf) copy(d.getElementById(cf.getAttribute("data-copy-from")).value, cf);
     var cal = t.closest("[data-cal]");
@@ -101,22 +112,24 @@
     render();
   });
 
-  // Widget page: options update the embed code, OBS link and preview.
-  var w = d.querySelector("[data-widget]");
-  if (w) {
-    var base = w.getAttribute("data-base");
+  // Embed promo: options update the preview, embed code and OBS URL.
+  $$("[data-embed-promo]").forEach(function (w) {
+    var base = w.getAttribute("data-base"), v = function (k) { return w.querySelector('[data-ep="' + k + '"]').value; };
+    var rs = w.querySelector('[data-ep="region"]');
+    if (window.WP && window.WP.region()) rs.value = window.WP.region().id;
     var upd = function () {
-      var size = (w.querySelector("[name=w-size]:checked") || {}).value, bg = (w.querySelector("[name=w-bg]:checked") || {}).value;
-      var q = [];
-      if (size && size !== "md") q.push("size=" + size);
-      if (bg === "transparent") q.push("bg=transparent");
-      var qs = q.length ? "?" + q.join("&") : "", h = size === "sm" ? 170 : size === "lg" ? 320 : 230;
-      w.querySelector("[data-widget-code]").value = '<iframe src="' + base + qs + '" title="GTA 6 countdown" width="100%" height="' + h + '" style="border:0;max-width:640px" loading="lazy"></iframe>\n<p style="font-size:12px"><a href="' + base.replace("embed/countdown/", "") + '">GTA 6 countdown</a> by GTA 6 Waypoints</p>';
-      var pv = w.querySelector("[data-widget-preview]");
-      pv.src = "/embed/countdown/" + qs; pv.height = h;
+      var q = [], r = v("region"), t = v("theme"), z = v("size");
+      if (r) q.push("region=" + r);
+      if (t !== "dark") q.push("theme=" + t);
+      if (z !== "wide") q.push("size=" + z);
+      var qs = q.length ? "?" + q.join("&") : "", hgt = z === "compact" ? 170 : 220;
+      w.querySelector("[data-ep-code]").value = '<iframe src="' + base + "/embed/countdown/" + qs + '" title="GTA 6 countdown" width="560" height="' + hgt + '" loading="lazy" style="border:0;max-width:100%"></iframe>\n<p style="font-size:12px"><a href="' + base + '/release-date-times/">GTA 6 unlock times</a> by GTA 6 Waypoints</p>';
+      w.querySelector("[data-ep-obs]").value = base + "/embed/obs/" + (r ? "?region=" + r : "");
+      var pv = w.querySelector("[data-ep-preview]"); pv.src = "/embed/countdown/" + qs; pv.height = hgt;
     };
-    $$("input[type=radio]", w).forEach(function (r) { r.addEventListener("change", upd); });
-  }
+    $$("select", w).forEach(function (s) { s.addEventListener("change", upd); });
+    upd();
+  });
 
   $$("[data-signup]").forEach(function (f) {
     f.addEventListener("submit", function () { track("signup", { interest: f.getAttribute("data-interest") }); });

@@ -16,7 +16,7 @@ GTA 6 Waypoints runs gta6waypoints.com, an independent fan site. We're responsib
 
 ## What we collect
 
-- **Your email address**, if you sign up for our newsletter (the "day-one guide drop" and weekly roundup).
+- **Your email address and store region**, if you sign up for our unlock alert and newsletter (the unlock email, the "day-one guide drop" and the weekly roundup). The region is the PlayStation or Xbox store region you pick, or "my time zone".
 - **What you send through the contact form**: your name, email address and message.
 - **Analytics data**, once analytics is switched on: pages you visit, how you got here, your device and browser type, rough location (country or city), and events like signups or affiliate link clicks.
 - **Server logs** kept by our host: IP address, browser, requested page and time.
@@ -27,7 +27,8 @@ We don't ask for or knowingly collect sensitive data, and we don't run user acco
 
 - We use **Brevo** to store our list and send emails. Brevo processes your email address on our behalf.
 - If our Brevo form isn't available, signups are captured through **Netlify Forms** instead, and we move them into Brevo.
-- We use your email only to send the newsletter you asked for.
+- We use your email only to send the emails you asked for.
+- We store the store region you choose with your email so we can time the unlock alert to your region. We don't use it for anything else, and it isn't your location: it's the region you picked from a list.
 - Every email has an unsubscribe link. You can unsubscribe at any time, and we'll stop emailing you.
 - We don't sell, rent or share your email with anyone else for their own marketing.
 
@@ -97,7 +98,7 @@ The site isn't directed at children under 13, or under 16 in the EEA. We don't k
 
 ## How long we keep data
 
-- **Newsletter email**: until you unsubscribe, then removed from our active list.
+- **Newsletter email and store region**: until you unsubscribe, then removed from our active list.
 - **Contact messages**: as long as needed to deal with your message, then deleted.
 - **Analytics data**: kept under Google Analytics' retention setting, then deleted automatically.
 - **Server logs**: kept by Netlify for a limited period under its own policy.

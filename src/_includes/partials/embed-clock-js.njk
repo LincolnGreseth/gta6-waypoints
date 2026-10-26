@@ -1,0 +1,13 @@
+{#- Tiny clock for the embed pages (no site.js). ?region=<id>, ?theme=dark|transparent, ?size=compact|wide.
+    Old params from the first widget (bg=transparent, size=sm|lg) still work. -#}
+(function(){var d=document,R={{ site.unlock.regions | json | safe }},q=new URLSearchParams(location.search),h=d.documentElement,
+th=q.get("theme")||(q.get("bg")==="transparent"?"transparent":"dark"),sz=q.get("size");sz=sz==="sm"?"compact":sz==="lg"?"wide":sz;
+h.className="js t-"+(th==="transparent"?"transparent":"dark")+" s-"+(sz==="compact"?"compact":"wide");
+var off=function(a){var m=/([+-])(\d\d):(\d\d)$/.exec(a);return m?(m[1]=="-"?-1:1)*(m[2]*60+ +m[3]):null},r=null,id=q.get("region"),i;
+for(i=0;i<R.length;i++)if(R[i].id===id)r=R[i];
+if(!r&&!id){var o=-new Date("2026-11-19T12:00:00Z").getTimezoneOffset();for(i=0;i<R.length;i++)if(off(R[i].at)===o){r=R[i];break}}
+var T=r?Date.parse(r.at):new Date("{{ site.countdown.target }}").getTime(),$=function(x){return d.getElementById(x)},p=function(n){return n<10?"0"+n:""+n};
+var u=$("u");if(u)u.textContent="Unlocks "+new Date(T).toLocaleString(void 0,{weekday:"short",month:"short",day:"numeric",hour:"numeric",minute:"2-digit"})+" your time · "+(r?r.name+" store":"midnight in your time zone");
+function t(){var s=Math.max(0,Math.floor((T-Date.now())/1e3));if(!s){$("c").hidden=true;$("h").textContent="{{ site.countdown.liveHeading }}";return}
+$("d").textContent=Math.floor(s/864e2);$("hh").textContent=p(Math.floor(s/3600)%24);$("m").textContent=p(Math.floor(s/60)%60);$("s").textContent=p(s%60)}
+t();setInterval(t,1e3)})();

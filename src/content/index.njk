@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 title: "GTA 6 Waypoints: Map, Collectibles, Trophies & 100%"
-description: "The GTA 6 completion companion: live launch countdown, every confirmed fact with sources, and the map, collectibles and trophy guides from Nov 19."
+description: "When GTA 6 unlocks in your region, with a live countdown and unlock alert. Then the map, collectibles, trophies and 100% checklists, verified in-game."
 updated: 2026-10-23
 headlineFacts:
   - k: "Release date"
@@ -50,14 +50,22 @@ launchDay:
     url: "/guides/"
     note: "Every how-to and best-of"
 ---
-<div class="wrap">
-  {% set cdSize = "hero" %}
-  {% include "partials/countdown.njk" %}
+<div class="wrap home">
+  <section class="hero" aria-labelledby="home-h1">
+    <p class="eyebrow">Grand Theft Auto VI · November 19, 2026 {% badge "confirmed" %}</p>
+    <h1 id="home-h1">Your GTA 6 completion companion.</h1>
+    <p class="hero__line">The map, every collectible, trophy and 100% checklist, verified in-game. Opening on launch day.</p>
+    {% set cdSize = "hero" %}{% include "partials/countdown.njk" %}
+    {% set signup = { heading: "Get pinged the moment it unlocks", text: "One email when GTA 6 unlocks in your store region, then the day-one guide drop. No spam.", region: "hidden", inline: true } %}
+    {% include "partials/email-signup.njk" %}
+    {% set shareUrl = "/release-date-times/" %}{% set actionsInline = true %}{% set actionsLinks = '<a href="/release-date-times/#all-15-regions">See all 15 unlock times</a>' %}
+    {% include "partials/launch-actions.njk" %}
+    {% set actionsInline = false %}{% set actionsLinks = "" %}
+  </section>
 
-  <section class="home-intro">
-    <h1>The GTA 6 completion companion: map, collectibles, trophies and 100% checklists.</h1>
-    <p class="lead">Fast, verified, no leaks. Every claim about Grand Theft Auto VI on this site carries a status badge and a source.</p>
-    {% include "partials/page-meta.njk" %}
+  <section class="section" aria-labelledby="wave-h">
+    <h2 id="wave-h">The midnight wave</h2>
+    {% set waveSize = "compact" %}{% include "partials/unlock-wave.njk" %}
   </section>
 
   <section class="section" aria-labelledby="facts-h">
@@ -72,13 +80,31 @@ launchDay:
 
   <section class="section" aria-labelledby="launch-h">
     <h2 id="launch-h">What opens on launch day</h2>
-    <p>These pages fill with data we've verified in-game, starting November 19. Each one is live now so you can sign up for it.</p>
+    <p>These pages fill with data we've verified in-game, starting November 19.</p>
     <ul class="facts">
       {%- for l in launchDay %}
-      <li><a class="facts__v" href="{{ l.url }}">{{ l.text }}</a> <span class="facts__k">{{ l.note }}</span></li>
+      <li><a class="facts__v" href="{{ l.url }}">{{ l.text }}</a> <span class="pill">Opens Nov 19</span> <span class="facts__k">{{ l.note }}</span></li>
       {%- endfor %}
     </ul>
   </section>
+
+  <section class="section" aria-labelledby="check-h">
+    <h2 id="check-h">Launch checklist</h2>
+    {% include "partials/launch-checklist-short.njk" %}
+  </section>
+
+  {%- set faqPage = collections.all | selectattr("url", "equalto", "/faq/") | first %}
+  {%- if faqPage and faqPage.data.faq %}
+  <section class="section" aria-labelledby="qpa-h">
+    <h2 id="qpa-h">Questions people ask</h2>
+    <div class="qpa">
+      {%- for f in faqPage.data.faq | limit(6) %}
+      <details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>
+      {%- endfor %}
+    </div>
+    <p><a class="more" href="/faq/">All GTA 6 questions, with sources</a></p>
+  </section>
+  {%- endif %}
 
   {%- set latest = collections.news | limit(5) %}
   {%- if latest.length %}
@@ -93,5 +119,5 @@ launchDay:
   </section>
   {%- endif %}
 
-  {% include "partials/email-signup.njk" %}
+  {% include "partials/page-meta.njk" %}
 </div>

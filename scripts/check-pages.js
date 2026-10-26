@@ -55,7 +55,19 @@ for (const file of pages) {
   if ((html.match(/<h1[\s>]/g) || []).length !== 1) fail("must have exactly one <h1>");
 
   for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
-    try { JSON.parse(m[1]); } catch { fail("invalid JSON-LD"); }
+    let ld;
+    try { ld = JSON.parse(m[1]); } catch { fail("invalid JSON-LD"); continue; }
+    // FAQPage must match the questions people can see, both ways.
+    const faq = (ld["@graph"] || []).find((g) => g["@type"] === "FAQPage");
+    if (faq) {
+      const marked = new Set(faq.mainEntity.map((q) => q.name.trim()));
+      const main = html.split('<main')[1] || "";
+      const visible = [...main.matchAll(/<h[23][^>]*>([\s\S]*?)<\/h[23]>/g)]
+        .map((h) => decode(h[1].replace(/<[^>]+>/g, "")).trim())
+        .filter((t) => t.endsWith("?"));
+      for (const q of visible) if (!marked.has(q)) fail(`question on page but not in FAQPage JSON-LD: "${q}"`);
+      for (const q of marked) if (!visible.includes(q)) fail(`FAQPage question not visible on page: "${q}"`);
+    }
   }
 }
 

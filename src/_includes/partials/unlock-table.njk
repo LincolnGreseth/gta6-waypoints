@@ -1,0 +1,13 @@
+{#- All regions. Without JS the first three columns are complete; JS fills "Your time". -#}
+{%- set ul = site.unlock | unlockList %}
+<div class="table-wrap">
+  <table class="unlock-table">
+    <caption class="vh">GTA 6 unlock times for {{ ul.regions.length }} store regions ({{ site.unlock.status }})</caption>
+    <thead><tr><th scope="col">Store region</th><th scope="col">Store time</th><th scope="col" class="col-utc">UTC</th><th scope="col" class="col-js">Your time</th></tr></thead>
+    <tbody>
+      {%- for r in ul.regions %}
+      <tr data-region-row="{{ r.id }}" data-at="{{ r.at }}"><th scope="row"><button type="button" class="rowbtn" data-set-region="{{ r.id }}">{{ r.name }}</button></th><td>{{ r.store }} <span class="note">{{ r.offLabel }}</span></td><td class="col-utc">{{ r.utc }}</td><td class="col-js" data-yourtime></td></tr>
+      {%- endfor %}
+    </tbody>
+  </table>
+</div>

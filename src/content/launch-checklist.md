@@ -14,7 +14,7 @@ faq:
   - q: "When can I pre-load GTA 6?"
     a: "Pre-load opens at local midnight on November 12, 2026, one week before launch. Codes from physical copies can pre-load from then too, once redeemed."
   - q: "What time does GTA 6 unlock?"
-    a: "Rockstar hasn't announced unlock times. Our estimates assume local midnight on November 19 in most regions and midnight Eastern across the US, which matches the US Xbox Store listing's data. They're labelled Unverified until Rockstar or the stores confirm."
+    a: "Rockstar hasn't posted unlock times. We're assuming local midnight on November 19 in each store region, so New Zealand goes first and US West last. That's labelled Unverified until Rockstar or the stores confirm."
   - q: "Do I need to pre-order to get the bonus?"
     a: "No. The Vintage Vice City Pack comes with pre-orders and with purchases of either edition made before November 20, 2026."
   - q: "Does the physical version come with a disc?"
@@ -34,7 +34,7 @@ sources:
     url: "https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9p3h4968grsm"
 related:
   - text: "GTA 6 unlock times by region"
-    url: "/release-date-times/#unlock-times"
+    url: "/release-date-times/#all-15-regions"
   - text: "GTA 6 Standard vs Ultimate Edition"
     url: "/editions/"
   - text: "Free GTA 6 countdown widget"
@@ -54,7 +54,7 @@ related:
 <li><label><input type="checkbox" data-id="redeem"> <span><strong>Physical copy? Redeem the code the day you get it.</strong> {% badge "confirmed" %} Physical copies ship and are ready for pickup from November 12. The box holds a download code, not a disc, and codes can pre-load as soon as they're redeemed. <a href="https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions">Rockstar Support</a></span></label></li>
 <li><label><input type="checkbox" data-id="preload"> <span><strong>Start the pre-load at local midnight, November 12.</strong> {% badge "confirmed" %} <a href="https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions">Rockstar Support</a> Leave your console in rest mode with downloads allowed so it finishes on its own.</span></label></li>
 <li><label><input type="checkbox" data-id="online"> <span><strong>Stay connected on launch night.</strong> Pre-loading gets the big download out of the way, but if there's a launch-day update you'll still need to download it.</span></label></li>
-<li><label><input type="checkbox" data-id="unlock"> <span><strong>Check your unlock time.</strong> {% badge "unverified" %} Not announced yet. See our <a href="/release-date-times/#unlock-times">estimates by region</a> and the time where you are.</span></label></li>
+<li><label><input type="checkbox" data-id="unlock"> <span><strong>Check your unlock time.</strong> {% badge "unverified" %} Not announced yet. See our <a href="/release-date-times/#all-15-regions">estimates by region</a> and the time where you are.</span></label></li>
 <li><label><input type="checkbox" data-id="calendar"> <span><strong>Put it in your calendar.</strong> Use the buttons below for pre-load night and launch day.</span></label></li>
 </ol>
 

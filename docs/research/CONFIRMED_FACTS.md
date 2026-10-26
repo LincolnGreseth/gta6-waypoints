@@ -12,9 +12,9 @@ Researched **Oct 23, 2026** for `/everything-confirmed/`. This is source materia
 - Trailer IDs verified via YouTube oEmbed: all four are correct and published by Rockstar Games.
 
 ## Unlock times (assumed, Oct 23)
-- Not announced. The site shows **assumed** times: local midnight Nov 19 per store region; US nationwide at midnight Eastern (05:00 UTC). Labelled Unverified.
-- Backing data point, checked in a browser Oct 23: the US Xbox Store listing's page data has `releaseDate: 2026-11-19T05:00:00Z` for the Standard and Ultimate editions. Store metadata, not an announcement. https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9p3h4968grsm
-- Data file: `src/_data/unlock.js`.
+- Not announced. The site shows **assumed** times from `site.json → unlock`: local midnight on Nov 19 in each of 15 store regions (New Zealand first, US West last, 21 hours later). Labelled Unverified. *(Changed Oct 23 from "US nationwide at midnight Eastern" to per-zone local midnight, per Lincoln's launch-week spec.)*
+- A data point that points the other way for the US, checked in a browser Oct 23: the US Xbox Store listing's page data has `releaseDate: 2026-11-19T05:00:00Z` for the Standard and Ultimate editions. Store metadata, not an announcement. https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9p3h4968grsm
+- Config: `src/_data/site.json → unlock`. Check with `node scripts/check-unlock.mjs`.
 
 ## How the labels were applied
 - **Confirmed**: Rockstar, Take-Two, a platform store or a ratings board said it (press release, Newswire, Rockstar Support, official video, ESRB). Where only a secondary outlet was readable but it clearly reports an official Rockstar announcement or listing, it's still Confirmed, but the primary link should be swapped in when found (see "Primary links to swap in" below).
@@ -26,7 +26,7 @@ Researched **Oct 23, 2026** for `/everything-confirmed/`. This is source materia
 ## Before publishing, re-check
 - Anything that changes weekly: unlock times, PC news, GTA Online, new trailers or radio reveals.
 - Take-Two's Nov 9 earnings call could add new official info.
-- The Trailer 1 and Trailer 2 YouTube IDs (`QdBZY2fkU-0`, `VQRLujxTm3c`) came from memory, not a fetched source. Open both once to confirm before embedding.
+- ~~The Trailer 1 and Trailer 2 YouTube IDs came from memory.~~ Verified Oct 23 via YouTube oEmbed: `QdBZY2fkU-0` = "Grand Theft Auto VI Trailer 1", `VQRLujxTm3c` = "Grand Theft Auto VI Trailer 2", both published by Rockstar Games. Also verified: `tJbzMqJGH4k` (An Extended Look), `rz1B4B2yBZY` (Launch Trailer).
 
 ## Primary links to swap in
 These facts are labelled Confirmed but are currently cited to a secondary outlet:
@@ -56,7 +56,7 @@ These facts are labelled Confirmed but are currently cited to a secondary outlet
 - **[Confirmed]** GTA 6 launches **November 19, 2026** on **PlayStation 5** and **Xbox Series X|S**. [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi)
 - **[Confirmed]** The date has moved twice: from the original fall 2025 window to May 26, 2026, then to November 19, 2026. Rockstar said the extra time was to finish the game "with the level of polish you have come to expect and deserve." [Rockstar Newswire](https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026), [Variety](https://variety.com/2025/gaming/news/gta-6-release-delayed-november-2026-1236571679/)
 - **[Confirmed]** Take-Two reaffirmed the November 19 date in its May 2026 earnings report. [Take-Two IR, May 21, 2026](https://www.take2games.com/ir/news/take-two-interactive-software-inc-reports-results-fourth-2) *(primary link swapped in Oct 23)*
-- **[Confirmed]** Rockstar's official platform page lists only PS5 and Xbox Series X|S. There's no PS4 or Xbox One version listed. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
+- **[Confirmed]** Rockstar's official platform page lists only PS5 and Xbox Series X|S. There's no PS4 or Xbox One version listed, and the PlayStation Store FAQ says the game is not playable on PS4. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions), [PlayStation](https://www.playstation.com/en-us/games/grand-theft-auto-vi/)
 - **[Confirmed]** Take-Two reports its fiscal Q2 2027 results on Monday, November 9, 2026, after US markets close, with a call at 4:30 p.m. ET. That's the last scheduled investor update before launch. [Take-Two IR](https://www.take2games.com/ir/news/take-two-interactive-software-inc-report-second-quarter-fiscal-8) *(upgraded Oct 23 from Reported: official Take-Two release, Oct 13, 2026)*
 - **[Confirmed]** Take-Two also reaffirmed November 19 in its August 7, 2026 first-quarter results. [Take-Two IR](https://www.take2games.com/ir/news/take-two-interactive-software-inc-reports-results-fiscal-first-6)
 - **[Confirmed]** The PlayStation Store lists GTA 6 as **PS5 Pro Enhanced**. *(The quoted "PS5 and PS5 Pro on November 19" FAQ line could not be found on the page on Oct 23; removed.)* Sony hasn't said what the enhancements are. [PlayStation](https://www.playstation.com/en-us/games/grand-theft-auto-vi/)
@@ -78,7 +78,7 @@ Full breakdown and which one to buy: [GTA 6 editions compared](/editions/).
 
 - **[Confirmed]** Pre-orders opened at midnight local time on **June 25, 2026** on the PlayStation Store, Microsoft Store, Rockstar Games Store and retailers. [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi)
 - **[Confirmed]** **Vintage Vice City Pack:** included with pre-orders and purchases of either edition made before **November 20, 2026**. It has a '55 Vapid Stanier Sedan and garage, outfits and hairstyles, and an exclusive weapon pattern. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
-- **[Confirmed]** Digital pre-orders include **one free month of GTA+**, redeemable right away. It covers GTA Online perks and the GTA+ Games Library, which includes GTA V. [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi)
+- **[Confirmed]** Digital pre-orders include **one free month of GTA+**, redeemable right away. It covers GTA Online perks and the GTA+ Games Library, which includes GTA V. On PlayStation it must be claimed by March 31, 2027 ([PlayStation](https://www.playstation.com/en-us/games/grand-theft-auto-vi/), checked in a browser Oct 23). Physical pre-orders get the game code and the Vintage Vice City Pack but not the GTA+ month ([Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions), checked Oct 23). [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi)
 - **[Confirmed]** **Pre-load starts at local midnight on November 12, 2026.** Codes redeemed before launch can pre-load from that point too. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
 - **[Confirmed]** Physical copies ship and are available for store pickup from November 12. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
 - **[Confirmed]** PlayStation codes are region-locked; Xbox codes aren't. Rockstar recommends buying from a retailer in the same country as your console account. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)

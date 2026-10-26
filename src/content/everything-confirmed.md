@@ -119,7 +119,7 @@ Every fact below carries a status badge and a source. **Confirmed** means Rockst
 - {% badge "confirmed" %} The PlayStation Store lists the game as **PS5 Pro Enhanced**. Sony hasn't said what the enhancements are. The Xbox Store listing is tagged "Optimized for Xbox Series X|S." [PlayStation](https://www.playstation.com/en-us/games/grand-theft-auto-vi/), [Xbox Store](https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9p3h4968grsm)
 - {% badge "confirmed" %} Take-Two reports its next results on Monday, November 9, 2026 after US markets close, with a call at 4:30 p.m. ET. It's the last scheduled investor update before launch. [Take-Two IR](https://www.take2games.com/ir/news/take-two-interactive-software-inc-report-second-quarter-fiscal-8)
 
-Unlock times by region haven't been announced. We'll post them on [the release date page](/release-date-times/) as soon as Rockstar or the stores do.
+Unlock times by region haven't been announced. Our expected times for 15 store regions, labelled Unverified, are on [GTA 6 unlock times](/release-date-times/), and we'll update them as soon as Rockstar or the stores post official ones.
 
 ## Price and editions
 

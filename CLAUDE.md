@@ -20,9 +20,8 @@ gta6-site/
 │       └── CONFIRMED_FACTS.md ← labelled, sourced facts (Oct 23, 2026) for /everything-confirmed/
 ├── src/
 │   ├── _data/
-│   │   ├── site.json          ← name, url, nav, countdown, ads, analytics, affiliate tag
+│   │   ├── site.json          ← name, url, nav, countdown, unlock (15 store regions), ads, analytics, affiliate tag, social
 │   │   ├── affiliates.json    ← affiliate links used by {% aff %}
-│   │   ├── unlock.js          ← assumed unlock times for 15 store regions (status + source live here)
 │   │   └── env.js             ← build-time env (BREVO_FORM_ACTION)
 │   ├── _includes/
 │   │   ├── layouts/           ← base.njk, guide.njk, shell.njk
@@ -37,7 +36,7 @@ gta6-site/
 │       ├── css/tokens.css     ← Miami Vice design tokens (source of truth for colour and type)
 │       ├── js/                ← site.js (countdown), enhance.js (YouTube facade + analytics events); minified at build
 │       ├── img/, og/          ← compressed WebP; OG images 1200×630
-├── scripts/                   ← check-pages.js (npm run check), og/ (OG image source HTML)
+├── scripts/                   ← check-pages.js + check-unlock.mjs (npm run check), brevo-schedule.mjs, og/ (OG image source HTML)
 ├── content-ops/
 │   ├── findings-log.md        ← in-game discoveries, newest first
 │   ├── shorts/                ← Shorts scripts: YYYY-MM-DD-slug.md
@@ -128,11 +127,13 @@ Tokens live in `src/assets/css/tokens.css`. Build `site.css` on top of them.
 - Internal links: every guide links up to its hub, and every hub links down to its guides.
 
 ## Launch-week tools
-- **Unlock times** (`partials/unlock-times.njk`, data in `src/_data/unlock.js`): region picker (auto-detects the viewer's region and shows their own clock time), the "midnight wave" and a 15-region table, on `/release-date-times/#unlock-times`. Times are **assumed** (local midnight; US nationwide at midnight Eastern, matching the US Xbox Store listing's `releaseDate` data) and labelled `unverified`. When Rockstar or the stores post times: fix the regions in `unlock.js`, set `meta.status` to `confirmed`, swap `meta.sourceUrl` for the official post, and switch the countdown to `mode: "fixed"`.
-- **Embeddable countdown**: `/embed/countdown/` (layout `embed.njk`, noindex, query params `size=sm|lg`, `bg=transparent` for OBS). `/countdown-widget/` hands out the iframe code plus a credit backlink and OBS steps. Keep the credit link in the embed; it's the point of the widget.
-- **Region unlock alert**: set `signup: { regionAlert: true }` on a page. It renders only when `BREVO_FORM_ACTION` is set (adds a `REGION` select and `INTEREST=unlock-alert`), because Netlify Forms can't send segmented, scheduled email. Needs `REGION` and `INTEREST` contact attributes in Brevo. Don't promote it until Brevo is connected.
-- **Calendar + share** (`partials/launch-actions.njk`): Google Calendar link, `/gta6-launch.ics` (pre-load + launch day), Web Share API with X/Reddit/copy fallbacks. No third-party scripts. Events: `share`, `add_to_calendar`.
-- **Launch checklist** (`/launch-checklist/`): tick-off list saved in localStorage (fires `tool_open`), plus "Questions people ask" via `faq:` + `faqHeading`. FAQPage markup helps machines; Google rarely shows FAQ rich results for gaming sites, so don't count on them.
+- **Store-region unlock times** live in `site.json → unlock` (`status`, `note`, 15 `regions` with ISO `at` times including the offset, DST-correct for Nov 19, 2026). Currently **assumed**: local midnight in each store region, `status: "unverified"`. `npm run check` runs `scripts/check-unlock.mjs` (midnight + real offsets while unverified, wave order matches the build).
+- **When Rockstar or the stores confirm times:** edit only `at`, `status` and `note` in `site.json`, then by hand: the `lead` and FAQ answer on `/release-date-times/`, the "What time does GTA 6 unlock?" answers on `/faq/` and `/launch-checklist/`, `docs/research/CONFIRMED_FACTS.md`, and regenerate `content-ops/brevo-unlock-alerts.md` (`node scripts/brevo-schedule.mjs .`). A single worldwide time (every `at` equal) collapses the wave to "Everyone unlocks at the same moment".
+- **Region state** (`site.js`, inlined as `#wp-unlock`): saved choice → else the viewer's UTC offset on Nov 19 matched to a region → else "Midnight in your time zone". Every `[data-region-select]` stays in sync; other components listen for the `wp:region` event (`enhance.js`). The countdown counts to the selected region's `at`.
+- **Partials:** `countdown.njk` (hero/compact, region select + unlock line), `unlock-wave.njk` (full/compact), `unlock-table.njk` (store time + UTC at build time, "Your time" by JS, tap a row to set region), `launch-checklist-short.njk`, `launch-facts.njk`, `embed-promo.njk`, `launch-actions.njk` (calendar + share).
+- **Embeds:** `/embed/countdown/` (`?region=`, `&theme=dark|transparent`, `&size=compact|wide`; old `bg=`/`size=sm|lg` still work) and `/embed/obs/` (1920×1080, transparent). Standalone pages with inline CSS/JS from `partials/embed-clock-js.njk`, no site.js, no analytics, under 15 KB. The credit link can't be turned off. Only `/embed/*` may be framed (`netlify.toml` headers).
+- **Unlock alert signup** (`email-signup.njk`): region select by default (`signup.region: "select"|"hidden"|"none"`), pre-filled from the picker. Brevo gets `REGION` + `INTEREST`; Netlify Forms gets `region` + `interest`. Sending runbook: `content-ops/brevo-unlock-alerts.md`. One signup per page.
+- **Launch checklist** (`/launch-checklist/`, plus the short version on home and the pillar page) saves ticks in localStorage. FAQPage markup must match the visible questions; `npm run check` enforces it. Google rarely shows FAQ rich results for gaming sites, so the markup is for machines, not a SERP feature.
 
 ## Monetization
 Order (details in `docs/SITE_PLAN.md → Monetization`): affiliate links from day one → display ads once there's traffic (AdSense first, premium networks later) → Waypoints Pro 6–8 weeks after launch, only if the free tools show real repeat use. Check Rockstar's stance on paid fan tools before charging. YouTube Shorts are a traffic funnel, not revenue (10M qualified views / 90 days needed from Feb 1, 2027).
