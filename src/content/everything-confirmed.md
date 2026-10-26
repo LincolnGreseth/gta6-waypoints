@@ -9,7 +9,7 @@ status: confirmed
 claim: true
 article: true
 published: 2026-10-23
-updated: 2026-10-23
+updated: 2026-10-26
 faq:
   - q: "When does GTA 6 come out?"
     a: "Grand Theft Auto VI launches on Thursday, November 19, 2026 on PS5 and Xbox Series X|S. Rockstar confirmed the date in November 2025 and repeated it in the June 2026 pre-order announcement."
@@ -50,8 +50,8 @@ sources:
     url: "https://store.rockstargames.com/merchandise/gtavi-goodtime-state-vice-city-collection"
   - name: "Variety: GTA 6 release delayed to November 2026"
     url: "https://variety.com/2025/gaming/news/gta-6-release-delayed-november-2026-1236571679/"
-  - name: "Kotaku: Extended Look premieres on Netflix Aug 27"
-    url: "https://kotaku.com/gta-6-extended-look-will-premier-exclusively-on-netflix-as-fans-beg-for-trailer-3-2000722148"
+  - name: "Rockstar Newswire: Grand Theft Auto VI: An Extended Look (Aug 6, 2026)"
+    url: "https://www.rockstargames.com/newswire/article/9k2kaa1o3297k9/grand-theft-auto-vi-an-extended-look"
   - name: "SVG: What Rockstar showed in the Extended Look"
     url: "https://www.svg.com/2246094/gta-6-extended-look-gameplay-rockstar-confirmed/"
   - name: "Red Bull: GTA 6 Extended Look, everything revealed"
@@ -66,8 +66,10 @@ sources:
     url: "https://gameinformer.com/digital-issue/2026/09/29/the-grand-theft-auto-vi-digital-issue-is-now-live"
   - name: "Game Informer: Preview 6 of the radio stations (Oct 8, 2026)"
     url: "https://gameinformer.com/2026/10/08/you-can-preview-6-of-the-radio-stations-in-grand-theft-auto-vi-right-now-plus-new"
-  - name: "Gematsu: Grand Theft Auto VI: The Album announced"
-    url: "https://www.gematsu.com/2026/09/grand-theft-auto-vi-the-album-announced"
+  - name: "Rockstar Newswire: Announcing Grand Theft Auto VI: The Album (Sep 17, 2026)"
+    url: "https://www.rockstargames.com/newswire/article/7599a881942544/announcing-grand-theft-auto-vi-the-album-coming-november-19"
+  - name: "Rockstar Newswire: Grand Theft Auto VI is now coming May 26, 2026 (May 2, 2025)"
+    url: "https://www.rockstargames.com/newswire/article/258aa538o412ok/grand-theft-auto-vi-is-now-coming-may-26-2026"
   - name: "DJ Mag: GTA 6 radio stations and hosts"
     url: "https://djmag.com/news/gta-6-radio-stations-be-hosted-robyn-palms-trax-bad-bunny-more"
   - name: "Stevivor: Rockstar says GTA 6 single-player has no microtransactions"
@@ -113,7 +115,7 @@ Every fact below carries a status badge and a source. **Confirmed** means Rockst
 ## Release date and platforms
 
 - {% badge "confirmed" %} GTA 6 launches **November 19, 2026** on **PlayStation 5** and **Xbox Series X|S**. [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi)
-- {% badge "confirmed" %} The date has moved twice: from the original fall 2025 window to May 26, 2026, then to November 19, 2026. Rockstar said the extra time was to finish the game "with the level of polish you have come to expect and deserve." [Rockstar Newswire](https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026), [Variety](https://variety.com/2025/gaming/news/gta-6-release-delayed-november-2026-1236571679/)
+- {% badge "confirmed" %} The date has moved twice: from the original fall 2025 window to May 26, 2026 (announced May 2, 2025), then to November 19, 2026. Rockstar said the extra time was to finish the game "with the level of polish you have come to expect and deserve." [Rockstar Newswire, May 2025](https://www.rockstargames.com/newswire/article/258aa538o412ok/grand-theft-auto-vi-is-now-coming-may-26-2026), [Rockstar Newswire, Nov 2025](https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026), [Variety](https://variety.com/2025/gaming/news/gta-6-release-delayed-november-2026-1236571679/)
 - {% badge "confirmed" %} Take-Two reaffirmed November 19 in its May 21 and August 7, 2026 results. [Take-Two IR (May)](https://www.take2games.com/ir/news/take-two-interactive-software-inc-reports-results-fourth-2), [Take-Two IR (Aug)](https://www.take2games.com/ir/news/take-two-interactive-software-inc-reports-results-fiscal-first-6)
 - {% badge "confirmed" %} Rockstar's platform page lists only PS5 and Xbox Series X|S. There's no PS4 or Xbox One version, and the PlayStation Store FAQ says it isn't playable on PS4. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions), [PlayStation](https://www.playstation.com/en-us/games/grand-theft-auto-vi/)
 - {% badge "confirmed" %} The PlayStation Store lists the game as **PS5 Pro Enhanced**. Sony hasn't said what the enhancements are. The Xbox Store listing is tagged "Optimized for Xbox Series X|S." [PlayStation](https://www.playstation.com/en-us/games/grand-theft-auto-vi/), [Xbox Store](https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9p3h4968grsm)
@@ -161,7 +163,7 @@ Rockstar hasn't published a full map or an official map size. Region guide: [GTA
 
 Everything in this first list appears in Rockstar's own videos: the 26-minute Extended Look (August 27) and the launch trailer (October 15).
 
-- {% badge "confirmed" %} The Extended Look premiered on Netflix on August 27, 2026 at 3 p.m. ET, then on Rockstar's YouTube channel at 9 p.m. ET. [Kotaku](https://kotaku.com/gta-6-extended-look-will-premier-exclusively-on-netflix-as-fans-beg-for-trailer-3-2000722148)
+- {% badge "confirmed" %} The Extended Look premiered on Netflix on August 27, 2026 at 3 p.m. ET, then on Rockstar's YouTube channel at 9 p.m. ET. [Rockstar Newswire](https://www.rockstargames.com/newswire/article/9k2kaa1o3297k9/grand-theft-auto-vi-an-extended-look)
 - {% badge "confirmed" %} Cover-based shooting, with peek-and-shoot behind walls. [SVG](https://www.svg.com/2246094/gta-6-extended-look-gameplay-rockstar-confirmed/), [Red Bull](https://www.redbull.com/int-en/gta-6-extended-look-everything-revealed)
 - {% badge "confirmed" %} Car and dirt-bike racing. [SVG](https://www.svg.com/2246094/gta-6-extended-look-gameplay-rockstar-confirmed/), [Red Bull](https://www.redbull.com/int-en/gta-6-extended-look-everything-revealed)
 - {% badge "confirmed" %} Robbing convenience stores, gas stations and phone shops. [SVG](https://www.svg.com/2246094/gta-6-extended-look-gameplay-rockstar-confirmed/)
@@ -192,7 +194,7 @@ The "Reported as" column comes from [DJ Mag](https://djmag.com/news/gta-6-radio-
 
 - {% badge "confirmed" %} Podcasts are on demand for the first time in the series. You can listen to radio and podcasts on foot through headphones or earbuds connected to the in-game phone. [Rockstar: Music of GTA VI](https://www.rockstargames.com/VI/music), [Game Informer](https://gameinformer.com/2026/10/08/you-can-preview-6-of-the-radio-stations-in-grand-theft-auto-vi-right-now-plus-new)
 - {% badge "confirmed" %} **Justice** composed the official score. Their single "Flower in a Hurricane," with Tame Impala, SZA, and King Gizzard & The Lizard Wizard, debuted with the launch trailer. [Rockstar: Music of GTA VI](https://www.rockstargames.com/VI/music)
-- {% badge "confirmed" %} **Grand Theft Auto VI: The Album** has 34 original tracks and releases November 19 on digital, CD and vinyl. [Rockstar: Music of GTA VI](https://www.rockstargames.com/VI/music), [Gematsu](https://www.gematsu.com/2026/09/grand-theft-auto-vi-the-album-announced)
+- {% badge "confirmed" %} **Grand Theft Auto VI: The Album** has 34 original tracks and releases November 19 on digital, CD and vinyl. [Rockstar: Music of GTA VI](https://www.rockstargames.com/VI/music), [Rockstar Newswire](https://www.rockstargames.com/newswire/article/7599a881942544/announcing-grand-theft-auto-vi-the-album-coming-november-19)
 
 ## Age ratings
 
