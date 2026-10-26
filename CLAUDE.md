@@ -152,3 +152,6 @@ Order (details in `docs/SITE_PLAN.md → Monetization`): affiliate links from da
 
 ## Commits
 Small and descriptive: `content: add GTA 6 editions comparison`, `feat: live launch countdown`.
+
+GitHub: LincolnGreseth (Lincoln Greseth). Remote: github.com/LincolnGreseth/<repo>.
+Use 'Lincoln Greseth' in commits, PRs and author fields. Never 'Link.'
