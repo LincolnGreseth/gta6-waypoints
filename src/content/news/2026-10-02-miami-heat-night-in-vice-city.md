@@ -25,8 +25,8 @@ related:
   - text: "GTA 6 launch trailer released October 15"
     url: "/news/2026-10-15-launch-trailer/"
 ---
-<!-- TODO(source): swap in the Miami Heat's own announcement link once found -->
-<!-- TODO(source): candidates found Oct 26 and listed in sources: nba.com/heat Vice City page and the @MiamiHEAT post on X (Oct 2). Neither names Rockstar, so the label stays Reported until an editor decides. -->
+{# TODO(source): swap in the Miami Heat's own announcement link once found #}
+{# TODO(source): candidates found Oct 26 and listed in sources: nba.com/heat Vice City page and the @MiamiHEAT post on X (Oct 2). Neither names Rockstar, so the label stays Reported until an editor decides. #}
 
 ## What's happening
 

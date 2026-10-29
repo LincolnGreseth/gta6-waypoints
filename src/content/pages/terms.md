@@ -8,7 +8,7 @@ lead: "By using GTA 6 Waypoints, you agree to these terms. In short: the guides 
 updated: 2026-10-23
 signupOff: true
 ---
-<!-- TODO: Lincoln to review -->
+{# TODO: Lincoln to review #}
 
 ## Who we are
 
@@ -62,7 +62,7 @@ We may update these terms. When we do, we change the "Updated" date at the top o
 
 ## Governing law
 
-<!-- TODO: Lincoln — set governing law/jurisdiction -->
+{# TODO: Lincoln — set governing law/jurisdiction #}
 These terms are governed by the laws of the jurisdiction where the site owner is based, without regard to conflict-of-law rules.
 
 ## Contact

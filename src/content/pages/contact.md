@@ -8,7 +8,7 @@ lead: "Use the form below to send a correction, a press question or a partnershi
 updated: 2026-10-23
 signupOff: true
 ---
-<!-- TODO: Lincoln — add a public contact email to site.json → contactEmail. -->
+{# TODO: Lincoln — add a public contact email to site.json → contactEmail. #}
 
 ## What to contact us about
 

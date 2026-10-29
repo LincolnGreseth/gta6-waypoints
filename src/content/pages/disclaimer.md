@@ -8,7 +8,7 @@ lead: "GTA 6 Waypoints is an independent fan site with no connection to Rockstar
 updated: 2026-10-23
 signupOff: true
 ---
-<!-- TODO: Lincoln to review -->
+{# TODO: Lincoln to review #}
 
 ## Fan-site disclaimer
 

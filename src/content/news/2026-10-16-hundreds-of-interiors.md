@@ -21,7 +21,7 @@ related:
   - text: "GTA 6 launch trailer released October 15"
     url: "/news/2026-10-15-launch-trailer/"
 ---
-<!-- TODO(source): swap in Bloomberg's original Jason Schreier report (Oct 16, 2026) once found -->
+{# TODO(source): swap in Bloomberg's original Jason Schreier report (Oct 16, 2026) once found #}
 
 ## What Rockstar said
 

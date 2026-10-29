@@ -7,7 +7,7 @@ h1: "About GTA 6 Waypoints"
 lead: "GTA 6 Waypoints is an independent fan site that helps you finish GTA 6: the map, every collectible, every trophy and the full 100% checklist. Every claim on the site is labelled, sourced and dated, and we never publish leaks."
 updated: 2026-10-23
 ---
-<!-- TODO: Lincoln — add your name and a short bio if you want them public (helps trust). -->
+{# TODO: Lincoln — add your name and a short bio if you want them public (helps trust). #}
 
 ## What this site is
 

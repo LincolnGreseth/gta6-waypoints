@@ -8,7 +8,7 @@ lead: "We collect very little: your email if you join our list, what you send th
 updated: 2026-10-23
 signupOff: true
 ---
-<!-- TODO: Lincoln to review -->
+{# TODO: Lincoln to review #}
 
 ## Who we are
 

@@ -16,7 +16,7 @@ sources:
   - name: "Xbox Wire: Xbox Series X and S custom storage primer"
     url: "https://news.xbox.com/en-us/2020/09/24/xbox-series-x-and-xbox-series-s-custom-storage-solution-primer/"
 ---
-<!-- TODO: Publish once Rockstar (or the PS/Xbox store) posts the official file size. Then: remove noindex and eleventyExcludeFromCollections, set status: confirmed, add the size with its source, add affiliate entries for storage, set affiliate: true, and link this page from /gear/. Do not use the unofficial "676.7 GB" figure. -->
+{# TODO: Publish once Rockstar (or the PS/Xbox store) posts the official file size. Then: remove noindex and eleventyExcludeFromCollections, set status: confirmed, add the size with its source, add affiliate entries for storage, set affiliate: true, and link this page from /gear/. Do not use the unofficial "676.7 GB" figure. #}
 
 ## The official file size
 
