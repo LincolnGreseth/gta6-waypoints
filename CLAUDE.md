@@ -99,7 +99,7 @@ The home page hero is a live countdown to GTA 6's launch. It's how we build mome
 - No animation on the countdown.
 
 ## Theme: Midnight
-Reference layout: a single-purpose, centered hero like gta6intel.com. We copy the layout and feel only, never their code, wordmark or words, and must never be mistakable for them or for anything official.
+Reference layout: a single-purpose, centered hero, inspired by modern GTA fan-hub layouts. We never copy another site's code, wordmark or words, and must never be mistakable for another fan site or for anything official.
 - **Tokens** (`src/assets/css/tokens.css`): `--bg #0D0812`, `--surface #160E1F`, `--line rgba(255,255,255,.10)`, `--text #F4F1F7`, `--body #E9E3F0`, `--muted #9A90A6`, `--accent #EE4B83` (pink), `--accent-2 #9B5CF0` (purple), `--live #3DDC84` (status dot only), plus `--teal`/`--orange` for badges. Old Miami Vice names are aliases.
 - **Type:** Oswald 600 for H1, H2s, the wordmark and tile labels, **always uppercase** (this replaces the old "no ALL CAPS" rule for headings only; body copy stays sentence case). Barlow 400/600 for body and UI (15px base, 1.5 line-height; prose 16px). JetBrains Mono 500 with tabular numerals for countdown digits, wave times and news dates. All self-hosted woff2 with metric-matched fallbacks; Oswald and Barlow 400 preloaded.
 - **Layout:** 1320px content at 74px side padding on desktop (40px tablet, 16px phones). Home hero centered; everything below left-aligned. About 120px between home sections on desktop, 72px on phones. Inner pages: H1 `clamp(40px, 6vw, 72px)`, content at the 68ch measure.

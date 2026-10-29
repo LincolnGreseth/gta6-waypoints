@@ -1,4 +1,4 @@
-# Claude Code prompt: homepage redesign (GTA6Intel-style layout), right-side menu, mobile, new news
+# Claude Code prompt: homepage redesign (inspired by modern GTA fan-hub layouts), right-side menu, mobile, new news
 
 Repo: github.com/LincolnGreseth/gta6-waypoints (local folder: `gta6-site/`)
 Git author: Lincoln Greseth (GitHub username: LincolnGreseth)
@@ -9,7 +9,7 @@ You're working in the GTA 6 Waypoints repo (Eleventy 3, Netlify). Read `CLAUDE.m
 
 ## Goal
 
-The homepage is too busy. It has five fact rows, eight launch-day cards, a checklist, a separate calendar block, a signup and news, with status badges on almost every line. Rebuild it to match the layout, spacing, type scale and feel of **https://gta6intel.com/** as closely as you can. Open that page in Playwright at 1440×900 and 390×844, take screenshots, and keep them open as the reference while you work. Every other destination moves into a **Menu dropdown on the right side of the header**, and that header goes on every page.
+The homepage is too busy. It has five fact rows, eight launch-day cards, a checklist, a separate calendar block, a signup and news, with status badges on almost every line. Rebuild it with a layout, spacing, type scale and feel inspired by modern GTA fan-hub layouts: a single-purpose, centered hero with generous space. Check your work in Playwright at 1440×900 and 390×844. Every other destination moves into a **Menu dropdown on the right side of the header**, and that header goes on every page.
 
 Copy the **layout and feel only**. Don't copy their code, CSS, font files, wordmark or text. Build it yourself from the screenshots and use our own wordmark and copy, written below. We must never be mistakable for their site or for anything official.
 
@@ -19,12 +19,12 @@ Copy the **layout and feel only**. Don't copy their code, CSS, font files, wordm
 2. Create the branch `homepage-redesign` from the current HEAD.
 3. Run `npm install`, `npm run build` and `npm run check` so you have a baseline.
 
-## Part 1: Page structure (match gta6intel.com top to bottom)
+## Part 1: Page structure (inspired by modern GTA fan-hub layouts, top to bottom)
 
 The homepage should contain only these six blocks, in this order:
 
 ### 1. Header (sitewide, `partials/header.njk`)
-- **Left:** a wordmark reading `GTA 6 WAYPOINTS` in Oswald 600, uppercase, about 22px, using our existing map-pin glyph. Below it, a tiny tagline `FAN GUIDE` in the accent pink, about 10px with 0.2em letter-spacing. This mirrors how GTA6Intel stacks its logo and "Fan community" line.
+- **Left:** a wordmark reading `GTA 6 WAYPOINTS` in Oswald 600, uppercase, about 22px, using our existing map-pin glyph. Below it, a tiny tagline `FAN GUIDE` in the accent pink, about 10px with 0.2em letter-spacing.
 - **Right:** a status chip (a pill with a 1px hairline border and a small pulsing green dot) that reads `Guides open Nov 19`, followed by a **Menu** button (`Menu` plus a hamburger icon). Under 480px, shorten the chip to `Nov 19` and keep the dot.
 - Use a transparent background over the page. The header isn't sticky on the home page. On inner pages, make it sticky with a subtle blurred background.
 - Delete the current inline nav row completely.
@@ -49,7 +49,7 @@ The homepage should contain only these six blocks, in this order:
 - Add a pill button: `All unlock times and the launch checklist →` linking to `/release-date-times/`.
 
 ### 5. Latest (new, small)
-This is the one block GTA6Intel doesn't have. Keep it as quiet as the rest of the page.
+This block is our own addition to the layout. Keep it as quiet as the rest of the page.
 - H2 `LATEST` in the same style as The Midnight Wave, with an `All news →` text link on the right.
 - Show the **3 newest** items from the `news` collection as plain rows, separated by hairline dividers. Each row shows the date (muted, monospace, `Oct 16`), the title as a link, and that post's single status badge on the right. Don't use images or excerpts.
 
@@ -183,7 +183,7 @@ After adding the posts, the homepage "Latest" block should show C, D and the Oct
   - The homepage has at most 4 `.badge` elements.
   - Every page includes the footer disclaimer.
   - No page outputs `&amp;amp;`.
-- **Visual QA:** take Playwright screenshots of `/` at 390×844, 768×1024 and 1440×900, of `/map/` at 390 and 1440 with the menu **open**, and of one news post at 390. Save them to `raw/qa/2026-10-26/` (gitignored). Compare them side by side with the gta6intel.com reference screenshots and fix any layout differences in spacing, alignment, type size or tile proportions. In your summary, list anything you left different on purpose.
+- **Visual QA:** take Playwright screenshots of `/` at 390×844, 768×1024 and 1440×900, of `/map/` at 390 and 1440 with the menu **open**, and of one news post at 390. Save them to `raw/qa/2026-10-26/` (gitignored). Review them against the spec above and fix any problems in spacing, alignment, type size or tile proportions. In your summary, list anything you left different on purpose.
 - **Lighthouse (mobile):** run it on `/` and `/map/` if available locally. Report the scores.
 
 ## Part 7: Ship
@@ -191,7 +191,7 @@ After adding the posts, the homepage "Latest" block should show C, D and the Oct
 - **Commits** use the author name Lincoln Greseth. Keep them small and descriptive:
   - `style: midnight theme tokens and fonts`
   - `feat: right-side menu dropdown`
-  - `feat: gta6intel-style homepage`
+  - `feat: centered countdown homepage`
   - `content: four news posts (Oct 26)`
   - `fix: double-escaped ampersand in meta`
   - `docs: update theme and homepage spec`
