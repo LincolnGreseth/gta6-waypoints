@@ -465,3 +465,4 @@ figure.shot figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; 
 .mt__list li { padding: 8px 0; border-bottom: 1px solid var(--line); }
 .mt__list li.is-flash { background: rgba(238, 75, 131, .08); }
 .mt__meta { display: block; font-size: 13px; color: var(--muted); }
+.cd__live { margin-bottom: 28px; }
