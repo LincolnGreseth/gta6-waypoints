@@ -422,5 +422,23 @@
       "name": "GTA 6 100% checklist",
       "url": "/100-percent/"
     }
-  }
+  },
+  "ogBySection": [
+    {
+      "match": "^/news/",
+      "image": "/assets/og/news.png"
+    },
+    {
+      "match": "^/(release-date-times|launch-checklist|everything-confirmed|editions|faq|pc-release|countdown-widget)/",
+      "image": "/assets/og/launch.png"
+    },
+    {
+      "match": "^/(map|collectibles|trophies|100-percent|vehicles|money|heists|guides)/",
+      "image": "/assets/og/guides.png"
+    },
+    {
+      "match": "^/gear/",
+      "image": "/assets/og/gear.png"
+    }
+  ]
 }

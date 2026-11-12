@@ -7,7 +7,7 @@
 {%- set pageTitle = metaTitle or title or site.name %}
 {%- set pageDesc = description or site.description %}
 {%- set canonical = page.url | absUrl(site.url) %}
-{%- set ogImage = (og_image or site.defaultOgImage) | absUrl(site.url) %}
+{%- set ogImage = (og_image or (page.url | ogFor(site.ogBySection)) or site.defaultOgImage) | absUrl(site.url) %}
 <title>{{ pageTitle }}</title>
 <meta name="description" content="{{ pageDesc }}">
 <link rel="canonical" href="{{ canonical }}">
@@ -26,6 +26,8 @@
 <meta property="og:locale" content="{{ site.locale }}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="{{ site.name }}: GTA 6 news" href="/feed.xml">
 <link rel="preload" href="/assets/fonts/oswald-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
