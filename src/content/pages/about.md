@@ -5,7 +5,7 @@ layout: layouts/guide.njk
 crumb: "About"
 h1: "About GTA 6 Waypoints"
 lead: "GTA 6 Waypoints is an independent fan site that helps you finish GTA 6: the map, every collectible, every trophy and the full 100% checklist. Every claim on the site is labelled, sourced and dated, and we never publish leaks."
-updated: 2026-10-23
+updated: 2026-11-12
 ---
 {# TODO: Lincoln — add your name and a short bio if you want them public (helps trust). #}
 
@@ -55,6 +55,15 @@ From November 19, we play the game and check every guide against it:
 4. If a patch changes something, we retest it and move the "Updated" date.
 
 Spotted a mistake? [Tell us](/contact/), ideally with a source or a screenshot. We fix errors quickly and update the date.
+
+## Follow along
+
+We post short launch-week videos and updates here:
+
+- [GTA Waypoints on YouTube](https://www.youtube.com/@GTAwaypoints): Shorts made from our own screen recordings of the site's tools.
+- [GTA 6 Waypoints on Facebook](https://www.facebook.com/profile.php?id=61596455823083): new guides and news as they go up.
+
+Both are fan accounts, run by the same people as this site, and not affiliated with Rockstar Games or Take-Two Interactive.
 
 ## Independence
 

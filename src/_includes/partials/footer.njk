@@ -1,3 +1,4 @@
+{%- if page.url == "/" %}{% set footerUpdated = collections.all | latestUpdated %}{% endif %}
 <footer class="site-footer">
   <div class="wrap">
     <div class="site-footer__row">
@@ -8,7 +9,9 @@
         {%- endfor %}
       </ul>
     </div>
-    <p class="site-footer__meta"><a href="/disclaimer/#affiliate-disclosure">Affiliate disclosure</a>{% if updated %}<span>Updated <time datetime="{{ updated | isoDate }}" data-updated>{{ updated | readableDate }}</time></span>{% endif %}<span>No leaks, ever.</span></p>
-    {% include "partials/social.njk" %}
+    <div class="site-footer__row site-footer__row--meta">
+      <p class="site-footer__meta"><a href="/disclaimer/#affiliate-disclosure">Affiliate disclosure</a>{% if footerUpdated or updated %}<span>Updated <time datetime="{{ (footerUpdated or updated) | isoDate }}" data-updated>{{ (footerUpdated or updated) | readableDate }}</time></span>{% endif %}<span>No leaks, ever.</span></p>
+      {% set socialStyle = "icons" %}{% include "partials/social.njk" %}
+    </div>
   </div>
 </footer>
