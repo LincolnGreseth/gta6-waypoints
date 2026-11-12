@@ -11,6 +11,14 @@ layout: layouts/base.njk
     {% include "partials/page-meta.njk" %}
   </header>
   <div class="prose">
+    {%- if steps and steps.length %}
+    <h2 id="steps">Step by step</h2>
+    <ol class="steps">
+      {%- for s in steps %}
+      <li><strong>{{ s.name }}.</strong> {{ s.text }}</li>
+      {%- endfor %}
+    </ol>
+    {%- endif %}
     {{ content | safe }}
   </div>
   {%- set sh = short | shortInfo %}
@@ -32,6 +40,9 @@ layout: layouts/base.njk
     <p>{{ f.a }}{% if f.more %} <a href="{{ f.more }}">Full answer</a>{% endif %}</p>
     {%- endfor %}
   </section>
+  {%- endif %}
+  {%- if hub and site.hubs and site.hubs[hub] %}
+  <p class="hub-link">Part of <a href="{{ site.hubs[hub].url }}">{{ site.hubs[hub].name }}</a></p>
   {%- endif %}
   {%- if related and related.length %}
   <nav class="related" aria-labelledby="related-h">
