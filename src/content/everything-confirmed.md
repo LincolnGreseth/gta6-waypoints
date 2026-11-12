@@ -112,7 +112,7 @@ related:
 
 <div class="changed" id="what-changed">
 
-### What changed since Oct 26
+## What changed since Oct 26
 
 *Updated Nov 12, 2026.*
 
