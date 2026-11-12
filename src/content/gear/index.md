@@ -4,11 +4,11 @@ description: "Controllers, headsets and capture cards for playing and recording 
 layout: layouts/guide.njk
 crumb: "Gear"
 h1: "GTA 6: Best Controllers, Headsets & Capture Gear"
-lead: "You don't need extra hardware to play Grand Theft Auto VI: Rockstar has only said it runs on PS5 and Xbox Series X|S, and it hasn't published any accessory or storage requirements. If you want a better controller, a headset for the radio, or a way to record your runs, these are the official and well-known options, with specs taken from each maker's own page."
+lead: "You don't need extra hardware to play Grand Theft Auto VI on PS5 or Xbox Series X|S, but you do need up to 212 GB of free space, per Rockstar. If you want a better controller, a headset for the radio, or a way to record your runs, these are the official and well-known options, with specs taken from each maker's own page."
 status: confirmed
 claim: true
 affiliate: true
-updated: 2026-10-23
+updated: 2026-11-12
 sources:
   - name: "Rockstar Support: Grand Theft Auto VI platforms, editions and versions"
     url: "https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions"
@@ -103,4 +103,4 @@ Start with what your console already does. You only need a capture card for long
 
 ## Storage
 
-Rockstar hasn't published GTA 6's file size or storage requirements. We'll add a storage guide here once it does, instead of guessing.
+{% badge "confirmed" %} The pre-load needs up to 212 GB, depending on your console. [Rockstar Newswire](https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10) How to check your space and what to buy if you're short: [GTA 6 storage](/gear/storage/).

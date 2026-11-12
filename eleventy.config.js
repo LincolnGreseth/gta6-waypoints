@@ -82,6 +82,24 @@ export default function (eleventyConfig) {
     const d = toDate(value);
     return `${MONTHS[d.getUTCMonth()]} ${d.getUTCDate()}, ${d.getUTCFullYear()}`;
   });
+  // Newest `updated` across every page: the home footer's "Updated" date.
+  eleventyConfig.addFilter("latestUpdated", (pages) => {
+    let max = 0;
+    for (const p of pages || []) { const u = p.data && p.data.updated; if (u && !p.data.noindex) { const t = toDate(u).getTime(); if (t > max) max = t; } }
+    return max ? new Date(max) : null;
+  });
+  // `short:` front matter → { url, id, isShort }. A youtube.com/shorts/ URL renders as a plain link;
+  // a normal YouTube URL or bare 11-character ID renders with the click-to-load facade.
+  eleventyConfig.addFilter("shortInfo", (v) => {
+    if (!v) return null;
+    const s = String(v).trim();
+    let m = s.match(/youtube\.com\/shorts\/([\w-]{11})/);
+    if (m) return { url: `https://www.youtube.com/shorts/${m[1]}`, id: m[1], isShort: true };
+    m = s.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/) || s.match(/^([\w-]{11})$/);
+    if (m) return { url: `https://www.youtube.com/watch?v=${m[1]}`, id: m[1], isShort: false };
+    return /^https:\/\//.test(s) ? { url: s, id: null, isShort: true } : null;
+  });
+  eleventyConfig.addFilter("rssDate", (value) => toDate(value).toUTCString());
   eleventyConfig.addFilter("shortDate", (value) => { const d = toDate(value); return `${MONTHS[d.getUTCMonth()]} ${d.getUTCDate()}`; });
   eleventyConfig.addFilter("isoDate", (value) => toDate(value).toISOString().slice(0, 10));
   eleventyConfig.addFilter("absUrl", (path, base) => new URL(path, base).href);
@@ -121,7 +139,8 @@ export default function (eleventyConfig) {
   // JSON-LD graph for a page. `o` comes from partials/jsonld.njk.
   eleventyConfig.addFilter("jsonld", (o) => {
     const abs = (p) => new URL(p, o.siteUrl).href;
-    const org = { "@type": "Organization", "@id": abs("/#org"), name: o.siteName, url: abs("/"), logo: abs("/favicon.svg") };
+    const sameAs = Object.values(o.social || {}).filter(Boolean);
+    const org = { "@type": "Organization", "@id": abs("/#org"), name: o.siteName, url: abs("/"), logo: abs("/favicon.svg"), ...(sameAs.length ? { sameAs } : {}) };
     const graph = [];
     if (o.home) {
       graph.push({ "@type": "WebSite", "@id": abs("/#website"), name: o.siteName, url: abs("/"), description: o.description, inLanguage: "en", publisher: { "@id": org["@id"] } });
@@ -159,6 +178,7 @@ export default function (eleventyConfig) {
 
   // Unlock regions → sorted by instant, with build-time display strings and the wave gap.
   // `at` is an ISO string with offset, so no time-zone database is needed here.
+  const MONTHS_LONG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   eleventyConfig.addFilter("unlockList", (unlock) => {
     const list = unlock.regions.map((r, i) => {
@@ -196,6 +216,20 @@ export default function (eleventyConfig) {
   eleventyConfig.addCollection("news", (api) =>
     api.getFilteredByGlob("src/content/news/*.md").sort((a, b) => b.date - a.date || String(a.data.title).localeCompare(String(b.data.title)))
   );
+  // Home "Latest": posts with `pinned: true` first (newest first), then the rest, newest first.
+  eleventyConfig.addCollection("newsHome", (api) => {
+    const all = api.getFilteredByGlob("src/content/news/*.md").sort((a, b) => b.date - a.date || String(a.data.title).localeCompare(String(b.data.title)));
+    return [...all.filter((p) => p.data.pinned), ...all.filter((p) => !p.data.pinned)];
+  });
+  eleventyConfig.addFilter("byMonth", (posts) => {
+    const groups = [];
+    for (const p of posts) {
+      const label = `${MONTHS_LONG[p.date.getUTCMonth()]} ${p.date.getUTCFullYear()}`;
+      if (!groups.length || groups.at(-1).label !== label) groups.push({ label, id: label.toLowerCase().replace(/\s+/g, "-"), posts: [] });
+      groups.at(-1).posts.push(p);
+    }
+    return groups;
+  });
   eleventyConfig.addCollection("sitemap", (api) =>
     api.getAll().filter((p) => p.url && !p.data.noindex && !p.url.endsWith(".xml") && !p.url.endsWith(".txt"))
   );

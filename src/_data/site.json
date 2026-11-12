@@ -13,7 +13,7 @@
     "mode": "local",
     "dateText": "Thursday, November 19, 2026",
     "platforms": "PS5 and Xbox Series X|S",
-    "note": "Rockstar hasn't posted regional unlock times yet, so this counts down to midnight where you are.",
+    "note": "Rockstar says GTA 6 unlocks at midnight local time on November 19 in all regions. This counts down to the unlock in the store region you pick.",
     "status": "confirmed",
     "sourceUrl": "https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi",
     "liveHeading": "GTA 6 is out",
@@ -25,22 +25,42 @@
     "milestones": [
       {
         "date": "2026-11-09",
-        "label": "Take-Two earnings call",
+        "label": "Take-Two earnings: Nov 19 held",
+        "status": "confirmed"
+      },
+      {
+        "date": "2026-11-10",
+        "label": "Pre-load opened (PS5 local midnight, Xbox 00:00 GMT)",
         "status": "confirmed"
       },
       {
         "date": "2026-11-12",
-        "label": "Pre-load opens",
+        "label": "Code-in-box copies at retailers",
         "status": "confirmed"
       },
       {
         "date": "2026-11-19",
-        "label": "Launch day",
+        "label": "Launch day: midnight local time",
+        "status": "confirmed"
+      },
+      {
+        "date": "2026-11-19",
+        "label": "Xbox Cloud Gaming streaming from 1am ET",
         "status": "confirmed"
       },
       {
         "date": "2026-11-20",
-        "label": "Pre-order bonus cutoff",
+        "label": "Pre-order bonus ends (buy before Nov 20)",
+        "status": "confirmed"
+      },
+      {
+        "date": "2026-11-21",
+        "label": "Grand Theft Auto VI: The Festival, Miami",
+        "status": "confirmed"
+      },
+      {
+        "date": "2026-12-11",
+        "label": "Justice original score album",
         "status": "confirmed"
       }
     ]
@@ -94,89 +114,113 @@
     "amazonTag": ""
   },
   "unlock": {
-    "status": "unverified",
-    "assumption": "Local midnight in each store region",
-    "note": "Rockstar hasn't posted unlock times. We're assuming local midnight in each store region and will update the moment Rockstar or the stores confirm.",
+    "status": "confirmed",
+    "assumption": "Midnight local time in every region (Rockstar). In countries that span time zones (US, Australia, Brazil) we show each zone at its own midnight; that split isn’t confirmed.",
+    "note": "Rockstar Support: GTA 6 “will release midnight local time on November 19, 2026, in all regions” on PS5 and Xbox Series X|S. Rockstar hasn’t said how that works in countries with several time zones, so the US, Australia and Brazil rows below show each zone at its own midnight and stay Unverified.",
     "regions": [
       {
         "id": "nz",
         "name": "New Zealand",
-        "at": "2026-11-19T00:00:00+13:00"
+        "at": "2026-11-19T00:00:00+13:00",
+        "status": "confirmed"
       },
       {
         "id": "au-east",
         "name": "Australia (East)",
-        "at": "2026-11-19T00:00:00+11:00"
+        "at": "2026-11-19T00:00:00+11:00",
+        "status": "unverified",
+        "note": "Australia spans time zones; Rockstar hasn’t said which one sets the unlock."
       },
       {
         "id": "jp-kr",
         "name": "Japan & Korea",
-        "at": "2026-11-19T00:00:00+09:00"
+        "at": "2026-11-19T00:00:00+09:00",
+        "status": "confirmed"
       },
       {
         "id": "cn-hk-tw",
         "name": "China, HK & Taiwan",
-        "at": "2026-11-19T00:00:00+08:00"
+        "at": "2026-11-19T00:00:00+08:00",
+        "status": "confirmed"
       },
       {
         "id": "sea",
         "name": "South-East Asia",
-        "at": "2026-11-19T00:00:00+07:00"
+        "at": "2026-11-19T00:00:00+07:00",
+        "status": "confirmed"
       },
       {
         "id": "in",
         "name": "India",
-        "at": "2026-11-19T00:00:00+05:30"
+        "at": "2026-11-19T00:00:00+05:30",
+        "status": "confirmed"
       },
       {
         "id": "gulf",
         "name": "Gulf",
-        "at": "2026-11-19T00:00:00+04:00"
+        "at": "2026-11-19T00:00:00+04:00",
+        "status": "confirmed"
       },
       {
         "id": "eu-east",
         "name": "Eastern Europe",
-        "at": "2026-11-19T00:00:00+02:00"
+        "at": "2026-11-19T00:00:00+02:00",
+        "status": "confirmed"
       },
       {
         "id": "eu-cent",
         "name": "Central Europe",
-        "at": "2026-11-19T00:00:00+01:00"
+        "at": "2026-11-19T00:00:00+01:00",
+        "status": "confirmed"
       },
       {
         "id": "uk-ie",
         "name": "UK & Ireland",
-        "at": "2026-11-19T00:00:00+00:00"
+        "at": "2026-11-19T00:00:00+00:00",
+        "status": "confirmed"
       },
       {
         "id": "br",
         "name": "Brazil",
-        "at": "2026-11-19T00:00:00-03:00"
+        "at": "2026-11-19T00:00:00-03:00",
+        "status": "unverified",
+        "note": "Brazil spans time zones; Rockstar hasn’t said which one sets the unlock."
       },
       {
         "id": "us-east",
         "name": "US East",
-        "at": "2026-11-19T00:00:00-05:00"
+        "at": "2026-11-19T00:00:00-05:00",
+        "status": "unverified",
+        "note": "US split by zone isn’t confirmed."
       },
       {
         "id": "us-cent",
         "name": "US Central",
-        "at": "2026-11-19T00:00:00-06:00"
+        "at": "2026-11-19T00:00:00-06:00",
+        "status": "unverified",
+        "note": "US split by zone isn’t confirmed."
       },
       {
         "id": "us-mtn",
         "name": "US Mountain",
-        "at": "2026-11-19T00:00:00-07:00"
+        "at": "2026-11-19T00:00:00-07:00",
+        "status": "unverified",
+        "note": "US split by zone isn’t confirmed."
       },
       {
         "id": "us-west",
         "name": "US West",
-        "at": "2026-11-19T00:00:00-08:00"
+        "at": "2026-11-19T00:00:00-08:00",
+        "status": "unverified",
+        "note": "US split by zone isn’t confirmed."
       }
-    ]
+    ],
+    "sourceUrl": "https://support.rockstargames.com/articles/29jV3Cv2cCgvwM1XgtMO5o/grand-theft-auto-vi-regional-pre-load-and-release-times-on-playstation-5-and-xbox-series-x-or-s",
+    "splitNote": "Rockstar hasn’t said whether the US unlocks zone by zone or all at once. The US Xbox Store listing’s page data points to one nationwide unlock at midnight Eastern (9 PM Pacific on Nov 18), but that’s store metadata, not an announcement."
   },
   "social": {
-    "youtube": "",
+    "youtube": "https://www.youtube.com/@GTAwaypoints",
+    "facebook": "https://www.facebook.com/profile.php?id=61596455823083",
     "x": "",
     "tiktok": "",
     "instagram": "",
@@ -203,10 +247,6 @@
         {
           "text": "Editions",
           "url": "/editions/"
-        },
-        {
-          "text": "PC release",
-          "url": "/pc-release/"
         }
       ]
     },
@@ -230,12 +270,16 @@
         {
           "text": "FAQ",
           "url": "/faq/"
+        },
+        {
+          "text": "PC release",
+          "url": "/pc-release/"
         }
       ]
     },
     {
       "id": "guides",
-      "label": "Guides \u00b7 open Nov 19",
+      "label": "Guides · open Nov 19",
       "col": 2,
       "items": [
         {

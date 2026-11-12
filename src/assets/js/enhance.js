@@ -45,6 +45,7 @@
       track("share");
     }
     if ((el = t.closest("[data-cal]"))) track("add_to_calendar", { method: el.getAttribute("data-cal") });
+    if ((el = t.closest("[data-social]"))) track("social_click", { network: el.getAttribute("data-social") });
   });
 
   // Signup: region follows the picker until the visitor changes it; track submits

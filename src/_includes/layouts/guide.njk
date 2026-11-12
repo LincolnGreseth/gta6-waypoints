@@ -13,6 +13,17 @@ layout: layouts/base.njk
   <div class="prose">
     {{ content | safe }}
   </div>
+  {%- set sh = short | shortInfo %}
+  {%- if sh %}
+  <aside class="short" aria-labelledby="short-h">
+    <h2 id="short-h">Watch the Short</h2>
+    {%- if sh.isShort %}
+    <p><a class="pillbtn" href="{{ sh.url }}" rel="noopener" target="_blank" data-social="youtube">Watch on YouTube →</a></p>
+    {%- else %}
+    {% youtube sh.id, (shortTitle or ("Video: " + (h1 or title))) %}
+    {%- endif %}
+  </aside>
+  {%- endif %}
   {%- if faq and faq.length and not hideFaqBlock %}
   <section class="faq" aria-labelledby="faq-h">
     <h2 id="faq-h">{{ faqHeading or "FAQ" }}</h2>

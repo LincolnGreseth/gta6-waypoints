@@ -6,10 +6,12 @@ noindex: true
 crumb: "Thanks"
 h1: "You're on the day-one list"
 lead: "Thanks for signing up. The day-one guide drop lands in your inbox when GTA 6 launches on November 19, 2026, then a short roundup once a week."
-updated: 2026-10-23
+updated: 2026-11-12
 signupOff: true
 ---
 If you don't see a welcome email in a few minutes, check your spam or promotions folder and mark us as safe.
+
+**Next step:** [subscribe on YouTube](https://www.youtube.com/@GTAwaypoints) for launch-week Shorts, made from our own recordings of the site's tools.
 
 While you wait:
 

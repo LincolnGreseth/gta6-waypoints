@@ -2,7 +2,7 @@
 title: "GTA 6 Soundtrack Album: CD, Vinyl, Prices and Ship Date"
 description: "Grand Theft Auto VI: The Album has 34 original tracks and comes out Nov 19. CD is $19.98, vinyl $49.98, limited vinyl $124.98. Physical ships Nov 20."
 date: 2026-09-17
-updated: 2026-10-26
+updated: 2026-11-12
 permalink: /news/2026-09-17-gta-6-soundtrack-album/
 status: confirmed
 crumb: "Soundtrack album"
@@ -15,7 +15,11 @@ sources:
     url: "https://www.gtavi-thealbum.com/"
   - name: "GTA BOOM: Rockstar is pressing the complete GTA 6 soundtrack to vinyl (Sep 17, 2026)"
     url: "https://www.gtaboom.com/rockstar-is-pressing-the-complete-gta-6-soundtrack-to-vinyl-for-125-7c6c"
+  - name: "Rockstar Newswire: Grand Theft Auto VI: Original Score by Justice (Oct 29, 2026)"
+    url: "https://www.rockstargames.com/newswire/article/39ak8a12395591/grand-theft-auto-vi-original-score-by-justice"
 related:
+  - text: "Justice's original score album, Dec 11"
+    url: "/news/2026-10-29-justice-original-score-album/"
   - text: "The first six GTA 6 radio stations"
     url: "/news/2026-10-08-radio-stations/"
   - text: "Everything confirmed about GTA 6"
@@ -43,5 +47,9 @@ related:
 
 - {% badge "confirmed" %} The liquid-filled vinyl, the splatter vinyl and the CD jewel case are exclusive to the official album store. Best Buy, Walmart, Amazon, Target and other retailers get their own vinyl colorways with new art. ([Rockstar Newswire](https://www.rockstargames.com/newswire/article/7599a881942544/announcing-grand-theft-auto-vi-the-album-coming-november-19))
 - {% badge "reported" %} GTA BOOM reports the vinyl variants come with their own posters. Rockstar's post doesn't mention posters. ([GTA BOOM](https://www.gtaboom.com/rockstar-is-pressing-the-complete-gta-6-soundtrack-to-vinyl-for-125-7c6c))
+
+## The score is a separate album
+
+{% badge "confirmed" %} Justice's Grand Theft Auto VI: Original Score is its own 30-track album, out December 11, 2026 on streaming, CD and vinyl. ([Rockstar Newswire](https://www.rockstargames.com/newswire/article/39ak8a12395591/grand-theft-auto-vi-original-score-by-justice)) Details: [Justice's original score album](/news/2026-10-29-justice-original-score-album/).
 
 The in-game stations are covered in [the first six GTA 6 radio stations](/news/2026-10-08-radio-stations/).

@@ -2,7 +2,9 @@
 
 How to send one email to each store region at its unlock time on November 18–19, 2026. Every signup on the site already sends `REGION` (a region id like `us-west`, or `local` for "my time zone") and `INTEREST` (`unlock-alert`, or `pro` from the waitlist).
 
-> The send times below come from `src/_data/site.json → unlock` and are **assumed**: local midnight in each store region (status: unverified). If Rockstar or the stores post official times, update `site.json` first, regenerate this table, then reschedule. Never send an "it's unlocked" email for a time that hasn't been confirmed.
+> The send times below come from `src/_data/site.json → unlock` (status: confirmed). Rockstar says the game releases at midnight local time on November 19 in all regions: https://support.rockstargames.com/articles/29jV3Cv2cCgvwM1XgtMO5o/grand-theft-auto-vi-regional-pre-load-and-release-times-on-playstation-5-and-xbox-series-x-or-s
+>
+> Rows marked * (Australia (East), Brazil, US East, US Central, US Mountain, US West) are countries with several time zones; how they unlock isn't confirmed. Rockstar hasn’t said whether the US unlocks zone by zone or all at once. The US Xbox Store listing’s page data points to one nationwide unlock at midnight Eastern (9 PM Pacific on Nov 18), but that’s store metadata, not an announcement. For those rows, word the email as "unlocks at midnight in your store region" rather than promising an exact time. Never send an "it's unlocked" email for a time that hasn't been confirmed.
 
 ## 1. Create the contact attributes (once)
 1. Brevo → **Contacts → Settings → Contact attributes → Add a new attribute**.
@@ -28,7 +30,7 @@ Brevo → **Campaigns → Create an email campaign**, one per segment, scheduled
 | # | Segment | Store region | Send at (UTC) | Send at (ET) |
 |---|---|---|---|---|
 | 1 | `REGION = nz` | New Zealand | 2026-11-18 11:00 UTC | Wed, Nov 18, 6:00 AM ET |
-| 2 | `REGION = au-east` | Australia (East) | 2026-11-18 13:00 UTC | Wed, Nov 18, 8:00 AM ET |
+| 2 | `REGION = au-east` | Australia (East) * | 2026-11-18 13:00 UTC | Wed, Nov 18, 8:00 AM ET |
 | 3 | `REGION = jp-kr` | Japan & Korea | 2026-11-18 15:00 UTC | Wed, Nov 18, 10:00 AM ET |
 | 4 | `REGION = cn-hk-tw` | China, HK & Taiwan | 2026-11-18 16:00 UTC | Wed, Nov 18, 11:00 AM ET |
 | 5 | `REGION = sea` | South-East Asia | 2026-11-18 17:00 UTC | Wed, Nov 18, 12:00 PM ET |
@@ -37,11 +39,11 @@ Brevo → **Campaigns → Create an email campaign**, one per segment, scheduled
 | 8 | `REGION = eu-east` | Eastern Europe | 2026-11-18 22:00 UTC | Wed, Nov 18, 5:00 PM ET |
 | 9 | `REGION = eu-cent` | Central Europe | 2026-11-18 23:00 UTC | Wed, Nov 18, 6:00 PM ET |
 | 10 | `REGION = uk-ie` | UK & Ireland | 2026-11-19 00:00 UTC | Wed, Nov 18, 7:00 PM ET |
-| 11 | `REGION = br` | Brazil | 2026-11-19 03:00 UTC | Wed, Nov 18, 10:00 PM ET |
-| 12 | `REGION = us-east` | US East | 2026-11-19 05:00 UTC | Thu, Nov 19, 12:00 AM ET |
-| 13 | `REGION = us-cent` | US Central | 2026-11-19 06:00 UTC | Thu, Nov 19, 1:00 AM ET |
-| 14 | `REGION = us-mtn` | US Mountain | 2026-11-19 07:00 UTC | Thu, Nov 19, 2:00 AM ET |
-| 15 | `REGION = us-west` | US West | 2026-11-19 08:00 UTC | Thu, Nov 19, 3:00 AM ET |
+| 11 | `REGION = br` | Brazil * | 2026-11-19 03:00 UTC | Wed, Nov 18, 10:00 PM ET |
+| 12 | `REGION = us-east` | US East * | 2026-11-19 05:00 UTC | Thu, Nov 19, 12:00 AM ET |
+| 13 | `REGION = us-cent` | US Central * | 2026-11-19 06:00 UTC | Thu, Nov 19, 1:00 AM ET |
+| 14 | `REGION = us-mtn` | US Mountain * | 2026-11-19 07:00 UTC | Thu, Nov 19, 2:00 AM ET |
+| 15 | `REGION = us-west` | US West * | 2026-11-19 08:00 UTC | Thu, Nov 19, 3:00 AM ET |
 | – | `REGION = local` | My time zone | 2026-11-18 11:00 UTC | Wed, Nov 18, 6:00 AM ET |
 
 Check your plan's daily sending limit before launch week. Brevo's free plan has had a low daily cap (300 emails a day when this was written), and launch day could need more.

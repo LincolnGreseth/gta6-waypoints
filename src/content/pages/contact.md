@@ -5,7 +5,7 @@ layout: layouts/guide.njk
 crumb: "Contact"
 h1: "Contact us"
 lead: "Use the form below to send a correction, a press question or a partnership enquiry. We read every message and reply when a reply is needed."
-updated: 2026-10-23
+updated: 2026-11-12
 signupOff: true
 ---
 {# TODO: Lincoln — add a public contact email to site.json → contactEmail. #}
@@ -43,3 +43,5 @@ You can also email us at [{{ site.contactEmail }}](mailto:{{ site.contactEmail }
 </form>
 
 We use what you send only to reply to you. See our [privacy policy](/privacy/).
+
+You can also find us on [YouTube](https://www.youtube.com/@GTAwaypoints) and [Facebook](https://www.facebook.com/profile.php?id=61596455823083). For corrections, the form above is quickest, because it reaches us directly.

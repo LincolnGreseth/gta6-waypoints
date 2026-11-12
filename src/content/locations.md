@@ -8,7 +8,7 @@ lead: "Grand Theft Auto VI is set in the fictional US state of Leonida, centred 
 status: confirmed
 claim: true
 article: true
-updated: 2026-10-23
+updated: 2026-11-12
 sources:
   - name: "Rockstar Games press release (Take-Two IR, Jun 24, 2026)"
     url: "https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi"
@@ -16,6 +16,12 @@ sources:
     url: "https://www.rockstargames.com/VI/only-in-leonida"
   - name: "Game Informer: The Grand Theft Auto VI digital issue (Sep 29, 2026)"
     url: "https://gameinformer.com/digital-issue/2026/09/29/the-grand-theft-auto-vi-digital-issue-is-now-live"
+  - name: "MP1st: GTA 6 map close to size of GTA 4, GTA 5 and RDR2 combined (Oct 29, 2026)"
+    url: "https://mp1st.com/?p=317716"
+  - name: "Rockstar Newswire: Grand Theft Auto VI Pre-Load Begins on November 10 (Nov 3, 2026)"
+    url: "https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10"
+  - name: "Rockstar Newswire: Explore the Grand Theft Auto VI Launch Gallery (Nov 5, 2026)"
+    url: "https://www.rockstargames.com/newswire/article/39ak81277255o9/explore-the-grand-theft-auto-vi-launch-gallery"
 related:
   - text: "GTA 6 characters"
     url: "/characters/"
@@ -46,7 +52,13 @@ We're keeping this to the names for now. Rockstar's own descriptions of each reg
 
 ## Map size and the full map
 
-Rockstar hasn't published a full map of Leonida or an official map size. Any map size you see quoted as fact didn't come from Rockstar. It's on our [not confirmed yet list](/everything-confirmed/#not-confirmed-yet).
+Rockstar hasn't published an official map size. Any exact figure you see quoted as fact didn't come from Rockstar. It's on our [not confirmed yet list](/everything-confirmed/#not-confirmed-yet).
+
+{% badge "reported" %} Rockstar told Edge magazine (issue 430) the landmass is "nearly as large as the playable maps of GTAIV, GTAV and RDR2 combined," according to MP1st. That's a comparison from an interview, not a measurement. [MP1st](https://mp1st.com/?p=317716), [our write-up](/news/2026-10-29-map-size-edge/)
+
+{% badge "confirmed" %} Rockstar says a free printable map of Leonida goes up on the official GTA VI site on November 19, with a physical poster at the Rockstar Store after launch. [Rockstar Newswire](https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10)
+
+{% badge "confirmed" %} New official screenshots of Vice City and beyond are in Rockstar's [Launch Gallery](https://www.rockstargames.com/VI/launch-gallery) (November 5).
 
 Our interactive map goes live after launch, with every pin checked in our own play.
 

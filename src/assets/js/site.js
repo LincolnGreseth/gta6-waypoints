@@ -43,7 +43,7 @@
   function wave() {
     $$("[data-wv]").forEach(function (w) {
       var tz = ""; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (e) {}
-      $$("[data-wv-tz]", w).forEach(function (s) { s.textContent = tz || "local time"; });
+      $$("[data-wv-tznote]", w).forEach(function (s) { s.textContent = tz ? "Times shown in your time zone (" + tz.replace(/_/g, " ") + ")." : "Times shown in your device's time zone."; });
       $$("[data-wv-time]", w).forEach(function (t) { t.textContent = hm(Date.parse(t.getAttribute("data-wv-time"))); });
       var lbl = w.querySelector("[data-wv-mine]"), n = null;
       $$("[data-wave-id]", w).forEach(function (el) { var on = !!cur && el.getAttribute("data-wave-id") === cur.id; el.classList.toggle("is-mine", on); if (on) n = el; });
@@ -64,7 +64,7 @@
     $$("[data-region-select]").forEach(function (s) { s.value = cur ? cur.id : "local"; });
     $$("[data-cd-unlock]").forEach(function (s) {
       var el = s.closest("[data-countdown]") || cds[0];
-      if (el) s.textContent = "Unlocks " + fmt(target(el)) + " your time · " + (cur ? cur.name + " store" : "Midnight in your time zone");
+      if (el) s.textContent = "Unlocks " + fmt(target(el)) + " your time · " + (cur ? cur.name + " store" + (cur.status === "unverified" ? " (zone split unverified)" : "") : "Midnight in your time zone");
     });
     name(); wave();
     cds.forEach(function (el) { tick(el); el.classList.add("is-ready"); });

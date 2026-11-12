@@ -8,7 +8,7 @@ lead: "Grand Theft Auto VI comes in two editions: Standard at $79.99 and Ultimat
 status: confirmed
 claim: true
 article: true
-updated: 2026-10-23
+updated: 2026-11-12
 sources:
   - name: "Rockstar Games press release (Take-Two IR, Jun 24, 2026)"
     url: "https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi"
@@ -59,14 +59,14 @@ Rockstar's support page doesn't list the upgrade's price. Check your console's s
 ## Physical copies: a download code, not a disc
 
 - {% badge "confirmed" %} Physical copies contain a download code. In Rockstar's words, "A disc will not be included in the box." [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
-- {% badge "confirmed" %} Physical copies ship and are available for store pickup from November 12, 2026. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
-- {% badge "confirmed" %} Codes redeemed before launch can pre-load from local midnight on November 12. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
+- {% badge "confirmed" %} Code-in-box copies are available from retailers from November 12, 2026. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
+- {% badge "confirmed" %} Pre-load is already live (it opened November 10), and a boxed copy's code can be activated and pre-loaded as soon as you have it. [Rockstar Newswire](https://www.rockstargames.com/newswire/article/89834o94713o21/pre-load-grand-theft-auto-vi-now)
 
-So a boxed copy still means a full download. Leave room on your drive either way. Rockstar hasn't announced the file size.
+So a boxed copy still means a full download: up to 212 GB, depending on your console. [Rockstar Newswire](https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10)
 
 ## Pre-order bonus: Vintage Vice City Pack
 
-- {% badge "confirmed" %} The Vintage Vice City Pack comes with pre-orders and purchases of either edition made before November 20, 2026. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
+- {% badge "confirmed" %} The Vintage Vice City Pack comes with pre-orders and purchases of either edition made before November 20, 2026. Xbox Wire words it as "prior to 19 November 2026 23:59:59"; neither source names a time zone, so don't leave it to the last hour. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions), [Xbox Wire](https://news.xbox.com/en-us/2026/11/10/grand-theft-auto-6-comes-to-xbox-cloud-gaming-november-19/)
 - {% badge "confirmed" %} It includes a '55 Vapid Stanier Sedan and garage, outfits and hairstyles, and an exclusive weapon pattern. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
 
 You don't need to pre-order to get it. Buying on launch day, November 19, still counts.

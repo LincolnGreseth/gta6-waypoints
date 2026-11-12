@@ -2,7 +2,7 @@
 title: "GTA 6 x Miami Heat: 'A Night in Vice City' on November 18"
 description: "The Miami Heat host A Night in Vice City on Nov 18, 2026, the night before GTA 6 launches, with a Vice City court, new uniforms and GTA 6 merch."
 date: 2026-10-02
-updated: 2026-10-26
+updated: 2026-11-12
 permalink: /news/2026-10-02-miami-heat-night-in-vice-city/
 status: reported
 crumb: "Miami Heat Vice City night"
@@ -13,6 +13,8 @@ sources:
     url: "https://kotaku.com/gta-6-had-a-really-busy-week-2000739409"
   - name: "Miami HEAT: A Night in Vice City"
     url: "https://www.nba.com/heat/uniforms/2627-heat-vice-city-uniform-collection"
+  - name: "Miami HEAT: Vice City event page (read Nov 12, 2026)"
+    url: "https://www.nba.com/heat/vicecity"
   - name: "Miami HEAT on X (Oct 2, 2026)"
     url: "https://x.com/MiamiHEAT/status/2106039997480697918"
   - name: "Rockstar Newswire: Grand Theft Auto VI is now set to launch November 19, 2026"
@@ -25,8 +27,13 @@ related:
   - text: "GTA 6 launch trailer released October 15"
     url: "/news/2026-10-15-launch-trailer/"
 ---
-{# TODO(source): swap in the Miami Heat's own announcement link once found #}
-{# TODO(source): candidates found Oct 26 and listed in sources: nba.com/heat Vice City page and the @MiamiHEAT post on X (Oct 2). Neither names Rockstar, so the label stays Reported until an editor decides. #}
+{# Nov 12: the Heat's own page still doesn't name Rockstar, so the label stays Reported. #}
+
+## Update, November 12
+
+- {% badge "reported" %} The Heat's event page now gives the opponent and stands: November 18 at 7:00 p.m. ET vs the Milwaukee Bucks, with Burger Shot at sections 105, 120, 308 and 324 and Cluckin' Bell at section 325. ([Miami HEAT](https://www.nba.com/heat/vicecity))
+- {% badge "reported" %} The uniform is listed as the Nike x Cactus Jack "Vice City" uniform, on sale November 18 at the game. The page calls the night "a historic partnership" but still doesn't name Rockstar. ([Miami HEAT](https://www.nba.com/heat/vicecity))
+- Miami-Dade County's own Vice City marketing deal with Rockstar is in [Miami turns into Vice City](/news/2026-10-28-miami-vice-city-marketing/).
 
 ## What's happening
 

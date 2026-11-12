@@ -21,15 +21,16 @@
     <span class="wv__lbl wv__lbl--last" style="left: {{ ul.last.x }}%; top: {{ ul.last.y }}%"><b>{{ ul.last.name }}</b><time data-wv-time="{{ ul.last.at }}">{{ ul.last.utc }}</time></span>
     <span class="wv__lbl wv__lbl--mine" data-wv-mine hidden><b></b><time></time></span>
   </div>
-  <p class="wv__note">Unlock times shown in your time zone (<span data-wv-tz>UTC</span>).</p>
-  <p class="wv__note">{% badge site.unlock.status %}Exact unlock times aren't confirmed yet. We assume local midnight in each store region and will update the moment Rockstar says otherwise.</p>
+  <p class="wv__note" data-wv-tznote>Times shown in UTC.</p>
+  <p class="wv__note">{% badge site.unlock.status %}Rockstar: midnight local time on November 19 in all regions. <a href="{{ site.unlock.sourceUrl }}" rel="noopener">Source</a>. Countries with several time zones (US, Australia, Brazil) are shown zone by zone until Rockstar says how they unlock.</p>
   <a class="pillbtn" href="/release-date-times/">All unlock times and the launch checklist →</a>
 </div>
 {%- else %}
-<p class="wave__lead">{% badge site.unlock.status %} If every store unlocks at local midnight, {{ ul.first.name }} goes first and <strong>{{ ul.last.name }} unlocks {{ ul.spanHours }} hours after {{ ul.first.name }}</strong>.</p>
-<ol class="wave" aria-label="Assumed unlock order, earliest first" data-wave>
+<p class="wave__lead">{% badge site.unlock.status %} GTA 6 unlocks at midnight local time, so {{ ul.first.name }} goes first and <strong>{{ ul.last.name }} unlocks {{ ul.spanHours }} hours after {{ ul.first.name }}</strong>. <a href="{{ site.unlock.sourceUrl }}" rel="noopener">Rockstar Support</a></p>
+<ol class="wave" aria-label="Unlock order, earliest first" data-wave>
   {%- for r in ul.regions %}
-  <li data-wave-id="{{ r.id }}" style="--h: {{ r.hoursAfterFirst }}; --span: {{ ul.spanHours }}"><span class="wave__name">{{ r.name }}</span><span class="wave__bar" aria-hidden="true"></span><span class="wave__t">{% if r.hoursAfterFirst == 0 %}First{% else %}+{{ r.hoursAfterFirst }}h{% endif %}</span></li>
+  <li data-wave-id="{{ r.id }}" style="--h: {{ r.hoursAfterFirst }}; --span: {{ ul.spanHours }}"><span class="wave__name">{{ r.name }}{% if r.status == "unverified" %}<span class="wave__flag" aria-hidden="true">*</span>{% endif %}</span><span class="wave__bar" aria-hidden="true"></span><span class="wave__t">{% if r.hoursAfterFirst == 0 %}First{% else %}+{{ r.hoursAfterFirst }}h{% endif %}</span></li>
   {%- endfor %}
 </ol>
+<p class="wave__foot">{% badge "unverified" %} <span aria-hidden="true">*</span> {{ site.unlock.splitNote }} Until Rockstar or the stores settle it, the US, Australia and Brazil rows show each zone at its own midnight.</p>
 {%- endif %}

@@ -6,13 +6,17 @@ const rows = s.unlock.regions.map((r) => ({ ...r, t: Date.parse(r.at) })).sort((
 const f = (t, tz) => new Intl.DateTimeFormat("en-US", { timeZone: tz, weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }).format(t);
 const utc = (t) => new Date(t).toISOString().slice(0, 16).replace("T", " ") + " UTC";
 const first = rows[0], last = rows[rows.length - 1];
-const table = rows.map((r, i) => `| ${i + 1} | \`REGION = ${r.id}\` | ${r.name} | ${utc(r.t)} | ${f(r.t, "America/New_York")} ET |`).join("\n");
+const table = rows.map((r, i) => `| ${i + 1} | \`REGION = ${r.id}\` | ${r.name}${r.status === "unverified" ? " *" : ""} | ${utc(r.t)} | ${f(r.t, "America/New_York")} ET |`).join("\n");
+const unv = rows.filter((r) => r.status === "unverified").map((r) => r.name);
+const notice = s.unlock.status === "confirmed"
+  ? `> The send times below come from \`src/_data/site.json → unlock\` (status: confirmed). Rockstar says the game releases at midnight local time on November 19 in all regions: ${s.unlock.sourceUrl}\n>\n> Rows marked * (${unv.join(", ") || "none"}) are countries with several time zones; how they unlock isn't confirmed. ${s.unlock.splitNote || ""} For those rows, word the email as "unlocks at midnight in your store region" rather than promising an exact time. Never send an "it's unlocked" email for a time that hasn't been confirmed.`
+  : `> The send times below come from \`src/_data/site.json → unlock\` and are **assumed**: local midnight in each store region (status: ${s.unlock.status}). If Rockstar or the stores post official times, update \`site.json\` first, regenerate this table, then reschedule. Never send an "it's unlocked" email for a time that hasn't been confirmed.`;
 
 const doc = `# Brevo: region unlock alerts
 
 How to send one email to each store region at its unlock time on November 18–19, 2026. Every signup on the site already sends \`REGION\` (a region id like \`us-west\`, or \`local\` for "my time zone") and \`INTEREST\` (\`unlock-alert\`, or \`pro\` from the waitlist).
 
-> The send times below come from \`src/_data/site.json → unlock\` and are **assumed**: local midnight in each store region (status: ${s.unlock.status}). If Rockstar or the stores post official times, update \`site.json\` first, regenerate this table, then reschedule. Never send an "it's unlocked" email for a time that hasn't been confirmed.
+${notice}
 
 ## 1. Create the contact attributes (once)
 1. Brevo → **Contacts → Settings → Contact attributes → Add a new attribute**.
