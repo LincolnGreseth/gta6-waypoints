@@ -3,9 +3,10 @@ title: "GTA 6 Guides: Every How-To & Best-Of"
 description: "Every GTA 6 guide in one place: beginner tips, how-tos and best-of lists, each verified in-game and dated, starting from launch day."
 layout: layouts/shell.njk
 crumb: "Guides"
-h1: "GTA 6 Guides: Every How-To, From Day One"
+h1: "GTA 6 guides: every how-to and best-of"
 lead: "This is the home for every Grand Theft Auto VI how-to and best-of guide on the site. The first ones go up on launch day, November 19, and each is verified in-game and dated."
-updated: 2026-10-26
+leadLive: "Every Grand Theft Auto VI how-to and best-of guide on the site, verified in-game and dated. New guides go up through launch week as we confirm the answers."
+updated: 2026-11-12
 related:
   - text: "Everything confirmed about GTA 6"
     url: "/everything-confirmed/"
