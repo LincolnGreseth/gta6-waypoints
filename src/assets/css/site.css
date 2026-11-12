@@ -114,7 +114,8 @@ html.menu-lock { overflow: hidden; }
 .page__head > h1 { max-width: 58rem; text-wrap: balance; }
 .page__head .lead { margin: 14px 0 16px; }
 .page__kick { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 18px 0 12px; }
-.kicker--page { margin: 0; font-size: 11px; letter-spacing: 0.2em; }
+.page__kick .kicker { margin: 0; font-size: 11px; letter-spacing: 0.2em; }
+.page__head > .kicker--page { margin: 18px 0 0; font-size: 11px; letter-spacing: 0.2em; }
 .page__kick .shell__pill { margin: 0; }
 .jump { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin: 20px 0 8px; font-size: 14px; }
 .jump__label { font: 600 11px/1.4 var(--font-body); letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
