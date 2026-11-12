@@ -6,7 +6,11 @@
     "dev": "eleventy --serve",
     "build": "rm -rf _site && eleventy",
     "check": "node scripts/check-pages.js && node scripts/check-unlock.mjs",
-    "check:unlock": "node scripts/check-unlock.mjs"
+    "check:unlock": "node scripts/check-unlock.mjs",
+    "new:guide": "node scripts/new.mjs guide",
+    "new:news": "node scripts/new.mjs news",
+    "build:launched": "LAUNCHED=1 npm run build",
+    "build:drafts": "DRAFTS=1 npm run build"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.2",

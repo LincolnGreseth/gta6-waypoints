@@ -1,0 +1,10 @@
+{#- Launch switch helper. {% from "partials/launch-swap.njk" import swap with context %}
+    swap("key") prints both variants from site.json → launchCopy (pre + live), with the one that doesn't
+    match the build-time state hidden. site.js flips them per viewer at their region's unlock, or with
+    ?preview=launched. An empty variant renders nothing for that state. -#}
+{%- macro swap(key, tag="span") -%}
+{%- set pre = site.launchCopy.pre[key] -%}
+{%- set live = site.launchCopy.live[key] -%}
+{%- if pre %}<{{ tag }} data-launch="pre"{% if launch.launched %} hidden{% endif %}>{{ pre | safe }}</{{ tag }}>{% endif -%}
+{%- if live %}<{{ tag }} data-launch="live"{% if not launch.launched %} hidden{% endif %}>{{ live | safe }}</{{ tag }}>{% endif -%}
+{%- endmacro -%}

@@ -4,11 +4,12 @@ title: "GTA 6 Waypoints: Map, Collectibles, Trophies & 100%"
 description: "When GTA 6 unlocks in your store region: live countdown and the midnight wave. Then the map, collectibles and 100% checklists, verified in-game."
 updated: 2026-11-12
 ---
+{%- from "partials/launch-swap.njk" import swap with context %}
 <div class="wrap home">
   <section class="hero" aria-labelledby="home-h1">
     <p class="kicker">GTA 6 · Thursday 19 November 2026</p>
     <h1 id="home-h1"><span class="vh">GTA 6 </span><span class="l1">Completion</span> <span class="l2">companion.</span></h1>
-    <p class="hero__sub">The GTA 6 map, collectibles, trophies and 100% checklists, verified in-game. Opening on launch day.</p>
+    <p class="hero__sub">{{ swap("heroSub") }}</p>
     {% set cdSize = "home" %}{% include "partials/countdown.njk" %}
   </section>
 
@@ -47,11 +48,11 @@ updated: 2026-11-12
     </div>
     <div class="cta__card">
       <div>
-        <h2 id="cta-h">Be there on opening day</h2>
-        <p>One email the moment GTA 6 unlocks in your region, then the day-one guide drop. No spam.</p>
+        <h2 id="cta-h">{{ swap("ctaHeading") }}</h2>
+        <p>{{ swap("ctaText") }}</p>
       </div>
       <div>
-        {% set signup = { cta: true, region: "hidden", button: "Get the unlock alert" } %}{% include "partials/email-signup.njk" %}
+        {% set signup = { cta: true, region: "hidden", buttonKey: "ctaButton" } %}{% include "partials/email-signup.njk" %}
         {% set shareUrl = "/" %}{% set shareLabel = "Share the countdown" %}{% include "partials/launch-actions.njk" %}
         <p class="follow__label">Follow along: launch-week Shorts and updates.</p>
         {% set socialStyle = "pills" %}{% include "partials/social.njk" %}

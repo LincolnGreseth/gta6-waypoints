@@ -1,10 +1,12 @@
 ---
 layout: layouts/base.njk
 ---
+{%- from "partials/launch-swap.njk" import swap with context %}
 {#- Pre-launch shell: real copy only, no placeholder data. Filled with verified data after Nov 19. -#}
 <article class="wrap page page--shell">
   {% include "partials/breadcrumbs.njk" %}
   <header class="page__head">
+    {%- if site.launchCopy.pre.shellPill %}<p class="shell__pill">{{ swap("shellPill") }}</p>{% endif %}
     <h1>{{ h1 or title }}</h1>
     {%- if lead %}
     <p class="lead">{{ lead | safe }}</p>
@@ -26,6 +28,6 @@ layout: layouts/base.njk
     </ul>
   </nav>
   {%- endif %}
-  {%- set signup = { heading: "Get pinged when it opens", text: "One email when GTA 6 unlocks in your region, then the day-one guide drop with this page's verified data. No spam, unsubscribe any time." } %}
+  {%- set signup = {} %}
   {% include "partials/email-signup.njk" %}
 </article>
