@@ -88,5 +88,23 @@
     "url": "",
     "category": "controller",
     "note": "Lincoln still needs to join the Razer affiliate program. Pending links render as plain text."
+  },
+  {
+    "id": "ps5-m2-ssd",
+    "name": "PCIe Gen4 M.2 NVMe SSD with heatsink (PS5)",
+    "merchant": "Amazon",
+    "network": "amazon",
+    "url": "https://www.amazon.com/s?k=PS5+M.2+NVMe+SSD+heatsink",
+    "category": "storage",
+    "note": "Search link; any drive meeting Sony's spec on /gear/storage/."
+  },
+  {
+    "id": "xbox-expansion-card",
+    "name": "Storage Expansion Card for Xbox Series X|S",
+    "merchant": "Amazon",
+    "network": "amazon",
+    "url": "https://www.amazon.com/s?k=Xbox+Series+X+S+Storage+Expansion+Card",
+    "category": "storage",
+    "note": "Search link."
   }
 ]

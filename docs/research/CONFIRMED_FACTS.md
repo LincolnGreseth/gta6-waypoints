@@ -1,6 +1,45 @@
 # Research: Everything Confirmed About GTA 6
 
-Researched **Oct 23, 2026** for `/everything-confirmed/`. This is source material for Claude Code to draft the page from, not the page itself.
+Researched **Oct 23, 2026** for `/everything-confirmed/`; rechecked **Nov 12, 2026** (see below). This is source material for Claude Code to draft the page from, not the page itself.
+
+## Recheck, Nov 12, 2026 (Claude Code)
+Every primary source below was opened in a browser on **Nov 12, 2026** and the quoted wording read on the page.
+
+### What changed (official, Confirmed)
+- **Unlock time.** Rockstar Support, "Grand Theft Auto VI regional pre-load and release times on PlayStation 5 and XBOX Series X|S" (last updated Nov 3, 2026): "Grand Theft Auto VI will release midnight local time on November 19, 2026, in all regions for both PlayStation 5 and XBOX Series X|S." https://support.rockstargames.com/articles/29jV3Cv2cCgvwM1XgtMO5o/grand-theft-auto-vi-regional-pre-load-and-release-times-on-playstation-5-and-xbox-series-x-or-s
+- **Rolling launch by country.** PlayStation Blog (Tim Turi, Nov 10): Sony has "adopted a rolling midnight launch by country, beginning at 12:00AM NZDT in New Zealand". https://blog.playstation.com/2026/11/10/pre-load-grand-theft-auto-vi-on-ps5-starting-today/
+- **Pre-load moved to Nov 10 (was Nov 12).** Rockstar Newswire, Nov 3: "Digital pre-loading on PlayStation 5 will begin on Tuesday, November 10 at midnight local time in your respective time zone. On XBOX Series X|S, pre-loading begins globally on Tuesday, November 10 at 12 a.m. GMT." Same wording on the Rockstar Support platforms article (last updated Nov 4). https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10
+- **File size.** Same post: "The pre-load file will require up to 212 GB depending on your device." PlayStation's GTA VI page says to clear "a minimum of 212GB". The US Xbox Store page data has `maxInstallSize: 225336918016` bytes (≈225 GB decimal, ≈210 GiB); store metadata, not used on the site.
+- **Code-in-box.** Nov 3 post: "Code-in-box versions for both consoles should be available from retailers beginning November 12." Nov 10 post: code-in-box buyers "can also activate their code and begin pre-loading as soon as it's received."
+- **Performance.** Rockstar Newswire, Nov 10 ("Pre-Load Grand Theft Auto VI Now"): "targeting 30 frames per second"; "The PlayStation 5 Pro offers breathtaking visuals, with improved clarity through PlayStation Spectral Super Resolution (PSSR) and ray-traced shadows only available on PlayStation 5 Pro." Also: DualSense haptics, Tempest 3D Audio, improved load times on PS5; Remote Play supported on PlayStation and Xbox. https://www.rockstargames.com/newswire/article/89834o94713o21/pre-load-grand-theft-auto-vi-now
+- **Xbox Cloud Gaming.** Xbox Wire (Team Xbox, Nov 10): playable day one "on XBOX One and XBOX Series X|S, starting at 1am ET"; "must be purchased separately"; "uses XBOX Series S graphics settings"; from Nov 11 "players in supported markets can buy cloud playtime" without Game Pass. Rockstar's Nov 10 post lists cloud on "XBOX Series X|S and XBOX One consoles". https://news.xbox.com/en-us/2026/11/10/grand-theft-auto-6-comes-to-xbox-cloud-gaming-november-19/
+- **Pre-order bonus cutoff.** Rockstar Support: purchases "prior to November 20, 2026". Xbox Wire: "Purchase prior to 19 November 2026 23:59:59". Neither names a time zone. Site wording ("before November 20") matches Rockstar; Xbox wording added on /editions/ and /faq/.
+- **Most pre-ordered (each company's own claim).** PlayStation Blog: "Grand Theft Auto VI is now the most pre-ordered game in the history of PlayStation Store." Xbox Wire: "the most preordered title of all time on the Microsoft Store".
+- **Take-Two Q2 FY27 (Nov 9).** Take-Two IR: Zelnick, "The launch of Grand Theft Auto VI is ten days away and, with pre-orders continuing to reach unprecedented levels, we expect to deliver an historic year for our company." FY27 Net Bookings outlook reiterated at $8 to $8.2 billion. No pre-order count. https://www.take2games.com/ir/news/take-two-interactive-software-inc-reports-results-fiscal-4
+- **Prices unchanged.** US Xbox Store shows $79.99+ for Standard on Nov 12. Ultimate $99.99 per the Jun 24 press release.
+- **Launch Gallery** (Newswire, Nov 5, not Nov 10 as briefed): new screenshots at rockstargames.com/VI/launch-gallery. https://www.rockstargames.com/newswire/article/39ak81277255o9/explore-the-grand-theft-auto-vi-launch-gallery
+- **The Festival** (Newswire, Nov 9): Nov 21 at Mana Wynwood, Miami, "Presented in partnership with PlayStation and produced by the creators of III Points". https://www.rockstargames.com/newswire/article/o39o87a435a25a/grand-theft-auto-vi-the-festival
+- **Justice score** (Newswire, Oct 29): Grand Theft Auto VI: Original Score, 30 tracks, Dec 11, streaming, CD and vinyl; new single "Pusher" feat. Gesaffelstein. https://www.rockstargames.com/newswire/article/39ak8a12395591/grand-theft-auto-vi-original-score-by-justice
+- **Map poster.** Nov 3 post: a free printable cover-art poster and map of Leonida goes up on the official site on Nov 19; a physical version follows at the Rockstar Store.
+- **USK (Germany):** "keine Jugendfreigabe gemäß § 14 JuSchG" (18), descriptors drastic violence, drugs, criminal role models. USK database, read by research agent Nov 12: https://usk.de/en/?s=grand+theft+auto+vi
+
+### Unlock times: what's confirmed and what isn't
+- `site.json → unlock.status` is now `confirmed` (local midnight, Rockstar wording). Regions in single-time-zone countries are `confirmed`.
+- **Not settled by primary sources:** how countries with several time zones unlock. US East/Central/Mountain/West, Australia (East) and Brazil carry `status: "unverified"` with a note. Rockstar says "local time"; PlayStation says "by country"; the US Xbox Store page data says `releaseDate: 2026-11-19T05:00:00Z` (midnight ET), which would mean one nationwide US unlock (9 PM PT on Nov 18) on Xbox. PlayStation's US page gives only "11/19/2026". Per the brief, the US split was **not** restructured; Lincoln to decide.
+
+### Reported (named outlets)
+- "Gone gold": Push Square (Nov 10) paraphrases the Q2 call. Zelnick on the call: "So right now, Rockstar has completed the development of GTA VI." (third-party transcript, Singju Post). Neither the press release nor Rockstar says "gone gold". Written as Reported, "development complete".
+- Landmass: Rockstar told Edge (issue 430, on sale Oct 29) Leonida is "nearly as large as the playable maps of GTAIV, GTAV and RDR2 combined", via MP1st, Oct 29: https://mp1st.com/?p=317716
+- Miami-Dade County press release, Oct 28: a marketing package with Rockstar Games "valued at $3.9 million" (airport and PortMiami lighting, walkway displays, traffic-cabinet wraps; includes the earlier Kaseya rooftop sign). https://www.miamidade.gov/global/release.page?Mduid_release=rel1793224106473569 . Labelled Reported: a county government, not Rockstar.
+- Burger Shot and Cluckin' Bell stands at Kaseya Center for the Heat's Nov 18 "Vice City" night: listed on the Heat's own page (nba.com/heat/vicecity), which doesn't name Rockstar. Insider Gaming, Oct 22.
+- CERO Z (18+ only): GameBusiness.jp, Oct 18, from the Japanese store listings. No Japan content changes announced by CERO or Rockstar.
+- Australia R18+: TwistedVoxel, Oct 3 (classification.gov.au page timed out).
+
+### Deliberately left out
+- PEGI rating (pegi.info returns no result; outlets cite a since-removed summary).
+- Sensor Tower pre-order estimates (~9.69M) and Circana purchase intent (29%): third-party estimates.
+- Anything from leaked builds, early copies, review-embargo claims, the Rockstar UK union vote, the South Park episode.
+- The "Welcome to Vice City" sign: it went up around Sep 22 (Local 10), outside the Oct 24–Nov 4 window.
 
 ## News facts added Oct 26, 2026 (homepage redesign)
 Each was opened and checked on Oct 26. Labels as briefed; nothing upgraded.
@@ -29,8 +68,9 @@ Each was opened and checked on Oct 26. Labels as briefed; nothing upgraded.
 - Still no primary link for the Extended Look premiere times (Kotaku stays).
 - Trailer IDs verified via YouTube oEmbed: all four are correct and published by Rockstar Games.
 
-## Unlock times (assumed, Oct 23)
-- Not announced. The site shows **assumed** times from `site.json → unlock`: local midnight on Nov 19 in each of 15 store regions (New Zealand first, US West last, 21 hours later). Labelled Unverified. *(Changed Oct 23 from "US nationwide at midnight Eastern" to per-zone local midnight, per Lincoln's launch-week spec.)*
+## Unlock times (assumed Oct 23; confirmed Nov 12)
+- **Nov 12:** confirmed as midnight local time in all regions; see "Recheck, Nov 12" above. The Oct 23 notes below are kept for history.
+- Oct 23: not announced. The site shows **assumed** times from `site.json → unlock`: local midnight on Nov 19 in each of 15 store regions (New Zealand first, US West last, 21 hours later). Labelled Unverified. *(Changed Oct 23 from "US nationwide at midnight Eastern" to per-zone local midnight, per Lincoln's launch-week spec.)*
 - A data point that points the other way for the US, checked in a browser Oct 23: the US Xbox Store listing's page data has `releaseDate: 2026-11-19T05:00:00Z` for the Standard and Ultimate editions. Store metadata, not an announcement. https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9p3h4968grsm
 - Config: `src/_data/site.json → unlock`. Check with `node scripts/check-unlock.mjs`.
 
@@ -61,7 +101,10 @@ These facts are labelled Confirmed but are currently cited to a secondary outlet
 | Release date | Thursday, Nov 19, 2026 | **[Confirmed]** |
 | Platforms | PS5, Xbox Series X\|S | **[Confirmed]** |
 | Price | $79.99 Standard, $99.99 Ultimate | **[Confirmed]** |
-| Pre-load | Local midnight, Nov 12, 2026 | **[Confirmed]** |
+| Unlock | Midnight local time, Nov 19, all regions | **[Confirmed]** |
+| Pre-load | Live; opened Nov 10, 2026 (PS5 local midnight, Xbox 00:00 GMT) | **[Confirmed]** |
+| File size | Up to 212 GB, depending on device | **[Confirmed]** |
+| Frame rate | Targets 30fps; PS5 Pro adds PSSR and ray-traced shadows | **[Confirmed]** |
 | Physical disc | No. The box holds a download code | **[Confirmed]** |
 | Pre-order bonus | Vintage Vice City Pack, plus a month of GTA+ on digital | **[Confirmed]** |
 | Protagonists | Jason Duval and Lucia Caminos | **[Confirmed]** |
@@ -80,7 +123,7 @@ These facts are labelled Confirmed but are currently cited to a secondary outlet
 - **[Confirmed]** The PlayStation Store lists GTA 6 as **PS5 Pro Enhanced**. *(The quoted "PS5 and PS5 Pro on November 19" FAQ line could not be found on the page on Oct 23; removed.)* Sony hasn't said what the enhancements are. [PlayStation](https://www.playstation.com/en-us/games/grand-theft-auto-vi/)
 - **[Confirmed]** The Xbox Store listing carries the "Optimized for Xbox Series X|S" tag. [Xbox Store](https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9p3h4968grsm)
 
-Unlock times by region haven't been announced. We'll post them on [the release date page](/release-date-times/) as soon as Rockstar or the stores do.
+Unlock: midnight local time on November 19 in all regions (Rockstar Support, Nov 3). Multi-zone countries unverified; see the Nov 12 recheck.
 
 ## Price and editions
 
@@ -97,8 +140,8 @@ Full breakdown and which one to buy: [GTA 6 editions compared](/editions/).
 - **[Confirmed]** Pre-orders opened at midnight local time on **June 25, 2026** on the PlayStation Store, Microsoft Store, Rockstar Games Store and retailers. [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi)
 - **[Confirmed]** **Vintage Vice City Pack:** included with pre-orders and purchases of either edition made before **November 20, 2026**. It has a '55 Vapid Stanier Sedan and garage, outfits and hairstyles, and an exclusive weapon pattern. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
 - **[Confirmed]** Digital pre-orders include **one free month of GTA+**, redeemable right away. It covers GTA Online perks and the GTA+ Games Library, which includes GTA V. On PlayStation it must be claimed by March 31, 2027 ([PlayStation](https://www.playstation.com/en-us/games/grand-theft-auto-vi/), checked in a browser Oct 23). Physical pre-orders get the game code and the Vintage Vice City Pack but not the GTA+ month ([Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions), checked Oct 23). [Rockstar press release](https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi)
-- **[Confirmed]** **Pre-load starts at local midnight on November 12, 2026.** Codes redeemed before launch can pre-load from that point too. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
-- **[Confirmed]** Physical copies ship and are available for store pickup from November 12. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
+- **[Confirmed]** **Pre-load opened November 10, 2026** (PS5 at local midnight, Xbox at 12 a.m. GMT). *(Corrected Nov 12: was Nov 12.)* [Rockstar Newswire, Nov 3](https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10)
+- **[Confirmed]** Code-in-box copies at retailers from November 12; codes can pre-load as soon as received. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
 - **[Confirmed]** PlayStation codes are region-locked; Xbox codes aren't. Rockstar recommends buying from a retailer in the same country as your console account. [Rockstar Support](https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions)
 
 ## Story and characters
@@ -203,19 +246,19 @@ We track every official PC statement on [the PC release page](/pc-release/).
 
 Rockstar hasn't announced any of these. If you see them stated as fact elsewhere, check the source.
 
-- Regional unlock times for November 19
+- ~~Regional unlock times~~ Confirmed Nov 3: midnight local time, all regions. Still open: multi-zone countries (US, Australia, Brazil)
 - A PC version or PC release date
 - GTA Online for GTA 6: what it is or when it launches
 - Map size or a full official map
 - Playtime and number of story missions
-- What the PS5 Pro enhancements are (the PS Store lists the game as PS5 Pro Enhanced)
-- File size or required storage (a widely shared "676.7 GB" figure is not official)
+- ~~What the PS5 Pro enhancements are~~ Confirmed Nov 10: PSSR and ray-traced shadows
+- ~~File size~~ Announced Nov 3: up to 212 GB (the "676.7 GB" figure was never official)
 - The full voice cast and the complete radio station list (six of the stations are named)
 
 ## FAQ seeds (sourced answers)
 - **When does GTA 6 come out?** Grand Theft Auto VI launches on Thursday, November 19, 2026 on PS5 and Xbox Series X|S. Rockstar confirmed the date in November 2025 and repeated it in the June 2026 pre-order announcement.
 - **How much does GTA 6 cost?** The Standard Edition is $79.99 and the Ultimate Edition is $99.99 in the US, per Rockstar's June 24, 2026 press release.
-- **When can I pre-load GTA 6?** Digital pre-load starts at local midnight on November 12, 2026, one week before launch. Physical copies, which contain a download code rather than a disc, are available from November 12 too.
+- **When can I pre-load GTA 6?** Now. Pre-load opened November 10, 2026 (PS5 at local midnight, Xbox at 00:00 GMT) and needs up to 212 GB. Code-in-box copies are at retailers from November 12.
 - **Is GTA 6 coming to PC?** Rockstar hasn't announced a PC version. Its official platform page lists only PS5 and Xbox Series X|S, and Xbox has said the game won't stream to PC at launch.
 - **Does GTA 6 have GTA Online at launch?** Rockstar hasn't announced an online mode for launch. Its press release describes GTA 6 as a single-player experience.
 
