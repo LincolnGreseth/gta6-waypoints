@@ -2,13 +2,15 @@
 title: "GTA 6 Rated Adults-Only in South Korea"
 description: "South Korea's Game Content Rating Board rated GTA 6 adults-only on October 16, 2026. In the US, the ESRB rates it M for Mature 17+."
 date: 2026-10-16
-updated: 2026-10-26
+updated: 2026-11-12
 permalink: /news/2026-10-16-korea-adults-only-rating/
 status: reported
 crumb: "South Korea rating"
 h1: "GTA 6 rated adults-only in South Korea"
 lead: "South Korea's Game Content Rating Board rated Grand Theft Auto VI adults-only on October 16, 2026, according to Sports Kyunghyang. In the US, the ESRB rates it M for Mature 17+."
 sources:
+  - name: "Inven Global: GTA 6 rated Adults Only in South Korea (Oct 16, 2026)"
+    url: "https://www.invenglobal.com/articles/27299/gta-6-rated-adults-only-in-south-korea-following-private-board-review"
   - name: "Sports Kyunghyang: GTA 6 gets adults-only rating in Korea (Oct 19, 2026)"
     url: "https://sports.khan.co.kr/en/article/202610191644007"
   - name: "ESRB: Grand Theft Auto VI rating"
@@ -18,6 +20,8 @@ sources:
   - name: "Rockstar Support: Grand Theft Auto VI platforms, editions and versions"
     url: "https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions"
 related:
+  - text: "GTA 6 age ratings around the world"
+    url: "/news/2026-11-12-gta-6-age-ratings-worldwide/"
   - text: "Everything confirmed about GTA 6"
     url: "/everything-confirmed/"
   - text: "GTA 6 launch trailer released October 15"
@@ -33,6 +37,10 @@ related:
 - {% badge "confirmed" %} The ESRB rates Grand Theft Auto VI M (Mature 17+) on PlayStation 5 and Xbox Series. ([ESRB](https://www.esrb.org/ratings/41627/grand-theft-auto-vi/))
 - {% badge "confirmed" %} The ESRB content descriptors are Blood and Gore, Intense Violence, Mature Humor, Nudity, Strong Language, Strong Sexual Content, and Use of Drugs and Alcohol. ([ESRB](https://www.esrb.org/ratings/41627/grand-theft-auto-vi/))
 - {% badge "confirmed" %} The ESRB listing also notes In-Game Purchases. Rockstar hasn't said what those will be. ([ESRB](https://www.esrb.org/ratings/41627/grand-theft-auto-vi/))
+
+- {% badge "reported" %} Inven Global names the board as the Game Content Rating Board (GCRB), which took over console and PC reviews from the GRAC on November 1, 2025. ([Inven Global](https://www.invenglobal.com/articles/27299/gta-6-rated-adults-only-in-south-korea-following-private-board-review))
+
+Every rating so far, by country: [GTA 6 age ratings around the world](/news/2026-11-12-gta-6-age-ratings-worldwide/).
 
 ## What it means
 

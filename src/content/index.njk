@@ -2,7 +2,7 @@
 layout: layouts/base.njk
 title: "GTA 6 Waypoints: Map, Collectibles, Trophies & 100%"
 description: "When GTA 6 unlocks in your store region: live countdown and the midnight wave. Then the map, collectibles and 100% checklists, verified in-game."
-updated: 2026-10-26
+updated: 2026-11-12
 ---
 <div class="wrap home">
   <section class="hero" aria-labelledby="home-h1">
@@ -16,7 +16,7 @@ updated: 2026-10-26
     {% set waveSize = "home" %}{% include "partials/unlock-wave.njk" %}
   </section>
 
-  {%- set latest = collections.news | limit(3) %}
+  {%- set latest = collections.newsHome | limit(3) %}
   {%- if latest.length %}
   <section class="home-section" aria-labelledby="latest-h">
     <div class="home-section__head">
@@ -53,6 +53,8 @@ updated: 2026-10-26
       <div>
         {% set signup = { cta: true, region: "hidden", button: "Get the unlock alert" } %}{% include "partials/email-signup.njk" %}
         {% set shareUrl = "/" %}{% set shareLabel = "Share the countdown" %}{% include "partials/launch-actions.njk" %}
+        <p class="follow__label">Follow along: launch-week Shorts and updates.</p>
+        {% set socialStyle = "pills" %}{% include "partials/social.njk" %}
       </div>
     </div>
   </section>
