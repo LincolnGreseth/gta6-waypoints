@@ -1,0 +1,22 @@
+{#- Reusable checklist. Set `cl` to a checklist object from src/_data/ (shape: docs/CONTENT_PIPELINE.md → Checklist data).
+    Without JS it's a plain list. checklist-tool.js (loaded only on pages that use it) adds ticks saved in
+    localStorage, the progress count, per-category collapse, and export/import of progress as JSON. -#}
+<section class="cl" data-cl-tool="{{ cl.id }}" aria-labelledby="cl-h-{{ cl.id }}">
+  <h2 id="cl-h-{{ cl.id }}">{{ cl.title }}</h2>
+  <p class="cl__progress" aria-live="polite" data-cl-progress></p>
+  {%- for c in cl.categories %}
+  <details class="cl__cat" open data-cl-cat="{{ c.id }}">
+    <summary><span class="cl__name">{{ c.name }}</span> <span class="cl__count" data-cl-count>{{ c.items.length }}</span></summary>
+    <ul>
+      {%- for it in c.items %}
+      <li><label><input type="checkbox" data-cl-item="{{ it.id }}" disabled> <span>{{ it.label }}{% if it.note %} <small>{{ it.note }}</small>{% endif %}</span></label>{% if it.guide %} <a href="{{ it.guide }}">Guide</a>{% endif %}</li>
+      {%- endfor %}
+    </ul>
+  </details>
+  {%- endfor %}
+  <div class="cl__io js-only">
+    <button type="button" class="pillbtn" data-cl-export>Export progress</button>
+    <label class="pillbtn">Import <input type="file" accept="application/json" data-cl-import hidden></label>
+    <button type="button" class="pillbtn" data-cl-reset>Reset</button>
+  </div>
+</section>
