@@ -25,6 +25,7 @@ const escapeHtml = (s) =>
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/assets/img/favicon.svg": "favicon.svg" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/img/apple-touch-icon.png": "apple-touch-icon.png" });
   eleventyConfig.addWatchTarget("src/assets/");
 
   // Drafts: `draft: true` in front matter keeps a page out of the build, the sitemap and every collection
@@ -50,7 +51,7 @@ export default function (eleventyConfig) {
       slugify: (s) => s.toLowerCase().replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-"),
     });
     // Wide tables scroll inside their own box, never the page.
-    md.renderer.rules.table_open = () => '<div class="table-wrap"><table>\n';
+    md.renderer.rules.table_open = () => '<div class="table-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table>\n';
     md.renderer.rules.table_close = () => "</table></div>\n";
   });
 
@@ -105,6 +106,15 @@ export default function (eleventyConfig) {
     m = s.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/) || s.match(/^([\w-]{11})$/);
     if (m) return { url: `https://www.youtube.com/watch?v=${m[1]}`, id: m[1], isShort: false };
     return /^https:\/\//.test(s) ? { url: s, id: null, isShort: true } : null;
+  });
+  // "Jump to" links: every <h2 id> in the rendered page body.
+  eleventyConfig.addFilter("toc", (html) => [...String(html || "").matchAll(/<h2 id="([^"]+)"[^>]*>(.*?)<\/h2>/g)]
+    .map((m) => ({ id: m[1], text: m[2].replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").trim() }))
+    .filter((t) => t.text && !/^(faq|sources|related)$/i.test(t.text)));
+  // Default OG image by section (site.json → ogBySection: [{ match: "^/news/", image: "..." }, ...]); first match wins.
+  eleventyConfig.addFilter("ogFor", (url, rules) => {
+    for (const r of rules || []) if (new RegExp(r.match).test(url || "")) return r.image;
+    return null;
   });
   eleventyConfig.addFilter("rssDate", (value) => toDate(value).toUTCString());
   eleventyConfig.addFilter("shortDate", (value) => { const d = toDate(value); return `${MONTHS[d.getUTCMonth()]} ${d.getUTCDate()}`; });

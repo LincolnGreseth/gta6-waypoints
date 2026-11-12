@@ -3,6 +3,7 @@ title: "Waypoints Pro: GTA 6 Route Planner & Tools Waitlist"
 description: "Waypoints Pro: a GTA 6 route planner, video timestamps and full databases. Join the waitlist to hear first if we build it."
 layout: layouts/guide.njk
 crumb: "Waypoints Pro"
+kicker: "Waypoints Pro"
 h1: "Waypoints Pro"
 lead: "Waypoints Pro: route planner, video timestamps and full databases. Join the waitlist."
 updated: 2026-10-23

@@ -3,12 +3,14 @@ title: "GTA 6: Everything Confirmed So Far"
 description: "Every official GTA 6 fact in one place: Nov 19 midnight unlock, live pre-load, 212 GB, 30fps, $79.99 price, editions, characters and PC status. Sourced."
 layout: layouts/guide.njk
 crumb: "Everything confirmed"
+kicker: "Launch · living page"
 h1: "GTA 6: Everything Confirmed So Far"
 lead: "Grand Theft Auto VI launches on Thursday, November 19, 2026 on PS5 and Xbox Series X|S, at $79.99 for the Standard Edition and $99.99 for the Ultimate Edition. You play as Jason Duval and Lucia Caminos in the state of Leonida, and Rockstar hasn't announced a PC version or GTA Online for launch."
 status: confirmed
 claim: true
 article: true
 published: 2026-10-23
+toc: true
 updated: 2026-11-12
 faq:
   - q: "When does GTA 6 come out?"

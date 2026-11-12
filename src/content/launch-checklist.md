@@ -3,11 +3,13 @@ title: "GTA 6 Launch Checklist: What to Do Before Nov 19"
 description: "Everything to do before GTA 6 launches: pre-load is live, free up to 212 GB, buy before Nov 20 for the bonus, and know your midnight unlock time."
 layout: layouts/guide.njk
 crumb: "Launch checklist"
+kicker: "Launch · this week"
 h1: "GTA 6 launch checklist: what to do before November 19"
 lead: "Pre-load for Grand Theft Auto VI is live now (it opened November 10), so free up to 212 GB and start the download before November 19, 2026. Buy before November 20 to get the Vintage Vice City Pack, and redeem a physical copy's code the day you get it. Tick items off below; your progress saves on this device."
 status: confirmed
 claim: true
 article: true
+toc: true
 updated: 2026-11-12
 faqHeading: "Questions people ask"
 faq:

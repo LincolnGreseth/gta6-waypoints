@@ -4,6 +4,7 @@ description: "Thanks for signing up to GTA 6 Waypoints. Your day-one guide drop 
 layout: layouts/guide.njk
 noindex: true
 crumb: "Thanks"
+kicker: "You're in"
 h1: "You're on the day-one list"
 lead: "Thanks for signing up. The day-one guide drop lands in your inbox when GTA 6 launches on November 19, 2026, then a short roundup once a week."
 updated: 2026-11-12

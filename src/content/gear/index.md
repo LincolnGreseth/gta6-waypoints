@@ -3,6 +3,7 @@ title: "GTA 6: Best Controllers, Headsets & Capture Gear"
 description: "Controllers, headsets and capture cards for playing and recording GTA 6 on PS5 and Xbox Series X|S, with specs from the makers' own pages."
 layout: layouts/guide.njk
 crumb: "Gear"
+kicker: "Gear"
 h1: "GTA 6: Best Controllers, Headsets & Capture Gear"
 lead: "You don't need extra hardware to play Grand Theft Auto VI on PS5 or Xbox Series X|S, but you do need up to 212 GB of free space, per Rockstar. If you want a better controller, a headset for the radio, or a way to record your runs, these are the official and well-known options, with specs taken from each maker's own page."
 status: confirmed

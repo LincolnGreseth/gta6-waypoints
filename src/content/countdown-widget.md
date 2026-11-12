@@ -3,6 +3,7 @@ title: "Free GTA 6 Countdown Widget for Sites and OBS"
 description: "Add a live GTA 6 countdown to your site or stream, set to any store region. Copy the embed code, or add the OBS overlay as a browser source. Free."
 layout: layouts/guide.njk
 crumb: "Countdown widget"
+kicker: "Tools · free widget"
 h1: "Free GTA 6 countdown for your site or stream"
 lead: "Copy the code below to put a live countdown to Grand Theft Auto VI's November 19, 2026 launch on your site, or add the overlay URL to OBS as a browser source. Pick a store region, or leave it on Auto so each viewer sees their own."
 updated: 2026-11-12

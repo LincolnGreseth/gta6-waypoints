@@ -20,7 +20,7 @@ button, input, select, textarea { font: inherit; }
 p, ul, ol, table { margin: 0 0 1rem; }
 
 h1, h2, h3 { font-family: var(--font-display); font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.05; margin: 2.25rem 0 0.75rem; }
-h1 { font-size: clamp(40px, 6vw, 72px); line-height: 0.95; margin-top: 0.5rem; }
+h1 { font-size: clamp(34px, 3.2vw + 18px, 60px); line-height: 0.98; margin-top: 0.5rem; }
 h2 { font-size: 28px; line-height: 1.1; }
 h3 { font-size: 19px; }
 
@@ -110,6 +110,26 @@ html.menu-lock { overflow: hidden; }
 .main { display: block; min-height: 60vh; }
 .page { padding-top: 24px; padding-bottom: 24px; }
 .page > *, .prose > *, .page__head > * { max-width: var(--measure); }
+.page__head { padding-bottom: 24px; margin-bottom: 8px; border-bottom: 1px solid var(--line); }
+.page__head > h1 { max-width: 58rem; text-wrap: balance; }
+.page__head .lead { margin: 14px 0 16px; }
+.page__kick { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 18px 0 12px; }
+.kicker--page { margin: 0; font-size: 11px; letter-spacing: 0.2em; }
+.page__kick .shell__pill { margin: 0; }
+.jump { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin: 20px 0 8px; font-size: 14px; }
+.jump__label { font: 600 11px/1.4 var(--font-body); letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+.jump ul { display: flex; flex-wrap: wrap; gap: 4px 14px; list-style: none; margin: 0; padding: 0; }
+.jump a { display: inline-flex; align-items: center; min-height: 32px; color: var(--body); text-decoration-color: var(--line); }
+.jump a:hover { color: var(--accent); }
+.changed { margin: 24px 0 32px; padding: 4px 20px 12px; border: 1px solid var(--line); border-left: 3px solid var(--teal); border-radius: 12px; background: rgba(47, 211, 197, 0.04); }
+.changed h3 { margin-top: 14px; }
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 40px 0 0; max-width: var(--measure); }
+.pager a { display: block; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; color: var(--text); text-decoration: none; font-weight: 600; font-size: 14px; line-height: 1.35; }
+.pager a:hover { border-color: rgba(255, 255, 255, 0.3); }
+.pager span { display: block; font: 500 11px/1.4 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.pager__next { grid-column: 2; text-align: right; }
+@media (max-width: 559.98px) { .pager { grid-template-columns: 1fr; } .pager__next { grid-column: 1; text-align: left; } }
+.table-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .prose > .table-wrap, .prose > .yt-grid { max-width: 100%; }
 .prose { font-size: 16px; line-height: 1.6; }
 .lead { font-size: 17px; color: var(--body); }
@@ -146,7 +166,7 @@ tr:last-child td, tr:last-child th { border-bottom: 0; }
 .badge { display: inline-block; vertical-align: 0.1em; font: 600 12px/1 var(--font-body); padding: 4px 9px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; text-transform: none; letter-spacing: 0; }
 .badge--confirmed { color: #062320; background: var(--teal); border-color: var(--teal); }
 .badge--reported { color: #2a1400; background: var(--orange); border-color: var(--orange); }
-.badge--rumor { color: #fff; background: var(--accent); border-color: var(--accent); }
+.badge--rumor { color: #0D0812; background: var(--accent); border-color: var(--accent); }
 .badge--rumor::before { content: "! "; }
 .badge--unverified { color: var(--muted); background: transparent; border-style: dashed; }
 
@@ -307,7 +327,7 @@ html, body { overflow-x: clip; }
 .wave li.is-mine .wave__name { color: var(--accent); font-weight: 600; }
 .wave__t { color: var(--muted); text-align: right; font-family: var(--font-mono); }
 .unlock-table th[scope="row"] { font-weight: 400; background: transparent; }
-.rowbtn { background: none; border: 0; padding: 0; color: var(--text); text-align: left; cursor: pointer; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 0.2em; min-height: 32px; }
+.rowbtn { background: none; border: 0; padding: 0; color: var(--text); text-align: left; cursor: pointer; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 0.2em; min-height: 44px; }
 .rowbtn:hover { color: var(--accent); }
 .unlock-table tr.is-mine td, .unlock-table tr.is-mine th { background: rgba(238, 75, 131, 0.08); }
 .unlock-table tr.is-mine .rowbtn { color: var(--accent); font-weight: 600; }

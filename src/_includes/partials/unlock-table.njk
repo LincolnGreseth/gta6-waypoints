@@ -1,6 +1,6 @@
 {#- All regions. Without JS the first three columns are complete; JS fills "Your time". -#}
 {%- set ul = site.unlock | unlockList %}
-<div class="table-wrap">
+<div class="table-wrap" tabindex="0" role="region" aria-label="Unlock times by store region">
   <table class="unlock-table">
     <caption class="vh">GTA 6 unlock times for {{ ul.regions.length }} store regions ({{ site.unlock.status }})</caption>
     <thead><tr><th scope="col">Store region</th><th scope="col">Store time</th><th scope="col" class="col-utc">UTC</th><th scope="col" class="col-js">Your time</th></tr></thead>

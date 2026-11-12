@@ -3,6 +3,7 @@ title: "GTA 6 Characters: Jason, Lucia and the Supporting Cast"
 description: "GTA 6's playable leads are Jason Duval and Lucia Caminos, and you can switch between them. Plus the supporting characters Rockstar has profiled."
 layout: layouts/guide.njk
 crumb: "Characters"
+kicker: "The game · characters"
 h1: "GTA 6 characters: Jason Duval, Lucia Caminos and the supporting cast"
 lead: "You play Grand Theft Auto VI as Jason Duval and Lucia Caminos, and you can switch between them. Rockstar has also profiled six supporting characters on its Only in Leonida page."
 status: confirmed

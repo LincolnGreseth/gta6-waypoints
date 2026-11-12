@@ -3,6 +3,7 @@ title: "About GTA 6 Waypoints"
 description: "GTA 6 Waypoints is an independent fan site for completing GTA 6: map, collectibles, trophies and 100% checklists. How we source, label and verify."
 layout: layouts/guide.njk
 crumb: "About"
+kicker: "About"
 h1: "About GTA 6 Waypoints"
 lead: "GTA 6 Waypoints is an independent fan site that helps you finish GTA 6: the map, every collectible, every trophy and the full 100% checklist. Every claim on the site is labelled, sourced and dated, and we never publish leaks."
 updated: 2026-11-12

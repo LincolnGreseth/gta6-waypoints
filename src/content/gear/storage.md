@@ -3,6 +3,7 @@ title: "Do You Need More Storage for GTA 6?"
 description: "GTA 6 needs up to 212 GB on PS5 and Xbox Series X|S, per Rockstar. How to check your free space and add more storage before Nov 19."
 layout: layouts/guide.njk
 crumb: "Storage"
+kicker: "Gear · storage"
 h1: "GTA 6 file size: up to 212 GB. Do you need more storage?"
 lead: "Grand Theft Auto VI needs up to 212 GB, depending on your console, according to Rockstar. Pre-load is already live, so check your free space tonight: if you have less than 212 GB free, delete something or add storage before November 19."
 status: confirmed

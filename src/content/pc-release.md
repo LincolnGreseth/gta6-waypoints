@@ -3,6 +3,7 @@ title: "GTA 6 PC Release: Is It Coming to PC?"
 description: "No PC version of GTA 6 has been announced. What Rockstar, Take-Two and Xbox have said, plus the GamesBeat report, in a dated timeline. No leaks."
 layout: layouts/guide.njk
 crumb: "PC release"
+kicker: "The game · platforms"
 h1: "Is GTA 6 coming to PC? What's official so far"
 lead: "Rockstar hasn't announced a PC version of Grand Theft Auto VI. It launches November 19, 2026 on PS5 and Xbox Series X|S only, and there's no official PC release date."
 status: confirmed

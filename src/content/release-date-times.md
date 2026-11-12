@@ -3,11 +3,13 @@ title: "GTA 6 Unlock Times: When It Releases in Your Region"
 description: "GTA 6 unlocks at midnight local time on Nov 19, 2026 on PS5 and Xbox Series X|S. Unlock times for 15 store regions and the time where you are."
 layout: layouts/guide.njk
 crumb: "Unlock times"
+kicker: "Launch · unlock times"
 h1: "GTA 6 unlock times: when it releases in your region"
 lead: "Grand Theft Auto VI unlocks at midnight local time on Thursday, November 19, 2026, in all regions, on PS5 and Xbox Series X|S. That's Rockstar's own wording; pick your store region below to see the time where you are."
 status: confirmed
 claim: true
 article: true
+toc: true
 updated: 2026-11-12
 faqHeading: "Launch-week questions"
 faq:

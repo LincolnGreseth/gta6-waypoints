@@ -3,6 +3,7 @@ title: "Disclaimer and Affiliate Disclosure | GTA 6 Waypoints"
 description: "GTA 6 Waypoints is an unofficial fan site. Our trademark notice, no-leaks policy, accuracy disclaimer, and how affiliate links and ads work here."
 layout: layouts/guide.njk
 crumb: "Disclaimer"
+kicker: "Legal"
 h1: "Disclaimer and disclosures"
 lead: "GTA 6 Waypoints is an independent fan site with no connection to Rockstar Games or Take-Two Interactive. We earn money from affiliate links and may show ads, and neither changes what we recommend."
 updated: 2026-10-23
