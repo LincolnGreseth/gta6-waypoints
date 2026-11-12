@@ -23,7 +23,7 @@ Use trailing slashes everywhere (11ty default). Pick one URL per topic and menti
 | `/everything-confirmed/` | Living page: every confirmed fact with source and date. The pre-launch traffic magnet. |
 | `/release-date-times/` | Date, pre-load, and unlock times for 15 store regions with a region picker: assumed (Unverified) until Rockstar or the stores post them |
 | `/editions/` | Standard vs Ultimate: contents and who should buy which |
-| `/pc-release/` | Official statements only, kept updated |
+| `/pc-release/` | Official statements only, kept updated. In the menu's "The game" group since Nov 12 (the Launch group is only things you do this week). |
 | `/locations/` | Regions revealed by Rockstar (Vice City, Leonida Keys, Grassrivers, Port Gellhorn, etc.), each cited to official material |
 | `/characters/` | Jason Duval, Lucia Caminos, and officially revealed NPCs. Short; becomes an entity hub post-launch. |
 | `/news/` | Updates with status badges. This is the freshness signal. |

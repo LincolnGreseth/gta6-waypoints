@@ -71,7 +71,34 @@ SOURCES: [links]
 - Cross-post the same edit to YouTube Shorts, TikTok and Instagram Reels without watermarks.
 - Pin a comment with the page link.
 
-## 6. Publishing checklist (site)
+## 6. Checklist data (checklist tool)
+`src/_data/<name>.json`, rendered with `{% set cl = <name> %}{% include "partials/checklist-tool.njk" %}` (example: `checklistDemo.json`, page `/tools/checklist-demo/`, draft):
+```json
+{
+  "id": "hidden-packages",                 // localStorage key wp-cl-<id>; never change once live
+  "title": "GTA 6 hidden packages checklist",
+  "categories": [
+    { "id": "vice-city", "name": "Vice City",
+      "items": [ { "id": "hp-001", "label": "Behind the lifeguard tower", "note": "Missable? no", "guide": "/collectibles/hidden-packages/#hp-001" } ] }
+  ]
+}
+```
+Item and category `id`s are permanent (they're what visitors' saved ticks point at). Add new items at the end; never reuse an id. Progress export/import is JSON `{ checklist, exported, items: [ids] }`.
+
+## 7. Map pin data (map tool)
+`src/_data/<name>.json`, rendered with `{% set pins = <name> %}{% include "partials/map-tool.njk" %}` (example: `pinsDemo.json`, page `/tools/map-demo/`, draft):
+```json
+{
+  "id": "leonida",                          // localStorage key wp-map-<id>
+  "categories": [ { "id": "collectible", "name": "Collectibles", "color": "#EE4B83" } ],
+  "pins": [ { "id": "hp-001", "category": "collectible", "title": "Hidden package 1",
+              "x": 42.5, "y": 61.0, "note": "On the roof, climb the ladder at the back.",
+              "verified": "2026-11-19", "guide": "/collectibles/hidden-packages/#hp-001" } ]
+}
+```
+`x`/`y` are percentages (0–100) of the plot. The plot is a neutral grid; never put pins on an image of the GTA 6 map from trailers, leaks or official art. From day one: copy each finding from `findings-log.md` (where + how verified) into a pin, with `verified` set to the date we checked it. Pins with no `verified` date shouldn't go live.
+
+## 8. Publishing checklist (site)
 - [ ] Answer in the first two sentences
 - [ ] Status badge, `updated:` date, sources
 - [ ] Linked up to its hub and across to 2+ related pages

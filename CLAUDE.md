@@ -17,31 +17,40 @@ gta6-site/
 ├── docs/                      ← plans; read before content work
 │   ├── SITE_PLAN.md, CONTENT_PIPELINE.md, LAUNCH_PLAN.md, STYLE_GUIDE.md
 │   └── research/
-│       └── CONFIRMED_FACTS.md ← labelled, sourced facts (Oct 23, 2026) for /everything-confirmed/
+│       └── CONFIRMED_FACTS.md ← labelled, sourced facts (Oct 23, rechecked Nov 12, 2026) for /everything-confirmed/
 ├── src/
 │   ├── _data/
-│   │   ├── site.json          ← name, url, nav, countdown, unlock (15 store regions), ads, analytics, affiliate tag, social
+│   │   ├── site.json          ← name, url, menu, countdown, unlock (15 store regions), launchCopy (pre/live), hubs, ogBySection, ads, analytics, affiliate tag, social
+│   │   ├── launch.js          ← build-time launch state (LAUNCHED=1 or after the first unlock) + the matching launchCopy
+│   │   ├── checklistDemo.json, pinsDemo.json ← dummy data for the checklist and map tools (shape in CONTENT_PIPELINE.md)
 │   │   ├── affiliates.json    ← affiliate links used by {% aff %}
 │   │   └── env.js             ← build-time env (BREVO_FORM_ACTION)
 │   ├── _includes/
 │   │   ├── layouts/           ← base.njk, guide.njk, shell.njk
-│   │   └── partials/          ← header, menu, footer, countdown, unlock-wave, email-signup, ad-slot, sources, breadcrumbs, jsonld
+│   │   └── partials/          ← header, menu, footer, countdown, unlock-wave, email-signup, ad-slot, sources, breadcrumbs, jsonld, launch-swap (pre/live copy), social, checklist-tool, map-tool
 │   ├── content/               ← every page lives here; URLs come from content.11tydata.js
 │   │   ├── *.md               ← top-level pages: everything-confirmed.md → /everything-confirmed/
 │   │   ├── hubs/              ← pillar pages; the folder name is dropped: hubs/map.md → /map/
 │   │   ├── pages/             ← trust pages; the folder name is dropped: pages/about.md → /about/
 │   │   ├── news/              ← dated updates: news/2026-10-15-launch-trailer.md → /news/2026-10-15-launch-trailer/
-│   │   └── guides/            ← evergreen how-to pages → /guides/<slug>/
+│   │   ├── guides/            ← evergreen how-to pages → /guides/<slug>/ (25 launch-week skeletons + sample, all draft: true)
+│   │   └── tools/             ← checklist-demo, map-demo (draft: true, dummy data)
 │   └── assets/
 │       ├── css/tokens.css     ← Midnight design tokens + self-hosted @font-face (source of truth for colour and type)
 │       ├── fonts/             ← Oswald 600, Barlow 400/600, JetBrains Mono 500 (woff2, OFL)
-│       ├── js/                ← site.js (region state, countdown, wave), enhance.js (menu, share, signup; ≤2 KB), extras.js (YouTube, table, checklist, embed promo; only where used); minified at build
-│       ├── img/, og/          ← compressed WebP; OG images 1200×630
-├── scripts/                   ← check-pages.js + check-unlock.mjs (npm run check), brevo-schedule.mjs, og/ (OG image source HTML)
+│       ├── js/                ← site.js (region state, countdown, wave, launch switch), enhance.js (menu, share, signup, social_click; ≤2 KB), extras.js (YouTube, table, checklist, embed promo; only where used), checklist-tool.js + map-tool.js (only on pages that use them); minified at build
+│       ├── img/               ← favicon.svg, apple-touch-icon.png, icon-192/512.png (manifest), placeholder-shot.svg
+│       └── og/                ← OG images 1200×630: default, news, launch, guides, gear (site.json → ogBySection)
+├── src/feed.njk, sitemap.njk, robots.njk, site-webmanifest.njk, gta6-launch-ics.njk
+├── netlify/functions/launch-rebuild.mjs ← scheduled rebuilds around the unlock (needs LAUNCH_BUILD_HOOK_URL)
+├── scripts/                   ← check-pages.js + check-unlock.mjs (npm run check), brevo-schedule.mjs, new.mjs (scaffolder), og/ (section.html + render.mjs)
 ├── content-ops/
 │   ├── findings-log.md        ← in-game discoveries, newest first
 │   ├── shorts/                ← Shorts scripts: YYYY-MM-DD-slug.md
 │   ├── emails/                ← newsletter drafts
+│   ├── guide-queue.md         ← the 25 launch-week guides in priority order
+│   ├── social/profile-copy.md ← YouTube + Facebook profile text
+│   ├── brevo-unlock-alerts.md ← unlock-alert send schedule (generated)
 │   └── prompts/               ← saved Claude Code prompts
 └── raw/                       ← clips and screenshots (gitignored)
 ```
@@ -49,7 +58,10 @@ gta6-site/
 ## Commands
 - `npm install`, then `npm run dev` (eleventy --serve) for local dev
 - `npm run build`: build to `_site/`
-- `npm run check`: page checks (title/description length, `updated:`, `status:`, disclosures, footer disclaimer). Run after every build.
+- `npm run check`: page checks (title/description length, `updated:`, `status:`, disclosures, footer disclaimer, no stale "Nov 12 pre-load" wording, no `draft: true` page in `_site/` or the sitemap, footer social URLs match `site.json`) + unlock checks. Run after every build.
+- `npm run build:launched` (= `LAUNCHED=1`): build in launch mode. `npm run build:drafts` (= `DRAFTS=1`): include drafts, local only.
+- `npm run new:guide -- "GTA 6: Title" [--hub money]` / `npm run new:news -- "Title"`: scaffold a page with the STYLE_GUIDE front matter (guides start as drafts).
+- OG images: `node scripts/og/render.mjs` (needs Playwright; see the file header).
 - Deploy: push to `main`. Don't deploy from the CLI unless asked.
 
 ## Already wired in the scaffold
@@ -70,7 +82,7 @@ The home page hero is a live countdown to GTA 6's launch. It's how we build mome
   "mode": "local",
   "dateText": "Thursday, November 19, 2026",
   "platforms": "PS5 and Xbox Series X|S",
-  "note": "Rockstar hasn't posted regional unlock times yet, so this counts down to midnight where you are.",
+  "note": "Rockstar says GTA 6 unlocks at midnight local time on November 19 in all regions. …",
   "status": "confirmed",
   "sourceUrl": "<Rockstar press release URL from docs/research/CONFIRMED_FACTS.md>",
   "liveHeading": "GTA 6 is out",
@@ -78,18 +90,20 @@ The home page hero is a live countdown to GTA 6's launch. It's how we build mome
   "liveLink": { "text": "Open the map", "url": "/map/" },
   "milestones": [
     { "date": "2026-11-09", "label": "Take-Two earnings call", "status": "confirmed" },
-    { "date": "2026-11-12", "label": "Pre-load opens", "status": "confirmed" },
+    { "date": "2026-11-10", "label": "Pre-load opened (PS5 local midnight, Xbox 00:00 GMT)", "status": "confirmed" },
+    { "date": "2026-11-12", "label": "Code-in-box copies at retailers", "status": "confirmed" },
     { "date": "2026-11-19", "label": "Launch day", "status": "confirmed" },
     { "date": "2026-11-20", "label": "Pre-order bonus cutoff", "status": "confirmed" }
   ]
 }
 ```
-- `mode: "local"` counts to that wall-clock time in the viewer's own timezone. Once Rockstar or the stores publish unlock times, switch to `mode: "fixed"` with an absolute time and offset (for example `2026-11-19T00:00:00-05:00`), and update `note`.
+- `mode: "local"` counts to that wall-clock time in the viewer's own timezone when no store region is picked. Rockstar's confirmed rule is midnight local time, so this stays `local`; the per-region instants come from `unlock.regions`.
+- Milestones render as the "Key dates" table on `/release-date-times/`.
 - To count down to the site's own go-live instead, change `target`, `heading` and `milestones` only.
 
 **Partial:** `src/_includes/partials/countdown.njk`, with two sizes:
 - `home` (default): centered label "Counting down to the unlock in <region>", four tiles (Days, Hours, Minutes, Seconds; Seconds in pink), the region select as a pill and its caption. No milestones and no badges on the home page.
-- `compact`: smaller tiles, left-aligned, with the unlock line (`unverified` badge) and the confirmed date line. Used on shells, `/everything-confirmed/`, `/release-date-times/` and `/launch-checklist/`. Milestones live in the key-dates table on `/release-date-times/`.
+- `compact`: smaller tiles, left-aligned, with the unlock line (`site.unlock.status` badge; "(zone split unverified)" is appended for multi-zone regions) and the confirmed date line. Used on shells, `/everything-confirmed/`, `/release-date-times/` and `/launch-checklist/`. Milestones live in the key-dates table on `/release-date-times/`.
 
 **Behaviour** (`src/assets/js/site.js`, vanilla, deferred):
 - Days, hours, minutes and seconds in tiles, updating every second, all padded to two digits. Digits start empty (never `--`); tile size is fixed, so nothing shifts (CLS 0). JetBrains Mono, tabular numerals.
@@ -106,7 +120,7 @@ Reference layout: a single-purpose, centered hero, inspired by modern GTA fan-hu
 - **Decoration:** one soft purple radial glow top-right of the home page and the wavy band behind the home CTA card. Nothing else. No card grids, gradients on text, or extra animation.
 - **Buttons** are pills: primary pink fill, secondary 1px hairline outline. 44px minimum tap targets.
 - **Badges:** Confirmed teal, Reported orange, Rumor pink with "!", Unverified dimmed with a dashed border. **The home page shows at most 4 badges** (the wave footnote plus one per Latest row); `npm run check` enforces it.
-- **Header (every page):** wordmark "GTA 6 Waypoints" (Oswald, uppercase) with our map pin and a "Fan guide" tagline; on the right a status chip with a pulsing green dot ("Guides open Nov 19", "Nov 19" under 480px) and the Menu button. Transparent on home, sticky with a blurred background on inner pages.
+- **Header (every page):** wordmark "GTA 6 Waypoints" (Oswald, uppercase) with our map pin and a "Fan guide" tagline; on the right a status chip with a pulsing green dot (text from `site.json → launchCopy`: "Guides open Nov 19"/"Nov 19" before launch, "Guides live"/"Live" after; one visually hidden copy is announced) and the Menu button. Transparent on home, sticky with a blurred background on inner pages.
 - **Menu:** `site.json → menu` (four groups, two columns). `<details>` so it works without JS; `enhance.js` adds Esc, outside click, `aria-expanded`, focus return, focus trap and scroll lock. Desktop: 400px dropdown under the button. Under 720px: a full-height sheet with the button turning into Close. Only pages that exist go in the menu; `npm run check` fails on a menu URL with no built page.
 - **Footer (every page):** one row with the fan-site disclaimer (`site.json → disclaimer`) and Privacy, Terms, Disclaimer, About, Contact; a second row with the affiliate disclosure link, "Updated <date>" and "No leaks, ever." Never remove the disclaimer.
 - **Banned:** the GTA/Pricedown font, Rockstar logos, official key art as branding, anything that could pass for Rockstar or another fan site.
@@ -130,20 +144,34 @@ Reference layout: a single-purpose, centered hero, inspired by modern GTA fan-hu
 - Internal links: every guide links up to its hub, and every hub links down to its guides.
 
 ## Launch-week tools
-- **Store-region unlock times** live in `site.json → unlock` (`status`, `note`, 15 `regions` with ISO `at` times including the offset, DST-correct for Nov 19, 2026). Currently **assumed**: local midnight in each store region, `status: "unverified"`. `npm run check` runs `scripts/check-unlock.mjs` (midnight + real offsets while unverified, wave order matches the build).
-- **When Rockstar or the stores confirm times:** edit only `at`, `status` and `note` in `site.json`, then by hand: the `lead` and FAQ answer on `/release-date-times/`, the "What time does GTA 6 unlock?" answers on `/faq/` and `/launch-checklist/`, `docs/research/CONFIRMED_FACTS.md`, and regenerate `content-ops/brevo-unlock-alerts.md` (`node scripts/brevo-schedule.mjs .`). A single worldwide time (every `at` equal) collapses the wave to "Everyone unlocks at the same moment".
+- **Store-region unlock times** live in `site.json → unlock` (`status`, `sourceUrl`, `note`, `splitNote`, 15 `regions` with ISO `at` times including the offset, DST-correct for Nov 19, 2026, and a per-region `status`/`note`). **Confirmed Nov 12, 2026**: Rockstar Support says "midnight local time on November 19, 2026, in all regions" (`unlock.status: "confirmed"`). Not settled: how countries with several time zones unlock, so US East/Central/Mountain/West, Australia (East) and Brazil carry `status: "unverified"` and a `*` on the wave and table. The US Xbox Store page data says 05:00Z (midnight ET nationwide); that's metadata, not an announcement. `npm run check` runs `scripts/check-unlock.mjs` (midnight-local rule unless `unlock.rule: "fixed"`, DST-correct offsets, unverified regions need a note, wave order and the home/release-page wave copy match the data).
+- **If Rockstar or the stores settle the multi-zone question:** edit only `at`, the region `status`/`note` and `unlock.splitNote` in `site.json` (for one nationwide US instant, either set all four US rows to the same `at` or merge them into one `us` row and add it to `ZONES` in `check-unlock.mjs`), then by hand: the `lead` and FAQ answer on `/release-date-times/`, the "What time does GTA 6 unlock?" answers on `/faq/` and `/launch-checklist/`, `docs/research/CONFIRMED_FACTS.md`, and regenerate `content-ops/brevo-unlock-alerts.md` (`node scripts/brevo-schedule.mjs .`). A single worldwide time (every `at` equal) collapses the wave to "Everyone unlocks at the same moment".
 - **Region state** (`site.js`, inlined as `#wp-unlock`): saved choice → else the viewer's UTC offset on Nov 19 matched to a region → else "Midnight in your time zone". Every `[data-region-select]` stays in sync; other components listen for the `wp:region` event (`enhance.js`). The countdown counts to the selected region's `at`.
 - **Partials:** `countdown.njk` (home/compact), `unlock-wave.njk` (home SVG curve / full list), `unlock-table.njk` (store time + UTC at build time, "Your time" by JS, tap a row to set region), `launch-checklist-short.njk`, `launch-facts.njk`, `embed-promo.njk`, `launch-actions.njk` (calendar + share).
 - **Embeds:** `/embed/countdown/` (`?region=`, `&theme=dark|transparent`, `&size=compact|wide`; old `bg=`/`size=sm|lg` still work) and `/embed/obs/` (1920×1080, transparent). Standalone pages with inline CSS/JS from `partials/embed-clock-js.njk`, no site.js, no analytics, under 15 KB. The credit link can't be turned off. Only `/embed/*` may be framed (`netlify.toml` headers).
 - **Unlock alert signup** (`email-signup.njk`): region select by default (`signup.region: "select"|"hidden"|"none"`), pre-filled from the picker. Brevo gets `REGION` + `INTEREST`; Netlify Forms gets `region` + `interest`. Sending runbook: `content-ops/brevo-unlock-alerts.md`. One signup per page.
 - **Launch checklist** (`/launch-checklist/`, plus the short version on home and the pillar page) saves ticks in localStorage. FAQPage markup must match the visible questions; `npm run check` enforces it. Google rarely shows FAQ rich results for gaming sites, so the markup is for machines, not a SERP feature.
 
+## Launch switch (Nov 19, no deploy needed)
+- **One state, two places.** Build time: `src/_data/launch.js` sets `launch.launched` when `LAUNCHED=1` or the build runs after the first unlock (New Zealand). Runtime: `site.js → launch()` flips each viewer at *their* region's unlock (or local midnight), re-checking every 30 s; `?preview=launched` forces launch mode for a preview.
+- **All copy for both states** is in `site.json → launchCopy.pre` / `.live` (chip, menu "Guides" label, home hero subline, shell pill, signup heading/text/buttons, `interest`). Templates print both with `{% from "partials/launch-swap.njk" import swap with context %}{{ swap("key") }}`; the non-matching one is `hidden`. Hub shells can set `leadLive:` for their launched lead. The signup's hidden interest field flips from `unlock-alert` to `guides`.
+- **Countdown** swaps to `liveHeading`/`liveText`/`liveLink` at zero (or with `?preview=launched`).
+- **Scheduled rebuild:** `netlify/functions/launch-rebuild.mjs` (cron `1 * 18,19 11 *`, UTC) calls `LAUNCH_BUILD_HOOK_URL` at 11:01 UTC Nov 18 (NZ), 05:01 and 08:01 UTC Nov 19 (US East, US West), so the static HTML flips for no-JS visitors and crawlers. One-off alternative: `curl -X POST "$LAUNCH_BUILD_HOOK_URL"`. Never commit the hook URL.
+
+## Front matter added Nov 12
+- `draft: true`: page is skipped by the build, every collection and the sitemap unless `DRAFTS=1` (local only). `npm run check` fails if a draft reaches `_site/`.
+- `short:` a YouTube Short URL (plain "Watch the Short" link) or a normal video URL/ID (click-to-load facade). Nothing renders when empty.
+- `verified:` date shown as "Verified in-game on …" in the meta row. `steps:` list of `{name, text}` → numbered steps + HowTo JSON-LD.
+- `hub:` (guides) links up to `site.json → hubs[hub]`. `kicker:` overrides the small label above the H1. `toc: true` adds a "Jump to" row from the H2s. `pinned: true` (news) puts a post first on the home "Latest" and in the "Launch week" row on `/news/`. `leadLive:` (shells) is the lead after launch.
+- **Social:** `site.json → social` has `youtube`, `facebook` (keep the Facebook URL in data only; swap in the short URL when claimed), `x`, `tiktok`, `instagram`, `discord`. Icons render only for non-empty URLs; footer icons, home "Follow along" pills, Organization `sameAs`, GA4 `social_click` (`network`).
+- **RSS:** `/feed.xml` (newest 30 news posts), linked in `<head>`.
+
 ## Monetization
 Order (details in `docs/SITE_PLAN.md → Monetization`): affiliate links from day one → display ads once there's traffic (AdSense first, premium networks later) → Waypoints Pro 6–8 weeks after launch, only if the free tools show real repeat use. Check Rockstar's stance on paid fan tools before charging. YouTube Shorts are a traffic funnel, not revenue (10M qualified views / 90 days needed from Feb 1, 2027).
 
 - **Affiliates:** `src/_data/affiliates.json` (`id, name, merchant, network, url, category, note`). Use `{% aff "id" %}text{% endaff %}`; it adds `rel="sponsored nofollow noopener"`, `target="_blank"` and a visible "(paid link)". Amazon URLs get `site.json → affiliate.amazonTag` appended when set, and render untagged when it's empty. `network: "pending"` or an empty `url` renders plain text, never a link. Any page with an affiliate link sets `affiliate: true` in front matter, which shows the Amazon Associates line and general disclosure near the top. No cloud gaming links (GeForce Now etc.): GTA 6 isn't on PC.
 - **Ads:** `site.json → ads` (`enabled`, `network`, `publisherId`). The AdSense script loads only when `enabled` is true; `/ads.txt` is generated only when `publisherId` is set. Before enabling, Google's Privacy & Messaging CMP (IAB TCF) must be published in AdSense for EEA/UK/Swiss visitors.
-- **Analytics:** GA4 via `site.json → analytics.ga4Id`; nothing loads when empty. Consent Mode v2 defaults are set before the tag (ads and analytics denied in the EEA/UK/CH until the CMP grants them). Custom events: `signup`, `affiliate_click` (`link_id`), `tool_open`, plus `share` and `add_to_calendar`.
+- **Analytics:** GA4 via `site.json → analytics.ga4Id`; nothing loads when empty. Consent Mode v2 defaults are set before the tag (ads and analytics denied in the EEA/UK/CH until the CMP grants them). Custom events: `signup`, `affiliate_click` (`link_id`), `tool_open`, `social_click` (`network`), plus `share` and `add_to_calendar`.
 - **Pro:** `/pro/` is a waitlist only (signup partial with `interest=pro`). No accounts, auth or Stripe until the go/no-go. Planned stack: Stripe Checkout + Supabase Auth (or Auth0) via Netlify Functions. Never Netlify Identity (deprecated Feb 2025).
 
 ## Don'ts

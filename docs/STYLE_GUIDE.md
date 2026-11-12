@@ -31,6 +31,12 @@ layout: layouts/guide.njk
 hub: collectibles
 status: confirmed
 updated: 2026-11-21
+verified: 2026-11-21            # "Verified in-game on …" line
+draft: true                     # optional: keeps the page out of the build until removed
+short: "https://www.youtube.com/shorts/…"   # optional "Watch the Short" slot
+steps:                          # optional: numbered steps + HowTo JSON-LD
+  - name: "Open the map"
+    text: "…"
 sources:
   - name: "In-game, verified by GTA 6 Waypoints"
   - name: "Rockstar Newswire"
@@ -38,9 +44,10 @@ sources:
 faq:
   - q: "How many hidden packages are in GTA 6?"
     a: "..."
-og_image: /assets/og/hidden-packages.webp
+og_image: /assets/og/hidden-packages.webp   # optional; otherwise the section default (site.json → ogBySection)
 ---
 ```
+Other optional fields: `kicker:` (label above the H1), `toc: true` ("Jump to" row from H2s), `pinned: true` (news: first on home and in the "Launch week" row), `leadLive:` (hub shells: lead after launch). Scaffold with `npm run new:guide -- "Title"` or `npm run new:news -- "Title"`.
 
 ## Page structure (guides)
 1. **H1** matching the search query
