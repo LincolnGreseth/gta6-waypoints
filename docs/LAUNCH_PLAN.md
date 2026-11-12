@@ -17,12 +17,20 @@
 
 ## Phase 0 — Foundation (Oct 23 – Oct 26)
 - [x] Register domain(s): gta6waypoints.com (plus gta6trophies.com as backup)
-- [ ] Claim matching handles: YouTube, TikTok, Instagram, X
+- [x] Claim matching handles: YouTube (@GTAwaypoints) and a Facebook Page done Nov 12; TikTok, Instagram, X still open
 - [x] Repo + 11ty skeleton + Netlify deploy + custom domain + HTTPS (Oct 23: private repo LincolnGreseth/gta6-waypoints, Netlify project gta6-waypoints)
 - [x] Layout with footer disclaimer, status badges, ad-slot partial (off), email partial
 - [ ] Brevo list and signup form; welcome email ("You're on the day-one list")
 - [ ] Google Search Console + Bing Webmaster + analytics
 - [x] Trust pages: about, contact, privacy, terms, disclaimer (legal pages await Lincoln's review)
+
+## Nov 12 status
+- **Facts:** pre-load date fixed (Nov 10, not Nov 12), 212 GB, 30fps/PS5 Pro, Xbox Cloud Gaming, unlock time confirmed as midnight local (US/AU/BR zone split still Unverified). News backfilled Oct 28 → Nov 12 (11 posts), RSS at /feed.xml. PR 1 merged.
+- **Socials:** YouTube and Facebook wired into the footer, home, about, contact, thanks and `sameAs`; `social_click` tracked.
+- **Launch switch:** the site flips to launch mode by itself (build after the first unlock + per-viewer at runtime); scheduled rebuilds need `LAUNCH_BUILD_HOOK_URL` set in Netlify. Preview: `?preview=launched`.
+- **Design:** inner-page header rhythm, Jump-to rows, news pager, distinct hub shells, section OG images, favicon set + manifest.
+- **Content ops:** 7 Shorts scripts, one-week-out email, launch and roundup email skeletons, profile copy for both accounts.
+- **Still open for Phase 1:** Brevo list + welcome email (Phase 0), Search Console/Bing, vehicle database component, TikTok/Instagram/X handles, decide the US unlock structure if Rockstar or the stores clarify it, set `LAUNCH_BUILD_HOOK_URL`.
 
 ## Phase 1 — Pre-launch content (Oct 27 – Nov 18)
 **Site** (in this order):
@@ -31,9 +39,9 @@
 3. [x] `/editions/`, `/release-date-times/`, `/pc-release/`
 4. [x] `/locations/`, `/characters/`, `/faq/`
 5. [x] Shells for `/map/`, `/collectibles/`, `/trophies/`, `/100-percent/`, `/vehicles/`, `/money/`, `/heists/`, `/guides/`
-6. [ ] Map tool built and tested with dummy data **locally only**, ready to accept real pins on day 1
-7. [ ] Vehicle database and checklist components built the same way
-8. [ ] Pre-write launch-week guide skeletons (H1, intent, structure) for the top 25 expected questions
+6. [x] Map tool built and tested with dummy data **locally only**, ready to accept real pins on day 1 (`partials/map-tool.njk`, `/tools/map-demo/` behind `draft: true`; data shape in CONTENT_PIPELINE.md)
+7. [~] Checklist component built the same way (`partials/checklist-tool.njk`, `/tools/checklist-demo/`). Vehicle database: still open; reuse the checklist data shape plus class/price fields
+8. [x] Pre-write launch-week guide skeletons (H1, intent, structure) for the top 25 expected questions (`src/content/guides/`, all `draft: true`; order in `content-ops/guide-queue.md`)
 
 **Shorts:** 1–2 per day, every day, cross-posted to all three platforms (pipeline in `CONTENT_PIPELINE.md`). Every description points to the matching page.
 

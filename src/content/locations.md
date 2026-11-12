@@ -3,6 +3,7 @@ title: "GTA 6 Locations: Leonida, Vice City and Every Region"
 description: "GTA 6 is set in Leonida, centred on Vice City. The six regions Rockstar has shown, from the Leonida Keys to Mount Kalaga. No official map size yet."
 layout: layouts/guide.njk
 crumb: "Locations"
+kicker: "The game · Leonida"
 h1: "GTA 6 locations: Leonida, Vice City and the six regions Rockstar has shown"
 lead: "Grand Theft Auto VI is set in the fictional US state of Leonida, centred on Vice City. Rockstar has shown six regions so far, but it hasn't published a full map or an official map size."
 status: confirmed

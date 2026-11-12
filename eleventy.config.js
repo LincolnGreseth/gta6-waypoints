@@ -25,11 +25,19 @@ const escapeHtml = (s) =>
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/assets/img/favicon.svg": "favicon.svg" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/img/apple-touch-icon.png": "apple-touch-icon.png" });
   eleventyConfig.addWatchTarget("src/assets/");
+
+  // Drafts: `draft: true` in front matter keeps a page out of the build, the sitemap and every collection
+  // unless DRAFTS=1 (local only). npm run check fails if a draft ever reaches _site/.
+  const showDrafts = process.env.DRAFTS === "1";
+  eleventyConfig.addPreprocessor("drafts", "*", (data) => {
+    if (data.draft && !showDrafts) return false;
+  });
 
   // Minify the two small scripts after each build (passthrough copies them as written).
   eleventyConfig.on("eleventy.after", async ({ dir }) => {
-    for (const f of ["site.js", "enhance.js", "extras.js"]) {
+    for (const f of ["site.js", "enhance.js", "extras.js", "checklist-tool.js", "map-tool.js"]) {
       const path = `${dir.output}/assets/js/${f}`;
       const { code } = await minify(readFileSync(path, "utf8"), { compress: true, mangle: true });
       writeFileSync(path, code);
@@ -43,7 +51,7 @@ export default function (eleventyConfig) {
       slugify: (s) => s.toLowerCase().replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-"),
     });
     // Wide tables scroll inside their own box, never the page.
-    md.renderer.rules.table_open = () => '<div class="table-wrap"><table>\n';
+    md.renderer.rules.table_open = () => '<div class="table-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table>\n';
     md.renderer.rules.table_close = () => "</table></div>\n";
   });
 
@@ -98,6 +106,15 @@ export default function (eleventyConfig) {
     m = s.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/) || s.match(/^([\w-]{11})$/);
     if (m) return { url: `https://www.youtube.com/watch?v=${m[1]}`, id: m[1], isShort: false };
     return /^https:\/\//.test(s) ? { url: s, id: null, isShort: true } : null;
+  });
+  // "Jump to" links: every <h2 id> in the rendered page body.
+  eleventyConfig.addFilter("toc", (html) => [...String(html || "").matchAll(/<h2 id="([^"]+)"[^>]*>(.*?)<\/h2>/g)]
+    .map((m) => ({ id: m[1], text: m[2].replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").trim() }))
+    .filter((t) => t.text && !/^(faq|sources|related)$/i.test(t.text)));
+  // Default OG image by section (site.json → ogBySection: [{ match: "^/news/", image: "..." }, ...]); first match wins.
+  eleventyConfig.addFilter("ogFor", (url, rules) => {
+    for (const r of rules || []) if (new RegExp(r.match).test(url || "")) return r.image;
+    return null;
   });
   eleventyConfig.addFilter("rssDate", (value) => toDate(value).toUTCString());
   eleventyConfig.addFilter("shortDate", (value) => { const d = toDate(value); return `${MONTHS[d.getUTCMonth()]} ${d.getUTCDate()}`; });
@@ -167,6 +184,15 @@ export default function (eleventyConfig) {
         publisher: { "@type": "Organization", name: o.siteName, logo: { "@type": "ImageObject", url: abs("/favicon.svg") } },
       });
     }
+    if (o.steps && o.steps.length) {
+      graph.push({
+        "@type": "HowTo",
+        name: o.h1 || o.title,
+        description: o.description,
+        url: abs(o.url),
+        step: o.steps.map((s, i) => ({ "@type": "HowToStep", position: i + 1, name: s.name, text: s.text })),
+      });
+    }
     if (o.faq && o.faq.length) {
       graph.push({
         "@type": "FAQPage",
@@ -214,11 +240,11 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("news", (api) =>
-    api.getFilteredByGlob("src/content/news/*.md").sort((a, b) => b.date - a.date || String(a.data.title).localeCompare(String(b.data.title)))
+    api.getFilteredByGlob("src/content/news/*.md").filter((p) => !p.data.draft).sort((a, b) => b.date - a.date || String(a.data.title).localeCompare(String(b.data.title)))
   );
   // Home "Latest": posts with `pinned: true` first (newest first), then the rest, newest first.
   eleventyConfig.addCollection("newsHome", (api) => {
-    const all = api.getFilteredByGlob("src/content/news/*.md").sort((a, b) => b.date - a.date || String(a.data.title).localeCompare(String(b.data.title)));
+    const all = api.getFilteredByGlob("src/content/news/*.md").filter((p) => !p.data.draft).sort((a, b) => b.date - a.date || String(a.data.title).localeCompare(String(b.data.title)));
     return [...all.filter((p) => p.data.pinned), ...all.filter((p) => !p.data.pinned)];
   });
   eleventyConfig.addFilter("byMonth", (posts) => {
@@ -231,7 +257,7 @@ export default function (eleventyConfig) {
     return groups;
   });
   eleventyConfig.addCollection("sitemap", (api) =>
-    api.getAll().filter((p) => p.url && !p.data.noindex && !p.url.endsWith(".xml") && !p.url.endsWith(".txt"))
+    api.getAll().filter((p) => p.url && !p.data.noindex && !p.data.draft && !p.url.endsWith(".xml") && !p.url.endsWith(".txt"))
   );
 
   return {

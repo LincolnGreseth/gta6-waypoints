@@ -7,10 +7,12 @@
   url: page.url,
   title: title,
   description: description or site.description,
-  image: og_image or site.defaultOgImage,
+  image: og_image or (page.url | ogFor(site.ogBySection)) or site.defaultOgImage,
   crumbs: trail,
   article: article,
   updated: updated,
   published: date if article == "news" else published,
-  faq: faq
+  faq: faq,
+  steps: steps,
+  h1: h1
 } | jsonld | safe }}</script>

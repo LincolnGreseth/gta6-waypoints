@@ -2,6 +2,7 @@
 <p class="meta">
   {%- if status %}{% badge status %}{% endif %}
   {%- if updated %} <span>Updated <time datetime="{{ updated | isoDate }}" data-updated>{{ updated | readableDate }}</time></span>{% endif %}
+  {%- if verified %} <span class="meta__verified">Verified in-game on <time datetime="{{ verified | isoDate }}">{{ verified | readableDate }}</time></span>{% endif %}
 </p>
 {%- endif %}
 {%- if affiliate %}

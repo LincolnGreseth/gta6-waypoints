@@ -3,6 +3,7 @@ title: "Privacy Policy | GTA 6 Waypoints"
 description: "What GTA 6 Waypoints collects (newsletter email, contact messages, analytics), how ads, cookies and consent work, and how to use your privacy rights."
 layout: layouts/guide.njk
 crumb: "Privacy"
+kicker: "Legal"
 h1: "Privacy policy"
 lead: "We collect very little: your email if you join our list, what you send through the contact form, and analytics data once analytics is switched on. We never sell your data, and visitors in the EEA, UK and Switzerland choose whether ads and analytics can use cookies."
 updated: 2026-10-23

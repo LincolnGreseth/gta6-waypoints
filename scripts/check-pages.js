@@ -23,6 +23,25 @@ const walk = (dir) =>
 const decode = (s) =>
   s.replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
 
+// Wording that would repeat the old (wrong) Nov 12 pre-load date.
+const STALE = [
+  /pre-?load(?:ing)? (?:starts|opens|begins|is) (?:at )?(?:local midnight )?(?:on )?Nov(?:ember)? 12/i,
+  /pre-?load (?:from|on) (?:local midnight,? )?Nov(?:ember)? 12/i,
+  /local midnight,? (?:on )?Nov(?:ember)? 12/i,
+  /Pre-load opens November 12/i,
+];
+// (b) Drafts: every src page with `draft: true` must be absent from _site/ and the sitemap.
+const SRC = fileURLToPath(new URL("../src/content/", import.meta.url));
+const drafts = walkMd(SRC).flatMap((f) => {
+  const fm = (readFileSync(f, "utf8").match(/^---\n([\s\S]*?)\n---/) || [])[1] || "";
+  if (!/^draft:\s*true\s*$/m.test(fm)) return [];
+  const pl = (fm.match(/^permalink:\s*"?([^"\n]+)"?/m) || [])[1];
+  return [{ file: relative(SRC, f), url: pl || "/" + relative(SRC, f).replace(/\.md$/, "/").replace(/^(hubs|pages)\//, "") }];
+});
+function walkMd(dir) {
+  return readdirSync(dir).flatMap((f) => { const p = join(dir, f); return statSync(p).isDirectory() ? walkMd(p) : p.endsWith(".md") ? [p] : []; });
+}
+
 const problems = [];
 const titles = new Map();
 const pages = walk(OUT);
@@ -54,6 +73,16 @@ for (const file of pages) {
   if (!/data-disclaimer/.test(html) || !decode(html).includes(DISCLAIMER)) fail("footer fan-site disclaimer missing");
   if (!/class="menu"/.test(html)) fail("header menu missing");
   if (html.includes("&amp;amp;")) fail("double-escaped ampersand (&amp;amp;)");
+
+  // (a) Pre-load opened Nov 10, 2026, not Nov 12 (Nov 12 is still right for code-in-box retail copies).
+  const text = decode(html.replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ");
+  for (const re of STALE) { const m = text.match(re); if (m) fail(`stale pre-load claim: "${m[0]}"`); }
+
+  // (c) Social links in the footer must come from site.json → social.
+  const footer = html.split("<footer")[1] || "";
+  for (const m of footer.matchAll(/<a href="([^"]+)"[^>]*data-social="([a-z]+)"/g)) {
+    if (site.social[m[2]] !== decode(m[1])) fail(`footer ${m[2]} link ${m[1]} isn't site.json → social.${m[2]}`);
+  }
   if (where === "/") {
     const badges = (html.match(/class="badge badge--/g) || []).length;
     if (badges > 4) fail(`homepage shows ${badges} badges (max 4)`);
@@ -77,6 +106,11 @@ for (const file of pages) {
   }
 }
 
+const sitemap = existsSync(join(OUT, "sitemap.xml")) ? readFileSync(join(OUT, "sitemap.xml"), "utf8") : "";
+for (const d of drafts) {
+  if (existsSync(join(OUT, d.url.replace(/^\//, ""), "index.html"))) problems.push(`draft ${d.file} was built at ${d.url} (remove it or unset DRAFTS)`);
+  if (sitemap.includes(d.url)) problems.push(`draft ${d.file} is in sitemap.xml`);
+}
 for (const [t, where] of titles) if (where.length > 1) problems.push(`duplicate title "${t}" on ${where.join(", ")}`);
 for (const f of ["sitemap.xml", "robots.txt"]) if (!existsSync(join(OUT, f))) problems.push(`missing /${f}`);
 // Every menu and footer link resolves to a built page.
@@ -89,4 +123,4 @@ if (problems.length) {
   console.error(`✗ ${problems.length} problem(s) in ${pages.length} pages:\n  ` + problems.join("\n  "));
   process.exit(1);
 }
-console.log(`✓ ${pages.length} pages pass (titles, descriptions, updated, status, disclosures, disclaimer, menu, H1, JSON-LD, FAQ, home badges ≤4, no &amp;amp;); ${site.menu.flatMap((g) => g.items).length} menu links resolve`);
+console.log(`✓ ${pages.length} pages pass (titles, descriptions, updated, status, disclosures, disclaimer, menu, H1, JSON-LD, FAQ, home badges ≤4, no &amp;amp;, no stale pre-load date, footer socials); ${site.menu.flatMap((g) => g.items).length} menu links resolve; ${drafts.length} drafts kept out of the build`);

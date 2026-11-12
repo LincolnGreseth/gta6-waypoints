@@ -1,0 +1,24 @@
+{#- Map tool shell. Set `pins` to a pins object from src/_data/ (shape: docs/CONTENT_PIPELINE.md → Map pin data).
+    Pins sit on a neutral placeholder grid (x/y are percentages of the plot). Never use an image of the GTA 6 map
+    from trailers, leaks or official art. Without JS a plain list of pins shows instead. map-tool.js (loaded only
+    on pages that use it) adds the plot, category filters and found/not-found state saved in localStorage. -#}
+<section class="mt" data-map-tool="{{ pins.id }}" aria-labelledby="mt-h">
+  <h2 id="mt-h" class="vh">Map</h2>
+  <div class="mt__filters js-only" role="group" aria-label="Show categories">
+    {%- for c in pins.categories %}
+    <label class="mt__f"><input type="checkbox" checked data-mt-cat="{{ c.id }}"> <i style="--c: {{ c.color }}"></i>{{ c.name }}</label>
+    {%- endfor %}
+    <label class="mt__f"><input type="checkbox" data-mt-hidefound> Hide found</label>
+  </div>
+  <div class="mt__plot js-only" data-mt-plot aria-hidden="true"></div>
+  <p class="mt__count" aria-live="polite" data-mt-count></p>
+  <ul class="mt__list" data-mt-list>
+    {%- for p in pins.pins %}
+    <li data-mt-pin="{{ p.id }}" data-cat="{{ p.category }}">
+      <label><input type="checkbox" data-mt-found disabled> <b>{{ p.title }}</b></label>
+      <span class="mt__meta">{{ p.note }}{% if p.verified %} · Verified {{ p.verified | readableDate }}{% endif %}{% if p.guide %} · <a href="{{ p.guide }}">Guide</a>{% endif %}</span>
+    </li>
+    {%- endfor %}
+  </ul>
+  <script type="application/json" data-mt-data>{{ pins | json | safe }}</script>
+</section>

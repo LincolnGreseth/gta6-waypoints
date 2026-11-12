@@ -3,11 +3,13 @@ title: "GTA 6 Editions: Standard vs Ultimate Compared"
 description: "GTA 6 Standard ($79.99) vs Ultimate ($99.99): what each edition includes, the upgrade, physical download codes, pre-order bonus, GTA+ and region locks."
 layout: layouts/guide.njk
 crumb: "Editions"
+kicker: "Launch · buying"
 h1: "GTA 6 Standard vs Ultimate Edition: what's included and which to buy"
 lead: "Grand Theft Auto VI comes in two editions: Standard at $79.99 and Ultimate at $99.99. Ultimate adds 16 bonus items, it's digital only, and Standard owners can buy the upgrade later."
 status: confirmed
 claim: true
 article: true
+toc: true
 updated: 2026-11-12
 sources:
   - name: "Rockstar Games press release (Take-Two IR, Jun 24, 2026)"

@@ -4,13 +4,33 @@ layout: layouts/base.njk
 <article class="wrap page">
   {% include "partials/breadcrumbs.njk" %}
   <header class="page__head">
+    {%- set pageKicker = ("GTA 6 news · " + (date | readableDate)) if article == "news" else (("Guide · " + site.hubs[hub].name) if hub and site.hubs[hub] else "GTA 6 Waypoints") %}
+    <p class="kicker kicker--page">{{ kicker or pageKicker }}</p>
     <h1>{{ h1 or title }}</h1>
-    {%- if lead %}
+    {%- if lead and leadLive %}
+    <p class="lead" data-launch="pre"{% if launch.launched %} hidden{% endif %}>{{ lead | safe }}</p>
+    <p class="lead" data-launch="live"{% if not launch.launched %} hidden{% endif %}>{{ leadLive | safe }}</p>
+    {%- elif lead %}
     <p class="lead">{{ lead | safe }}</p>
     {%- endif %}
     {% include "partials/page-meta.njk" %}
   </header>
+  {%- set tocItems = content | toc %}
+  {%- if toc and tocItems.length > 2 %}
+  <nav class="jump" aria-label="Jump to">
+    <span class="jump__label">Jump to</span>
+    <ul>{% for t in tocItems %}<li><a href="#{{ t.id }}">{{ t.text }}</a></li>{% endfor %}</ul>
+  </nav>
+  {%- endif %}
   <div class="prose">
+    {%- if steps and steps.length %}
+    <h2 id="steps">Step by step</h2>
+    <ol class="steps">
+      {%- for s in steps %}
+      <li><strong>{{ s.name }}.</strong> {{ s.text }}</li>
+      {%- endfor %}
+    </ol>
+    {%- endif %}
     {{ content | safe }}
   </div>
   {%- set sh = short | shortInfo %}
@@ -32,6 +52,19 @@ layout: layouts/base.njk
     <p>{{ f.a }}{% if f.more %} <a href="{{ f.more }}">Full answer</a>{% endif %}</p>
     {%- endfor %}
   </section>
+  {%- endif %}
+  {%- if hub and site.hubs and site.hubs[hub] %}
+  <p class="hub-link">Part of <a href="{{ site.hubs[hub].url }}">{{ site.hubs[hub].name }}</a></p>
+  {%- endif %}
+  {%- if article == "news" %}
+  {%- set newer = collections.news | getPreviousCollectionItem(page) %}
+  {%- set older = collections.news | getNextCollectionItem(page) %}
+  {%- if newer or older %}
+  <nav class="pager" aria-label="More news">
+    {%- if older %}<a class="pager__prev" href="{{ older.url }}"><span>Older</span>{{ older.data.title }}</a>{% endif %}
+    {%- if newer %}<a class="pager__next" href="{{ newer.url }}"><span>Newer</span>{{ newer.data.title }}</a>{% endif %}
+  </nav>
+  {%- endif %}
   {%- endif %}
   {%- if related and related.length %}
   <nav class="related" aria-labelledby="related-h">

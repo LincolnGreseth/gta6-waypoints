@@ -1,0 +1,17 @@
+{
+  "id": "demo-map",
+  "note": "Dummy pins on a neutral placeholder grid. Never place pins on any image of the GTA 6 map from trailers, leaks or official art. Real pins use the same shape; see docs/CONTENT_PIPELINE.md → Map pin data.",
+  "categories": [
+    { "id": "collectible", "name": "Collectibles", "color": "#EE4B83" },
+    { "id": "vehicle", "name": "Vehicles", "color": "#2FD3C5" },
+    { "id": "poi", "name": "Points of interest", "color": "#9B5CF0" }
+  ],
+  "pins": [
+    { "id": "c-001", "category": "collectible", "title": "Lorem collectible 1", "x": 18, "y": 30, "note": "Dummy pin.", "verified": "", "guide": "" },
+    { "id": "c-002", "category": "collectible", "title": "Lorem collectible 2", "x": 42, "y": 62, "note": "Dummy pin.", "verified": "", "guide": "" },
+    { "id": "c-003", "category": "collectible", "title": "Lorem collectible 3", "x": 71, "y": 22, "note": "Dummy pin.", "verified": "", "guide": "" },
+    { "id": "v-001", "category": "vehicle", "title": "Ipsum vehicle spawn", "x": 55, "y": 45, "note": "Dummy pin.", "verified": "", "guide": "" },
+    { "id": "v-002", "category": "vehicle", "title": "Ipsum vehicle spawn 2", "x": 83, "y": 70, "note": "Dummy pin.", "verified": "", "guide": "" },
+    { "id": "p-001", "category": "poi", "title": "Dolor point of interest", "x": 30, "y": 80, "note": "Dummy pin.", "verified": "", "guide": "" }
+  ]
+}

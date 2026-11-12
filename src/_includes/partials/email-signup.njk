@@ -1,9 +1,12 @@
+{%- from "partials/launch-swap.njk" import swap with context %}
 {#- Email signup: the unlock alert. Posts to Brevo when BREVO_FORM_ACTION is set (REGION + INTEREST
     contact attributes), otherwise Netlify Forms (region + interest fields). One signup per page.
     Set `signup` before including to override: { heading, text, button, interest, region: "select"|"hidden"|"none", inline }.
     The region is pre-filled from the region picker (site.js → enhance.js). -#}
 {%- set s = signup or {} %}
-{%- set interest = s.interest or "unlock-alert" %}
+{%- set fixedInterest = s.interest %}
+{%- set interest = s.interest or launch.copy.interest %}
+{%- set bKey = s.buttonKey or "signupButton" %}
 {%- set regionMode = s.region or "select" %}
 {%- set brevo = env.brevoAction %}
 {%- set ul = site.unlock | unlockList %}
@@ -11,19 +14,19 @@
 <div class="signup signup--cta" id="signup">
 {%- else %}
 <section class="signup" id="signup" aria-labelledby="signup-h">
-  <h2 id="signup-h">{{ s.heading or "Get pinged the moment it unlocks" }}</h2>
-  <p>{{ s.text or "One email when GTA 6 unlocks in your region, then the day-one guide drop. No spam, unsubscribe any time." }}</p>
+  <h2 id="signup-h">{% if s.heading %}{{ s.heading }}{% else %}{{ swap("signupHeading") }}{% endif %}</h2>
+  <p>{% if s.text %}{{ s.text }}{% else %}{{ swap("signupText") }}{% endif %}</p>
 {%- endif %}
   {%- if brevo %}
   <form class="signup__form" method="post" action="{{ brevo }}" data-signup data-interest="{{ interest }}">
     <input type="hidden" name="locale" value="en">
-    <input type="hidden" name="INTEREST" value="{{ interest }}">
-    <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off"></label></div>
+    <input type="hidden" name="INTEREST" value="{{ interest }}"{% if not fixedInterest %} data-launch-interest{% endif %}>
+    <div class="hp" aria-hidden="true" data-nosnippet hidden><label>Skip <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off"></label></div>
   {%- else %}
   <form class="signup__form" name="signup" method="post" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field" data-signup data-interest="{{ interest }}">
     <input type="hidden" name="form-name" value="signup">
-    <input type="hidden" name="interest" value="{{ interest }}">
-    <div class="hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></div>
+    <input type="hidden" name="interest" value="{{ interest }}"{% if not fixedInterest %} data-launch-interest{% endif %}>
+    <div class="hp" aria-hidden="true" data-nosnippet hidden><label>Skip <input name="bot-field" tabindex="-1" autocomplete="off"></label></div>
   {%- endif %}
     {%- set regionName = "REGION" if brevo else "region" %}
     {%- if regionMode == "select" %}
@@ -41,7 +44,7 @@
     {%- endif %}
     <label class="vh" for="signup-email">Email address</label>
     <input id="signup-email" type="email" name="{{ 'EMAIL' if brevo else 'email' }}" autocomplete="email" placeholder="you@example.com" required>
-    <button type="submit" class="btn">{{ s.button or "Alert me" }}</button>
+    <button type="submit" class="btn">{% if s.button %}{{ s.button }}{% else %}{{ swap(bKey) }}{% endif %}</button>
   </form>
   <p class="signup__fine">{% if regionMode != "none" %}We store your store region with your email so the alert lands at your unlock time. {% endif %}<a href="/privacy/">Privacy</a></p>
 {%- if s.cta %}

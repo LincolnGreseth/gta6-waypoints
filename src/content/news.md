@@ -3,6 +3,7 @@ title: "GTA 6 News: Labelled, Sourced and Dated"
 description: "Every GTA 6 story we've covered, newest first. Each post is labelled Confirmed, Reported or Rumor, links to its sources and is dated. No leaks, ever."
 layout: layouts/guide.njk
 crumb: "News"
+kicker: "GTA 6 news"
 h1: "GTA 6 news"
 lead: "GTA 6 news, newest first. Every post is labelled Confirmed, Reported or Rumor, sourced and dated, and we never cover leaks."
 updated: 2026-11-12

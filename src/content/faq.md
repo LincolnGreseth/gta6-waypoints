@@ -3,11 +3,13 @@ title: "GTA 6 FAQ: Release, Price, PC, Pre-Load and More"
 description: "Sourced answers to the most-asked GTA 6 questions: release date, unlock times, price, pre-order bonus, editions, PC, GTA Online, discs, internet and more."
 layout: layouts/guide.njk
 crumb: "FAQ"
+kicker: "The game · FAQ"
 h1: "GTA 6 FAQ: the questions everyone's asking before launch"
 lead: "Grand Theft Auto VI launches on Thursday, November 19, 2026 on PS5 and Xbox Series X|S, from $79.99. Here are sourced answers to the questions people ask most, with what Rockstar hasn't announced yet marked clearly."
 status: confirmed
 claim: true
 article: true
+toc: true
 updated: 2026-11-12
 hideFaqBlock: true
 faq:

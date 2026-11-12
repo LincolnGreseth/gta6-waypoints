@@ -3,6 +3,7 @@ title: "Contact GTA 6 Waypoints"
 description: "Contact GTA 6 Waypoints with corrections (please include a source), press questions or partnership enquiries. We read every message."
 layout: layouts/guide.njk
 crumb: "Contact"
+kicker: "Contact"
 h1: "Contact us"
 lead: "Use the form below to send a correction, a press question or a partnership enquiry. We read every message and reply when a reply is needed."
 updated: 2026-11-12

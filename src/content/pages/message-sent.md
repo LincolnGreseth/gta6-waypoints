@@ -4,6 +4,7 @@ description: "Thanks for contacting GTA 6 Waypoints. We read every message and r
 layout: layouts/guide.njk
 noindex: true
 crumb: "Message sent"
+kicker: "Contact"
 h1: "Message sent"
 lead: "Thanks for getting in touch. We read every message, and if you sent a correction with a source we'll check it and update the page."
 updated: 2026-10-23

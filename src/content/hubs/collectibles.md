@@ -3,9 +3,10 @@ title: "GTA 6 Collectibles: All Locations & Checklist"
 description: "Every GTA 6 collectible category with counts, map pins and a checklist, filled in from launch day as we verify each one in-game."
 layout: layouts/shell.njk
 crumb: "Collectibles"
-h1: "GTA 6 Collectibles: Every Category From November 19"
+h1: "GTA 6 collectibles: every category and location"
 lead: "This hub lists every Grand Theft Auto VI collectible category with counts, locations and a checklist, starting on launch day. Rockstar hasn't named the collectible types yet, so we'll add each category once we've seen it in-game."
-updated: 2026-10-23
+leadLive: "Every Grand Theft Auto VI collectible category we've confirmed in-game, with counts, locations and a checklist. Categories go up as soon as we've seen the real names and totals in our own play."
+updated: 2026-11-12
 related:
   - text: "GTA 6 interactive map"
     url: "/map/"
@@ -19,6 +20,10 @@ related:
 - Every collectible category, with the total count and your completion percentage
 - A page per category with a table of locations, map links, tips and difficulty
 - Rewards for collecting each set, once we've earned them
+
+## Confirmed so far
+
+Nothing official. Rockstar hasn't named any collectible types, counts or rewards for GTA 6, and we don't publish leaked lists. The first category goes up when we've found it in-game.
 
 ## Why there's nothing listed yet
 

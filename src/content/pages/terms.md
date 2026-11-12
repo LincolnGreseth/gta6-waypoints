@@ -3,6 +3,7 @@ title: "Terms of Use | GTA 6 Waypoints"
 description: "The terms for using GTA 6 Waypoints, a free fan guide site: using our content, no warranty, liability limits, third-party links and form submissions."
 layout: layouts/guide.njk
 crumb: "Terms"
+kicker: "Legal"
 h1: "Terms of use"
 lead: "By using GTA 6 Waypoints, you agree to these terms. In short: the guides are free to read and share with a link, they come with no guarantee, and you shouldn't copy the site wholesale."
 updated: 2026-10-23

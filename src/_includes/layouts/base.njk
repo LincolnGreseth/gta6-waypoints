@@ -7,11 +7,11 @@
 {%- set pageTitle = metaTitle or title or site.name %}
 {%- set pageDesc = description or site.description %}
 {%- set canonical = page.url | absUrl(site.url) %}
-{%- set ogImage = (og_image or site.defaultOgImage) | absUrl(site.url) %}
+{%- set ogImage = (og_image or (page.url | ogFor(site.ogBySection)) or site.defaultOgImage) | absUrl(site.url) %}
 <title>{{ pageTitle }}</title>
 <meta name="description" content="{{ pageDesc }}">
 <link rel="canonical" href="{{ canonical }}">
-{%- if noindex %}
+{%- if noindex or draft %}
 <meta name="robots" content="noindex">
 {%- endif %}
 <meta name="theme-color" content="#0D0812">
@@ -26,6 +26,8 @@
 <meta property="og:locale" content="{{ site.locale }}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="{{ site.name }}: GTA 6 news" href="/feed.xml">
 <link rel="preload" href="/assets/fonts/oswald-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -40,9 +42,15 @@
 {{ content | safe }}
 </main>
 {% include "partials/footer.njk" %}
-<script type="application/json" id="wp-unlock">{{ { status: site.unlock.status, regions: site.unlock.regions } | json | safe }}</script>
+<script type="application/json" id="wp-unlock">{{ { status: site.unlock.status, regions: site.unlock.regions, target: site.countdown.target, interestPre: site.launchCopy.pre.interest, interestLive: site.launchCopy.live.interest } | json | safe }}</script>
 <script src="/assets/js/site.js" defer></script>
 <script src="/assets/js/enhance.js" defer></script>
+{%- if "data-cl-tool=" in content %}
+<script src="/assets/js/checklist-tool.js" defer></script>
+{%- endif %}
+{%- if "data-map-tool=" in content %}
+<script src="/assets/js/map-tool.js" defer></script>
+{%- endif %}
 {%- if "data-yt=" in content or "data-aff=" in content or "data-copy-from" in content or "data-region-row" in content or "data-checklist" in content or "data-embed-promo" in content or "data-wave-id" in content and "class=\"wave\"" in content %}
 <script src="/assets/js/extras.js" defer></script>
 {%- endif %}

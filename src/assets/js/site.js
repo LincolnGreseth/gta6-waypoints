@@ -7,6 +7,8 @@
   var U = {};
   try { U = JSON.parse(d.getElementById("wp-unlock").textContent); } catch (e) {}
   var R = U.regions || [], K = "wp-region", cur = null, saved = null;
+  // Launch switch: ?preview=launched forces the launched state; otherwise it flips at the viewer's unlock.
+  var FORCE = /[?&]preview=launched\b/.test(location.search), LS = null;
   var find = function (id) { for (var i = 0; i < R.length; i++) if (R[i].id === id) return R[i]; };
   var off = function (at) { var m = /([+-])(\d\d):(\d\d)$/.exec(at); return m ? (m[1] === "-" ? -1 : 1) * (m[2] * 60 + +m[3]) : null; };
 
@@ -25,12 +27,12 @@
   cds.forEach(function (el) { var h = el.querySelector("[data-cd-heading]"); if (h) el._h = h.innerHTML; });
 
   function tick(el) {
-    var c = el._c || (el._c = {}), left = Math.max(0, Math.floor((target(el) - Date.now()) / 1000));
+    var c = el._c || (el._c = {}), left = FORCE ? 0 : Math.max(0, Math.floor((target(el) - Date.now()) / 1000));
     if (!c.d) $$("[data-cd]", el).forEach(function (b) { c[b.getAttribute("data-cd")] = b; });
     var live = !left, q = function (s) { return el.querySelector(s); }, h = q("[data-cd-heading]");
     q("[data-cd-clock]").hidden = live;
     q("[data-cd-live]").hidden = !live;
-    if (live !== el._live) { el._live = live; h.innerHTML = live ? el.getAttribute("data-live-heading") : el._h; name(); }
+    if (live !== el._live) { el._live = live; h.innerHTML = live ? el.getAttribute("data-live-heading") : el._h; name(); launch(); }
     if (live) return;
     var dd = Math.floor(left / 86400), hh = Math.floor(left / 3600) % 24, m = Math.floor(left / 60) % 60;
     c.d.textContent = pad(dd); c.h.textContent = pad(hh); c.m.textContent = pad(m); c.s.textContent = pad(left % 60);
@@ -60,13 +62,23 @@
     });
   }
 
+  // Swap every [data-launch] pre/live pair and the signup interest once the viewer's region has unlocked.
+  function launch() {
+    var t = cur ? Date.parse(cur.at) : new Date(U.target || "2026-11-19T00:00:00").getTime(), on = FORCE || Date.now() >= t;
+    if (on === LS) return;
+    LS = on;
+    d.documentElement.classList.toggle("is-launched", on);
+    $$("[data-launch]").forEach(function (el) { el.hidden = el.getAttribute("data-launch") !== (on ? "live" : "pre"); });
+    $$("[data-launch-interest]").forEach(function (i) { i.value = on ? U.interestLive : U.interestPre; if (i.form) i.form.setAttribute("data-interest", i.value); });
+  }
+
   function sync() {
     $$("[data-region-select]").forEach(function (s) { s.value = cur ? cur.id : "local"; });
     $$("[data-cd-unlock]").forEach(function (s) {
       var el = s.closest("[data-countdown]") || cds[0];
       if (el) s.textContent = "Unlocks " + fmt(target(el)) + " your time · " + (cur ? cur.name + " store" + (cur.status === "unverified" ? " (zone split unverified)" : "") : "Midnight in your time zone");
     });
-    name(); wave();
+    name(); wave(); LS = null; launch();
     cds.forEach(function (el) { tick(el); el.classList.add("is-ready"); });
     d.dispatchEvent(new CustomEvent("wp:region", { detail: cur }));
   }
@@ -80,4 +92,5 @@
   $$("[data-region-select]").forEach(function (s) { s.addEventListener("change", function () { window.WP.set(s.value); }); });
   sync();
   setInterval(function () { cds.forEach(tick); }, 1000);
+  setInterval(launch, 30000);
 })();

@@ -359,8 +359,86 @@
     }
   ],
   "disclaimer": "Fan-made. Not affiliated with Rockstar Games or Take-Two Interactive. All game names and trademarks belong to their owners.",
-  "statusChip": {
-    "long": "Guides open Nov 19",
-    "short": "Nov 19"
-  }
+  "launchCopy": {
+    "pre": {
+      "chipLong": "Guides open Nov 19",
+      "chipShort": "Nov 19",
+      "guidesLabel": "Guides · open Nov 19",
+      "heroSub": "The GTA 6 map, collectibles, trophies and 100% checklists, verified in-game. Opening on launch day.",
+      "shellPill": "Opens Nov 19",
+      "signupHeading": "Get pinged the moment it unlocks",
+      "signupText": "One email when GTA 6 unlocks in your region, then the day-one guide drop. No spam, unsubscribe any time.",
+      "signupButton": "Alert me",
+      "ctaHeading": "Be there on opening day",
+      "ctaText": "One email the moment GTA 6 unlocks in your region, then the day-one guide drop. No spam.",
+      "ctaButton": "Get the unlock alert",
+      "interest": "unlock-alert"
+    },
+    "live": {
+      "chipLong": "Guides live",
+      "chipShort": "Live",
+      "guidesLabel": "Guides",
+      "heroSub": "The GTA 6 map, collectibles, trophies and 100% checklists, verified in-game.",
+      "shellPill": "",
+      "signupHeading": "Get new guides by email",
+      "signupText": "One short email when we publish new verified guides, plus a weekly roundup. No spam, unsubscribe any time.",
+      "signupButton": "Send me new guides",
+      "ctaHeading": "New guides, verified in-game",
+      "ctaText": "One short email when new guides go up, plus a weekly roundup. No spam.",
+      "ctaButton": "Send me new guides",
+      "interest": "guides"
+    }
+  },
+  "hubs": {
+    "guides": {
+      "name": "All GTA 6 guides",
+      "url": "/guides/"
+    },
+    "money": {
+      "name": "GTA 6 money",
+      "url": "/money/"
+    },
+    "vehicles": {
+      "name": "GTA 6 vehicles",
+      "url": "/vehicles/"
+    },
+    "trophies": {
+      "name": "GTA 6 trophies",
+      "url": "/trophies/"
+    },
+    "collectibles": {
+      "name": "GTA 6 collectibles",
+      "url": "/collectibles/"
+    },
+    "map": {
+      "name": "GTA 6 map",
+      "url": "/map/"
+    },
+    "heists": {
+      "name": "GTA 6 heists",
+      "url": "/heists/"
+    },
+    "100-percent": {
+      "name": "GTA 6 100% checklist",
+      "url": "/100-percent/"
+    }
+  },
+  "ogBySection": [
+    {
+      "match": "^/news/",
+      "image": "/assets/og/news.png"
+    },
+    {
+      "match": "^/(release-date-times|launch-checklist|everything-confirmed|editions|faq|pc-release|countdown-widget)/",
+      "image": "/assets/og/launch.png"
+    },
+    {
+      "match": "^/(map|collectibles|trophies|100-percent|vehicles|money|heists|guides)/",
+      "image": "/assets/og/guides.png"
+    },
+    {
+      "match": "^/gear/",
+      "image": "/assets/og/gear.png"
+    }
+  ]
 }

@@ -1,3 +1,4 @@
+{%- from "partials/launch-swap.njk" import swap with context %}
 {#- Right-side menu. Data: site.json → menu (two columns). <details> opens without JS; enhance.js adds
     Esc / outside-click close, aria-expanded, focus return, focus trap and body scroll lock. -#}
 <details class="menu" data-menu>
@@ -8,7 +9,7 @@
       <div class="menu__col">
         {%- for g in site.menu %}{% if g.col == col %}
         <div class="menu__group menu__group--{{ g.id }}">
-          <h2>{{ g.label }}</h2>
+          <h2>{% if g.id == "guides" %}{{ swap("guidesLabel") }}{% else %}{{ g.label }}{% endif %}</h2>
           <ul>
             {%- for item in g.items %}
             <li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.text }}</a></li>

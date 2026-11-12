@@ -9,7 +9,9 @@
       <li><a href="/gta6-launch.ics" download data-cal="ics">Apple, Outlook or other (.ics)</a></li>
     </ul>
   </details>
-  <button type="button" class="{{ 'linkbtn' if actionsInline else 'pillbtn' }}" data-share data-share-url="{{ shareUrl }}">{{ shareLabel or "Share" }}</button>
+  <button type="button" class="{{ 'linkbtn' if actionsInline else 'pillbtn' }} js-only" data-share data-share-url="{{ shareUrl }}">{{ shareLabel or "Share" }}</button>
+  {%- set shareMsg = (shareText or "GTA 6 unlock time in your region") | urlencode %}
+  <p class="share-nojs">Share: <a href="https://twitter.com/intent/tweet?text={{ shareMsg }}&amp;url={{ shareUrl | urlencode }}" rel="noopener" target="_blank">X</a> · <a href="https://www.facebook.com/sharer/sharer.php?u={{ shareUrl | urlencode }}" rel="noopener" target="_blank">Facebook</a> · <a href="mailto:?subject={{ shareMsg }}&amp;body={{ shareUrl | urlencode }}">Email</a></p>
   {%- if actionsLinks %}{{ actionsLinks | safe }}{% endif %}
   <span class="toast" role="status" aria-live="polite" data-toast></span>
 </div>

@@ -17,12 +17,15 @@ Live site: **[gta6waypoints.com](https://gta6waypoints.com)**
 
 GTA 6 launches on November 19, 2026. Until then the site is a launch-week hub. The map, collectibles, trophies and 100% pages are live as "opens on launch day" pages, and the guides behind them get written once things are verified in-game.
 
-- **Live countdown to your unlock.** Counts down to midnight in the viewer's PlayStation/Xbox store region, across 15 regions. It picks the region from the viewer's time zone and remembers their choice. A "midnight wave" chart shows the unlock rolling from New Zealand to US West. Times are labelled Unverified until Rockstar or the stores publish them.
+- **Live countdown to your unlock.** Rockstar confirmed GTA 6 unlocks at midnight local time, so the countdown targets midnight in the viewer's PlayStation/Xbox store region, across 15 regions. It picks the region from the viewer's time zone and remembers their choice. A "midnight wave" chart shows the unlock rolling from New Zealand to US West. Countries that span time zones (US, Australia, Brazil) stay labelled Unverified until Rockstar says how they unlock.
 - **Embeddable countdown widget and OBS overlay.** `/embed/countdown/` (themes and sizes set by query string) and a transparent 1920×1080 `/embed/obs/` page for streamers. Each is a standalone page under 15 KB with no analytics.
 - **Launch checklist** with tick boxes that save on the viewer's device.
 - **Everything Confirmed**: one living page of official facts. Every line has a status badge and a source link.
 - **News**, FAQ, editions comparison, characters, locations, PC-release tracker, and a release-date page with a per-region unlock table.
-- **Add to calendar** (`.ics` for pre-load and launch day) and share buttons.
+- **Add to calendar** (`.ics` for launch night) and share buttons, with plain share links when JavaScript is off.
+- **Launch switch.** On November 19 the site flips itself into launch mode, per visitor at their own unlock and in the static HTML via scheduled rebuilds. Preview it with `?preview=launched`.
+- **News RSS** at `/feed.xml`, and the [GTA Waypoints YouTube channel](https://www.youtube.com/@GTAwaypoints) for launch-week Shorts.
+- **Ready for day one:** 25 guide skeletons, a checklist component and a map tool shell, all kept out of the build with `draft: true` until they're verified in-game.
 - **Unlock-alert email signup** with a region picker. It posts to Brevo when configured and falls back to Netlify Forms.
 - **Affiliate links done properly**: a shortcode adds `rel="sponsored nofollow"`, a visible "(paid link)" label and the disclosure. Unapproved programs render as plain text.
 - **Privacy-first analytics**: GA4 with Consent Mode v2 defaults set before the tag, denied in the EEA, UK and Switzerland until consent is given.
@@ -51,7 +54,7 @@ GTA 6 launches on November 19, 2026. Until then the site is a launch-week hub. T
 
 An unknown label fails the build on purpose. The site never publishes, links to or describes leaked material.
 
-**Guardrails in code.** `npm run check` runs after every build and fails if a page breaks the rules: title and description length, `updated:` date, status badge, affiliate disclosure, the footer disclaimer, one H1, valid JSON-LD, FAQ markup matching the visible questions, at most four badges on the home page, and every menu link pointing at a page that exists. A second check validates the 15 unlock regions and their UTC offsets.
+**Guardrails in code.** `npm run check` runs after every build and fails if a page breaks the rules: title and description length, `updated:` date, status badge, affiliate disclosure, the footer disclaimer, one H1, valid JSON-LD, FAQ markup matching the visible questions, at most four badges on the home page, every menu link pointing at a page that exists, no stale pre-load date, and no draft page in the build. A second check validates the 15 unlock regions and their UTC offsets.
 
 **Built with Claude Code.** I designed and directed the site and wrote the specs. [Claude Code](https://claude.com/claude-code) did most of the implementation, working from [`CLAUDE.md`](CLAUDE.md) and the saved prompts in [`content-ops/prompts/`](content-ops/prompts/).
 
