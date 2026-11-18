@@ -5,7 +5,6 @@ date: 2026-11-10
 updated: 2026-11-12
 permalink: /news/2026-11-10-gta-6-pre-load-live-212gb-30fps/
 status: confirmed
-pinned: true
 crumb: "Pre-load is live"
 h1: "GTA 6 pre-load is live: 212 GB, 30fps and what PS5 Pro adds"
 lead: "Pre-load for Grand Theft Auto VI opened on November 10, 2026 for everyone who pre-ordered digitally, and it needs up to 212 GB depending on your console. Rockstar also confirmed the game targets 30 frames per second on PS5 and Xbox Series X|S, with sharper PSSR upscaling and ray-traced shadows on PS5 Pro."
