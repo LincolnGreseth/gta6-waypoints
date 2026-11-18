@@ -10,7 +10,7 @@ status: confirmed
 claim: true
 article: true
 toc: true
-updated: 2026-11-12
+updated: 2026-11-18
 faqHeading: "Questions people ask"
 faq:
   - q: "When can I pre-load GTA 6?"
@@ -42,6 +42,8 @@ sources:
     url: "https://www.playstation.com/en-us/games/grand-theft-auto-vi/"
   - name: "Xbox Store: Grand Theft Auto VI"
     url: "https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9p3h4968grsm"
+  - name: "KeenGamer: GTA 6 update 1.002 starts rolling out (Nov 13, 2026)"
+    url: "https://www.keengamer.com/articles/news/gta-6-update-1-002-starts-rolling-out-on-ps5-and-xbox-ahead-of-launch/"
 related:
   - text: "GTA 6 unlock times by region"
     url: "/release-date-times/#all-15-regions"
@@ -64,6 +66,7 @@ related:
 <li><label><input type="checkbox" data-id="redeem"> <span><strong>Physical copy? Redeem the code the day you get it.</strong> {% badge "confirmed" %} Code-in-box copies are at retailers from November 12. The box holds a download code, not a disc, and you can activate it and pre-load as soon as you have it. <a href="https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions">Rockstar Support</a></span></label></li>
 <li><label><input type="checkbox" data-id="preload"> <span><strong>Start the pre-load now.</strong> {% badge "confirmed" %} Pre-load is live. It opened November 10 (PS5 at local midnight, Xbox at 00:00 GMT). <a href="https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10">Rockstar Newswire</a> Leave your console in rest mode with downloads allowed so it finishes on its own.</span></label></li>
 <li><label><input type="checkbox" data-id="online"> <span><strong>Stay connected on launch night.</strong> Pre-loading gets the big download out of the way, but if there's a launch-day update you'll still need to download it.</span></label></li>
+<li><label><input type="checkbox" data-id="game-update"> <span><strong>Install the latest GTA 6 update before you play.</strong> {% badge "reported" %} Outlets reported two pre-launch updates, 1.002.000 (Nov 13) and 01.002.001 (Nov 16), and Rockstar hasn't published patch notes. Let your console install whatever update it offers, and check again at your unlock time. <a href="/news/2026-11-18-gta-6-day-one-updates/">Which update to install</a></span></label></li>
 <li><label><input type="checkbox" data-id="unlock"> <span><strong>Check your unlock time.</strong> {% badge "confirmed" %} Midnight local time on November 19, in all regions. <a href="https://support.rockstargames.com/articles/29jV3Cv2cCgvwM1XgtMO5o/grand-theft-auto-vi-regional-pre-load-and-release-times-on-playstation-5-and-xbox-series-x-or-s">Rockstar Support</a> See <a href="/release-date-times/#all-15-regions">every region</a> and the time where you are.</span></label></li>
 <li><label><input type="checkbox" data-id="calendar"> <span><strong>Put it in your calendar.</strong> Use the button below for launch night.</span></label></li>
 </ol>

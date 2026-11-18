@@ -10,7 +10,7 @@ status: confirmed
 claim: true
 article: true
 toc: true
-updated: 2026-11-12
+updated: 2026-11-18
 hideFaqBlock: true
 faq:
   - q: "When does GTA 6 come out?"
@@ -19,6 +19,12 @@ faq:
     a: "The Standard Edition is $79.99 and the Ultimate Edition is $99.99 in the US, per Rockstar's June 24, 2026 press release. Ultimate adds 16 bonus items and is digital only."
   - q: "When can I pre-load GTA 6?"
     a: "Pre-load is live. It opened on November 10, 2026: at local midnight on PS5 and at 00:00 GMT on Xbox. Code-in-box copies can pre-load as soon as the code is activated."
+  - q: "Is GTA 6 out in my region yet?"
+    a: "It unlocks at midnight local time on November 19 in each store region, per Rockstar Support. New Zealand went first at 11:00 UTC on November 18 and the Americas are last. Our unlock times page shows which regions are live now."
+  - q: "Do I need to install an update before playing GTA 6?"
+    a: "Yes, let your console install whatever update it offers. Outlets reported two pre-launch updates, 1.002.000 on November 13 and 01.002.001 on November 16, about 1 GB and 600 MB on PS5."
+  - q: "Where are the GTA 6 patch notes?"
+    a: "Rockstar hasn't published patch notes for the pre-launch updates on Rockstar Support or its Newswire, as of November 18, 2026."
   - q: "What time does GTA 6 unlock?"
     a: "At midnight local time on November 19, 2026, in all regions, on PS5 and Xbox Series X|S, per Rockstar Support. New Zealand goes first. Rockstar hasn't said how countries with several time zones (the US, Australia, Brazil) unlock; all 15 regions are on our unlock times page."
   - q: "Is GTA 6 coming to PC?"
@@ -106,11 +112,25 @@ Which one to buy: [GTA 6 editions compared](/editions/).
 
 {% badge "confirmed" %} Pre-load is live. It opened on November 10, 2026: at local midnight on PS5 and at 00:00 GMT on Xbox. Code-in-box copies can activate the code and pre-load as soon as they're received. [Rockstar Newswire, Nov 3](https://www.rockstargames.com/newswire/article/k4ak9okk485712/grand-theft-auto-vi-pre-load-begins-on-november-10), [Rockstar Newswire, Nov 10](https://www.rockstargames.com/newswire/article/89834o94713o21/pre-load-grand-theft-auto-vi-now)
 
+## Is GTA 6 out in my region yet?
+
+{% badge "confirmed" %} It unlocks at midnight local time on November 19 in each store region. [Rockstar Support](https://support.rockstargames.com/articles/29jV3Cv2cCgvwM1XgtMO5o/grand-theft-auto-vi-regional-pre-load-and-release-times-on-playstation-5-and-xbox-series-x-or-s)
+
+{% badge "reported" %} New Zealand went first, at 11:00 UTC on November 18, and the Americas are last. [VICE](https://www.vice.com/en/article/gta-6-new-zealand-worldwide-release-times/) Our [unlock times page](/release-date-times/) shows which regions are live now. Other regions unlock earlier only because of time zones; changing your console region to play sooner can break the store terms.
+
+## Do I need to install an update before playing GTA 6?
+
+{% badge "reported" %} Yes, let your console install whatever update it offers. Outlets reported two pre-launch updates: 1.002.000 from November 13 (about 1 GB on PS5) and 01.002.001 from November 16 (about 600 MB on PS5). [KeenGamer](https://www.keengamer.com/articles/news/gta-6-update-1-002-starts-rolling-out-on-ps5-and-xbox-ahead-of-launch/), [Esquire India](https://www.esquireindia.co.in/tech-and-auto/gaming/how-to-download-gta-6-second-day-one-patch-01002001-and-when-it-will-hit-your-ps5-or-xbox-console) Details: [which update to install](/news/2026-11-18-gta-6-day-one-updates/).
+
+## Where are the GTA 6 patch notes?
+
+Rockstar hasn't published patch notes for either pre-launch update on [Rockstar Support](https://support.rockstargames.com/) or the [Newswire](https://www.rockstargames.com/newswire), as of November 18, 2026. We'll link them when they appear.
+
 ## What time does GTA 6 unlock?
 
 {% badge "confirmed" %} Rockstar: the game "will release midnight local time on November 19, 2026, in all regions" on PS5 and Xbox Series X|S. New Zealand goes first. [Rockstar Support](https://support.rockstargames.com/articles/29jV3Cv2cCgvwM1XgtMO5o/grand-theft-auto-vi-regional-pre-load-and-release-times-on-playstation-5-and-xbox-series-x-or-s)
 
-{% badge "unverified" %} Rockstar hasn't said how that works in countries with several time zones. The US Xbox Store's page data points to one US unlock at midnight Eastern (9 PM Pacific on November 18), but that's not an announcement, so we show each US zone at its own midnight for now. See [all 15 regions and the time where you are](/release-date-times/#all-15-regions).
+{% badge "unverified" %} Rockstar hasn't said how that works in countries with several time zones. VICE reports one US unlock at 12 AM Eastern (9 PM Pacific on November 18), and the US Xbox Store's page data points to the same moment, but Rockstar hasn't said so, so we show each US zone at its own midnight for now. [More on the US unlock](/news/2026-11-18-gta-6-us-unlock-time/). See [all 15 regions and the time where you are](/release-date-times/#all-15-regions).
 
 ## Is GTA 6 coming to PC?
 

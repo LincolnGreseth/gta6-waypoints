@@ -11,7 +11,7 @@ claim: true
 article: true
 published: 2026-10-23
 toc: true
-updated: 2026-11-12
+updated: 2026-11-18
 faq:
   - q: "When does GTA 6 come out?"
     a: "Grand Theft Auto VI launches on Thursday, November 19, 2026 on PS5 and Xbox Series X|S. Rockstar confirmed the date in November 2025 and repeated it in the June 2026 pre-order announcement."
@@ -111,6 +111,20 @@ related:
 {% set cdSize = "compact" %}{% include "partials/countdown.njk" %}
 
 <div class="changed" id="what-changed">
+
+## What changed since Nov 12
+
+*Updated Nov 18, 2026.*
+
+- {% badge "reported" %} **Out in New Zealand first:** the midnight-local unlock started in New Zealand at 11:00 UTC on November 18, and rolls west through the night. [VICE](https://www.vice.com/en/article/gta-6-new-zealand-worldwide-release-times/), [our report](/news/2026-11-18-gta-6-out-in-new-zealand/)
+- {% badge "reported" %} **US unlock:** VICE reports one US unlock at 12 AM ET (9 PM PT). Rockstar still says only "midnight local time." [Our US unlock explainer](/news/2026-11-18-gta-6-us-unlock-time/)
+- {% badge "confirmed" %} **Reviews are out:** Metascore 99 on PS5 and a 99 Top Critic Average on OpenCritic, as of about 1 PM ET on November 18. [Metacritic](https://www.metacritic.com/game/grand-theft-auto-vi/critic-reviews/?platform=playstation-5), [OpenCritic](https://opencritic.com/game/15398/grand-theft-auto-vi)
+- {% badge "reported" %} **Two pre-launch updates**, 1.002.000 (Nov 13) and 01.002.001 (Nov 16). No Rockstar patch notes. [What to install](/news/2026-11-18-gta-6-day-one-updates/)
+- **Unchanged:** no PC version and no GTA Online announcement. Rockstar's Newswire has nothing new since its November 10 pre-load post.
+
+</div>
+
+<div class="changed" id="changed-oct-26">
 
 ## What changed since Oct 26
 
