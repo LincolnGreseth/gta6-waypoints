@@ -239,6 +239,13 @@ export default function (eleventyConfig) {
     return { regions: list, spanHours: Math.round((span / 36e5) * 10) / 10, same: first === last, first: list[0], last: list[list.length - 1], path };
   });
 
+  // Regions whose unlock has passed at build time ("Live now in:" on /release-date-times/; site.js refreshes it).
+  eleventyConfig.addFilter("liveNow", (unlock) => {
+    const now = Date.now();
+    const all = [...unlock.regions].sort((a, b) => Date.parse(a.at) - Date.parse(b.at));
+    return { live: all.filter((r) => Date.parse(r.at) <= now), total: all.length };
+  });
+
   eleventyConfig.addCollection("news", (api) =>
     api.getFilteredByGlob("src/content/news/*.md").filter((p) => !p.data.draft).sort((a, b) => b.date - a.date || String(a.data.title).localeCompare(String(b.data.title)))
   );
