@@ -10,7 +10,7 @@ status: confirmed
 claim: true
 article: true
 toc: true
-updated: 2026-11-12
+updated: 2026-11-18
 faqHeading: "Launch-week questions"
 faq:
   - q: "What time does GTA 6 unlock?"
@@ -74,6 +74,8 @@ related:
   - text: "Everything confirmed about GTA 6"
     url: "/everything-confirmed/"
 ---
+{% include "partials/unlock-live.njk" %}
+
 {% set cdSize = "compact" %}{% include "partials/countdown.njk" %}
 
 {% set shareUrl = "/release-date-times/" %}{% include "partials/launch-actions.njk" %}
@@ -96,7 +98,7 @@ Tap a region to make it yours. Your unlock follows your PlayStation or Xbox acco
 
 {% badge "confirmed" %} Streaming through Xbox Cloud Gaming starts at **1am ET on November 19** on Xbox One and Xbox Series X|S. You still have to buy the game, the cloud version uses Xbox Series S graphics settings, and from November 11 players in supported markets can buy cloud playtime without Game Pass. [Xbox Wire](https://news.xbox.com/en-us/2026/11/10/grand-theft-auto-6-comes-to-xbox-cloud-gaming-november-19/)
 
-<p class="spoiler"><strong>Spoiler warning.</strong> Because unlocks follow local midnight, players in New Zealand and Australia are playing many hours before Europe and the Americas. Mute keywords and stay off the subreddits on launch night if you want to go in fresh.</p>
+<p class="spoiler"><strong>Spoiler warning.</strong> Because unlocks follow local midnight, players in New Zealand and Australia are playing many hours before Europe and the Americas. Mute keywords and stay off the subreddits on launch night if you want to go in fresh. Other regions unlock earlier only because of time zones; changing your console region to play sooner can break the store terms.</p>
 
 ## Launch checklist
 

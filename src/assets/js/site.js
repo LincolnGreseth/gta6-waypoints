@@ -72,6 +72,18 @@
     $$("[data-launch-interest]").forEach(function (i) { i.value = on ? U.interestLive : U.interestPre; if (i.form) i.form.setAttribute("data-interest", i.value); });
   }
 
+  // "Live now in:" line on /release-date-times/: every region whose unlock has passed, earliest first.
+  function liveNow() {
+    $$("[data-live-now-text]").forEach(function (el) {
+      var now = Date.now(), all = R.slice().sort(function (a, b) { return Date.parse(a.at) - Date.parse(b.at); });
+      var on = all.filter(function (r) { return Date.parse(r.at) <= now; });
+      if (!all.length) return;
+      el.innerHTML = !on.length ? "Not live anywhere yet. " + all[0].name + " unlocks first."
+        : on.length === all.length ? "Live now in every store region."
+        : "<strong>Live now in:</strong> " + on.map(function (r) { return r.name + (r.status === "unverified" ? "*" : ""); }).join(", ") + " (" + on.length + " of " + all.length + " regions).";
+    });
+  }
+
   function sync() {
     $$("[data-region-select]").forEach(function (s) { s.value = cur ? cur.id : "local"; });
     $$("[data-cd-unlock]").forEach(function (s) {
@@ -92,5 +104,6 @@
   $$("[data-region-select]").forEach(function (s) { s.addEventListener("change", function () { window.WP.set(s.value); }); });
   sync();
   setInterval(function () { cds.forEach(tick); }, 1000);
-  setInterval(launch, 30000);
+  liveNow();
+  setInterval(function () { launch(); liveNow(); }, 30000);
 })();

@@ -17,10 +17,10 @@
     "status": "confirmed",
     "sourceUrl": "https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi",
     "liveHeading": "GTA 6 is out",
-    "liveText": "Guides go up as we verify them in-game.",
+    "liveText": "It's unlocked in your region. Start here: guides go up as we verify them in-game.",
     "liveLink": {
-      "text": "Open the map",
-      "url": "/map/"
+      "text": "Start here: GTA 6 guides",
+      "url": "/guides/"
     },
     "milestones": [
       {

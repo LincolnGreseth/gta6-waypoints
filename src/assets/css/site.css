@@ -317,6 +317,9 @@ html, body { overflow-x: clip; }
 
 /* Midnight wave list + region table (unlock times page) */
 .wave__lead { max-width: var(--measure); }
+.live-now { display: flex; gap: 10px; align-items: baseline; max-width: var(--measure); margin: 18px 0; padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--body); }
+.live-now__dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--live); transform: translateY(-1px); }
+.live-now strong { color: var(--text); }
 .wave { list-style: none; padding: 0; margin: 0 0 1.5rem; border-top: 1px solid var(--line); }
 .prose .wave, .prose .checklist { padding-left: 0; }
 .prose .wave li, .prose .checklist li { margin-bottom: 0; }

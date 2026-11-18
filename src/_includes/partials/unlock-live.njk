@@ -1,0 +1,10 @@
+{#- "Live now in:" line, computed from site.json → unlock. Build time for no-JS/crawlers; site.js refreshes it every 30 s. -#}
+{%- set ln = site.unlock | liveNow %}
+<p class="live-now" data-live-now data-total="{{ ln.total }}">
+  <span class="live-now__dot" aria-hidden="true"></span>
+  <span data-live-now-text>
+  {%- if ln.live.length == 0 %}Not live anywhere yet. {{ (site.unlock | unlockList).first.name }} unlocks first.
+  {%- elif ln.live.length == ln.total %}Live now in every store region.
+  {%- else %}<strong>Live now in:</strong> {% for r in ln.live %}{{ r.name }}{% if r.status == "unverified" %}*{% endif %}{% if not loop.last %}, {% endif %}{% endfor %} ({{ ln.live.length }} of {{ ln.total }} regions).
+  {%- endif %}</span>
+</p>

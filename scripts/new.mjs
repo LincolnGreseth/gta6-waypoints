@@ -1,7 +1,7 @@
 // Scaffold a guide or news post with the STYLE_GUIDE front matter.
 //   npm run new:guide -- "GTA 6: How to Lose a Wanted Level" [--hub money]
 //   npm run new:news  -- "Rockstar posts the day-one patch notes"
-// Guides start as draft: true (never built until you remove it). News gets today's date in the filename.
+// Both start as draft: true (never built until you remove it). News gets today's date in the filename.
 import { writeFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
@@ -40,7 +40,7 @@ lead: "TODO: the direct answer in two sentences. Use Grand Theft Auto VI once on
 short: ""
 steps: []
 sources:
-  - name: "In-game, verified by GTA 6 Waypoints (clip: raw/clips/TODO.mp4)"
+  - name: "In-game, verified by GTA 6 Waypoints (clip: raw/${today}/clip-###.mp4 @ mm:ss)"
 related: []
 ---
 {# Fill from content-ops/findings-log.md. Remove draft: true and set verified: when it's checked in-game. #}
@@ -56,6 +56,7 @@ title: ${q(title)}
 ${warn}description: "TODO: ≤155 characters, the answer in plain words."
 date: ${today}
 updated: ${today}
+draft: true
 permalink: /news/${today}-${slug}/
 status: unverified
 crumb: ${q(title.slice(0, 40))}
@@ -69,6 +70,7 @@ related:
   - text: "Everything confirmed about GTA 6"
     url: "/everything-confirmed/"
 ---
+{# Remove draft: true once every TODO is filled and the source is read. #}
 ## The details
 
 - {% badge "unverified" %} TODO ([Source](https://))
