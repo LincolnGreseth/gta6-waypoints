@@ -29,6 +29,16 @@ Everything found in-game goes into `content-ops/findings-log.md`, newest first:
 - Page: /collectibles/xxx/   Short: yes / no
 ```
 
+## Clip naming
+Every capture file maps back to a finding, so a Short or a guide screenshot can always be traced to the moment it was recorded.
+
+- **Raw clips:** `raw/YYYY-MM-DD/clip-###.mp4`, numbered from `001` per day in recording order (launch night: `raw/2026-11-19/clip-001.mp4`, `clip-002.mp4`, …). Rename straight off the capture card or console share folder; don't keep the device's default names.
+- **Screenshots:** `raw/YYYY-MM-DD/shot-###.png`, same numbering rules.
+- **Log it:** every finding in `content-ops/findings-log.md` names the clip and the timestamp inside it: `raw/2026-11-19/clip-014.mp4 @ 02:13`. One clip can back several findings (several timestamps).
+- **Exports:** OpusClip / CapCut exports keep the source in the filename: `raw/2026-11-19/exports/clip-014_02m13s_fast-money.mp4`. The Shorts script (`content-ops/shorts/…`) lists the same source under SOURCES, so every published Short points to a clip and a finding.
+- **Site images:** when a frame goes on the site it's renamed by the image rule in `STYLE_GUIDE.md` (`gta-6-[topic]-[detail].webp`), and the guide's `sources:` keeps the clip reference.
+- `raw/` is gitignored. Never commit clips or screenshots, and back them up off the console.
+
 ## 3. Turn findings into content
 | Input | Site output | Shorts | Email |
 |---|---|---|---|
