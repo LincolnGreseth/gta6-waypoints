@@ -6,7 +6,9 @@ const rows = s.unlock.regions.map((r) => ({ ...r, t: Date.parse(r.at) })).sort((
 const f = (t, tz) => new Intl.DateTimeFormat("en-US", { timeZone: tz, weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }).format(t);
 const utc = (t) => new Date(t).toISOString().slice(0, 16).replace("T", " ") + " UTC";
 const first = rows[0], last = rows[rows.length - 1];
-const table = rows.map((r, i) => `| ${i + 1} | \`REGION = ${r.id}\` | ${r.name}${r.status === "unverified" ? " *" : ""} | ${utc(r.t)} | ${f(r.t, "America/New_York")} ET |`).join("\n");
+const now = Date.now();
+const when = (t) => (t <= now ? "already past" : "upcoming");
+const table = rows.map((r, i) => `| ${i + 1} | \`REGION = ${r.id}\` | ${r.name}${r.status === "unverified" ? " *" : ""} | ${utc(r.t)} | ${f(r.t, "America/New_York")} ET | ${when(r.t)} |`).join("\n");
 const unv = rows.filter((r) => r.status === "unverified").map((r) => r.name);
 const notice = s.unlock.status === "confirmed"
   ? `> The send times below come from \`src/_data/site.json → unlock\` (status: confirmed). Rockstar says the game releases at midnight local time on November 19 in all regions: ${s.unlock.sourceUrl}\n>\n> Rows marked * (${unv.join(", ") || "none"}) are countries with several time zones; how they unlock isn't confirmed. ${s.unlock.splitNote || ""} For those rows, word the email as "unlocks at midnight in your store region" rather than promising an exact time. Never send an "it's unlocked" email for a time that hasn't been confirmed.`
@@ -17,6 +19,10 @@ const doc = `# Brevo: region unlock alerts
 How to send one email to each store region at its unlock time on November 18–19, 2026. Every signup on the site already sends \`REGION\` (a region id like \`us-west\`, or \`local\` for "my time zone") and \`INTEREST\` (\`unlock-alert\`, or \`pro\` from the waitlist).
 
 ${notice}
+
+_Generated ${utc(now)}. The last column says whether each send time had passed when this file was generated._
+
+**Check first:** the site only sends signups to Brevo when \`BREVO_FORM_ACTION\` is set in Netlify (section 2). Until then they land in Netlify Forms, and segments in Brevo stay empty unless you import that CSV.
 
 ## 1. Create the contact attributes (once)
 1. Brevo → **Contacts → Settings → Contact attributes → Add a new attribute**.
@@ -39,38 +45,43 @@ Also create \`Unlock: my time zone\` with \`REGION = local\`. Those people didn'
 ## 4. Schedule 16 campaigns
 Brevo → **Campaigns → Create an email campaign**, one per segment, scheduled at the times below. Brevo schedules in your account's time zone, so the ET column is there for you. Check the account time zone under **Account → Settings** first.
 
-| # | Segment | Store region | Send at (UTC) | Send at (ET) |
-|---|---|---|---|---|
+| # | Segment | Store region | Send at (UTC) | Send at (ET) | At generation |
+|---|---|---|---|---|---|
 ${table}
-| – | \`REGION = local\` | My time zone | ${utc(first.t)} | ${f(first.t, "America/New_York")} ET |
+| – | \`REGION = local\` | My time zone | ${utc(first.t)} | ${f(first.t, "America/New_York")} ET | ${when(first.t)} |
+
+**US rows:** VICE reports one US unlock at 12 AM ET (05:00 UTC), and the US Xbox Store data says the same, but Rockstar hasn't confirmed it. If you want US Central, Mountain and West to hear in time, send all four US segments at 05:00 UTC with the * wording ("may already be live; check your time"), not at their own local midnight.
+
+A send that's already past and never went out: send it now with the "it's live in your region" wording below rather than skipping it.
 
 Check your plan's daily sending limit before launch week. Brevo's free plan has had a low daily cap (300 emails a day when this was written), and launch day could need more.
 
 ## 5. Email template
-Subject: \`GTA 6 should be unlocking in your region now\` (switch to "is unlocking" only once times are confirmed)
+Subject: \`GTA 6 is unlocking in your region now\` (rows marked *: \`GTA 6 unlocks in your store region tonight\`)
 
-Preheader: \`Your store region's unlock time is here. Here's where to start.\`
+Preheader: \`Install the latest update first, then start here.\`
 
 \`\`\`
-GTA 6 should be unlocking now for the [REGION NAME] store.
+Grand Theft Auto VI is unlocking now for the [REGION NAME] store.
 
-We expected Grand Theft Auto VI to unlock at local midnight in your store region.
-Rockstar hadn't posted official unlock times when we scheduled this, so if it isn't
-live yet, give it a few minutes and check our unlock times page:
+Rockstar says it releases at midnight local time on November 19 in all regions.
+If it isn't live yet, give it a few minutes and check your time here:
 https://gta6waypoints.com/release-date-times/
 
-Launch date source (Rockstar press release):
-https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi
+Before you play: let the console install the latest update.
 
 Where to start:
-- The map (pins go up as we verify them): https://gta6waypoints.com/map/
-- Collectibles: https://gta6waypoints.com/collectibles/
-- 100% checklist: https://gta6waypoints.com/100-percent/
+- Unlock times and what's live now: https://gta6waypoints.com/release-date-times/
+- Guides (each goes up once we've verified it in-game): https://gta6waypoints.com/guides/
 
-The day-one guide drop follows later today.
+Source (Rockstar Support):
+${s.unlock.sourceUrl}
 
 GTA 6 Waypoints is an independent fan site, not affiliated with Rockstar Games or Take-Two Interactive.
+You're getting this because you asked for an unlock alert. Unsubscribe: {{ unsubscribe }}
 \`\`\`
+
+For rows marked *, change the first line to "Grand Theft Auto VI unlocks for the [REGION NAME] store tonight, and it may already be live." Don't promise a minute until the split is confirmed.
 
 Each campaign goes to one region, so type the region name in place of \`[REGION NAME]\`.
 

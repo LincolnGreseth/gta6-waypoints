@@ -9,7 +9,7 @@ lead: "Rockstar hasn't announced a PC version of Grand Theft Auto VI. It launche
 status: confirmed
 claim: true
 article: true
-updated: 2026-11-12
+updated: 2026-11-18
 sources:
   - name: "Rockstar Support: Grand Theft Auto VI platforms, editions and versions"
     url: "https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions"
@@ -43,6 +43,8 @@ related:
 | Has a PC version been announced? | No | {% badge "confirmed" %} |
 | Is there a PC release date? | No official date | {% badge "confirmed" %} |
 | Can you stream it to PC through Xbox? | No. Xbox Cloud Gaming is listed for Xbox Series X\|S and Xbox One consoles | {% badge "confirmed" %} |
+
+*Rechecked November 18, 2026, launch eve: still no PC announcement from Rockstar or Take-Two, and nothing new on the Rockstar Newswire since November 10.*
 
 ## What's official
 

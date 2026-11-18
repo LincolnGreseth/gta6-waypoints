@@ -2,6 +2,21 @@
 
 Researched **Oct 23, 2026** for `/everything-confirmed/`; rechecked **Nov 12, 2026** (see below). This is source material for Claude Code to draft the page from, not the page itself.
 
+## Recheck, Nov 18, 2026 (Claude Code)
+Pages read Nov 18, 2026, about 12:50–1:15 PM ET.
+
+- **Unlock rule unchanged (Confirmed).** Rockstar Support still says "midnight local time on November 19, 2026, in all regions"; page last updated Nov 3. No per-country or US nationwide time. https://support.rockstargames.com/articles/29jV3Cv2cCgvwM1XgtMO5o/grand-theft-auto-vi-regional-pre-load-and-release-times-on-playstation-5-and-xbox-series-x-or-s
+- **US unlock (Reported, not upgraded).** VICE (Nov 18) lists 12 AM ET / 9 PM PT for the whole US: https://www.vice.com/en/article/gta-6-new-zealand-worldwide-release-times/. US Xbox Store page data still `releaseDate 2026-11-19T05:00:00Z` (metadata, not an announcement). US rows in `site.json` stay `unverified`.
+- **Out in New Zealand (Reported).** VICE and Anadolu Agency, Nov 18. No Rockstar "now live" post found. https://www.aa.com.tr/en/science-technology/gta-vi-global-rollout-begins-with-new-zealand-launch/4129238
+- **Reviews (Confirmed, as read).** Metacritic PS5: Metascore 99, 153 critic reviews (~12:53 PM ET) https://www.metacritic.com/game/grand-theft-auto-vi/critic-reviews/?platform=playstation-5. OpenCritic: Top Critic Average 99, 99% recommend, 88 reviews (~12:55 PM ET) https://opencritic.com/game/15398/grand-theft-auto-vi. Outlets: IGN 10, GameSpot 10, Eurogamer 5/5, GamesRadar+ 5/5 (per OpenCritic), Push Square 10, Polygon unscored.
+- **Update 1.002.000 (Reported).** From Nov 13; ~1.07 GB PS5 (mandatory), ~2.18 GB Xbox. KeenGamer https://www.keengamer.com/articles/news/gta-6-update-1-002-starts-rolling-out-on-ps5-and-xbox-ahead-of-launch/, VICE https://www.vice.com/en/article/gta-6-day-one-patch-ps5-version-1002/
+- **Update 01.002.001 (Reported).** From Nov 16; ~602 MB PS5, ~1.6 GB Xbox (dataminers). Esquire India https://www.esquireindia.co.in/tech-and-auto/gaming/how-to-download-gta-6-second-day-one-patch-01002001-and-when-it-will-hit-your-ps5-or-xbox-console, TechJuice https://www.techjuice.pk/rockstar-games-drops-a-second-gta-6-pre-launch-update/
+- **No patch notes** on Rockstar Support or Newswire for either update.
+- **Missing codes in boxes:** Gameranx (Nov 16) reports buyer complaints; no Rockstar Support or retailer statement found. Not published.
+- **GTA Online:** no Rockstar statement. PlayStation and Xbox store copy still says single-player. No change.
+- **Newswire:** nothing after Nov 10 ("Pre-Load Grand Theft Auto VI Now"). PlayStation Blog Nov 18 "launches tomorrow" post adds no time (and names map regions, so not used). Xbox Wire: nothing after Nov 10.
+- **PC:** no announcement. No change.
+
 ## Recheck, Nov 12, 2026 (Claude Code)
 Every primary source below was opened in a browser on **Nov 12, 2026** and the quoted wording read on the page.
 
